@@ -1,7 +1,7 @@
 Dengqinghua's Blog
 ================
 
-Hello, 这里是是邓擎铧的技术blog源码.
+Hello, 这里是是邓擎铧的[技术blog](http://blog.dengqinghua.pub/)源码.
 
 该源码基于[Rails Guides](https://github.com/rails/rails/tree/master/guides), 主要记录了自己所学到的笔记, 总结和经验, 包括下面这些内容:
 
