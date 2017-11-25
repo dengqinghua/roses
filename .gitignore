@@ -1,3 +1,5 @@
 .rvmrc
 tags
 output/
+.bundle/
+vendor/
