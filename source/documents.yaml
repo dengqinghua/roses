@@ -50,7 +50,7 @@
   name: Go
   documents:
     -
-      name: GoInstallBinaries i/o timout问题
+      name: GoInstallBinaries i/o timeout问题
       url: go_get_timeout_solution.html
       description: 解决golang.org无法访问问题.
 -
