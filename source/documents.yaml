@@ -71,5 +71,5 @@
   documents:
     -
       name: RailsGuides模板
-      url: exmaple.html
+      url: example.html
       description: Rails Guides风格的markdown模板.
