@@ -1,0 +1,75 @@
+-
+  name: Ruby
+  documents:
+    -
+      name: Ruby知识树
+      url: ruby_knowledge_tree.html
+      description: 开发Ruby和Rails需要了解的20%内容.
+      work_in_progress: true
+    -
+      name: Ruby数据模型
+      url: ruby_model.html
+      description: Ruby的数据模型, 包括方法查找, 变(常)量查找, 作用域.
+      work_in_progress: true
+    -
+      name: pry使用
+      url: using_pry.html
+      description: 工具很重要. pry可以使得开发效率事半功倍.
+      work_in_progress: true
+    -
+      name: Callbacks源码分析
+      url: callback_source_code_inspection.html
+      description: callback裁的坑, 不得不让我们重读callback源码
+      work_in_progress: true
+    -
+      name: ActiveModel源码分析
+      url: active_model_code_inspection.html
+      description: 利用active_model, 将接口调用, 方法封装进行统一.
+      work_in_progress: true
+    -
+      name: Arel源码分析
+      url: arel.html
+      description: 基于AST和observe模式的arel源码分析.
+      work_in_progress: true
+    -
+      name: Sidekiq的schedule剖析
+      url: sidekiq_schedling.html
+      description: sidekiq的定时任务执行, 坑很多.
+      work_in_progress: true
+    -
+      name: Sidekiq的middleware
+      url: sidekiq_middleware
+      description: sidekiq中间件可以实现类似uniq-job的功能.
+      work_in_progress: true
+    -
+      name: Sidekiq的AsyncTask
+      url: sidekiq_async_task.html
+      description: 基于sidekiq的异步回调任务.
+      work_in_progress: true
+-
+  name: Go
+  documents:
+    -
+      name: GoInstallBinaries i/o timout问题
+      url: go_get_timeout_solution.html
+      description: 解决golang.org无法访问问题.
+-
+  name: Java
+  documents:
+    -
+      name: Java数据模型
+      url: java_object_model.html
+      description: java和ruby的数据模型比对.
+      work_in_progress: true
+    -
+      name: Spring Boot源码分析
+      url: spring_boot_code_inspection.html
+      description: spring boot源码分析.
+      work_in_progress: true
+-
+  name: 杂记
+  documents:
+    -
+      name: RailsGuides模板
+      url: exmaple.html
+      description: Rails Guides风格的markdown模板.

@@ -1,0 +1,27 @@
+<% content_for :page_title do %>
+邓擎铧的技术博客: dengqinghua's Blogs. For Ruby Roses.
+<% end %>
+
+<% content_for :header_section do %>
+<%= render 'welcome' %>
+<% end %>
+
+<% content_for :index_section do %>
+<div id="subCol">
+  <dl>
+    <dt></dt>
+    <dd class="work-in-progress">维护文档不易, 请在转载的时候指明出处. 如果您看到有错误或者有更优的方案等, 请在<a href="https://www.github.com/dengqinghua">github</a>中讨论.</dd>
+  </dl>
+</div>
+<% end %>
+
+<% documents_by_section.each do |section| %>
+  <h3><%= section['name'] %></h3>
+  <dl>
+    <% section['documents'].each do |document| %>
+      <%= guide(document['name'], document['url'], work_in_progress: document['work_in_progress']) do %>
+        <p><%= document['description'] %></p>
+      <% end %>
+    <% end %>
+  </dl>
+<% end %>
