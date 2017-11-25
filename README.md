@@ -21,7 +21,7 @@ bundle install
 ```
 
 ### 编写markdown风格的文档
-请参考[markdown格式实例](http://blog.dengqinghua.pub/exmaple.html)
+请参考[markdown格式实例](http://blog.dengqinghua.pub/example.html)
 将写好的文件放在 `source` 目录下
 
 并在`source/documents.yaml`文件下编写目录.
