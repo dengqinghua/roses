@@ -5,7 +5,6 @@
       name: Ruby知识树
       url: ruby_knowledge_tree.html
       description: 开发Ruby和Rails需要了解的20%内容.
-      work_in_progress: true
     -
       name: Ruby数据模型
       url: ruby_model.html
@@ -73,3 +72,7 @@
       name: RailsGuides模板
       url: example.html
       description: Rails Guides风格的markdown模板.
+    -
+      name: 注释规范
+      url: comments.html
+      description: 我们在项目中使用的注释规范.
