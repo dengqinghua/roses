@@ -9,7 +9,10 @@
       name: Ruby数据模型
       url: ruby_model.html
       description: Ruby的数据模型, 包括方法查找, 变(常)量查找, 作用域.
-      work_in_progress: true
+    -
+      name: Arel源码分析
+      url: arel.html
+      description: 基于AST和observe模式的arel源码分析, 本人第一遍英文版本的技术文档.
     -
       name: pry使用
       url: using_pry.html
@@ -24,11 +27,6 @@
       name: ActiveModel源码分析
       url: active_model_code_inspection.html
       description: 利用active_model, 将接口调用, 方法封装进行统一.
-      work_in_progress: true
-    -
-      name: Arel源码分析
-      url: arel.html
-      description: 基于AST和observe模式的arel源码分析.
       work_in_progress: true
     -
       name: Sidekiq的schedule剖析
