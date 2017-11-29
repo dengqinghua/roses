@@ -43,6 +43,19 @@
       url: sidekiq_async_task.html
       description: 基于sidekiq的异步回调任务.
       work_in_progress: true
+    -
+      name: 任务流引擎witness
+      url: witness.html
+      description: 基于witness的任务流引擎, 可实现任务的图形化界面配置.
+      work_in_progress: true
+-
+  name: MySQL
+  documents:
+    -
+      name: MySQL知识树
+      url: mysql_junior_knowledge_tree.html
+      description: MySQL初级知识树, 包括表结构设计, 索引建立, MySQL事务和锁.
+      work_in_progress: true
 -
   name: Go
   documents:
