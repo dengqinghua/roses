@@ -115,10 +115,23 @@ WARNING: 这个是需要提醒的点
 
 ```
 # 吉他和弦图案
-# × <C-K>*X
-# ₁ <C-K>1S
-# ₋ <C-K>-s
-# ₊ <C-K>+s
+# 特殊符号: <C-K>开始
+# ×  *X
+# ₁  1s
+# ₋  -s
+# ₊  +s
+# Ⅰ  1R 2160 8544 ROMAN NUMERAL ONE
+# Ⅱ  2R 2161 8545 ROMAN NUMERAL TWO
+# Ⅲ  3R 2162 8546 ROMAN NUMERAL THREE
+# Ⅳ  4R 2163 8547 ROMAN NUMERAL FOUR
+# Ⅴ  5R 2164 8548 ROMAN NUMERAL FIVE
+# Ⅵ  6R 2165 8549 ROMAN NUMERAL SIX
+# Ⅶ  7R 2166 8550 ROMAN NUMERAL SEVEN
+# Ⅷ  8R 2167 8551 ROMAN NUMERAL EIGHT
+# Ⅸ  9R 2168 8552 ROMAN NUMERAL NINE
+# Ⅹ  aR 2169 8553 ROMAN NUMERAL TEN
+# Ⅺ  bR 216A 8554 ROMAN NUMERAL ELEVEN
+# Ⅻ  cR 216B 8555 ROMAN NUMERAL TWELVE
 
 # 可以通过 :help digraph-table 查看所有的特殊字符
 
@@ -130,6 +143,6 @@ C和弦
 -----------
 | | ₂ | | |
 -----------
-| ₃ | | | |  III
+| ₃ | | | |  Ⅲ
 -----------
 ```
