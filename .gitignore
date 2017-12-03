@@ -3,3 +3,4 @@ tags
 output/
 .bundle/
 vendor/
+.DS_Store
