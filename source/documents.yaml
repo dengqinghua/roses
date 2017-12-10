@@ -77,6 +77,13 @@
       description: spring boot源码分析.
       work_in_progress: true
 -
+  name: 音乐
+  documents:
+    -
+      name: 爱乐之城-City Of Star曲谱分析
+      url: lalaland-city_of_stars.html
+      description: 很喜欢 `爱乐之城` 这部电影, City of Stars为其中的原声音乐之一, 刚好在公众号看到了该曲子的吉他版本和Ukulele版本, 便参考和分析了一下歌曲的和弦走向, 和弦编配等.
+-
   name: 杂记
   documents:
     -
