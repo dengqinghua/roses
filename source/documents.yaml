@@ -12,7 +12,7 @@
     -
       name: Arel源码分析
       url: arel.html
-      description: 基于AST和observe模式的arel源码分析, 本人第一遍英文版本的技术文档.
+      description: 基于AST和Vistor模式的arel源码分析, 本人第一遍英文版本的技术文档.
     -
       name: pry使用
       url: using_pry.html
