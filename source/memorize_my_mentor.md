@@ -1,4 +1,4 @@
-Memorize my mentor
+Memorize My Mentor
 ==================
 
 > 人的一生会遇到很多贵人, 正是那关键的几个人, 让你的世界发生了关键的变化.
