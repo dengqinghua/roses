@@ -375,7 +375,7 @@ mvn exec:java -Dexec.mainClass="com.dengqinghua.example.App" -Ddsg=v587
 ```
 
 ### 多个条件组合执行
-Maven支持多个命令组合执行, 比如希望先清除原有打包的class文件(clean), 再进行install, 最后运行一个 exec 服务, 可以这样执行
+Maven支持多个命令组合执行, 比如希望先清除已编译的class文件(clean), 再进行install, 最后运行一个 exec 服务, 可以这样执行
 
 ```
 mvn clean install exec:java -Dexec.mainClass="com.dengqinghua.example.App" -Ddsg=v587
@@ -397,7 +397,7 @@ plugins=(git brew osx git-flow vue mvn)
 
 References
 ----------
-[Maven FAQ](http://maven.apache.org/general.html)
-[Maven In 5 Minutes](http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)
-[Maven Get Started](http://maven.apache.org/guides/getting-started/index.html)
-[Maven Tutorial](https://www.tutorialspoint.com/maven/)
+- [Maven FAQ](http://maven.apache.org/general.html)
+- [Maven In 5 Minutes](http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)
+- [Maven Get Started](http://maven.apache.org/guides/getting-started/index.html)
+- [Maven Tutorial](https://www.tutorialspoint.com/maven/)
