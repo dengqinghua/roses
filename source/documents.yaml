@@ -13,6 +13,14 @@
       name: Arel源码分析
       url: arel.html
       description: 基于AST和Vistor模式的arel源码分析, 本人第一遍英文版本的技术文档.
+
+-
+  name: Java
+  documents:
+    -
+      name: 命令行下的Maven
+      url: maven_under_command_line.html
+      description: 命令行下的maven, 可以大大提高开发效率, 减少对IDE的依赖.
 -
   name: MySQL
   documents:
