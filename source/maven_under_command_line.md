@@ -234,6 +234,15 @@ Project Object Model 是maven的核心配置文件, 我的常用的POM插件和�
     plugins | mvn所开发的插件, 在test, package, install等场景使用. 如 maven-surefire-plugin, 支持完整的 junit 测试框架, 并在其基础上可以实现并发跑测试 |
    properties    |  属性配置, 可以在配置中通过 ${} 进行调用 |
 
+#### POM文件
+1. 项目级别的pom, 位于项目下的pom.xml
+2. 用户级别的pom, 位于 `~/.m2/settings.xml`
+3. 全局配置的pom, 位于 `M2_HOME/conf/settings.xml`
+
+其中优先级为: 项目级别 > 用户级别 > 全局配置
+
+NOTE: M2_HOME 可以通过`mvn --version`查看; 另外, 可以通过`mvn help:effective-pom`查看当前的完整的配置的 pom
+
 Maven LifeCycle
 ---------------
 官方文档: [Introduction to the Build Lifecycle](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html)
@@ -242,6 +251,7 @@ INFO: 建议完整地看完上述文档, 下面的内容没有什么新的东西
 
 ### Build Lifecycle
 mvn 支持的三个lifecycle 包括:
+
 - defalut
 - clean
 - site
@@ -394,6 +404,7 @@ plugins=(git brew osx git-flow vue mvn)
 - mvn -U clean install # FORCE update-snapshots
 - mvn -o clean install # 不检查 dependencies 是否更新
 - mvn -Dplugin=install help:describe # 查看plugin的版本
+- mvn help:effective-pom # 查看当前生效的pom配置信息
 
 References
 ----------

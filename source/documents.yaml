@@ -54,6 +54,10 @@
       url: comments.html
       description: 我们在项目中使用的注释规范.
     -
+      name: 零bug落地方案
+      url: best_programming.html
+      description: 可执行的软件开发实践的零bug落地方案.
+    -
       name: Memorize my mentor
       url: memorize_my_mentor.html
       description: 纪念一位Mentor.
