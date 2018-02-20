@@ -10,7 +10,7 @@ Maven In Java
 
 ------------------------------------------------------------------------
 
-NOTE: 请到[my_examples/java](https://github.com/dengqinghua/my_examples)下查看完整示例代码
+NOTE: 请到[这里](https://github.com/dengqinghua/my_examples/tree/master/java)查看完整示例代码
 
 maven命令行执行main方法和test
 -----------------------------
