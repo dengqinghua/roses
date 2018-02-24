@@ -3,3 +3,5 @@ puts "rm -rf output/**"
 `rm -rf output/**`
 puts "rake guides:generate"
 `bundle exec rake guides:generate`
+
+puts "output"
