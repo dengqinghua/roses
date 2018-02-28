@@ -81,7 +81,7 @@ git和git-flow
 ------------
 ### git
 #### 常用命令
-```
+```shell
 git --help
 
 usage: git [--version] [--help] [-C <path>] [-c name=value]

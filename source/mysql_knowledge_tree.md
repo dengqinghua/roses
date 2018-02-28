@@ -81,7 +81,7 @@ MySQL索引, 锁
 2. 使用 [EXPLAIN](http://dev.mysql.com/doc/refman/5.7/en/explain.html#idm140230885036768)
 通过explain可以看到[执行计划](http://www.cnitblog.com/aliyiyi08/archive/2008/09/09/48878.html)
 
-```
+```sql
 EXPLAIN for: SELECT `deals`.* FROM `deals`  WHERE ( deals.bg_tag_id > 0 ) AND `deals`.`id` = 1
 +----+-------------+-------+-------+-----------------------------------------------+---------+---------+-------+------+-------+
 | id | select_type | table | type  | possible_keys                                 | key     | key_len | ref   | rows | Extra |

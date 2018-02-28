@@ -151,7 +151,7 @@ arel = user.
 
 We can get the sql
 
-```SQL
+```sql
   SELECT  id, user_name FROM `users`
     WHERE `user`.`nick_name` = 'dsg'
     ORDER BY created_at DESC

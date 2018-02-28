@@ -18,7 +18,7 @@ INFO: 推荐两本书: [Ruby metaprogramming](https://book.douban.com/subject/26
 
 Ruby基本结构
 -----------
-```
+```ruby
 String
 Array
 Hash
@@ -30,13 +30,13 @@ Object
 ### Symbol
 如`:dsg`, symbol用于很多地方, 其很重要一点为: symbol在内存中仅存储一份.
 
-```
+```ruby
 :dsg.object_id === :dsg.object_id #=> 返回true
 ```
 
 而字符串不是.
 
-```
+```ruby
 "dsg".object_id == "dsg".object_id #=> 返回false
 ```
 
@@ -48,7 +48,7 @@ ruby的变量非常简单
 
 如果上下文没有给一个陌生的'变量'赋值, 那么该'变量'不是'变量', 而是方法
 
-```
+```ruby
 class User
   attr_accessor :name
 
@@ -62,7 +62,7 @@ end
 #### 实例变量(instance variable)
 存储在对象中的变量, 如下面的 @score
 
-```
+```ruby
 class User
   def initialize
     @score = 0
@@ -73,7 +73,7 @@ end
 #### 类实例变量(class instance variable)
 ruby中一切都是对象, 类也是对象, 存储在类中的实例变量为类实例变量
 
-```
+```ruby
 class People
   @alive = true
 end
@@ -85,7 +85,7 @@ NOTE: 类实例变量存储在该类中, 是不被子类共享的.
 
 如
 
-```
+```ruby
 class Man < People
 end
 
@@ -95,7 +95,7 @@ Man.instance_variable_get(:@alive) #=> 输出是nil, 而不是@alive
 #### 类变量(class variable)
 类变量存在整个继承链中, 被所有继承的子类共享
 
-```
+```ruby
 class People
   @@alive = true
 end
@@ -115,7 +115,7 @@ INFO: Rails中关于类变量的应用: [mattr_accessor](https://github.com/rail
 #### 全局变量(global variable)
 全局共享
 
-```
+```ruby
 $DSG = "dsgv587"
 ```
 
@@ -134,7 +134,7 @@ $DSG = "dsgv587"
 
 如
 
-```
+```ruby
 class User
   def get_name
   end
@@ -153,7 +153,7 @@ end
 
 如下面的例子所示:
 
-```
+```ruby
 class People
   def name
     puts "People name"
@@ -177,7 +177,7 @@ end
 ```
 
 
-```
+```ruby
 User.new.name
 #=>
 User name
@@ -189,7 +189,7 @@ INFO: 该部分Ruby metaprogramming讲解地非常好. 请查看该书的第二�
 方法查找方式
 
 1. 获取所有的祖先链
-```
+```ruby
 User.ancestors #=> [User, MixinUser, People, Object, Kernel, BasicObject]
 ```
 
@@ -206,7 +206,6 @@ NOTE: 方法存在类里面
 
 最终如果找不到方法, 则去Object, Kernel, BasicObject找, 如果还找不到, 则进入method_missing方法
 
-
 ### 作用域和作用域门
 INFO: 参见Ruby metaprogramming的第四章: Blocks-Blocks Are closures-Scope
 
@@ -220,7 +219,7 @@ INFO: 参见Ruby metaprogramming的第四章: Blocks-Blocks Are closures-Scope
 
 在metaprogramming中的例子如下:
 
-```
+```ruby
 v1 = 1
 
 class MyClass

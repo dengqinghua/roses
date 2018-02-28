@@ -33,7 +33,7 @@ NOTE: 写代码的区域很小, 建议关闭所有的窗口, 只留下写代码�
 ### mvn exec
 在上述的例子, 可以通过执行
 
-```
+```shell
 mvn compile # 进行编译
 mvn exec:java -Dexec.mainClass=com.dengqinghua.example.App # Run main方法
 ```
@@ -45,7 +45,8 @@ NOTE: 上述两个命令可以合并成一个 `mvn compile exec:java -Dexec.main
 ![commandLine](images/incmdRun.png)
 
 INFO: 如果想指定不同的参数, 可以通过 -D 添加:
-```
+
+```shell
 mvn compile exec:java -Dexec.mainClass=com.dengqinghua.example.App -Ddsg=v587
 ```
 
@@ -54,7 +55,8 @@ mvn compile exec:java -Dexec.mainClass=com.dengqinghua.example.App -Ddsg=v587
 NOTE: 输入 mvn --help 可以看到: `-D,--define <arg>  Define a system property`
 
 INFO: 在pom.xml文件中, 我们添加这个plugin, 可以实现增量编译和指定java编译的版本
-```
+
+```xml
 <plugin>
   <groupId>org.apache.maven.plugins</groupId>
   <artifactId>maven-compiler-plugin</artifactId>
@@ -101,7 +103,7 @@ mvn test -Dtest="SalaryTest#calculateYearSalary"
 #### 添加参数
 我们有时候需要建立一个client去调用远程的server, 配置的是 IP + 端口号, 而远程的server的地址是可变的, 我们可以写一个client去调用服务, 将服务的IP和端口号通过参数的形式传入.
 
-```
+```shell
 mvn test -Dtest="SalaryTest#calculateYearSalary" -Dhosts=localhost:8000
 ```
 
@@ -123,13 +125,14 @@ public class ClientTest {
      *
      */
     @Test public void getCornerData() throws Exception {
-        String productId = System.getProperty("productId"),    // 商品id, 以逗号分隔
-                channel    = System.getProperty("channel"),    // 页面来源
-                clientType = System.getProperty("clientType"), // 客户端来源
-                userType   = System.getProperty("userType"),   // 用户身份
-                userRole   = System.getProperty("userRole");   // 用户角色
+        String productId = System.getProperty("productId"),    // 商品id
+                channel    = System.getProperty("channel"),    // 来源
+                clientType = System.getProperty("clientType"), // 客户端
+                userType   = System.getProperty("userType"),   // 身份
+                userRole   = System.getProperty("userRole");   // 角色
 
-        String hosts = Optional.ofNullable(System.getProperty("hosts")).
+        String hosts = Optional.
+          ofNullable(System.getProperty("hosts")).
           orElse("localhost:12701");
 
         // ...
@@ -214,7 +217,7 @@ mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -Dintera
 
 构建的文件目录为:
 
-```shell
+```
 ▾ src/
   ▾ main/java/com/dengqinghua/example/
       App.java
@@ -358,7 +361,7 @@ mvn test 中 test 就是一个 Phase
 
 下面的命令:
 
-```
+```shell
 mvn dependency:copy-dependencies
 ```
 
@@ -366,13 +369,13 @@ mvn dependency:copy-dependencies
 
 Phase是由一系列的 plugin 和 goal 组成的, 如
 
-```
+```shell
 mvn test
 ```
 
 测试环节使用到的plugin和goal为
 
-```
+```shell
 mvn surefire:test
 ```
 
@@ -380,21 +383,22 @@ INFO: 如果单独运行 mvn surefire:test, 则不会经过 compile 的过程
 
 plugin 和 goal 又可以独立存在. 如上述的例子, exec:java 不属于任何Phase
 
-```
+```shell
 mvn exec:java -Dexec.mainClass="com.dengqinghua.example.App" -Ddsg=v587
 ```
 
 ### 多个条件组合执行
 Maven支持多个命令组合执行, 比如希望先清除已编译的class文件(clean), 再进行install, 最后运行一个 exec 服务, 可以这样执行
 
-```
+```shell
 mvn clean install exec:java -Dexec.mainClass="com.dengqinghua.example.App" -Ddsg=v587
 ```
 
 其他命令行
 ---------
 INFO: 如果您使用zsh, 建议在 ~/.zshrc 的 plugins 中添加 mvn
-```
+
+```shell
 plugins=(git brew osx git-flow vue mvn)
 ```
 之后在console中可以进行补全

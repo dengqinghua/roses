@@ -613,8 +613,8 @@ h6 {
 #subCol li ul, li ol { margin:0 1.5em; }
 
 div.code_container {
-  background: #EEE no-repeat left top;
-  padding: 0.25em 1em 0.5em 25px;
+  background: #white no-repeat left top;
+  padding: 0.25em 1em 0.5em 0;
 }
 
 .note {

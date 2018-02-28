@@ -6,7 +6,7 @@ module RailsGuides
       def block_code(code, language)
         <<-HTML
 <div class="code_container">
-<pre class="brush: #{brush_for(language)}; gutter: false; toolbar: false">
+<pre class="brush: #{brush_for(language)}; gutter: true; toolbar: true">
 #{ERB::Util.h(code)}
 </pre>
 </div>
@@ -56,7 +56,7 @@ HTML
 
         def brush_for(code_type)
           case code_type
-          when "ruby", "sql", "plain"
+          when "ruby", "sql", "plain", "java", "shell", "c", "cpp", "bash", "csharp", "css", "js", "py", "sql", "scala", "xml"
             code_type
           when "erb", "html+erb"
             "ruby; html-script: true"

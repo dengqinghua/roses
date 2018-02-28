@@ -21,7 +21,7 @@ vim中使用的go的plugin为: [fatih/vim-go](https://github.com/fatih/vim-go)
 
 发现会要求安装一些包, 提示
 
-```
+```shell
 vim-go: could not find 'gotests'. Run :GoInstallBinaries to fix it
 ```
 
@@ -29,7 +29,7 @@ vim-go: could not find 'gotests'. Run :GoInstallBinaries to fix it
 
 则会看到报错信息
 
-```
+```shell
 Error: Command failed: go get -u -v github.com/cweill/gotests/...
 github.com/cweill/gotests (download)
 Fetching https://golang.org/x/tools/imports?go-get=1
@@ -61,7 +61,7 @@ golang.org/x/tools (download)
 
 在bash中执行
 
-```bash
+```shell
 export http_proxy=127.0.0.1:63709
 export https_proxy=127.0.0.1:63709
 ```
@@ -69,13 +69,13 @@ export https_proxy=127.0.0.1:63709
 ### 验证
 配置完毕后, 在bash中执行
 
-```
+```shell
 go get -v github.com/zmb3/gogetdoc
 ```
 
 可看到输出结果
 
-```
+```shell
 Fetching https://golang.org/x/tools/go/buildutil?go-get=1
 Parsing meta tags from https://golang.org/x/tools/go/buildutil?go-get=1 (status code 200)
 get "golang.org/x/tools/go/buildutil": found meta tag main.metaImport{Prefix:"golang.org/x/tools", VCS:"git", RepoRoot:"https://go.googlesource.com/tools"} at https://golang.org/x/tools/go/buildutil?go-get=1

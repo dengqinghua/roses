@@ -198,7 +198,6 @@ module RailsGuides
             guess = anchors.min { |a, b|
               Levenshtein.distance(fragment_identifier, a) <=> Levenshtein.distance(fragment_identifier, b)
             }
-            puts "*** BROKEN LINK: ##{fragment_identifier}, perhaps you meant ##{guess}."
           end
         end
       end
