@@ -73,7 +73,7 @@
           width: 100% !important;
           height: 100% !important;
           border: none !important;
-          background: white !important;
+          background: #f6f8fa !important;
           padding-left: 1em !important;
           overflow: hidden !important;
           white-space: pre !important; }
@@ -131,7 +131,7 @@
   .syntaxhighlighter.printing .line.highlighted .number,
   .syntaxhighlighter.printing .line.highlighted.alt1 .content,
   .syntaxhighlighter.printing .line.highlighted.alt2 .content {
-    background: none !important; }
+    background: #f6f8fa !important; }
   .syntaxhighlighter.printing .line .number {
     color: #bbbbbb !important; }
   .syntaxhighlighter.printing .line .content {
@@ -171,11 +171,11 @@
     color: black !important; }
 
 .syntaxhighlighter {
-  background-color: white !important; }
+  background-color: #f6f8fa !important; }
   .syntaxhighlighter .line.alt1 {
-    background-color: white !important; }
+    background-color: #f6f8fa !important; }
   .syntaxhighlighter .line.alt2 {
-    background-color: white !important; }
+    background-color: #f6f8fa !important; }
   .syntaxhighlighter .line.highlighted.alt1, .syntaxhighlighter .line.highlighted.alt2 {
     background-color: #e9e9e9 !important; }
   .syntaxhighlighter .line.highlighted.number {
@@ -183,7 +183,7 @@
   .syntaxhighlighter table caption {
     color: #353535 !important; }
   .syntaxhighlighter table td.code .container textarea {
-    background: white;
+    background: #f6f8fa;
     color: black; }
   .syntaxhighlighter .gutter {
     color: gray !important; }
@@ -191,7 +191,7 @@
       border-right: none !important; }
       .syntaxhighlighter .gutter .line.highlighted {
         background-color: #6ce26c !important;
-        color: white !important; }
+        color: #f6f8fa !important; }
   .syntaxhighlighter.printing .line .content {
     border: none !important; }
   .syntaxhighlighter.collapsed {
@@ -242,8 +242,7 @@
   .syntaxhighlighter .color3, .syntaxhighlighter .color3 a {
     color: red !important; }
 
-.syntaxhighlighter {
-  font-size: 0.75em !important; }
+  .syntaxhighlighter { font-size: 0.9em !important; }
   .syntaxhighlighter a,
   .syntaxhighlighter div,
   .syntaxhighlighter code,
@@ -264,7 +263,7 @@
     padding-top: 0.1em !important;
     line-height: 1.48em !important; }
   .syntaxhighlighter .gutter .line {
-    background: #f9f9f9 !important; }
+    background: #f6f8fa !important; }
     .syntaxhighlighter .gutter .line.highlighted {
       background-color: #898989 !important;
       color: white !important; }

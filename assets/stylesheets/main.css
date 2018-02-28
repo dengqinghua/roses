@@ -240,7 +240,7 @@ body {
 }
 
 #mainCol {
-  max-width: 630px;
+  max-width: 700px;
   margin-left: 2em;
 }
 
@@ -254,7 +254,7 @@ body {
   width: 17em;
   font-size: 0.9285em;
   line-height: 1.3846em;
-  margin-right: 1em;
+  margin-right: -3em;
 }
 
 
@@ -276,7 +276,7 @@ body {
 }
 #footer .wrapper {
   padding-left: 1em;
-  max-width: 960px;
+  max-width: 880px;
 }
 
 #header .wrapper, #topNav .wrapper, #feature .wrapper {padding-left: 1em; max-width: 960px;}
@@ -613,8 +613,9 @@ h6 {
 #subCol li ul, li ol { margin:0 1.5em; }
 
 div.code_container {
-  background: #white no-repeat left top;
-  padding: 0.25em 1em 0.5em 0;
+  background: #f6f8fa no-repeat left top;
+  /* padding: 0.25em 1em 0.5em 0; */
+  padding: 0.2em 1.8em;
 }
 
 .note {

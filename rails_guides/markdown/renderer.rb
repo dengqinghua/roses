@@ -6,7 +6,7 @@ module RailsGuides
       def block_code(code, language)
         <<-HTML
 <div class="code_container">
-<pre class="brush: #{brush_for(language)}; gutter: true; toolbar: true">
+<pre class="brush: #{brush_for(language)}; gutter: false; toolbar: true;">
 #{ERB::Util.h(code)}
 </pre>
 </div>
