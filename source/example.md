@@ -133,6 +133,30 @@ WARNING: 这个是需要提醒的点
 # Ⅺ  bR 216A 8554 ROMAN NUMERAL ELEVEN
 # Ⅻ  cR 216B 8555 ROMAN NUMERAL TWELVE
 
+# SUBSCRIPT NUMBERS ZERO ~ NINE
+₀
+₁
+₂
+₃
+₄
+₅
+₆
+₇
+₈
+₉
+
+# SUPERSCRIPT NUMBERS ZERO ~ NINE
+⁰
+¹
+²
+³
+⁴
+⁵
+⁶
+⁷
+⁸
+⁹
+
 # 可以通过 :help digraph-table 查看所有的特殊字符
 
 C和弦
