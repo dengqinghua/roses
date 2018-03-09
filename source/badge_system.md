@@ -1,13 +1,13 @@
 基于内存数据库的角标系统设计
 ----------------------------
 
-角标是公司最复杂的系统之一, 每次大促活动的时候, 角标的展示.
+角标是公司最复杂的系统之一, 每次大促活动的时候, 角标承担着引流的重要责任, 是GMV的保证之一, 角标系统经过几年的演化, 已经变得非常复杂, 我们在近期对角标系统进行了整理和重构, 将角标系统变成了一个基于内存数据库和规则的数据计算系统.
 
 阅读完该文档后，您将会了解到:
 
 * 角标系统的整体设计.
-* 角标系统的数据准备和视图映射.
-* 角标的查询步骤.
+* 角标系统的规则结构设计.
+* 角标的查询流程.
 * 角标的查询优化.
 
 --------------------------------------------------------------------------------
@@ -83,7 +83,7 @@ NOTE: 坑位: 指一个商品的展示位置
     ![badge_with_user_association](images/badge_with_user_association.png)
 
 
-6. 特定规则打标
+6. 特殊规则打标
 
     ```
     我希望对全网所有商品中, 库存小于100的商品都打上一个标: "库存告急, 仅剩XXX件"
@@ -368,7 +368,7 @@ WHERE
     (isSingeSale =1 AND rangeStock BETEEN (10, 20))
 ```
 
-前端在请求角标数据时, 会获取到所有的角标, 假设现在有三个角标
+前端在请求角标数据时, 会获取到所有的角标, 假设现在按照规则权重由高到低`排序`之后, 有下面三个角标
 
 ```
 角标1 用户角色: 女
@@ -412,6 +412,7 @@ WHERE
         <field>isMiaosha</field>
         <type>boolean</type>
         <sql>
+            <!--真实业务系统中的数据结构-->
             SELECT 1 FROM products WHERE isSeckill = 1
         </sql>
     </Entry>
@@ -730,7 +731,7 @@ isSingeSale |  ~~SELECT 1 FROM discountProducts WHERE discounts.conditionPurchas
 [Sidekiq](https://github.com/mperham/sidekiq)的作者在一遍[博文](http://www.mikeperham.com/2015/10/14/should-you-use-celluloid/)中提到
 
 > To make something easier or safer to use, create an abstraction layer.
-> To make something faster, remove one or more abstraction layers.
+To make something faster, remove one or more abstraction layers.
 
 SQL即是高度抽象的语言, 但是为了执行SQL, SQL内存引擎会生成对应的代码, 检测SQL的正确性, 字段存在性等一系列操作. 这些抽象会使得本来一个很简单的操作变得很慢.
 
@@ -762,7 +763,110 @@ public class Product {
 
 
 ### 优化总结
-1. connectionPool 项目启动时创建连接
-2. PreparedStatement 项目启动时将所有sql执行一遍
-3. NoneMatcher 分析sql语义, 存在一个不满足条件的, 剩下的sql不再执行
+1. connectionPool, 项目启动时创建连接
+2. PreparedStatement, 项目启动时将所有sql执行一遍
+3. NoneMatcher, 分析sql语义, 存在一个不满足条件的, 剩下的sql不再执行
 4. 将一些简单的sql转化为java代码
+
+总结
+----
+角标系统的例子是SQL型数据处理的一个非常常见的例子, 她的整体思路为
+
+```
+源数据 -> 视图数据 -> 源数据 -> 视图数据 -> ...
+```
+
+也就是说将不同的数据组合, 组合完之后变成一个视图, 该视图又是下一个数据视图的源数据
+
+源数据 到 视图数据, 是通过 SQL 这个通用语句来表达的.
+
+但是使用该方式也有一些缺点, 下面分别分情况进行表述.
+
+### SQL的缺点
+#### SQL爆炸
+有时候源数据 -> 视图数据是很复杂的, 即SQL中包含很多语句, 包括 INNER JOIN, UNION, CASE, WHEN 等等, 这样的SQL是非常不可读的, 而且很难进行维护
+
+如下面的SQL:
+
+```sql
+SELECT
+    ROUND(COALESCE(MIN(p), 0)/100.0, 2)
+FROM (
+        SELECT
+            CAST(discountRules.price - discountRules.savedAmount AS DECIMAL(10, 2))
+             AS p
+        FROM
+            input_view.discountRules
+        WHERE
+            (discountRules.price >= discountRules.conditionMoney AND discountRules.type = 0 AND discountRules.conditionMoney > 0)
+            OR
+            (discountRules.conditionPurchaseCount = 1 AND discountRules.type = 1)
+    UNION
+        SELECT
+            CAST((discountRules.price) * (1 - discountRules.savedPercent/10000.0) AS DECIMAL(10, 2))
+            AS p
+        FROM
+            input_view.discountRules
+        WHERE
+            (discountRules.price >= discountRules.conditionMoney AND discountRules.type = 0 AND discountRules.conditionMoney > 0)
+            OR
+            (discountRules.conditionPurchaseCount = 1 AND discountRules.type = 1)
+    UNION
+        SELECT
+            CAST((discountRules.price - COALESCE(discountRules.price/NULLIF(input_view.discountRules.conditionMoney, 0), 0) * discountRules.noLimit * discountRules.savedAmount) AS DECIMAL(10, 2))
+             AS p
+        FROM
+            input_view.discountRules
+        WHERE
+            (discountRules.price >= discountRules.conditionMoney AND discountRules.type = 0 AND discountRules.conditionMoney > 0)
+            OR
+            (discountRules.conditionPurchaseCount = 1 AND discountRules.type = 1)
+) t
+```
+
+看到人大都是在心里说WTF. 像上面的例子就是一个`SQL爆炸`的case.
+
+> SQL不应过多的进行数据地处理流程, 而是简单的查询和组合等操作.
+
+数据的处理应该是提供对应的操作算子或者函数, 在 [spark sql在喜马拉雅的使用之xql](https://github.com/cjuexuan/mynote/issues/21) 这篇文章中就实现了操作算子: `load` 和 `save` 等.
+
+操作算子的实现比较复杂, 而角标系统只有这一个复杂的SQL爆炸case, 所以角标系统并未对此做扩展.
+
+#### SQL测试困难
+SQL如何进行unit test? 修改了之后如何保证修改的逻辑是对的?
+
+角标系统将原有的业务代码大都浓缩到了SQL中, 这使得原来便于测试的业务代码变得困难. 在当前的角标系统中, 我写了一个test, 仅仅检测SQL的语法, 而不检查SQL本身的业务含义.
+
+
+```java
+/**
+ * 防止SQL写得不对, 导致直接报错, 所以在这里会跑这个测试
+ *
+ * <p>
+ * 在上线之前务必执行
+ *
+ * <pre>
+ *      mvn -Dtest="SqlAnalyzerTest#testEverySQLRunnable" test
+ * </pre>
+ *
+ * @throws Exception 如果SQL写得不对, 在这儿测试这儿会报错
+ */
+@Test public void testEverySQLRunnable() throws Exception {
+    // 这个地方设置了如果执行SQL报错, 就会抛出异常
+    Helper.setPrivateStaticField(SqlRunner.class, "isThrowExceptionWhenRunSqlFailed", true);
+
+    Field field = SqlRunner.class.getDeclaredField("PREPARE_VIEWS");
+    field.setAccessible(true);
+    SchemaView[] prepareViews = (SchemaView[]) field.get(SqlRunner.class);
+
+    for (SchemaView bean : prepareViews) {
+        List<String> sqlList = bean.allPossibleSqls();
+
+        // 执行所有SQL
+        sqlList.forEach(sql -> SqlRunner.run(bean, sql));
+    }
+}
+```
+
+### 总体评价
+虽然SQL存在上述问题, 但是总的来说, 角标解决了原有的问题, 缩短了角标的实现时间, 添加一个角标只需要在后台配置, APP, PC端和数据层都不需要做任何更改. 另外, SQL本身的自解释性很强, 数据的流转也很清晰, 出了问题也很好排查, 是一次非常不错的优化.
