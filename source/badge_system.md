@@ -331,7 +331,7 @@ WHERE
 
 (商品是秒杀 而且 分类是男装) 或者 (商品为单件优惠 而且 剩余库存 在 10 到 20 之间),
 
-该角标指给男用户展示, 新老用户都可以看到, 所有页面都生效, 来源只作用于PC端
+该角标只给男用户展示, 新老用户都可以看到, 所有页面都生效, 来源只作用于PC端
 ```
 
 #### 角标数据准备和过滤
@@ -378,7 +378,7 @@ WHERE
 
 其中 角标1 被过滤调了, 只剩下角标2, 3
 
-![badge_procedure](images/badge_procedure1.png)
+![badge_procedure1](images/badge_procedure1.png)
 
 #### 角标匹配数据准备
 INFO: 角标匹配数据是指 查看一个商品是否命中角标需要的数据, 如 一个角标的规则为: 商品库存 > 10. 那么 角标匹配数据则为: 商品库存
@@ -481,7 +481,7 @@ conditionPurchaseCount: 1
 count: 15
 ```
 
-![badge_procedure](images/badge_procedure2.png)
+![badge_procedure2](images/badge_procedure2.png)
 
 #### 角标视图数据准备
 角标匹配数据准备好之后, 便可以开始计算了
@@ -537,7 +537,7 @@ badgeView.rangeStock = 15
 badgeView.inputTag = "男装"
 ```
 
-![badge_procedure](images/badge_procedure3.png)
+![badge_procedure3](images/badge_procedure3.png)
 
 #### 执行角标视图SQL
 执行SQL
@@ -727,7 +727,7 @@ isSingeSale |  ~~SELECT 1 FROM discountProducts WHERE discounts.conditionPurchas
 
 
 #### SQL自动转化为java代码
-[sidekiq](https://github.com/mperham/sidekiq)的作者在一遍[博文](http://www.mikeperham.com/2015/10/14/should-you-use-celluloid/)中提到
+[Sidekiq](https://github.com/mperham/sidekiq)的作者在一遍[博文](http://www.mikeperham.com/2015/10/14/should-you-use-celluloid/)中提到
 
 > To make something easier or safer to use, create an abstraction layer.
 > To make something faster, remove one or more abstraction layers.
