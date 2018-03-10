@@ -133,7 +133,7 @@ NOTE: 坑位: 指一个商品的展示位置
 
 - 我想给 所有 "**参加**秒杀活动的商品" 添加一个角标
 - 我想给 "分类 **等于** 男装 **而且** 尺码 **>** XXL的商品" 添加一个角标
-- 我想给 "库存 **>** 0 而且 **<** 10 的商品" 添加一个角标
+- 我想给 "库存 **>** 0 **而且** **<** 10 的商品" 添加一个角标
 - 我想给 所有 "**是**单件优惠的商品" 添加一个角标
 
 根据下面的这些情况, 我们总结如下
@@ -263,10 +263,14 @@ public class SqlRunnerTest {
         sqlRunner = new SqlRunner("merchant_system", database);
         sql = "SELECT \n"
                 + "\"products\".\"id\", \"sellers\".\"name\" \n"
-                + "FROM \"merchant_system\".\"products\" \n"
-                + "INNER JOIN \"merchant_system\".\"sellers\" \n"
-                + "ON \"merchant_system\".\"sellers\".\"id\" = \"merchant_system\".\"products\".\"sellerId\" \n"
-                + "WHERE \"sellers\".\"name\" = 'dengqinghua'";
+                + "FROM \n"
+                + " \"merchant_system\".\"products\" \n"
+                + "INNER JOIN \n"
+                + " \"merchant_system\".\"sellers\" \n"
+                + "ON \n"
+                + " \"merchant_system\".\"sellers\".\"id\" = \"merchant_system\".\"products\".\"sellerId\" \n"
+                + "WHERE \n"
+                + " \"sellers\".\"name\" = 'dengqinghua'";
 
         Result<Record> result = sqlRunner.run(sql);
         assertThat(result.format(), is(
@@ -502,8 +506,7 @@ WHERE
 
 这个就是角标视图的sql
 
-NOTE: 为什么叫做角标视图? 因为角标所需要的数据, 和真实系统存在的数据是不一样的, 比如角标的 `是否是单件优惠` isSingeSale 字段, 在真实系统是不存在的, 而这个字段其实是一个SQL的Map: isSingeSale => SELECT true FROM discount_products WHERE conditionPurchaseCount = 1, 我们称之为视图.
-
+NOTE: 为什么叫做角标视图? 因为角标所需要的数据, 和真实系统存在的数据是不一样的, 比如角标的 `是否是秒杀` isMiaosha 字段, 在真实业务系统是不存在的, 而这个字段其实是一个SQL的Map: isMiaosha => SELECT 1 FROM products WHERE isSeckill = 1, 我们称之为视图.
 
 所以我们会建立一个角标的数据库
 
@@ -641,12 +644,11 @@ public class SqlRunner {
 测试代码中, 每一次查询都是重新创建一个新的连接. 创建连接是非常耗时的. 最终, 我们选择使用了 connection_pool, 在项目启动的时候, 预生成一些连接
 
 ```java
-static Connection[poolSize] connectionPools;
+static final int POOL_SIZE = Runtime.getRuntime().availableProcessors() * 2 + 1;
+static Connection[POOL_SIZE] connectionPools;
 
 static {
-    int poolSize = Runtime.getRuntime().availableProcessors() * 2 + 1;
-
-    IntStream.range(0, poolSize).forEach(i -> {
+    IntStream.range(0, POOL_SIZE).forEach(i -> {
           connectionPools[i] = createConnection;
     })
 }
