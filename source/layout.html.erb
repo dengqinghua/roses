@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
   <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shCore.css" />
   <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shThemeRailsGuides.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/iDisqus.min.css" />
 
   <link rel="stylesheet" type="text/css" href="stylesheets/fixes.css" />
 
@@ -111,11 +112,22 @@
   <script type="text/javascript" src="javascripts/responsive-tables.js"></script>
   <script type="text/javascript" src="javascripts/guides.js"></script>
   <script type="text/javascript" src="javascripts/syntaxhighlighter.js"></script>
+  <script type="text/javascript" src="javascripts/iDisqus.min.js"></script>
+
   <script type="text/javascript">
     syntaxhighlighterConfig = {
       autoLinks: false,
     };
     $(guidesIndex.bind);
+
+    var disq = new iDisqus('comment', {
+      forum: 'dengqinghua',
+      api: 'http://disqus.dengqinghua.net',
+      site: 'http://blog.dengqinghua.net',
+      mode: 1,
+      timeout: 3000,
+      init: true
+    });
   </script>
 </body>
 </html>
