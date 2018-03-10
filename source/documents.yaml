@@ -53,8 +53,8 @@
   name: 杂记
   documents:
     -
-      name: RailsGuides模板
-      url: example.html
+      name: markdown格式实例
+      url: example_markdown.html
       description: Rails Guides风格的markdown模板.
     -
       name: 注释规范
