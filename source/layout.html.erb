@@ -127,8 +127,11 @@
       site: 'http://blog.dengqinghua.net',
       mode: 1,
       timeout: 3000,
+      popular: document.getElementById('popular-posts'),
       init: true
     });
+    disq.popular();
+    disq.count();
   </script>
 </body>
 </html>
