@@ -114,7 +114,7 @@ body {
   background: #047ed7;
   background: -webkit-gradient(linear, left top, left bottom, from(#44a0d9), to(#047ed7));
   background: -webkit-linear-gradient(top, #047ed7, #44a0d9);
-  background: -moz-linear-gradient(top, #047ed7, #44a0d9);
+  background: -moz-linear-gradient(top, #047ed7, #0052ff);
   background: -ms-linear-gradient(top, #047ed7, #44a0d9);
   background: -o-linear-gradient(top, #047ed7, #44a0d9);
   padding: 5px 18px;
@@ -135,11 +135,11 @@ body {
 .red-button:active {
   border-top: none;
   padding-top: 5px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#047ed7), to(#44a0d9));
-  background: -webkit-linear-gradient(top, #047ed7, #44a0d9);
-  background: -moz-linear-gradient(top, #047ed7, #44a0d9);
-  background: -ms-linear-gradient(top, #047ed7, #44a0d9);
-  background: -o-linear-gradient(top, #047ed7, #44a0d9);
+  background: -webkit-gradient(linear, left top, left bottom, from(#047ed7), to(#0052ff));
+  background: -webkit-linear-gradient(top, #047ed7, #0052ff);
+  background: -moz-linear-gradient(top, #047ed7, #0052ff);
+  background: -ms-linear-gradient(top, #047ed7, #0052ff);
+  background: -o-linear-gradient(top, #047ed7, #0052ff);
 }
 
 #topNav {
@@ -198,7 +198,7 @@ body {
   .more-info-links {
     display: block;
     list-style: none;
-    background-color: #047ed7;
+    background-color: #0052ff;
     border-radius: 5px;
     padding-top: 3.5em;
     border: 1px #047ed7 solid;
