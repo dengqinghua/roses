@@ -117,6 +117,8 @@
   <script type="text/javascript" src="javascripts/guides.js"></script>
   <script type="text/javascript" src="javascripts/syntaxhighlighter.js"></script>
   <script type="text/javascript" src="javascripts/iDisqus.min.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115746206-1"></script>
 
   <script type="text/javascript">
     syntaxhighlighterConfig = {
@@ -135,6 +137,12 @@
     });
     disq.popular();
     disq.count();
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115746206-1');
   </script>
 </body>
 </html>
