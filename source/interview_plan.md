@@ -1,6 +1,8 @@
 Interview Plan
 ==============
 
+DATE: 2018-02-24
+
 Prepare for my next job interview as a programmer dog.
 
 After reading this guide, you will know:

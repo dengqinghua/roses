@@ -148,6 +148,11 @@ body {
   background: #24292e;
 }
 
+.date {
+  font-size: 85%;
+  padding-bottom: 5px;
+}
+
 .s-hidden {
   display: none;
 }
@@ -446,7 +451,7 @@ h1 {
 h2 {
   font-size: 2.1428em;
   line-height: 1em;
-  margin: 0.7em 0 1em;
+  margin: 0.7em 0 0.7em;
   font-weight: normal;
 }
 

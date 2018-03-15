@@ -1,5 +1,8 @@
 Arel Inspection
 ===============
+
+DATE: 2015-07-15
+
 This guide covers basic understanding of the Arel gem.
 
 After reading this guide, you will know:
