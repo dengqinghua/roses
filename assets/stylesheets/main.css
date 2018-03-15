@@ -92,12 +92,10 @@ img {
 
 body {
   text-align: center;
-  font-family: Helvetica, Arial, Helvetica, sans-serif;
-  /* font-family: "ProximaNovaLight"; */
+  font-family: 'Trebuchet MS', Helvetica, Arial, 'Lucida Grande', Verdana, Lucida, Helvetica, sans-serif;
   font-size: 87.5%;
   line-height: 1.5em;
   background: #fff;
-  /* background: #fafbfc; */
   color: #999;
 }
 
