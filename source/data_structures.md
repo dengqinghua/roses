@@ -112,7 +112,7 @@ NOTE: >> 符号为[位移](http://www.cnblogs.com/hongten/p/hongten_java_yiweiyu
 
 新增的容量为原有容量的1.5倍
 
-INFO: ArrayList能动态地增长长度, 当容量不够的时候, 会进行`grow`操作, 将所有的数据拷贝(Arrays.copyOf)到一个新的数组中, 并进行数组的扩容处理. 处理容量为10
+INFO: ArrayList能动态地增长长度, 当容量不够的时候, 会进行`grow`操作, 将所有的数据拷贝(Arrays.copyOf)到一个新的数组中, 并进行数组的扩容处理.
 
 #### modCount
 在Iterator的实现中, 有一个非常奇怪的变量: modCount
