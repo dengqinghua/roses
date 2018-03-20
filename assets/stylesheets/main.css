@@ -39,6 +39,9 @@ pre, tt, code {
  white-space: -pre-wrap;      /* Opera 4-6 */
  white-space: -o-pre-wrap;    /* Opera 7 */
  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+ background: #f6f8fa;
+ padding: 1px 5px;
+ font-size: 13px;
 }
 
 abbr, acronym { border-bottom: 1px dotted #666; }
@@ -642,7 +645,13 @@ div.code_container {
   margin: 0.25em 0 1.5em 0;
 }
 
-.note code, .info code, .todo code {border:none; background: none; padding: 0;}
+.note code, .info code, .todo code {
+  border:none;
+  background: none;
+  padding: 1px 3px;
+  font-style: italic;
+  font-size: 13px;
+}
 
 #mainCol ul li {
   list-style:none;
