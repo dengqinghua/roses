@@ -151,10 +151,95 @@ final void checkForComodification() {
 }
 ```
 
-#### RandomAccess
+#### 支持RandomAccess
 她支持`RandomAccess`, 在 [二分法查找](https://github.com/dengqinghua/my_examples/blob/master/java/src/main/java/com/dengqinghua/algorithms/BinarySearch.java#L30) 的时候比 LinkedList 更加有优势
 
 ### LinkedList
+![linkedList](images/linkedList.png)
+
+#### Doubly Linked
+在Java中, LinkedList是双向的, 他还实现了 [Deque](https://docs.oracle.com/javase/7/docs/api/java/util/Deque.html), double ended queue
+
+在 数据结构中, 有一个 inner class: `Node`
+
+```java
+public class LinkedList<E> {
+    private static class Node<E> {
+        E item;
+        Node<E> next;
+        Node<E> prev;
+
+        Node(Node<E> prev, E element, Node<E> next) {
+            this.item = element;
+            this.next = next;
+            this.prev = prev;
+        }
+    }
+}
+```
+
+其中包含`next`和`prev`两个field
+
+#### Sentinel Nodes
+- head node
+- tail node
+
+
+1. clearNode
+
+    当清空该 LinkedList 的时候, 只需要设置
+
+    ```java
+    head.next = tail
+    ```
+
+2. addAll
+
+    将两个LinkedList连接, 只需要直接处理 head 和 tail 即可
+
+3. 查找某个位置的节点数据
+    在源码中可以看到, 有了size, head 和 tail node, 如果要找位置index的node, 则可以判断 index 和 size 之间的关系:
+
+    如果 index < size / 2, 则从head开始找, 否则从tail开始找
+
+    ```java
+        Node<E> node(int index) {
+          // 如果 index < size / 2, 则从head开始找, 否则从tail开始找
+          if (index < (size >> 1)) {
+              Node<E> x = head;
+              for (int i = 0; i < index; i++)
+                  x = x.next;
+              return x;
+          } else {
+              Node<E> x = tail;
+              for (int i = size - 1; i > index; i--)
+                  x = x.prev;
+              return x;
+          }
+      }
+    ```
+
+#### 不支持RandomAccess
+二分查找法的时候, 总的来说平均时间比 ArrayList 要慢. 在原生的Java的二分查找的时候, 对非RandomAccess的List做了不同的处理
+
+```java
+public class Collections {
+    public static <T> int binarySearch(List<? extends T> list, T key, Comparator<? super T> c) {
+        if (c==null)
+            return binarySearch((List<? extends Comparable<? super T>>) list, key);
+
+        if (list instanceof RandomAccess || list.size()<BINARYSEARCH_THRESHOLD)
+            return Collections.indexedBinarySearch(list, key, c);
+        else
+            return Collections.iteratorBinarySearch(list, key, c);
+    }
+}
+```
+
+### LinkedList和ArrayList的使用场景
+见 StackOverflow: [When to use LinkedList over ArrayList?](https://stackoverflow.com/a/322742/8186609)
+
+INFO: 所经历的项目中没有使用过LinkedList.
 
 References
 ----------
