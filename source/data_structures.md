@@ -62,7 +62,6 @@ public class MyArrayList<AnyType> implements Iterable<AnyType> {
 List和数组最大的一个特点是不用设置长度
 
 但是ArrayList是用 Array 来实现的, 每一个数组需要在初始化的时候就将长度设置好, 那 ArrayList 是如何做到的呢?
-下面是 Java 8 的源码
 
 ```java
 public class ArrayList<E> extends AbstractList<E>
@@ -109,9 +108,11 @@ public class ArrayList<E> extends AbstractList<E>
 newCapacity = oldCapacity + (oldCapacity >> 1)
 ```
 
+NOTE: >> 符号为[位移](http://www.cnblogs.com/hongten/p/hongten_java_yiweiyunsuangfu.html)操作, 可以看下[测试code](https://github.com/dengqinghua/my_examples/blob/master/java/src/test/java/com/dengqinghua/algorithms/QuickSortTest.java#L72)
+
 新增的容量为原有容量的1.5倍
 
-NOTE: >> 符号为[位移](http://www.cnblogs.com/hongten/p/hongten_java_yiweiyunsuangfu.html)操作, 可以看下[测试code](https://github.com/dengqinghua/my_examples/blob/master/java/src/test/java/com/dengqinghua/algorithms/QuickSortTest.java#L72)
+INFO: ArrayList能动态地增长长度, 当容量不够的时候, 会进行`grow`操作, 将所有的数据拷贝(Arrays.copyOf)到一个新的数组中, 并进行数组的扩容处理. 处理容量为10
 
 #### modCount
 在Iterator的实现中, 有一个非常奇怪的变量: modCount
@@ -142,6 +143,8 @@ public class MyArrayList<AnyType> implements Iterable<AnyType> {
 ```
 
 expectedModCount 初始值为 modCount 的值, 如果发现 Iterator 对象在使用的时候, 发现两个值不相等, 则会抛出`ConcurrentModificationException`异常
+
+INFO: modCount确保了在使用Iterator的过程中, 这个List没有被修改过. 在LinkedList也有相同的变量.
 
 ```java
 final void checkForComodification() {
@@ -184,6 +187,7 @@ public class LinkedList<E> {
 - head node
 - tail node
 
+一些使用场景如下:
 
 1. clearNode
 
