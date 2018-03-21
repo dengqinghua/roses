@@ -47,6 +47,7 @@ HTML
           chord_code(shape, root, name)
         else
           text = convert_footnotes(text)
+          "<p>#{text}</p>"
         end
       end
 
