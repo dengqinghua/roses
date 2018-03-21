@@ -25,6 +25,37 @@ dl { margin: 0 0 1.5em 0; }
 dl dt { font-weight: bold; }
 dd { margin-left: 1.5em;}
 
+/* .chordSvg { */
+/*   margin: 10px */
+/* } */
+
+.chord {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+  border: solid 1px #ccc;
+  margin: 25px 0;
+  padding: 0 0 13px 0;
+  text-align: center;
+}
+
+.chord .play span {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  padding: 3px;
+  margin: 3px;
+  border: solid 1px #ccc;
+  font-size: small;
+}
+
+.chord .play span:hover {
+  cursor: pointer;
+  background-color: #eee;
+}
+
 pre, code {
   font-size: 1em;
   font-family: "Anonymous Pro", "Inconsolata", "Menlo", "Consolas", "Bitstream Vera Sans Mono", "Courier New", monospace;

@@ -39,10 +39,37 @@ HTML
         elsif text =~ /^\[<sup>(\d+)\]:<\/sup> (.+)$/
           linkback = %(<a href="#footnote-#{$1}-ref"><sup>#{$1}</sup></a>)
           %(<p class="footnote" id="footnote-#{$1}">#{linkback} #{$2}</p>)
+        elsif text =~ /^CHORD:\s+(.+)$/
+          shape, root, name = $1.split("\s")
+
+          root ||= shape.chars.find_index { |char| char.downcase != "x" }.to_i + 1
+
+          chord_code(shape, root, name)
         else
           text = convert_footnotes(text)
-          "<p>#{text}</p>"
         end
+      end
+
+      def chord_code(shape, root, name)
+        <<-HTML
+<div class='chord'>
+  <div class='chordSvg' data-shape='#{shape}' data-root='#{root}' data-name='#{name}'> </div>
+
+  <div class='play'>
+    <span class="play-arpeggio" "data-notes"="">
+      <img src="images/speaker.png" height="11" width="11"> 琶音(Arpeggio)
+    </span>
+
+    <span class="play-strum" "data-notes"="">
+      <img src="images/speaker.png" height="11" width="11"> 弹奏(Strum)
+    </span>
+
+    <span class="play-tone" "data-notes"="">
+      <img src="images/speaker.png" height="11" width="11"> 音调(Tone)
+    </span>
+  </div>
+</div>
+HTML
       end
 
       private
@@ -60,6 +87,8 @@ HTML
             code_type
           when "erb", "html+erb"
             "ruby; html-script: true"
+          when "music"
+            "ruby"
           when "html"
             "xml" # HTML is understood, but there are .xml rules in the CSS
           else
@@ -86,6 +115,7 @@ HTML
               else
                 $1.downcase
               end
+
             %(<div class="#{css_class}"><p>#{$2.strip}</p></div>)
           end
         end

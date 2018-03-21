@@ -13,7 +13,6 @@ DATE: 2018-03-20
 
 --------------------------------------------------------------------------------
 
-
 List
 ----
 Java中的Collection框架
@@ -30,7 +29,7 @@ add    | 添加数据 |
 remove | 移除数据 |
 size   | 获取长度 |
 
-NOTE: 为什么接口中要提供一个`Iterator`? 个人理解为: 遍历一个长度为 N 的List的时候, ArrayList的复杂度为 N * O(1) = O(N), LinkedList的复杂度为 N * O(N) = O(N * N), 而对于 Iterator, 她提供了 `next` 和 `hasNext` 方法, 遍历的时候为稳定的复杂度: O(N)
+NOTE: 为什么接口中要提供一个`iterator`? 我的理解包括下面几点: iterator 要求在获取数据的时候, List没有被修改, 否则就报错(`ConcurrentModificationException`), 这样相对更安全, 更多讨论请查看StackOverflow上的[讨论](https://stackoverflow.com/a/27984817/8186609)
 
 ### ArrayList
 #### ArrayList implements Iterable

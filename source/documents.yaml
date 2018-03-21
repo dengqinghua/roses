@@ -33,6 +33,10 @@
       name: 命令行下的Maven
       url: maven_under_command_line.html
       description: 命令行下的maven, 可以大大提高开发效率, 减少对IDE的依赖.
+    -
+      name: 数据结构
+      url: data_structures.html
+      description: 基于Java语言的数据结构整理和总计.
 -
   name: MySQL
   documents:
@@ -51,9 +55,13 @@
   name: 音乐
   documents:
     -
-      name: 爱乐之城-City Of Star曲谱分析
+      name: City Of Star
       url: lalaland-city_of_stars.html
-      description: 很喜欢 `爱乐之城` 这部电影, City of Stars为其中的原声音乐之一, 刚好在公众号看到了该曲子的吉他版本和Ukulele版本, 便参考和分析了一下歌曲的和弦走向, 和弦编配等.
+      description: 很喜欢 [爱乐之城] 这部电影, City of Stars为其中的原声音乐之一, 刚好在公众号看到了该曲子的吉他版本和Ukulele版本, 便参考和分析了一下歌曲的和弦走向, 和弦编配等.
+    -
+      name: あの日の帰り道
+      url: あの日の帰り道.html
+      description: 伍伍慧的一首指弹曲.
 -
   name: 杂记
   documents:
