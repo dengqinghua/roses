@@ -4,4 +4,4 @@ puts "rm -rf output/**"
 puts "rake guides:generate"
 `bundle exec rake guides:generate`
 
-puts "output"
+puts Dir["output/*.html"]

@@ -50,6 +50,13 @@ HTML
         end
       end
 
+      ##
+      # ==== Description
+      #   参考:
+      #
+      #   - https://github.com/andygock/chordy-svg
+      #   - https://chords.gock.net/chords/dominant-eleventh
+      #
       def chord_code(shape, root, name)
         <<-HTML
 <div class='chord'>
@@ -57,15 +64,15 @@ HTML
 
   <div class='play'>
     <span class="play-arpeggio" "data-notes"="">
-      <img src="images/speaker.png" height="11" width="11"> 琶音
+      <img src="images/speaker.png" height="11" width="11"> 慢速(Arpeggio)
     </span>
 
     <span class="play-strum" "data-notes"="">
-      <img src="images/speaker.png" height="11" width="11"> 中速
+      <img src="images/speaker.png" height="11" width="11"> 中速(Strum)
     </span>
 
     <span class="play-tone" "data-notes"="">
-      <img src="images/speaker.png" height="11" width="11"> 合奏
+      <img src="images/speaker.png" height="11" width="11"> 快速(Tone)
     </span>
   </div>
 </div>
