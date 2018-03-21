@@ -57,15 +57,15 @@ HTML
 
   <div class='play'>
     <span class="play-arpeggio" "data-notes"="">
-      <img src="images/speaker.png" height="11" width="11"> 琶音(Arpeggio)
+      <img src="images/speaker.png" height="11" width="11"> 琶音
     </span>
 
     <span class="play-strum" "data-notes"="">
-      <img src="images/speaker.png" height="11" width="11"> 弹奏(Strum)
+      <img src="images/speaker.png" height="11" width="11"> 中速
     </span>
 
     <span class="play-tone" "data-notes"="">
-      <img src="images/speaker.png" height="11" width="11"> 音调(Tone)
+      <img src="images/speaker.png" height="11" width="11"> 合奏
     </span>
   </div>
 </div>
