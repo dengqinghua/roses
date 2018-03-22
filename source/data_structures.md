@@ -373,6 +373,28 @@ implementations place no fixed limits on the number of elements
 they may contain, but this interface supports capacity-restricted
 deques as well as those with no fixed size limit.
 
+Tree
+----
+![tree](images/tree.png)
+
+1. 基础概念
+
+     名称    | 释义                                                              |
+    ----     | ------                                                            |
+    node     | 节点                                                              |
+    edge     | 连接线                                                            |
+    path     | 节点到节点之间的路径                                              |
+    length   | path所经过的edge的个数                                            |
+    root     | 根节点                                                            |
+    depth    | 深度,是指从root节点到该节点经过某一个path的length.节点J的depth为2 |
+    hieght   | 高度,是指节点到最远的一个leave的length,节点E的hieght为2           |
+    leaves   | 叶子节点                                                          |
+    siblings | 兄弟节点                                                          |
+    child    | 子树                                                              |
+    preorderTraversal    | 前序遍历 ![pre_order_traversal](images/preorder_traversal.jpeg) |
+    inorderTraversal    | 中序遍历 ![in_order_traversal](images/inorder_traversal.jpeg) |
+    postorderTraversal    | 后序遍历 ![post_order_traversal](images/postorder_traversal.jpeg) |
+
 References
 ----------
 - [Grokking Algorithms: An illustrated guide for programmers and other curious people](https://www.amazon.com/Grokking-Algorithms-illustrated-programmers-curious/dp/1617292230/ref=sr_1_1?ie=UTF8&qid=1519440970&sr=8-1&keywords=Grokking+Algorithms)
