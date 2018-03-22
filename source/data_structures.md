@@ -13,21 +13,28 @@ DATE: 2018-03-20
 
 --------------------------------------------------------------------------------
 
-List
-----
-Java中的Collection框架
-
+TL;DR
+-----
+### Java Collections
 ![Collection_interfaces](images/Collection_interfaces.png)
 
-基础操作
+INFO: 推荐阅读[这篇文章](https://www.ntu.edu.sg/home/ehchua/programming/java/J5c_Collection.html), 了解Java的Collections框架
 
- 操作  |  释义    |
-----   | ------   |
-get    | 获取数据 |
-set    | 设置数据 |
-add    | 添加数据 |
-remove | 移除数据 |
-size   | 获取长度 |
+List
+----
+1. 基础操作
+
+     操作  |  释义    |
+    ----   | ------   |
+    get    | 获取数据 |
+    set    | 设置数据 |
+    add    | 添加数据 |
+    remove | 移除数据 |
+    size   | 获取长度 |
+
+2. Java中List的接口关系图
+
+    ![Collection_interfacesList](images/Collection_ListImplementation.png)
 
 NOTE: 为什么接口中要提供一个`iterator`? 我的理解包括下面几点: iterator 要求在获取数据的时候, List没有被修改, 否则就报错(`ConcurrentModificationException`), 这样相对更安全, 更多讨论请查看StackOverflow上的[讨论](https://stackoverflow.com/a/27984817/8186609)
 
@@ -114,12 +121,12 @@ NOTE: >> 符号为[位移](http://www.cnblogs.com/hongten/p/hongten_java_yiweiyu
 INFO: ArrayList能动态地增长长度, 当容量不够的时候, 会进行`grow`操作, 将所有的数据拷贝(Arrays.copyOf)到一个新的数组中, 并进行数组的扩容处理.
 
 #### modCount
-在Iterator的实现中, 有一个非常奇怪的变量: modCount
+在Iterator的实现中, 有一个非常奇怪的变量: modCount, 源码中对她的解释为:
 
-> * The number of times this list has been <i>structurally modified</i>.
-> * Structural modifications are those that change the size of the
-> * list, or otherwise perturb it in such a fashion that iterations in
-> * progress may yield incorrect results.
+> The number of times this list has been <i>structurally modified</i>.
+Structural modifications are those that change the size of the
+list, or otherwise perturb it in such a fashion that iterations in
+progress may yield incorrect results.
 
 我们在源码中可以看到, 只要对该ArrayList进行任何操作, 都会修改这个值. 我的理解是 modCount 为 modifications count 的缩写, 即修改的次数. 它用在哪儿呢?
 
@@ -243,6 +250,128 @@ public class Collections {
 见 StackOverflow: [When to use LinkedList over ArrayList?](https://stackoverflow.com/a/322742/8186609)
 
 INFO: 所经历的项目中没有使用过LinkedList.
+
+Stack
+------
+![stack](images/stack.png)
+
+Java8中用`Vector`来实现栈的数据结构
+
+```java
+class Stack extends Vector {}
+class Vector extends AbstractList implements List, RandomAccess {}
+```
+
+ 操作  |  释义    |
+----   | ------   |
+pop    | 出栈 |
+push   | 入栈 |
+size   | 栈的高度 |
+peek   | top data |
+size   | 获取长度 |
+
+### Vector
+#### elementData
+Vector使用数组来存储数据
+
+```java
+class Vector {
+    protected Object[] elementData;
+}
+```
+
+和 ArrayList 类似, 她也有一个初始的容量 10:
+
+```java
+class Vector {
+    /**
+     * Constructs an empty vector so that its internal data array
+     * has size {@code 10} and its standard capacity increment is
+     * zero.
+     */
+    public Vector() {
+        this(10);
+    }
+}
+```
+
+支持在容量不够的时候, 自动地`grow`. 实现方式和ArrayList类似, 这里不再重复
+
+#### synchronized
+Vector 有很多方法是添加了 `synchronized` 关键词.
+
+```
+class Vector {
+    public synchronized void trimToSize() {}
+    public synchronized void ensureCapacity(int minCapacity) {}
+}
+```
+
+#### 官方不建议使用Vector
+>  As of the Java 2 platform v1.2, this class was retrofitted to
+implement the {@link List} interface, making it a member of the
+Java Collections Framework.  Unlike the new collection
+implementations, Vector is synchronized.  If a thread-safe
+implementation is not needed, it is recommended to use ArrayList
+in place of Vector.
+
+建议用 ArrayList 替换 Vector
+
+### 一些使用栈的场景
+#### Balancing Symbols
+检查一些符号, 如`(\['"` 是否封闭
+
+算法思路: 以`()`的检测举例子, 遇到 `(` 的时候, 入栈, 遇到 `)` 的出栈. 最终在所有的符号都结束之后, 看下栈里面是否有数据, 如果有, 则说明`()`是未封闭的
+
+```
+(a == 1) && (b == 2)  // 检测通过
+(a == 1) && (b == 2   // 检测不通过, 栈内还存在元素: (
+```
+
+Queue
+-----
+![queue](images/queue.png)
+
+ 操作  |  释义    |
+----   | ------   |
+pop    | 出队列 |
+push   | 入队列 |
+size   | 队列长度 |
+
+核心fields:
+
+- theItems 数组, 记录队列的值
+- front    队列头的位置
+- back     队列尾的位置
+- size     队列长度
+
+### Circular Array
+可以使用环状的数组来存储Queue的数据. 初始化的时候, 而 back 的位置为 `N - 1`, front 的位置为 `N - k - 1`. 其中 N 为数组的长度, k 为初始队列的数据的个数
+
+入队列, 则从数组的头开始. 入队列和出队列就是改变 front 和 back 的过程
+
+空Queue的条件为
+
+```
+back = front - 1
+```
+
+另外, 还需要注意Queue满的情况,此时需要考虑扩容.
+
+### Queue的Java实现
+Java中, LinkedList实现了 Deque, Deque继承自Queue
+
+```java
+class LinkedList implements Deque {}
+interface Deque extends Queue {}
+```
+
+NOTE: Deque: A linear collection that supports element insertion and removal at
+both ends.  The name <i>deque</i> is short for "double ended queue"
+and is usually pronounced "deck".  Most {@code Deque}
+implementations place no fixed limits on the number of elements
+they may contain, but this interface supports capacity-restricted
+deques as well as those with no fixed size limit.
 
 References
 ----------
