@@ -24,13 +24,13 @@ List
 ----
 1. 基础操作
 
-     操作  |  释义    |
-    ----   | ------   |
-    get    | 获取数据 |
-    set    | 设置数据 |
-    add    | 添加数据 |
-    remove | 移除数据 |
-    size   | 获取长度 |
+|     操作  |  释义    |
+|    ----   | ------   |
+|    get    | 获取数据 |
+|    set    | 设置数据 |
+|    add    | 添加数据 |
+|    remove | 移除数据 |
+|    size   | 获取长度 |
 
 2. Java中List的接口关系图
 
@@ -262,13 +262,13 @@ class Stack extends Vector {}
 class Vector extends AbstractList implements List, RandomAccess {}
 ```
 
- 操作  |  释义    |
-----   | ------   |
-pop    | 出栈 |
-push   | 入栈 |
-size   | 栈的高度 |
-peek   | top data |
-size   | 获取长度 |
+|  操作  |  释义    |
+| ----   | ------   |
+| pop    | 出栈 |
+| push   | 入栈 |
+| size   | 栈的高度 |
+| peek   | top data |
+| size   | 获取长度 |
 
 ### Vector
 #### elementData
@@ -332,11 +332,11 @@ Queue
 -----
 ![queue](images/queue.png)
 
- 操作  |  释义    |
-----   | ------   |
-pop    | 出队列 |
-push   | 入队列 |
-size   | 队列长度 |
+|  操作  |  释义    |
+| ----   | ------   |
+| pop    | 出队列 |
+| push   | 入队列 |
+| size   | 队列长度 |
 
 核心fields:
 
@@ -379,21 +379,54 @@ Tree
 
 1. 基础概念
 
-     名称    | 释义                                                              |
-    ----     | ------                                                            |
-    node     | 节点                                                              |
-    edge     | 连接线                                                            |
-    path     | 节点到节点之间的路径                                              |
-    length   | path所经过的edge的个数                                            |
-    root     | 根节点                                                            |
-    depth    | 深度,是指从root节点到该节点经过某一个path的length.节点J的depth为2 |
-    hieght   | 高度,是指节点到最远的一个leave的length,节点E的hieght为2           |
-    leaves   | 叶子节点                                                          |
-    siblings | 兄弟节点                                                          |
-    child    | 子树                                                              |
-    preorderTraversal    | 前序遍历 ![pre_order_traversal](images/preorder_traversal.jpeg) |
-    inorderTraversal    | 中序遍历 ![in_order_traversal](images/inorder_traversal.jpeg) |
-    postorderTraversal    | 后序遍历 ![post_order_traversal](images/postorder_traversal.jpeg) |
+    |   名称    | 释义                                                              |
+    |  ----     | ------                                                            |
+    |  node     | 节点                                                              |
+    |  edge     | 连接线                                                            |
+    |  path     | 节点到节点之间的路径                                              |
+    |  length   | path所经过的edge的个数                                            |
+    |  root     | 根节点                                                            |
+    |  depth    | 深度,是指从root节点到该节点经过某一个path的length.节点J的depth为2 |
+    |  hieght   | 高度,是指节点到最远的一个leave的length,节点E的hieght为2           |
+    |  leaves   | 叶子节点                                                          |
+    |  siblings | 兄弟节点                                                          |
+    |  child    | 子树                                                              |
+    |  preorderTraversal   | 前序遍历 ![pre_order_traversal](images/preorder_traversal.jpeg) |
+    |  inorderTraversal    | 中序遍历 ![in_order_traversal](images/inorder_traversal.jpeg) |
+    |  postorderTraversal  | 后序遍历 ![post_order_traversal](images/postorder_traversal.jpeg) |
+
+### Binary Tree
+![binary_tree](images/binary_tree.png)
+
+#### 基本结构
+
+- element
+- leftNode
+- rightNode
+
+#### 使用场景
+##### 表达式
+将表达式转化为postfix形式, 再用栈创建一颗可以中序遍历的树
+
+```
+(a + b) * (c * (d + e))
+```
+
+利用栈, 转变为postfix形式:
+
+```
+a b + c d e + * *
+```
+
+利用栈, 转化为树.
+
+NOTE: `a b + c d e + * *` 依次入栈, 遇到 a, b 创建树, 分别入栈, 遇到 `+` 将 `a, b` 出栈, `a, b, +` 组成一个新的树, 最终的树为下图所示. 最终可以通过中序遍历进行运算. 另外, 可以后序遍历恢复为 `a b + c d e + * *``
+
+![tree_example](images/tree_example.png)
+
+INFO: `Operand` 操作数, 如 a, b, c, d, e; `Operator` 操作符, 如 `+ *`
+
+##### BST BinarySearchTree
 
 References
 ----------

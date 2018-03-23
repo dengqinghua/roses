@@ -524,13 +524,12 @@ public class BadgeView {
 
 而每一个字段都对应着一条SQL
 
-    字段名      | 对应的SQL | SQL执行的结果 |
-     --------      |   ------   |   ------   |
-   isMiaosha    |  SELECT 1 FROM products WHERE isSeckill = 1          |     1       |
-isSingeSale |  SELECT 1 FROM discountProducts WHERE discounts.conditionPurchaseCount = 1          |  1          |
-   rangeStock    | SELECT product_stocks.count FROM product_stocks           |    15        |
-     inputTag      | SELECT products.tagName FROM products        |  "男装"          |
-
+|    字段名      | 对应的SQL | SQL执行的结果 |
+|     --------      |   ------   |   ------   |
+|   isMiaosha    |  SELECT 1 FROM products WHERE isSeckill = 1          |     1       |
+| isSingeSale |  SELECT 1 FROM discountProducts WHERE discounts.conditionPurchaseCount = 1          |  1          |
+|   rangeStock    | SELECT product_stocks.count FROM product_stocks           |    15        |
+|     inputTag      | SELECT products.tagName FROM products        |  "男装"          |
 
 故我们得到了一个 BadgeView 的一条内存数据库数据
 
@@ -696,12 +695,12 @@ WHERE
 
 涉及到的字段和查询
 
-    字段名      | 对应的SQL |
-     --------      |   ------   |
-   isMiaosha    |  SELECT 1 FROM products WHERE isSeckill = 1          |
-isSingeSale |  SELECT 1 FROM discountProducts WHERE discounts.conditionPurchaseCount = 1          |
-   rangeStock    | SELECT product_stocks.count FROM product_stocks           |
-     inputTag      | SELECT products.tagName FROM products        |
+|    字段名      | 对应的SQL |
+|     --------      |   ------   |
+|   isMiaosha    |  SELECT 1 FROM products WHERE isSeckill = 1          |
+|isSingeSale |  SELECT 1 FROM discountProducts WHERE discounts.conditionPurchaseCount = 1          |
+|   rangeStock    | SELECT product_stocks.count FROM product_stocks           |
+|     inputTag      | SELECT products.tagName FROM products        |
 
 可以看到, 为了执行 badge_views 对应的SQL, 必须要先执行上面的4条sql, 才能构造出一个 badgeView 的对象. 那么这个是不是必须的呢?
 
@@ -714,12 +713,12 @@ isSingeSale |  SELECT 1 FROM discountProducts WHERE discounts.conditionPurchaseC
 
 这几个值只有有一个不满足条件, 其实下面的SQL就没有不要再执行了
 
-    字段名      | 对应的SQL | SQL执行的结果 |
-     --------      |   ------   |   ------   |
-   isMiaosha    |  SELECT 1 FROM products WHERE isSeckill = 1          |     0       |
-isSingeSale |  ~~SELECT 1 FROM discountProducts WHERE discounts.conditionPurchaseCount = 1~~          |   无需计算         |
-   rangeStock    | ~~SELECT product_stocks.count FROM product_stocks~~           |  无需计算          |
-     inputTag      | ~~SELECT products.tagName FROM products~~        |   无需计算         |
+|    字段名      | 对应的SQL | SQL执行的结果 |
+|     --------      |   ------   |   ------   |
+|   isMiaosha    |  SELECT 1 FROM products WHERE isSeckill = 1          |     0       |
+|isSingeSale |  ~~SELECT 1 FROM discountProducts WHERE discounts.conditionPurchaseCount = 1~~          |   无需计算         |
+|   rangeStock    | ~~SELECT product_stocks.count FROM product_stocks~~           |  无需计算          |
+|     inputTag      | ~~SELECT products.tagName FROM products~~        |   无需计算         |
 
 假如 isMiaosha 的结果为 0 了, 其实没有必要往下面再执行了, 直接返回即可.
 
@@ -742,9 +741,9 @@ SQL即是高度抽象的语言, 但是为了执行SQL, SQL内存引擎会生成�
 
 如下面的例子:
 
-    字段名      | 对应的SQL | SQL执行的结果 |
-     --------      |   ------   |   ------   |
-   isMiaosha    |  SELECT 1 FROM products WHERE isSeckill = 1          |     0       |
+|    字段名      | 对应的SQL | SQL执行的结果 |
+|     --------      |   ------   |   ------   |
+|   isMiaosha    |  SELECT 1 FROM products WHERE isSeckill = 1          |     0       |
 
 如果我们已经有了products对象, 直接取 product.isSeckill 即可获取到数据
 
@@ -757,9 +756,9 @@ public class Product {
 
 进一步的优化为:
 
-    字段名      | 对应的SQL | 对应的java代码 |
-     --------      |   ------   |   ------   |
-   isMiaosha    |  SELECT 1 FROM products WHERE isSeckill = 1          |     product.isSeckill == 1  ? 1 : 0  |
+|    字段名      | 对应的SQL | 对应的java代码 |
+|     --------      |   ------   |   ------   |
+|   isMiaosha    |  SELECT 1 FROM products WHERE isSeckill = 1          |     product.isSeckill == 1  ? 1 : 0  |
 
 经过测试发现, 执行java原生的代码的时间, 大约为 单条sql 的100 倍
 
