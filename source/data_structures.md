@@ -16,7 +16,7 @@ DATE: 2018-03-20
 TL;DR
 -----
 ### Java Collections
-![Collection_interfaces](images/Collection_interfaces.png)
+![Collection_interfaces](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/Collection_interfaces.png)
 
 INFO: 推荐阅读[这篇文章](https://www.ntu.edu.sg/home/ehchua/programming/java/J5c_Collection.html), 了解Java的Collections框架
 
@@ -34,7 +34,7 @@ List
 
 2. Java中List的接口关系图
 
-    ![Collection_interfacesList](images/Collection_ListImplementation.png)
+    ![Collection_interfacesList](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/Collection_ListImplementation.png)
 
 NOTE: 为什么接口中要提供一个`iterator`? 我的理解包括下面几点: iterator 要求在获取数据的时候, List没有被修改, 否则就报错(`ConcurrentModificationException`), 这样相对更安全, 更多讨论请查看StackOverflow上的[讨论](https://stackoverflow.com/a/27984817/8186609)
 
@@ -164,7 +164,7 @@ final void checkForComodification() {
 她支持`RandomAccess`, 在 [二分法查找](https://github.com/dengqinghua/my_examples/blob/master/java/src/main/java/com/dengqinghua/algorithms/BinarySearch.java#L30) 的时候比 LinkedList 更加有优势
 
 ### LinkedList
-![linkedList](images/linkedList.png)
+![linkedList](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/linkedList.png)
 
 #### Doubly Linked
 在Java中, LinkedList是双向的, 他还实现了 [Deque](https://docs.oracle.com/javase/7/docs/api/java/util/Deque.html), double ended queue
@@ -253,7 +253,7 @@ INFO: 所经历的项目中没有使用过LinkedList.
 
 Stack
 ------
-![stack](images/stack.png)
+![stack](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/stack.png)
 
 Java8中用`Vector`来实现栈的数据结构
 
@@ -330,7 +330,7 @@ in place of Vector.
 
 Queue
 -----
-![queue](images/queue.png)
+![queue](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/queue.png)
 
 |  操作  |  释义    |
 | ----   | ------   |
@@ -375,7 +375,7 @@ deques as well as those with no fixed size limit.
 
 Tree
 ----
-![tree](images/tree.png)
+![tree](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/tree.png)
 
 1. 基础概念
 
@@ -391,12 +391,12 @@ Tree
     |  leaves   | 叶子节点                                                          |
     |  siblings | 兄弟节点                                                          |
     |  child    | 子树                                                              |
-    |  preorderTraversal   | 前序遍历 ![pre_order_traversal](images/preorder_traversal.jpeg) |
-    |  inorderTraversal    | 中序遍历 ![in_order_traversal](images/inorder_traversal.jpeg) |
-    |  postorderTraversal  | 后序遍历 ![post_order_traversal](images/postorder_traversal.jpeg) |
+    |  preorderTraversal   | 前序遍历 ![pre_order_traversal](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/preorder_traversal.jpeg) |
+    |  inorderTraversal    | 中序遍历 ![in_order_traversal](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/inorder_traversal.jpeg) |
+    |  postorderTraversal  | 后序遍历 ![post_order_traversal](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/postorder_traversal.jpeg) |
 
 ### Binary Tree
-![binary_tree](images/binary_tree.png)
+![binary_tree](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/binary_tree.png)
 
 #### 基本结构
 
@@ -422,7 +422,7 @@ a b + c d e + * *
 
 NOTE: `a b + c d e + * *` 依次入栈, 遇到 a, b 创建树, 分别入栈, 遇到 `+` 将 `a, b` 出栈, `a, b, +` 组成一个新的树, 最终的树为下图所示. 最终可以通过中序遍历进行运算. 另外, 可以后序遍历恢复为 `a b + c d e + * *``
 
-![tree_example](images/tree_example.png)
+![tree_example](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/tree_example.png)
 
 INFO: `Operand` 操作数, 如 a, b, c, d, e; `Operator` 操作符, 如 `+ *`
 
