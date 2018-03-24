@@ -36,7 +36,7 @@
     -
       name: 数据结构
       url: data_structures.html
-      description: 基于Java语言的数据结构整理和总计.
+      description: 基于Java语言的数据结构整理.
 -
   name: MySQL
   documents:
@@ -78,6 +78,6 @@
       url: best_programming.html
       description: 可执行的软件开发实践的零bug落地方案.
     -
-      name: Memorize my mentor
+      name: Memorize My Mentor
       url: memorize_my_mentor.html
       description: 纪念一位Mentor.

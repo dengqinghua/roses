@@ -427,6 +427,7 @@ NOTE: `a b + c d e + * *` 依次入栈, 遇到 a, b 创建树, 分别入栈, 遇
 INFO: `Operand` 操作数, 如 a, b, c, d, e; `Operator` 操作符, 如 `+ *`
 
 ##### BST BinarySearchTree
+- leftNode <= parentNode <= rightNode
 
 References
 ----------
