@@ -61,6 +61,10 @@ Hey! Ukelele!
 
 角标是公司最复杂的系统之一, 每次大促活动的时候, 角标承担着引流的重要责任, 是GMV的保证之一, 角标系统经过几年的演化, 已经变得非常复杂, 我们在近期对角标系统进行了整理和重构, 将角标系统变成了一个基于内存数据库和规则的数据计算系统.
 
+#### [业务流引擎系统](http://blog.dengqinghua.net/witness_flow.html)
+
+随着系统的日益演进, 系统的业务逻辑非常复杂, 尤其是在产品需求频繁变动的情况下, 研发需要不断地进行改动代码, 最终逻辑无人知晓. 为了让核心业务逻辑更清晰, 能够更快速地响应业务的变更, 我们研发了业务流引擎系统. 通过 代码 + 流程图配置 的方式, 使得业务逻辑更加清晰, 将业务的复杂度变为引擎实现的技术难度. 开发只需实现最基本的逻辑方法, 通过方法的组合即可拼接成一个新的业务流程.
+
 ### Ruby
 #### [Ruby知识树](http://blog.dengqinghua.net/ruby_knowledge_tree.html)
 
@@ -74,6 +78,11 @@ Ruby的数据模型, 包括方法查找, 变(常)量查找, 作用域.
 
 基于AST和Vistor模式的arel源码分析, 本人第一遍英文版本的技术文档.
 
+#### [业务流引擎系统](http://blog.dengqinghua.net/witness_flow.html)
+
+随着系统的日益演进, 系统的业务逻辑非常复杂, 尤其是在产品需求频繁变动的情况下, 研发需要不断地进行改动代码, 最终逻辑无人知晓. 为了让核心业务逻辑更清晰, 能够更快速地响应业务的变更, 我们研发了业务流引擎系统. 通过 代码 + 流程图配置 的方式, 使得业务逻辑更加清晰, 将业务的复杂度变为引擎实现的技术难度. 开发只需实现最基本的逻辑方法, 通过方法的组合即可拼接成一个新的业务流程.
+
+
 ### Java
 #### [Java知识树](http://blog.dengqinghua.net/java_knowledge_tree.html)
 
@@ -86,6 +95,10 @@ Ruby的数据模型, 包括方法查找, 变(常)量查找, 作用域.
 #### [数据结构](http://blog.dengqinghua.net/data_structures.html)
 
 基于Java语言的数据结构整理.
+
+#### [基于内存数据库的角标系统设计](http://blog.dengqinghua.net/badge_system.html)
+
+角标是公司最复杂的系统之一, 每次大促活动的时候, 角标承担着引流的重要责任, 是GMV的保证之一, 角标系统经过几年的演化, 已经变得非常复杂, 我们在近期对角标系统进行了整理和重构, 将角标系统变成了一个基于内存数据库和规则的数据计算系统.
 
 ### MySQL
 #### [MySQL知识树](http://blog.dengqinghua.net/mysql_knowledge_tree.html)
@@ -117,7 +130,11 @@ Rails Guides风格的markdown模板.
 
 #### [Memorize My Mentor](http://blog.dengqinghua.net/memorize_my_mentor.html)
 
-纪念一位Mentor.
+纪念一位Mentor
+
+#### [Rails服务的Java Thrift微服务迁移](http://blog.dengqinghua.net/microsystem_refactor.html)
+
+面对日益复杂的业务系统和人员储备问题, 我们做了一个艰难的决定, 将原有的Ruby On Rails项目迁移为Java Thrift微服务, 对现有的业务系统进行了分析和重构, 并对业务微服务化之后的分布式事务一致性, 跨服务数据检索等提供了解决方案.
 
 Issues
 ------
