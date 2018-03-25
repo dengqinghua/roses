@@ -57,65 +57,65 @@ Hey! Ukelele!
 文章列表
 --------
 ### 推荐
-#### [基于内存数据库的角标系统设计](https://github.com/dengqinghua/roses/blob/master/source/badge_system.md)
+#### [基于内存数据库的角标系统设计](http://blog.dengqinghua.net/badge_system.html)
 
 角标是公司最复杂的系统之一, 每次大促活动的时候, 角标承担着引流的重要责任, 是GMV的保证之一, 角标系统经过几年的演化, 已经变得非常复杂, 我们在近期对角标系统进行了整理和重构, 将角标系统变成了一个基于内存数据库和规则的数据计算系统.
 
 ### Ruby
-#### [Ruby知识树](https://github.com/dengqinghua/roses/blob/master/source/ruby_knowledge_tree.md)
+#### [Ruby知识树](http://blog.dengqinghua.net/ruby_knowledge_tree.html)
 
 开发Ruby和Rails需要了解的20%内容.
 
-#### [Ruby数据模型](https://github.com/dengqinghua/roses/blob/master/source/ruby_knowledge_tree.md)
+#### [Ruby数据模型](http://blog.dengqinghua.net/ruby_knowledge_tree.html)
 
 Ruby的数据模型, 包括方法查找, 变(常)量查找, 作用域.
 
-#### [Arel源码分析](https://github.com/dengqinghua/roses/blob/master/source/arel.md)
+#### [Arel源码分析](http://blog.dengqinghua.net/arel.html)
 
 基于AST和Vistor模式的arel源码分析, 本人第一遍英文版本的技术文档.
 
 ### Java
-#### [Java知识树](https://github.com/dengqinghua/roses/blob/master/source/java_knowledge_tree.md)
+#### [Java知识树](http://blog.dengqinghua.net/java_knowledge_tree.html)
 
 开发Java需要了解的20%内容
 
-#### [命令行下的Maven](https://github.com/dengqinghua/roses/blob/master/source/maven_under_command_line.md)
+#### [命令行下的Maven](http://blog.dengqinghua.net/maven_under_command_line.html)
 
 命令行下的maven, 可以大大提高开发效率, 减少对IDE的依赖.
 
-#### [数据结构](https://github.com/dengqinghua/roses/blob/master/source/data_structures.md)
+#### [数据结构](http://blog.dengqinghua.net/data_structures.html)
 
 基于Java语言的数据结构整理.
 
 ### MySQL
-#### [MySQL知识树](https://github.com/dengqinghua/roses/blob/master/source/mysql_knowledge_tree.md)
+#### [MySQL知识树](http://blog.dengqinghua.net/mysql_knowledge_tree.html)
 
 ### Go
-#### [GoInstallBinaries i/o timeout问题](https://github.com/dengqinghua/roses/blob/master/source/go_get_timeout_solution.md)
+#### [GoInstallBinaries i/o timeout问题](http://blog.dengqinghua.net/go_get_timeout_solution.html)
 
 ### 音乐
-#### [City Of Star](https://github.com/dengqinghua/roses/blob/master/source/lalaland-city_of_stars.md)
+#### [City Of Star](http://blog.dengqinghua.net/lalaland-city_of_stars.html)
 
 很喜欢 [爱乐之城] 这部电影, City of Stars为其中的原声音乐之一, 刚好在公众号看到了该曲子的吉他版本和Ukulele版本, 便参考和分析了一下歌曲的和弦走向, 和弦编配等.
 
-#### [あの日の帰り道](https://github.com/dengqinghua/roses/blob/master/source/あの日の帰り道.md)
+#### [あの日の帰り道](http://blog.dengqinghua.net/あの日の帰り道.html)
 
 伍伍慧的一首指弹曲.
 
 ### 杂记
-#### [markdown格式实例](https://github.com/dengqinghua/roses/blob/master/source/example_markdown.md)
+#### [markdown格式实例](http://blog.dengqinghua.net/example_markdown.html)
 
 Rails Guides风格的markdown模板.
 
-#### [注释规范](https://github.com/dengqinghua/roses/blob/master/source/comments.md)
+#### [注释规范](http://blog.dengqinghua.net/comments.html)
 
 我们在项目中使用的注释规范.
 
-#### [零bug落地方案](https://github.com/dengqinghua/roses/blob/master/source/best_programming.md)
+#### [零bug落地方案](http://blog.dengqinghua.net/best_programming.html)
 
 可执行的软件开发实践的零bug落地方案.
 
-#### [Memorize My Mentor](https://github.com/dengqinghua/roses/blob/master/source/memorize_my_mentor.md)
+#### [Memorize My Mentor](http://blog.dengqinghua.net/memorize_my_mentor.html)
 
 纪念一位Mentor.
 
