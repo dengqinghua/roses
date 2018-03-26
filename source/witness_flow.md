@@ -40,7 +40,7 @@ INFO: 该引擎的设计参考了Netflix的微服务编排工具[Conductor](http
 
 ### 引擎配置
 
-下面是一个业务流引擎的配置图:
+下面是我们业务流引擎系统的一个的配置图:
 
 ![flow_exmaple](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/complex_example.png)
 
@@ -162,7 +162,7 @@ Witness::Ast::Node.new(definition)
 ### Vistor
 通过`Vistor`对执行树进行遍历
 
-该部分参考了Rails源码中[Arel的设计](./arel.html), 按照深度优先的方式遍历AST树, 每一个`Vistor`都有不同的作用实体,
+该部分参考了Rails源码中[Arel的设计](http://blog.dengqinghua.net/arel.html), 按照深度优先的方式遍历AST树, 每一个`Vistor`都有不同的作用实体,
 分别执行不同的任务.
 
 项目中用到的`Visitor`如下:
