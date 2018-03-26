@@ -36,7 +36,7 @@ DATE: 2017-07-03
 - 流程配置可视化, 流程图即是代码
 - 每一个流程的执行过程可视化
 
-INFO: 该引擎的设计参考了Netflix的微服务编排工具[Conductor](https://netflix.github.io/conductor/)
+INFO: 该引擎的设计参考了 Netflix的微服务编排工具[Conductor](https://netflix.github.io/conductor/) 和 美团的[从0到1：构建强大且易用的规则引擎](https://tech.meituan.com/maze-framework.html)
 
 ### 引擎配置
 
