@@ -1,5 +1,5 @@
 Dengqinghua's Blog
-================
+===================
 
 Hello, 这里是是邓擎铧的[技术blog](http://blog.dengqinghua.net/)源码.
 
@@ -81,6 +81,10 @@ Ruby的数据模型, 包括方法查找, 变(常)量查找, 作用域.
 #### [业务流引擎系统](http://blog.dengqinghua.net/witness_flow.html)
 
 随着系统的日益演进, 系统的业务逻辑非常复杂, 尤其是在产品需求频繁变动的情况下, 研发需要不断地进行改动代码, 最终逻辑无人知晓. 为了让核心业务逻辑更清晰, 更快速地响应业务的变更, 我们研发了业务流引擎系统. 通过 代码 + 流程图配置 的方式, 将业务的复杂度变为引擎实现的技术难度.
+
+#### [基于Sidekiq的异步任务管理引擎](http://blog.dengqinghua.net/sidekiq_task_event.html)
+
+在系统中有一类常见的问题可抽象为: 批量处理n个任务, 每个任务都比较耗时, 希望可以快速地处理这些任务, 并且能知道每一个任务的执行结果情况. 基于这类问题模型, 我们研发了基于Sidekiq的异步任务管理引擎.
 
 ### Java
 #### [Java知识树](http://blog.dengqinghua.net/java_knowledge_tree.html)
