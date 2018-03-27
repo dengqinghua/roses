@@ -100,6 +100,44 @@ Sidekiq4.0之前, 使用的是[Celluloid](https://github.com/celluloid/celluloid
     4. stop: hard stop the Processors by deadline.
     ```
 
+    初始化Manager
+
+
+    ```ruby
+    class Manager
+      def initialize(options={})
+        logger.debug { options.inspect }
+        @options = options
+        @count = options[:concurrency] || 25
+        raise ArgumentError, "Concurrency of #{@count} is not supported" if @count < 1
+
+        # @done代表是否结束处理任务
+        @done = false
+        @workers = Set.new
+
+        # 生成多个Processor, 每一个Processor对象在被调用start方法的时候, 会生成了一个线程
+        @count.times do
+          @workers << Processor.new(self)
+        end
+
+        # 添加一个锁, 用于修改 @workers 的数据, 管理Processor对象
+        @plock = Mutex.new
+      end
+    end
+    ```
+
+    启动Manager, 即调用`Processor#start`
+
+    ```ruby
+    class Manager
+      def start
+        @workers.each do |x|
+          x.start
+        end
+      end
+    end
+    ```
+
 2. Processor
 
     `Processor` 是处理任务的类, 包括下面的功能
@@ -112,10 +150,47 @@ Sidekiq4.0之前, 使用的是[Celluloid](https://github.com/celluloid/celluloid
       c. call #perform
     ```
 
+    `Processor#start`, 启动Processor, 创建一个线程
+
+    ```ruby
+    class Processor
+      def start
+        # 生成一个线程, 并调用run方法
+        @thread ||= safe_thread("processor", &method(:run))
+      end
+    end
+    ```
+
+    `Processor#run`, 处理任务, 去Redis获取队列数据
+
+    ```ruby
+    # @mgr 即为他对应的 Manager 对象
+    class Processor
+      def run
+        begin
+          while !@done
+            # 调用 perform 方法进行处理
+            process_one
+          end
+
+          # 一旦结束了, 则将 Processor对象中的manager对应的worker去掉, 即是改变了上述 Manager的 @workers 数组
+          @mgr.processor_stopped(self)
+        rescue Sidekiq::Shutdown
+          # 在接收到TERM SIGNAL之后, 等待超时的时候sidekiq会抛出异常 Sidekiq::Shutdown, 见下文分析
+          # 线程被关闭.
+          @mgr.processor_stopped(self)
+        rescue Exception => ex
+          # 程序报错了, Manager#processor_died 会重新生成一个新的Processor线程
+          @mgr.processor_died(self, ex)
+        end
+      end
+    end
+    ```
+
 ### 队列重启时job的处理
 当我们更新代码后, 需要重启`Sidekiq`的进程. 一般来说, 我们会发送一个 `TERM SIGNAL` 指令给Sidekiq进程, 它的执行步骤如下
 
-1. 停止fetch jobs.
+1. 停止Fetch jobs.
 
     ```ruby
     class Manager
@@ -237,6 +312,8 @@ Sidekiq4.0之前, 使用的是[Celluloid](https://github.com/celluloid/celluloid
     ```
 
 NOTE: 注意在接收到`TERM SIGNAL`一些job有可能被重复执行. Sidekiq的FAQ中有说明: **Remember that Sidekiq will run your jobs AT LEAST once**.
+
+INFO: Sidekiq 还提供了 Scheduling Job 的功能, 即到时执行任务, 该部分使用了一个 SortedSet 的redis数据结构, 排序的因子为任务的执行时间. 在启动 Sidekiq 服务的时候, 会启动了一个线程轮询所有执行时间小于等于当前时间的队列数据, 将该部分的数据在pop至队列, 再由 Processor 处理.
 
 Sidekiq Middleware
 ------------------
