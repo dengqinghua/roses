@@ -22,7 +22,7 @@
       description: Ruby的数据模型, 包括方法查找, 变(常)量查找, 作用域.
     -
       name: Arel源码分析
-      url: arel.html
+      url: arel.html?lang=en
       description: 基于AST和Vistor模式的arel源码分析, 本人第一遍英文版本的技术文档.
     -
       name: 基于Sidekiq的异步任务管理引擎
