@@ -387,7 +387,7 @@ Tree
     |  length   | path所经过的edge的个数                                            |
     |  root     | 根节点                                                            |
     |  depth    | 深度,是指从root节点到该节点经过某一个path的length.节点J的depth为2 |
-    |  hieght   | 高度,是指节点到最远的一个leave的length,节点E的hieght为2           |
+    |  height   | 高度,是指节点到最远的一个leaf的length,节点E的hieght为2           |
     |  leaves   | 叶子节点                                                          |
     |  siblings | 兄弟节点                                                          |
     |  child    | 子树                                                              |
@@ -428,6 +428,32 @@ INFO: `Operand` 操作数, 如 a, b, c, d, e; `Operator` 操作符, 如 `+ *`
 
 ##### BST BinarySearchTree
 - leftNode <= parentNode <= rightNode
+
+一些重要的方法包括
+
+```java
+- .build              构建一棵树
+- #insert             插入某个数字
+- #remove             移除
+- #contains           是否包含某个数字
+- #preOrderTraversal  先序遍历
+- #inOrderTraversal   中序遍历
+- #postOrderTraversal 后序遍历
+```
+
+上述方法的实现请见例子: [BinarySearchTree](https://github.com/dengqinghua/my_examples/blob/master/java/src/main/java/com/dengqinghua/algorithms/BinarySearchTree.java) 和 对应的测试用例: [BinarySearchTreeTest](https://github.com/dengqinghua/my_examples/blob/master/java/src/test/java/com/dengqinghua/algorithms/BinarySearchTreeTest.java)
+
+### AVL Tree
+AVL (Adelson-Velskii and Landis), a balanced Tree
+
+- Binary Tree
+- 任何一个节点的左右子树的高度差的绝对值 <= 1
+
+NOTE: depth: 深度,是指从root节点到该节点经过某一个path的length, height: 高度, 是指节点到最远的一个leaf的length
+
+如下图所示, 只有 左边是 AVL Tree, 右边不是, 右边的 2 的高度为2, 8 的高度为0, 不满足 左右子树的高度差的绝对值 <= 1 的条件
+
+![avl_tree](images/avl_tree.png)
 
 References
 ----------
