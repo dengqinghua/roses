@@ -123,17 +123,22 @@
   </script>
 
   <script type="text/javascript">
-    var gitalk = new Gitalk({
-      clientID: '0f5824fe1c09851e9781',
-      clientSecret: '61710a77ee98cddce06f408a398f05c8622e9575',
-      repo: 'blog_comments',
-      owner: 'dengqinghua',
-      admin: ['dengqinghua'],
-      id: (location.pathname).split("/").pop().substring(0, 49),
-      distractionFreeMode: true,
-      language: "zh-CN"
-    });
-    gitalk.render('comment');
+    var locationId = (location.pathname).split("/").pop().substring(0, 49);
+
+    if (locationId) {
+      var gitalk = new Gitalk({
+        clientID: '0f5824fe1c09851e9781',
+        clientSecret: '61710a77ee98cddce06f408a398f05c8622e9575',
+        repo: 'blog_comments',
+        owner: 'dengqinghua',
+        admin: ['dengqinghua'],
+        id: locationId,
+        distractionFreeMode: true,
+        language: "zh-CN"
+      });
+
+      gitalk.render('comment');
+    }
   </script>
 </body>
 </html>
