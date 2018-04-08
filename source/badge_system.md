@@ -14,6 +14,38 @@ DATE: 2018-03-09
 
 --------------------------------------------------------------------------------
 
+TL;DR
+------
+角标的计算使用了 `视图` + `SQL` 的数据计算引擎概念.
+
+如下图所示:
+![sql_tree](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/sql_tree_example.png)
+
+每个业务系统查看数据的角度是不一样的, 所以他们都有自己的视图字段, 如上图的
+
+- isHongPiPiWuyou
+- isSingleOnSale
+- isZhuanchangPromoted
+- isTodayNew
+
+每个字段又对应一条或多条计算SQL
+
+如 `isSingleOnSale`
+
+```SQL
+SELECT true FROM input_view.discountRules
+WHERE
+      (price >= conditionMoney AND type = 0 AND conditionMoney > 0)
+    OR
+      (conditionPurchaseCount = 1 AND type = 1)
+    AND
+      (discountRules.price > 0)
+LIMIT 1
+```
+
+通过一层一层的视图建立和计算, 我们将复杂的问题变成了 `视图数据准备` + `SQL表达逻辑` 这两个部分,
+将逻辑表达和数据准备进行**解耦**, 从而可以通过简单的配置和组合, 实现复杂的业务逻辑.
+
 角标的整体设计
 -------------
 ### 角标基本属性
