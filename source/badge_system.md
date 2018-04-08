@@ -18,33 +18,28 @@ TL;DR
 ------
 角标的计算使用了 `视图` + `SQL` 的数据计算引擎概念.
 
-如下图所示:
-![sql_tree](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/sql_tree_example.png)
+如现在需要表达一个角标, 满足这个角标条件的SQL为:
 
-每个业务系统查看数据的角度是不一样的, 所以他们都有自己的视图字段, 如上图的
-
-- isHongPiPiWuyou
-- isSingleOnSale
-- isZhuanchangPromoted
-- isTodayNew
-
-每个字段又对应一条或多条计算SQL
-
-如 `isSingleOnSale`
-
-```SQL
-SELECT true FROM input_view.discountRules
+```sql
+SELECT * FROM deals
 WHERE
-      (price >= conditionMoney AND type = 0 AND conditionMoney > 0)
-    OR
-      (conditionPurchaseCount = 1 AND type = 1)
-    AND
-      (discountRules.price > 0)
-LIMIT 1
+    isHongPiPiWuyou = 1
+  AND
+    isSingleOnSale = 1
+  AND
+    isZhuanchangPromoted = 1
+  AND
+    isTodayNew = 1
 ```
+
+计算引擎将上述SQL进行了分析, 分析过程为:
+
+![sql_tree](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/sql_tree_example.png)
 
 通过一层一层的视图建立和计算, 我们将复杂的问题变成了 `视图数据准备` + `SQL表达逻辑` 这两个部分,
 将逻辑表达和数据准备进行**解耦**, 从而可以通过简单的配置和组合, 实现复杂的业务逻辑.
+
+NOTE: 该思路理论上可以用于任何复杂的业务系统, 实现前端数据层和后端数据层的解耦, 表示层和数据层解耦
 
 角标的整体设计
 -------------
