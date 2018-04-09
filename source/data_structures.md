@@ -453,7 +453,9 @@ NOTE: depth: 深度,是指从root节点到该节点经过某一个path的length,
 
 如下图所示, 只有 左边是 AVL Tree, 右边不是, 右边的 2 的高度为2, 8 的高度为0, 不满足 左右子树的高度差的绝对值 <= 1 的条件
 
-![avl_tree](images/avl_tree.png)
+![avl_tree](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/avl_tree.png)
+
+算法代码: [这里](https://github.com/dengqinghua/my_examples/blob/master/java/src/main/java/com/dengqinghua/algorithms/AVLTree.java)
 
 References
 ----------
