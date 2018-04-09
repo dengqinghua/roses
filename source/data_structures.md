@@ -455,6 +455,58 @@ NOTE: depth: 深度,是指从root节点到该节点经过某一个path的length,
 
 ![avl_tree](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/avl_tree.png)
 
+平衡的情况包括四种
+
+1. 左子树 的 左子树 插入 一个节点
+
+    ```shell
+     如下图 10 的 左子树 5, 插入 节点 1
+
+                      20                     10
+                10        30    ->       5        20
+             5     15                  1        15   30
+          1
+
+     以20为节点, 向右旋转20的左节点10
+    ```
+
+2. 右子树 的 右子树 插入 一个节点
+
+    ```shell
+    如下图 30 的 右子树 40, 插入 节点 50
+
+          20                           30
+     10        30          ->    20         40
+             25   40           10  25          50
+                     50
+
+    以20为节点, 向左旋转20的右节点30
+    ```
+
+3. 左子树 的 右子树 插入 一个节点
+
+    ```shell
+    如下图 10 的 右子树 15, 插入 节点 18
+
+                  20                        15
+         10             30    ->    10             20
+       8    15                    8             18    30
+              18
+
+    分两步: 先按照case2旋转10, 再按照case1旋转20
+    ```
+
+4. 右子树 的 左子树 插入 一个节点
+
+    ```shell
+    如下图 30 的 左子树 25, 插入 节点 21
+
+               20                     25
+        10            30     ->    20    30
+                   25    50      10 21     50
+                21
+    ```
+
 算法代码: [这里](https://github.com/dengqinghua/my_examples/blob/master/java/src/main/java/com/dengqinghua/algorithms/AVLTree.java)
 
 References
