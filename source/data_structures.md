@@ -509,6 +509,15 @@ NOTE: depth: 深度,是指从root节点到该节点经过某一个path的length,
 
 算法代码: [这里](https://github.com/dengqinghua/my_examples/blob/master/java/src/main/java/com/dengqinghua/algorithms/AVLTree.java)
 
+### B(+) Tree
+
+> Disk accesses are incredibly expensive!
+
+B 树的高度一般为3层左右, 通过一些冗余的搜索信息, 可以快速地进行数据的定位
+
+- 数据存储在叶子节点中
+- 非叶子节点保存搜索信息
+
 References
 ----------
 - [Grokking Algorithms: An illustrated guide for programmers and other curious people](https://www.amazon.com/Grokking-Algorithms-illustrated-programmers-curious/dp/1617292230/ref=sr_1_1?ie=UTF8&qid=1519440970&sr=8-1&keywords=Grokking+Algorithms)
