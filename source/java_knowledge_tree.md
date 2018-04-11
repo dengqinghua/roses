@@ -186,6 +186,11 @@ NOTE: 个人觉得lambda表达式大大简化了Java, 建议阅读 Java 8 Lambda
 - Method References
 - peek(和ruby的tap很相似)
 
+### JVM
+[JVM剖析](./learn_jvm.html)
+
+### Concurrency
+
 代码规范
 --------
 - [阿里巴巴Java开发手册](https://github.com/alibaba/p3c/blob/master/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C%EF%BC%88%E7%BA%AA%E5%BF%B5%E7%89%88%EF%BC%89.pdf)
