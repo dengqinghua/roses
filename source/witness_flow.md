@@ -43,7 +43,7 @@ INFO: 该引擎的设计参考了 Netflix的微服务编排工具[Conductor](htt
 
 下面是我们业务流引擎系统的一个的配置图:
 
-![flow_exmaple](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/complex_example.png)
+![flow_exmaple](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/complex_example.png)
 
 每一个配置项都包括下面几个参数
 
@@ -87,7 +87,7 @@ INFO: 该引擎的设计参考了 Netflix的微服务编排工具[Conductor](htt
 #### 流程引擎改造
 1. 配置流程图名称
 
-    ![setting_flow_name](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/setting_flow_name.png)
+    ![setting_flow_name](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/setting_flow_name.png)
 
     如上图所示, 整个流程配置了两个字段
 
@@ -120,7 +120,7 @@ INFO: 该引擎的设计参考了 Netflix的微服务编排工具[Conductor](htt
     ```
 
 ### 执行结果可视化
-![runners](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/running_result.png)
+![runners](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/running_result.png)
 
 从上图可以看到, 每一个运行步骤都是可视化的, 包括下面这些参数
 
@@ -143,7 +143,7 @@ INFO: 该引擎的设计参考了 Netflix的微服务编排工具[Conductor](htt
 
 架构设计
 --------
-![架构图](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/witness_structure.png)
+![架构图](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/witness_structure.png)
 
 ### Runner
 执行引擎, 该部分接收流程图配置信息和对应的参数, 负责执行业务流程图的代码.
