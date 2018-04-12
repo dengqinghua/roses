@@ -26,7 +26,8 @@ DATE: 2017-07-03
 
 下面是一次产品业务逻辑的PRD文档
 
-![complex_example](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/prd_complex_example.png)
+
+![complex_example](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/prd_complex_example.png)
 
 上述逻辑非常复杂, 每一个分支又有自己独立的逻辑, 再经过几次需求的变动, 最终报名的逻辑无人知晓,
 只能通过研发去从代码中找逻辑, 出现的bug也很难排查.
