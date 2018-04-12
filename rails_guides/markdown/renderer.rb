@@ -45,10 +45,20 @@ HTML
           root ||= shape.chars.find_index { |char| char.downcase != "x" }.to_i + 1
 
           chord_code(shape, root, name)
+        elsif text =~ /^PDF:\s+(.+)$/
+          doc_code(:pdf, $1)
         else
           text = convert_footnotes(text)
           "<p>#{text}</p>"
         end
+      end
+
+      def doc_code(doc_type, name)
+        <<-HTML
+<div>
+  <embed src='https://drive.google.com/viewerng/viewer?embedded=true&url=https://github.com/dengqinghua/roses/raw/master/assets/doc/#{name}.#{doc_type}' style='width:100%; height:600px;'>
+</div>
+HTML
       end
 
       ##
@@ -113,7 +123,7 @@ HTML
           # if a bulleted list follows the first item is not rendered
           # as a list item, but as a paragraph starting with a plain
           # asterisk.
-          body.gsub(/^(TIP|IMPORTANT|CAUTION|WARNING|NOTE|INFO|TODO|DATE)[.:](.*?)(\n(?=\n)|\Z)/m) do
+          body.gsub(/^(TIP|IMPORTANT|CAUTION|WARNING|NOTE|INFO|TODO|DATE|PDF|CHORD)[.:](.*?)(\n(?=\n)|\Z)/m) do
             css_class = \
               case $1
               when "CAUTION", "IMPORTANT"
