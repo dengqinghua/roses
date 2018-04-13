@@ -518,6 +518,21 @@ B 树的高度一般为3层左右, 通过一些冗余的搜索信息, 可以快�
 - 数据存储在叶子节点中
 - 非叶子节点保存搜索信息
 
+#### B 和 B+ 的区别
+参考这里 [Difference between B Tree and B+ Tree](http://www.differencebetween.info/difference-between-b-tree-and-b-plus-tree)
+
+
+Map
+---
+![Collection_MapImplementation](images/Collection_MapImplementation.png)
+
+### Hashing
+Hash包含两个元素
+
+- Hash Function
+- Storage, 一般是Array
+
+
 References
 ----------
 - [Grokking Algorithms: An illustrated guide for programmers and other curious people](https://www.amazon.com/Grokking-Algorithms-illustrated-programmers-curious/dp/1617292230/ref=sr_1_1?ie=UTF8&qid=1519440970&sr=8-1&keywords=Grokking+Algorithms)
