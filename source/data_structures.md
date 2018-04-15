@@ -532,6 +532,72 @@ Hash包含两个元素
 - Hash Function
 - Storage, 一般是Array
 
+例子:
+
+```java
+Map<String, String> map = new HashMap<>();
+map.put("ds", "v587");
+```
+
+上述过程的伪代码包括:
+
+```java
+mapInMemory = map.getMemory        // 预获取内存的一块区域
+hashValue = hash("ds")             // 获取到一个内存地址
+mapInMemory.set(hashValue, "v587") // 设置值
+```
+
+#### Collision
+当不同的key, 调用hash函数的时候, 返回的值相同, 这样的情况称为 Collision
+
+```
+hash("ds1") === hash("ds2")
+```
+
+尽量减少 Collision 情况的发生, 需要是的 hash() 不重复
+
+在 [Data Structures and Algorithm Analysis in Java](https://www.amazon.com/Data-Structures-Algorithm-Analysis-Java/dp/0132576279/ref=sr_1_1?s=books&ie=UTF8&qid=1519441056&sr=1-1&keywords=Data+Structures+Algorithm+Analysis+java) 这本书书中, 介绍了两种处理冲突的方案
+
+1. Separate Chaining
+
+    用LinkedList存储Collision的数据
+
+    NOTE: 一般来说, 会对 tableSize 进行 mod 运算, 作为数组的下标值
+
+2. Open Addressing
+
+    将数据按照某种方法存储在相邻的位置, 需要更小的`Load Factor`
+
+    - Linear Probing
+    - Quadratic Probing
+    - Double Hashing
+
+参考文档: [这里](https://www.cnblogs.com/gaochundong/p/hashtable_and_perfect_hashing.html)
+
+#### Load Factor
+真实的数据的个数/分配的内存区域的个数
+
+在java中设置了一个 `DEFAULT_LOAD_FACTOR` 参数, 当发现当前对象的 Load Factor 值
+大于 DEFAULT_LOAD_FACTOR 这个值, 说明内存区域不够了, 需要继续扩展, 扩展之后
+需要进行rehash
+
+NOTE: 尽量减少她rehash的概率, 如果确定了HashMap的Size, 可以在新建的时候就设置好
+
+```
+// 预先设置大小为 100
+Map<String, String> map = new HashMap<>(100);
+```
+
+NOTE: Java中的 DEFAULT_LOAD_FACTOR 为 0.75, 初始的容量 DEFAULT_INITIAL_CAPACITY 为 16
+
+#### equals and hashCode
+hashCode: 用于 hash 函数中
+
+NOTE: 在String类中会有一个field为`hash`, 默认为0, 如果一个string被调用了hashCode方法,
+该hash值会被自动赋值, 即使用 `String#hash` 做了hashCode的缓存.
+
+equals: 在SDK中, 解决Collision的方式为 Chaining, 即使用一条链表来存储对应的冲突记录, 此时获取一个key对应的value时,
+假如链表中有多个值, 则使用`equals`方法对 key 进行比对, 如果相等, 则取该key对于的value值返回
 
 References
 ----------
