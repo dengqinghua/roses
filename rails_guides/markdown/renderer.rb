@@ -55,8 +55,7 @@ HTML
 
       def doc_code(doc_type, name)
         <<-HTML
-<div>
-  <embed src='https://drive.google.com/viewerng/viewer?embedded=true&url=https://github.com/dengqinghua/roses/raw/master/assets/doc/#{name}.#{doc_type}' style='width:100%; height:650px;'>
+<div class="google_doc" style="display:none" url="https://github.com/dengqinghua/roses/raw/master/assets/doc/#{name}.#{doc_type}">
 </div>
 HTML
       end
