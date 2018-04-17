@@ -34,7 +34,7 @@ WHERE
 
 计算引擎将上述SQL进行了分析, 分析过程为:
 
-![sql_tree](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/sql_tree_example.png)
+![sql_tree](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/sql_tree_example.png)
 
 通过一层一层的视图建立和计算, 我们将复杂的问题变成了 `视图数据准备` + `SQL表达逻辑` 这两个部分,
 将逻辑表达和数据准备进行**解耦**, 从而可以通过简单的配置和组合, 实现复杂的业务逻辑.
@@ -57,7 +57,7 @@ NOTE: 坑位: 指一个商品的展示位置
 
 如下图所示, 页面中 `限时特价` 和 `即将恢复至49.9元` 即为一个完整的角标
 
-![example](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/badge_example.png)
+![example](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_example.png)
 
 ### 角标作用实体
 角标的作用实体为一个坑位, 这个坑位里面可以是
@@ -69,7 +69,7 @@ NOTE: 坑位: 指一个商品的展示位置
 ### 角标基础模型
 什么样的坑位能命中角标? 可以考虑用id来配置角标, 即建立`坑位id` 和`角标`的关联关系
 
-![origin_model](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/badge_model_origin.png)
+![origin_model](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_model_origin.png)
 
 ### 角标需求范围扩展
 上述设计为最初的角标设计模型, 只是一个简单的 坑位id 和 角标id的对应关系, 通过该关系来进行配置.
@@ -81,35 +81,35 @@ NOTE: 坑位: 指一个商品的展示位置
     ```
     我有一个活动, 这个活动为了将PC端的用户引流到APP端, 所以我要求在PC打一个特殊的标, 这个标不在APP展示
     ```
-    ![badge_with_client](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/badge_with_client.png)
+    ![badge_with_client](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_with_client.png)
 
 2. 要求在某个页面中展示
 
     ```
     我有一个秒杀的活动, 这个活动有可能在APP的任何地方展示, 但是我这个角标, 只能在APP的秒杀列表页展示, 其他的地方不展示
     ```
-    ![badge_with_pages](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/badge_with_pages.png)
+    ![badge_with_pages](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_with_pages.png)
 
 3. 要求不同用户身份打不同的标
 
     ```
     我有一个拉新客的活动, 这个活动只给新用户展示, 不给老用户展示
     ```
-    ![badge_with_user_type](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/badge_with_user_type.png)
+    ![badge_with_user_type](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_with_user_type.png)
 
 4. 要求不同用户角色打不同的标
 
     ```
     3月8日, 我想搞一个女神活动, 希望一些标只对 女性 用户展示
     ```
-    ![badge_with_user_role](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/badge_with_user_role.png)
+    ![badge_with_user_role](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_with_user_role.png)
 
 5. 要求通过店铺id进行批量打标
 
     ```
     我有一个店铺, 这个店铺很不错, 我想给这个店铺下所有的活动都打上一个 "好商家" 的角标, 我不希望用 商品id 来设置角标, 而是希望用店铺id来配置
     ```
-    ![badge_with_user_association](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/badge_with_user_association.png)
+    ![badge_with_user_association](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_with_user_association.png)
 
 
 6. 特殊规则打标
@@ -119,7 +119,7 @@ NOTE: 坑位: 指一个商品的展示位置
     我希望所有满足"一个商品就可以商品优惠"的商品, 打上一个 "促销价XXX元"的标, 全网适用
     我希望...
     ```
-    ![badge_with_special_rule](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/badge_with_special_rule.png)
+    ![badge_with_special_rule](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_with_special_rule.png)
 
 #### 黑暗时代
 虽然出现了上述需求, 当时角标系统还是坚持着简单的 `坑位id 和 角标id的对应关系` 的方式, 仅保存角标的基本属性, 所以出现了下面的情况
@@ -144,7 +144,7 @@ NOTE: 坑位: 指一个商品的展示位置
 
 最终的角标设计如下:
 
-![badge_add_rule](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/badge_add_rule.png)
+![badge_add_rule](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_add_rule.png)
 
 角标特殊规则设计
 ----------------
@@ -183,7 +183,7 @@ NOTE: 坑位: 指一个商品的展示位置
 
 可以设计为下面的形式:
 
-![special_rule](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/special_rule.png)
+![special_rule](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/special_rule.png)
 
 ### 角标条件
 从上面的设计形式, 可以看到, 最原子化的数据为 **条件**, 条件和条件之间, 由条件组进行关系组装
@@ -206,7 +206,7 @@ NOTE: 坑位: 指一个商品的展示位置
 
 添加了特殊角标规则之后的设计图如下:
 
-![badge_add_rule_complete](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/badge_add_rule_complete.png)
+![badge_add_rule_complete](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_add_rule_complete.png)
 
 角标计算
 -------
@@ -326,7 +326,7 @@ public class SqlRunnerTest {
 (商品是秒杀 而且 分类是男装) 或者 (商品为单件优惠 而且 剩余库存 在 10 到 20 之间)
 ```
 
-![special_rule](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/special_rule.png)
+![special_rule](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/special_rule.png)
 
 如果我们以角标来看所有数据, 假设有一张角标视图表(badge_views), 她存储了所有的数据, 那么结合上述的DSL设计, 我们可以将上述需求转化为一条SQL:
 
@@ -355,7 +355,7 @@ WHERE
 ### 角标计算设计
 下面描述一个请求过来, 角标的匹配过程
 
-![badge_procedure](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/badge_procedure.png)
+![badge_procedure](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_procedure.png)
 
 下面通过这个例子, 描述一下角标匹配的完整过程
 
@@ -411,7 +411,7 @@ WHERE
 
 其中 角标1 被过滤调了, 只剩下角标2, 3
 
-![badge_procedure1](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/badge_procedure1.png)
+![badge_procedure1](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_procedure1.png)
 
 #### 角标匹配数据准备
 INFO: 角标匹配数据是指 查看一个商品是否命中角标需要的数据, 如 一个角标的规则为: 商品库存 > 10. 那么 角标匹配数据则为: 商品库存
@@ -515,7 +515,7 @@ conditionPurchaseCount: 1
 count: 15
 ```
 
-![badge_procedure2](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/badge_procedure2.png)
+![badge_procedure2](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_procedure2.png)
 
 #### 角标视图数据准备
 角标匹配数据准备好之后, 便可以开始计算了
@@ -569,7 +569,7 @@ badgeView.rangeStock = 15
 badgeView.inputTag = "男装"
 ```
 
-![badge_procedure3](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/badge_procedure3.png)
+![badge_procedure3](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_procedure3.png)
 
 #### 执行角标视图SQL
 执行SQL
@@ -587,11 +587,11 @@ WHERE
 
 可以发现, 执行出来是有结果的, 所以命中角标
 
-![badge_procedure4](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/badge_procedure4.png)
+![badge_procedure4](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_procedure4.png)
 
 整个过程如下:
 
-![badge_procedure_all](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/badge_procedure_all.png)
+![badge_procedure_all](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_procedure_all.png)
 
 角标查询优化
 ------------

@@ -18,7 +18,7 @@ maven命令行执行main方法和test
 -----------------------------
 在开发java的时候, 我们经常重度依赖IDE, 但是IDE的可编辑的区域很小
 
-![badIde](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/badIde.png)
+![badIde](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badIde.png)
 
 NOTE: 写代码的区域很小, 建议关闭所有的窗口, 只留下写代码的区域.
 另外, 可通过ideaVim可以自定制vim的[快捷键](https://github.com/dengqinghua/dotfiles#ideavimrc)
@@ -26,7 +26,7 @@ NOTE: 写代码的区域很小, 建议关闭所有的窗口, 只留下写代码�
 
 但是我们需要起main服务或者Run测试怎么办? 一般来说我们会在IDE下运行多个任务
 
-![runTestAndServerBoth](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/runTestAndServerBoth.png)
+![runTestAndServerBoth](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/runTestAndServerBoth.png)
 
 这样写代码的区域会更少, 而且控制台会一直打开着, 占用写代码的区域.
 
@@ -44,7 +44,7 @@ NOTE: 上述两个命令可以合并成一个 `mvn compile exec:java -Dexec.main
 
 启动一个服务
 
-![commandLine](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/incmdRun.png)
+![commandLine](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/incmdRun.png)
 
 INFO: 如果想指定不同的参数, 可以通过 -D 添加:
 
@@ -52,7 +52,7 @@ INFO: 如果想指定不同的参数, 可以通过 -D 添加:
 mvn compile exec:java -Dexec.mainClass=com.dengqinghua.example.App -Ddsg=v587
 ```
 
-![commandLineWithArgus](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/dsgv587Run.png)
+![commandLineWithArgus](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/dsgv587Run.png)
 
 NOTE: 输入 mvn --help 可以看到: `-D,--define <arg>  Define a system property`
 
@@ -88,7 +88,7 @@ Maven test插件 [maven-sirefile-plugin](http://maven.apache.org/surefire/maven-
 mvn test
 ```
 
-![mavenTest](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/mavenTest.png)
+![mavenTest](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/mavenTest.png)
 
 #### Run指定的class的测试
 
@@ -148,7 +148,7 @@ Maven Debug
 ---------
 有时候我们需要在程序进行调试, 如在 main 方法中添加断点
 
-![addBreakPoint](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/addBreakPoint.png)
+![addBreakPoint](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/addBreakPoint.png)
 
 运行服务的时候此时需要以debug的方式启动.
 
@@ -169,9 +169,9 @@ INFO: Maven调用了原生的[jdb](https://docs.oracle.com/javase/7/docs/technot
 
 可以使用 IDE 创建一个 [RemoteDebug](https://www.jetbrains.com/help/idea/run-debug-configuration-remote-debug.html)
 
-![addDebug](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/addDebug.png)
+![addDebug](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/addDebug.png)
 
-![addRemoteDebug](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/addRemoteDebug.png)
+![addRemoteDebug](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/addRemoteDebug.png)
 
 填写相应参数
 
@@ -180,17 +180,17 @@ INFO: Maven调用了原生的[jdb](https://docs.oracle.com/javase/7/docs/technot
 - Name: mvnDebug
 - Module's classpath: my-example
 
-![createMVNDebug](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/createMVNDebug.png)
+![createMVNDebug](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/createMVNDebug.png)
 
 NOTE: 线上的代码也可以用类似的方式进行debug, 只需要改变Host和Port, 并在启动的时候添加Debug参数即可
 
 运行debug
 
-![runDebug](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/runDebug.png)
+![runDebug](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/runDebug.png)
 
 最终可以在IDE中捕获到断点, 并进行调试
 
-![goIntoBreakpoint](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/goIntoBreakpoint.png)
+![goIntoBreakpoint](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/goIntoBreakpoint.png)
 
 Maven Purpose
 ------------

@@ -15,7 +15,7 @@ DATE: 2018-04-11
 JVM内存区域
 -----------
 ### 架构图
-![jvm_structure](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/jvm_structure.png)
+![jvm_structure](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/jvm_structure.png)
 
 ### 对象的创建
 内存分配方式:
