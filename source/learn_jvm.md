@@ -15,7 +15,7 @@ DATE: 2018-04-11
 JVM内存区域
 -----------
 ### 架构图
-![jvm_structure](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/jvm_structure.png)
+![jvm_structure](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/HotSpotJVMArchitecture.png)
 
 ### 对象的创建
 内存分配方式:
@@ -41,7 +41,6 @@ CMS基于`mark-sweep`, 通过使用的是 空闲列表
 - WeakReference
 - PhantomReference
 
-
 JVM研究工具
 ----------
 | jps | 查看当前所有的java进程 |
@@ -62,3 +61,4 @@ References
 - [JVM公众号总结](https://mp.weixin.qq.com/s/sFnMxEwJiYRjwTiBIjfcZg)
 - [JConsole](https://docs.oracle.com/javase/8/docs/technotes/guides/management/jconsole.html)
 - [RunTime-DataArea](http://java8.in/java-virtual-machine-run-time-data-areas/)
+- [Java Garbage Collection Basics](http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html)
