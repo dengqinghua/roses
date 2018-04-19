@@ -526,7 +526,7 @@ Map
 ---
 ![Collection_MapImplementation](images/Collection_MapImplementation.png)
 
-### Hashing
+### HashMap
 Hash包含两个元素
 
 - Hash Function
@@ -547,8 +547,10 @@ hashValue = hash("ds")             // 获取到一个内存地址
 mapInMemory.set(hashValue, "v587") // 设置值
 ```
 
+参考: [hashtable_and_perfect_hashing](https://www.cnblogs.com/gaochundong/p/hashtable_and_perfect_hashing.html)
+
 #### Collision
-当不同的key, 调用hash函数的时候, 返回的值相同, 这样的情况称为 Collision
+当不同的key, 调用hash函数的时候, 返回的值相同([示例代码](https://github.com/dengqinghua/my_examples/blob/master/java/src/test/java/com/dengqinghua/EverythingTest.java#L42)), 这样的情况称为 Collision
 
 ```
 hash("ds1") === hash("ds2")
@@ -572,7 +574,7 @@ hash("ds1") === hash("ds2")
     - Quadratic Probing
     - Double Hashing
 
-参考文档: [这里](https://www.cnblogs.com/gaochundong/p/hashtable_and_perfect_hashing.html)
+参考 [Hash Collision Probabilities](http://preshing.com/20110504/hash-collision-probabilities/)
 
 #### Load Factor
 真实的数据的个数/分配的内存区域的个数
@@ -590,6 +592,8 @@ Map<String, String> map = new HashMap<>(100);
 
 NOTE: Java中的 DEFAULT_LOAD_FACTOR 为 0.75, 初始的容量 DEFAULT_INITIAL_CAPACITY 为 16
 
+建议阅读: [What is the significance of load factor in HashMap?](https://stackoverflow.com/q/10901752/8186609)
+
 #### equals and hashCode
 hashCode: 用于 hash 函数中
 
@@ -598,6 +602,108 @@ NOTE: 在String类中会有一个field为`hash`, 默认为0, 如果一个string�
 
 equals: 在SDK中, 解决Collision的方式为 Chaining, 即使用一条链表来存储对应的冲突记录, 此时获取一个key对应的value时,
 假如链表中有多个值, 则使用`equals`方法对 key 进行比对, 如果相等, 则取该key对于的value值返回
+
+#### Java HashMap源码分析
+FLOW:
+initMap=>start: 初始化HashMap
+initDatas=>operation: 设置相关参数:
+capacity: 16
+loadFactor: 0.75f
+Threshold: 16 * 0.75 = 12
+table: Node<String, String>[16]
+putView=>operation: hashMap.put("key", "dsgv587")
+setHash=>operation: hash运算: hash("key"):>#hash-function
+calculateI=>operation: 计算hash值对应的table中的位置i:>#table-index
+cond1=>condition: 位置i不为空
+cond1yes=>operation: table[i] = new Node("key", "dsgv587")
+cond2=>condition: 检查key值冲突
+cond2yes=>operation: 添加一个新的节点,
+将原有节点放在该节点后面
+trySplit=>operation: 如果发现位置i中的冲突的节点数大于
+TREEIFY_THRESHOLD - 1 (7)
+makeTree=>operation: 将冲突的所有节点变成一颗红黑树
+cond2no=>operation: 更新该节点
+isOverflowed=>condition: table已经使用的
+size大于threshold
+double=>operation: 进行resize():>#resize
+initMap->putView->initDatas->setHash->calculateI->cond1
+cond1(yes)->cond1yes->isOverflowed
+cond1(no)->cond2
+cond2(yes)->cond2yes->trySplit
+trySplit->makeTree(right)->isOverflowed
+cond2(no)->cond2no
+isOverflowed(yes)->double
+
+##### hash function
+java的hash函数很有意思, `h >>> 16` 是指对h的指往后以16位, 然后再做异或门(XOR)操作, 这样做是为了让高位值分布更加均匀一些
+
+```java
+static final int hash(Object key) {
+    int h;
+    return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+}
+```
+
+>  Computes key.hashCode() and spreads (XORs) higher bits of hash
+to lower.  Because the table uses power-of-two masking, sets of
+hashes that vary only in bits above the current mask will
+always collide. (Among known examples are sets of Float keys
+holding consecutive whole numbers in small tables.)  So we
+apply a transform that spreads the impact of higher bits
+downward. There is a tradeoff between speed, utility, and
+quality of bit-spreading. Because many common sets of hashes
+are already reasonably distributed (so don't benefit from
+spreading), and because we use trees to handle large sets of
+collisions in bins, we just XOR some shifted bits in the
+cheapest possible way to reduce systematic lossage, as well as
+to incorporate impact of the highest bits that would otherwise
+never be used in index calculations because of table bounds.
+
+[Back](#java-hashmap源码分析)
+
+##### table index
+如何计算这个hash值在table中对应的index是什么呢? 代码如下:
+
+```java
+i = (table.length - 1) & hash
+```
+
+即取hash的地位, 比如初始化的table大小为 16,
+
+假如 hash 函数的返回值为 9, 则 i 为 9
+
+```
+1111 & 1001 = 1001
+```
+
+假如 hash 函数的返回值为 18, 则 i 为 2
+
+```
+1111 & 1 0010 = 0010
+```
+
+NOTE: 在JDK的设计中, table.length 为 2的幂次方.
+
+[Back](#java-hashmap源码分析)
+
+##### resize
+`resize` 会将hash的table的throw变为两倍. 注意这里设置了table的最大的threshold: `1 << 30`
+
+部分源码如下:
+
+```java
+if ((newCap = oldCap << 1) < MAXIMUM_CAPACITY && oldCap >= DEFAULT_INITIAL_CAPACITY) {
+  newThr = oldThr << 1; // double threshold
+}
+```
+
+[Back](#java-hashmap源码分析)
+
+NOTE: 阅读源码真的获益匪浅, 学到很多位操作如: `^`, `>>>`, `<<` 和 `++size > threshold` 等,
+惊叹一些代码的简洁性. Hash算法本身不难, 但是很精妙, 该部分只是涉及到了HashMap的很小一部分,
+关于`Object#hashCode()`方法, 有时间的时候还需要再研究一下.
+
+Hash部分的FAQ可以参考: [HashMap Interview Questions ](http://www.javarticles.com/2012/11/hashmap-faq.html)
 
 References
 ----------

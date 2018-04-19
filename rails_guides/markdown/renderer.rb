@@ -47,10 +47,21 @@ HTML
           chord_code(shape, root, name)
         elsif text =~ /^PDF:\s+(.+)$/
           doc_code(:pdf, $1)
+        elsif text =~ /^FLOW:/
+          text = text.gsub("FLOW:", "")
+          flowchart_code(text)
         else
           text = convert_footnotes(text)
           "<p>#{text}</p>"
         end
+      end
+
+      def flowchart_code(code)
+        <<-HTML
+<div class="flowchart" style="display:none" id="#{SecureRandom.hex}">
+  #{code}
+</div>
+HTML
       end
 
       def doc_code(doc_type, name)
@@ -122,7 +133,7 @@ HTML
           # if a bulleted list follows the first item is not rendered
           # as a list item, but as a paragraph starting with a plain
           # asterisk.
-          body.gsub(/^(TIP|IMPORTANT|CAUTION|WARNING|NOTE|INFO|TODO|DATE|PDF|CHORD)[.:](.*?)(\n(?=\n)|\Z)/m) do
+          body.gsub(/^(TIP|IMPORTANT|CAUTION|WARNING|NOTE|INFO|TODO|DATE|PDF|CHORD|FLOW)[.:](.*?)(\n(?=\n)|\Z)/m) do
             css_class = \
               case $1
               when "CAUTION", "IMPORTANT"
