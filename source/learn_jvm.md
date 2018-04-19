@@ -66,3 +66,4 @@ References
 - [JConsole](https://docs.oracle.com/javase/8/docs/technotes/guides/management/jconsole.html)
 - [RunTime-DataArea](http://java8.in/java-virtual-machine-run-time-data-areas/)
 - [Java Garbage Collection Basics](http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html)
+- [G1收集器与CMS收集器的对比与实战](http://blog.chriscs.com/2017/06/20/g1-vs-cms/)
