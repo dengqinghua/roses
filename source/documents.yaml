@@ -36,6 +36,14 @@
   name: Java
   documents:
     -
+      name: 数据结构
+      url: data_structures.html
+      description: 基于Java语言的数据结构整理.
+    -
+      name: JVM剖析
+      url: learn_jvm.html
+      description: JVM剖析
+    -
       name: Java知识树
       url: java_knowledge_tree.html
       description: 开发Java需要了解的20%内容.
@@ -48,10 +56,6 @@
       name: 命令行下的Maven
       url: maven_under_command_line.html
       description: 命令行下的maven, 可以大大提高开发效率, 减少对IDE的依赖.
-    -
-      name: 数据结构
-      url: data_structures.html
-      description: 基于Java语言的数据结构整理.
 -
   name: MySQL
   documents:
