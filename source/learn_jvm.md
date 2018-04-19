@@ -27,10 +27,25 @@ JVM内存区域
 
 CMS基于`mark-sweep`, 通过使用的是 空闲列表
 
+### GC
+#### 判断对象是否存活
+
+| 算法 | 描述 | 优点 | 缺点 |
+| -------- | ------ | ---- |
+| Reference Counting | 给对象添加引用计算器 | 简单 | 难以解决对象之间相互引用问题 |
+| Reachability Analysis | 设置 GC root, 构造一颗树, 看一个对象是否和GC root相连 | 复杂,需要遍历整棵树 |
+
+#### 引用概念
+- StrongReference, 即 Object
+- SoftReference
+- WeakReference
+- PhantomReference
+
+
 JVM研究工具
 ----------
-| --- | --- |
 | jps | 查看当前所有的java进程 |
+|    --------     |   ------   |
 | jstat -gc <vmid> | 查看当前gc情况, 包括GC情况, 新生代/老生代的内存占用情况等 |
 | jinfo -v <vmid> | 查看JVM的启动参数 |
 | jstack <vmid> | JVM的栈信息 |
@@ -39,8 +54,6 @@ JVM研究工具
 
 下面仅仅对图形化工具 `jconsole` 和 `jvisualvm` 进行介绍, 并写一些 内存泄漏
 和 线程死锁的例子.
-
-### jconsole
 
 References
 ----------

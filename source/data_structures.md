@@ -579,8 +579,8 @@ hash("ds1") === hash("ds2")
 #### Load Factor
 真实的数据的个数/分配的内存区域的个数
 
-在java中设置了一个 `DEFAULT_LOAD_FACTOR` 参数, 当发现当前对象的 Load Factor 值
-大于 DEFAULT_LOAD_FACTOR 这个值, 说明内存区域不够了, 需要继续扩展, 扩展之后
+在java中设置了一个 `DEFAULT_LOAD_FACTOR` 参数, 初始化 threshold = table.length * DEFAULT_CAPACITY
+当 实际数据的size 大于 threshold 这个值, 说明内存区域不够了, 有更大地概率产生 collision, 故
 需要进行rehash
 
 NOTE: 尽量减少她rehash的概率, 如果确定了HashMap的Size, 可以在新建的时候就设置好
