@@ -609,7 +609,7 @@ initMap=>start: 初始化HashMap
 initDatas=>operation: 设置相关参数:
 capacity: 16
 loadFactor: 0.75f
-Threshold: 16 * 0.75 = 12
+threshold: 16 * 0.75 = 12
 table: Node<String, String>[16]
 putView=>operation: hashMap.put("key", "dsgv587")
 setHash=>operation: hash运算: hash("key"):>#hash-function
@@ -625,7 +625,9 @@ makeTree=>operation: 将冲突的所有节点变成一颗红黑树
 cond2no=>operation: 更新该节点
 isOverflowed=>condition: table已经使用的
 size大于threshold
-double=>operation: 进行resize():>#resize
+double=>operation: 进行resize
+创建一个2倍容量的table
+将原有的值rehash写入新的table:>#resize
 initMap->putView->initDatas->setHash->calculateI->cond1
 cond1(yes)->cond1yes->isOverflowed
 cond1(no)->cond2
@@ -687,7 +689,7 @@ NOTE: 在JDK的设计中, table.length 为 2的幂次方.
 [Back](#java-hashmap源码分析)
 
 ##### resize
-`resize` 会将hash的table的throw变为两倍. 注意这里设置了table的最大的threshold: `1 << 30`
+`resize` 会将hash的table的threshold变为两倍. 注意这里设置了table的最大的threshold: `1 << 30`
 
 部分源码如下:
 

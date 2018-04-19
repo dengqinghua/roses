@@ -59,7 +59,7 @@ HTML
       def flowchart_code(code)
         <<-HTML
 <div class="flowchart" style="display:none" id="#{SecureRandom.hex}">
-  #{code}
+  #{code.strip}
 </div>
 HTML
       end
