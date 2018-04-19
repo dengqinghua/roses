@@ -35,9 +35,9 @@ CMS基于`mark-sweep`, 通过使用的是 空闲列表
 #### 判断对象是否存活
 
 | 算法 | 描述 | 优点 | 缺点 |
-| -------- | ------ | ---- |
+| -------- | ------ | ---- | --- |
 | Reference Counting | 给对象添加引用计算器 | 简单 | 难以解决对象之间相互引用问题 |
-| Reachability Analysis | 设置 GC root, 构造一颗树, 看一个对象是否和GC root相连 | 复杂,需要遍历整棵树 |
+| Reachability Analysis | 设置 GC root, 构造一颗树, 看一个对象是否和GC root相连 | 复杂,需要遍历整棵树 | 解决了相互引用问题 |
 
 #### 引用概念
 - StrongReference, 即 Object
