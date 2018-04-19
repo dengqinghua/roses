@@ -15,7 +15,11 @@ DATE: 2018-04-11
 JVM内存区域
 -----------
 ### 架构图
+#### JVM
 ![jvm_structure](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/HotSpotJVMArchitecture.png)
+
+#### Heap
+![HotspotHeapStructure](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/HotspotHeapStructure.png)
 
 ### 对象的创建
 内存分配方式:
