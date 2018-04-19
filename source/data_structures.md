@@ -670,7 +670,7 @@ never be used in index calculations because of table bounds.
 i = (table.length - 1) & hash
 ```
 
-即取hash的地位, 比如初始化的table大小为 16,
+即取hash的低位, 比如初始化的table大小为 16,
 
 假如 hash 函数的返回值为 9, 则 i 为 9
 
