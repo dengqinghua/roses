@@ -22,7 +22,6 @@ HotSpotJVMArchitecture
 如果更细分地认识, 可以按照下面的方式划分:
 ![jvm_structure](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/jvm_structure.png)
 
-
 #### Heap
 ![HotSpotHeapStructure](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/HotSpotHeapStructure.png)
 
@@ -44,7 +43,15 @@ CMS基于`mark-sweep`, 通过使用的是 空闲列表
 | Reference Counting | 给对象添加引用计算器 | 简单 | 难以解决对象之间相互引用问题 |
 | Reachability Analysis | 设置 GC root, 构造一颗树, 看一个对象是否和GC root相连 | 复杂,需要遍历整棵树 | 解决了相互引用问题 |
 
+#### 垃圾收集算法
+1. Mark Sweep, 标记, 清除. 会产生大量的内存碎片, 可能会导致程序在分配内存时获取不到连续的内存空间, 而不得不进行第二次GC操作
+2. Copying, 复制算法. 将内存按容量划分为两块, 每次只用其中的一块. 用完了就将存活的对象拷贝到另外一块, 再将原来的清除
+
+Copying算法太耗内存, HotSpot的收集算法其实考虑到这一点, 调整了复制的比例. 所以产生了所谓的Eden, Survivor, Tenured等区域
+
 #### 引用概念
+> 我们希望能描述这样一类对象: 当内存空间还足够时, 则能保留在内存之中; 如果内存空间在进行垃圾收集后还是非常紧张, 则可以抛弃这些对象. 所以对象的引用不仅仅只有一种, 衍生出来了 Soft, Weak, Phantom 等形式
+
 - StrongReference, 即 Object
 - SoftReference
 - WeakReference
@@ -55,7 +62,7 @@ JVM研究工具
 | jps | 查看当前所有的java进程 |
 |    --------     |   ------   |
 | jstat -gc <vmid> | 查看当前gc情况, 包括GC情况, 新生代/老生代的内存占用情况等 |
-| jinfo -v <vmid> | 查看JVM的启动参数 |
+| jinfo <vmid> | 查看JVM的启动参数 |
 | jstack <vmid> | JVM的栈信息 |
 | jconsole <vmid> | JVM的可视化工具 |
 | jvisualvm <vmid> | 多合一故障处理工具 |
