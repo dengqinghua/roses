@@ -1,4 +1,4 @@
-Java知识树
+JVM剖析
 =========
 
 DATE: 2018-04-11
@@ -16,7 +16,12 @@ JVM内存区域
 -----------
 ### 架构图
 #### JVM
-![jvm_structure](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/HotSpotJVMArchitecture.png)
+HotSpotJVMArchitecture
+![HotSpotJVMArchitecture](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/HotSpotJVMArchitecture.png)
+
+如果更细分地认识, 可以按照下面的方式划分:
+![jvm_structure](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/jvm_structure.png)
+
 
 #### Heap
 ![HotSpotHeapStructure](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/HotSpotHeapStructure.png)

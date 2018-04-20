@@ -42,7 +42,7 @@
     -
       name: JVM剖析
       url: learn_jvm.html
-      description: JVM剖析
+      description: JVM的一些知识点和总结.
     -
       name: Java知识树
       url: java_knowledge_tree.html
