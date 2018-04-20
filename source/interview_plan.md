@@ -38,7 +38,7 @@ Blogs
 Use Sql Memory Engine to Solve frontend badge Problems
 
 - Use [calcite](https://calcite.apache.org/) to run memory databases
-- Combine conditon, rule, sqlAnalyze, badge and badgeView
+- Combine condition, rule, sqlAnalyze, badge and badgeView
 - How source data prepared
 - Optimize sqls, connections, prepare statements and logs
 
