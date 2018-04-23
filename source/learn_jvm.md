@@ -80,9 +80,10 @@ day1->day2->day3->day4
     - 存放Java的一些方法和Class, 可以认为是`Method Area`
     - 在`Full Garbage Collection`的时候, 会清理该部分
 
-NOTE: 各个Generation的内存分配比例默认为?
+NOTE: 各个Generation的内存分配比例默认为: **Young Generation** 中, **Eden** 和 **Survivor** 的默认比例为8:1, 可以通过 -XX:SurvivorRatio=8 进行设置,
+而 **Old Generation** 和 **Young Generation** 比例为 2: 1, 可以通过 -XX:NewRatio=2 进行配置. 参考: [Java HotSpot VM Options](http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html)
 
-#### 步骤
+#### 内存分配和回收策略(Serial)
 FLOW:
 init=>start: 创建新的对象
 toEden=>operation: 将对象放到Eden
@@ -92,7 +93,7 @@ EdenGC=>operation: Young Generation GC(Minor GC)
 mark=>operation: 标记对象是否有引用
 remove=>operation: 将还在引用的对象放入survivor区域:>#survivor-choose
 survivorFull=>condition: survivor(0/1) full?
-promotionCondition=>condition: 对象存活时间超过threshold
+promotionCondition=>condition: 对象存活时间超过threshold:>#object-age
 promotion=>operation: Promotion
 对象由Young Generation变成Old Generation
 被转移至Tenured区域
@@ -107,6 +108,11 @@ survivorFull(no)->promotionCondition
 promotionCondition(yes)->promotion
 
 如果 `Old Generation` 区域, 即 `Tenured` 区域满了之后, 会触发 `Major GC`
+
+##### object age
+JVM给了每一个对象一个Age计数器, 当对象在`survivor`经历一次`Minor GC`的时候, Age便加1
+当Age达到threshold(默认为15, 通过-XX:MaxTenuringThreshold=15进行设置), 则会进行
+`Promotion`
 
 ##### survivor choose
 我们知道有两个survivor区
@@ -137,9 +143,9 @@ NOTE: 为什么需要有两个区域? 我的理解是为了避免内存碎片问
 - System.gc(Major)
 
 #### Garbage Collectors
-- Serial GC
-- Paralle/ParalleOld GC
-- CMS (Concurrent Mark Sweep)
+- Serial GC (Young: Copying, Old: Mark Compact)
+- Paralle Scavange GC(Young(MultiThread): Copying, Old(SingleThread): Mark Compact)
+- CMS, Concurrent Mark Sweep
 - G1
 
 ##### CMS
@@ -159,17 +165,40 @@ NOTE: 吞吐量 Throughput 为 CPU用于运行用户代码的时间 / (运行用
 当 Generation 的空间变小之后, 一次GC的时间更快, 但是GC会更频繁, 这样的话在相同的时间内, GC的总时间
 不一定会更快
 
+#### GC日志
+参数设置
+
+```
+-XX:+DisableExplicitGC
+-XX:+PrintGCDetails
+-XX:+PrintGCApplicationStoppedTime
+-XX:+PrintGCApplicationConcurrentTime
+-XX:+PrintGCDateStamps
+-Xloggc:gclog.log
+-XX:+UseGCLogFileRotation
+-XX:NumberOfGCLogFiles=5
+-XX:GCLogFileSize=2000k
+```
+
+INFO: 如果是用 **maven exec:java** 来执行, 可以添加配置
+```
+export MAVEN_OPTS="-XX:+DisableExplicitGC -XX:+PrintGCDetails -XX:+PrintGCApplicationStoppedTime -XX:+PrintGCApplicationConcurrentTime -XX:+PrintGCDateStamps -Xloggc:gclog.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=2000k -Xmx30M"
+```
+
+参考: [Enabling and Analyzing the Garbage Collection Log](https://dzone.com/articles/enabling-and-analysing-the-garbage-collection-log)
+
 JVM研究工具
 ----------
 ### SDK自带工具
 | 名称 | 描述 |
 |    --------     |   ------   |
 | jps | 查看当前所有的java进程 |
-| jstat -gc <vmid> | 查看当前gc情况, 包括GC情况, 新生代/老生代的内存占用情况等 |
-| jinfo <vmid> | 查看JVM的启动参数 |
-| jstack <vmid> | JVM的栈信息 |
-| jconsole <vmid> | JVM的可视化工具 |
-| jvisualvm <vmid> | 多合一故障处理工具 |
+| jstat -gc | 查看当前gc情况, 包括GC情况, 新生代/老生代的内存占用情况等 |
+| jinfo | 查看JVM的启动参数 |
+| jstack | JVM的栈信息 |
+| jconsole | JVM的可视化工具 |
+| jvisualvm | 多合一故障处理工具 |
+| jmap | 内存映象工具, heapdump |
 
 下面仅仅对图形化工具 `jconsole` 和 `jvisualvm` 进行介绍, 并写一些 内存泄漏
 和 线程死锁的例子.
