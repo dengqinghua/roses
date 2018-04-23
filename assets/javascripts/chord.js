@@ -57,29 +57,7 @@ $(function(){
     },
     { target: this });
 
-    var notesArray = [];
-
-    console.log(svg.notes());
-    svg.notes().forEach(function(note, index) {
-      // 解决空弦对不上的问题
-      if (note == '40') {
-        notesArray[index] = 'E2';
-      } else if (note == '45') {
-        notesArray[index] = 'A2';
-      } else if (note == '50') {
-        notesArray[index] = 'D3';
-      } else if (note == '55') {
-        notesArray[index] = 'G3';
-      } else if (note == '59') {
-        notesArray[index] = 'B3';
-      } else if (note == '64') {
-        notesArray[index] = 'E4';
-      } else {
-        notesArray[index] = note;
-      }
-    })
-
-    var notes = notesArray.join(":");
+    var notes = svg.notes().join(":");
 
     console.log(notes);
 
