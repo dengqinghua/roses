@@ -87,6 +87,13 @@ Ruby的数据模型, 包括方法查找, 变(常)量查找, 作用域.
 在系统中有一类常见的问题可抽象为: 批量处理n个任务, 每个任务都比较耗时, 希望可以快速地处理这些任务, 并且能知道每一个任务的执行结果情况. 基于这类问题模型, 我们研发了基于Sidekiq的异步任务管理引擎.
 
 ### Java
+#### [数据结构](http://blog.dengqinghua.net/data_structures.html)
+
+基于Java语言的数据结构整理.
+
+#### [JVM剖析](http://blog.dengqinghua.net/learn_jvm.html)
+JVM的一些知识点和总结.
+
 #### [Java知识树](http://blog.dengqinghua.net/java_knowledge_tree.html)
 
 开发Java需要了解的20%内容
@@ -94,10 +101,6 @@ Ruby的数据模型, 包括方法查找, 变(常)量查找, 作用域.
 #### [命令行下的Maven](http://blog.dengqinghua.net/maven_under_command_line.html)
 
 命令行下的maven, 可以大大提高开发效率, 减少对IDE的依赖.
-
-#### [数据结构](http://blog.dengqinghua.net/data_structures.html)
-
-基于Java语言的数据结构整理.
 
 #### [基于内存数据库的角标系统设计](http://blog.dengqinghua.net/badge_system.html)
 
@@ -117,6 +120,8 @@ Ruby的数据模型, 包括方法查找, 变(常)量查找, 作用域.
 #### [あの日の帰り道](http://blog.dengqinghua.net/あの日の帰り道.html)
 
 伍伍慧的一首指弹曲.
+
+#### [Es Ware Schon Gewesen](http://blog.dengqinghua.net/it_could_have_been.html)
 
 ### 杂记
 #### [markdown格式实例](http://blog.dengqinghua.net/example_markdown.html)
