@@ -689,7 +689,10 @@ NOTE: 在JDK的设计中, table.length 为 2的幂次方.
 [Back](#java-hashmap源码分析)
 
 ##### resize
-`resize` 会将hash的table的threshold变为两倍. 注意这里设置了table的最大的threshold: `1 << 30`
+`resize` 会将hash的table的 threshold变为两倍: `newThr = oldThr << 1`.
+容量capacity变成两倍: `newCap = oldCap << 1`.
+
+NOTE: 这里设置了table的最大的threshold: `1 << 30`
 
 部分源码如下:
 
@@ -705,7 +708,7 @@ NOTE: 阅读源码真的获益匪浅, 学到很多位操作如: `^`, `>>>`, `<<`
 惊叹一些代码的简洁性. Hash算法本身不难, 但是很精妙, 该部分只是涉及到了HashMap的很小一部分,
 关于`Object#hashCode()`方法, 有时间的时候还需要再研究一下.
 
-Hash部分的FAQ可以参考: [HashMap Interview Questions ](http://www.javarticles.com/2012/11/hashmap-faq.html)
+Hash部分的FAQ可以参考: [HashMap Interview Questions](http://www.javarticles.com/2012/11/hashmap-faq.html)
 
 References
 ----------
