@@ -239,6 +239,10 @@ body {
     display: none;
   }
 
+  .search {
+    display: none;
+  }
+
   .more-info-container {
     position: absolute;
     top: .5em;
