@@ -25,6 +25,23 @@ dl { margin: 0 0 1.5em 0; }
 dl dt { font-weight: bold; }
 dd { margin-left: 1.5em;}
 
+form {
+  display: inline;
+}
+
+form input {
+  width: 200px;
+  padding-right: 0.2em;
+  font-size: .9em;
+  width: 200px;
+  border-radius: 0.5em;
+  background-clip: padding-box;
+  background-color: #f2f2f2;
+  border: 1px solid #b3b3b3;
+  color: #888;
+  float: right;
+}
+
 /* .chordSvg { */
 /*   margin: 10px */
 /* } */
