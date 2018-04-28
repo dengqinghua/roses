@@ -42,6 +42,14 @@ form input {
   float: right;
 }
 
+.search:focus {
+  color: #444;
+  border-color: #80b1df;
+  box-shadow: #80b1df 0 0 4px,#80b1df 0 0 3px inset;
+  background-color: #fff;
+  outline: none;
+}
+
 /* .chordSvg { */
 /*   margin: 10px */
 /* } */
