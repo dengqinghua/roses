@@ -637,7 +637,7 @@ cond2(no)->cond2no
 isOverflowed(yes)->double
 
 ##### hash function
-java的hash函数很有意思, `h >>> 16` 是指对h的指往后以16位, 然后再做异或门(XOR)操作, 这样做是为了让高位值分布更加均匀一些
+java的hash函数很有意思, `h >>> 16` 是指对h的指往右移16位, 然后再做异或门(XOR)操作, 这样做是为了让高位值分布更加均匀一些
 
 ```java
 static final int hash(Object key) {
