@@ -118,8 +118,7 @@ JVM的一些知识点和总结.
 很喜欢 [爱乐之城] 这部电影, City of Stars为其中的原声音乐之一, 刚好在公众号看到了该曲子的吉他版本和Ukulele版本, 便参考和分析了一下歌曲的和弦走向, 和弦编配等.
 
 #### [あの日の帰り道](http://blog.dengqinghua.net/あの日の帰り道.html)
-
-伍伍慧的一首指弹曲.
+#### [雨の日はワルツを踊って](http://blog.dengqinghua.net/rain_wwh.html)
 
 #### [Es Ware Schon Gewesen](http://blog.dengqinghua.net/it_could_have_been.html)
 
