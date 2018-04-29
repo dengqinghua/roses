@@ -14,7 +14,7 @@ DATE: 2017-12-10
 
 INFO: Author: 伍々慧, 1=bE, 试听: [这里](https://www.xiami.com/song/1771866339)
 
-NOTE: 由 [完整曲谱](#曲谱) 中可以看到, 该曲的五线谱谱号为bbb, 查看五线谱的对照关系, 为 `bE` 调,
+NOTE: 由 [完整曲谱](#曲谱) 中可以看到, 该曲的五线谱谱号为bbb, 查看五线谱的对照关系, 为 **bE** 调,
 从[维基百科](https://en.wikipedia.org/wiki/Key_signature) 中可以知道: 该谱号约定为一个 **#** 表示添加一个5度, **b** 表示减一个5度.
 
 下图为 `Circle of Fifths` 的完整谱号记录
@@ -35,12 +35,11 @@ b3 4 5 b6 b7 1 2
 1 2 b3 4 5 b6 b7
 ```
 
-但是该部分并未用的是 bE/cm 相关的和弦, 因为加了变调夹夹在第三品, 所以使用的还是 C/a 相关的和弦,
+但是该部分并未用的是 bE/c 相关的和弦, 因为加了变调夹夹在第三品, 所以使用的还是 C/a 相关的和弦,
 其中有 `a -> A` 的转变, 所以用到了一些 A 大调(**6 #7 #1 2 3 #4 #5 6**)的中 `#4, #5`的一些音符.
 
 INTRO-1
 -------
-
 ```
 Fmaj7 -> Edim7 -> Dm7 -> E7 -> Am7
 ```
@@ -75,7 +74,6 @@ CHORD: x07555
 
 INTRO-2
 -------
-
 ```
 Am, Am/E -> Bm6(no5), E7(no5) -> F, F/C -> E
 ```
@@ -187,6 +185,6 @@ END
 
 曲谱
 ----
-完整曲谱下载: [这里](https://github.com/dengqinghua/roses/raw/master/assets/doc/wwh-road.pdf)
+完整曲谱下载: [这里](https://github.com/dengqinghua/roses/raw/master/assets/doc/wwh_rain.pdf)
 
 PDF: wwh_rain
