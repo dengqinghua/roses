@@ -104,7 +104,8 @@ CHORD: x3321x 3
 Part A
 ------
 ```
-Am -> G7 -> C -> C -> D -> E -> Am
+Dm7 -> G7 -> C -> C -> Bdim7/D -> E -> Am
+Dm7 -> G7 -> C -> C -> Bdim7 -> E -> Am
 ```
 
 和弦形式不再展示, 但是比较有意思的是这几点:
