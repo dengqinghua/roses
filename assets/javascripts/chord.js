@@ -58,9 +58,6 @@ $(function(){
     { target: this });
 
     var notes = svg.notes().join(":");
-
-    console.log(notes);
-
     var play_arpeggio = $(this).siblings(".play").children(".play-arpeggio").get(0),
         play_strum    = $(this).siblings(".play").children(".play-strum").get(0),
         play_tone     = $(this).siblings(".play").children(".play-tone").get(0);
