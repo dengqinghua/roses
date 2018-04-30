@@ -18,7 +18,16 @@ TL;DR
 ### Java Collections
 ![Collection_interfaces](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/Collection_interfaces.png)
 
-INFO: 推荐阅读[这篇文章](https://www.ntu.edu.sg/home/ehchua/programming/java/J5c_Collection.html), 了解Java的Collections框架
+INFO: 推荐阅读[这篇文章](https://www.ntu.edu.sg/home/ehchua/programming/java/J5c_Collection.html), 了解Java(1.7)的Collections框架
+
+WARNING: 源码基于 **1.8.0_144**
+
+```shell
+➜ java -version
+java version "1.8.0_144"
+Java(TM) SE Runtime Environment (build 1.8.0_144-b01)
+Java HotSpot(TM) 64-Bit Server VM (build 25.144-b01, mixed mode)
+```
 
 List
 ----
@@ -603,7 +612,7 @@ NOTE: 在String类中会有一个field为`hash`, 默认为0, 如果一个string�
 equals: 在SDK中, 解决Collision的方式为 Chaining, 即使用一条链表来存储对应的冲突记录, 此时获取一个key对应的value时,
 假如链表中有多个值, 则使用`equals`方法对 key 进行比对, 如果相等, 则取该key对于的value值返回
 
-#### Java HashMap源码分析
+#### HashMap源码分析
 FLOW:
 initMap=>start: 初始化HashMap
 initDatas=>operation: 设置相关参数:
@@ -661,7 +670,7 @@ cheapest possible way to reduce systematic lossage, as well as
 to incorporate impact of the highest bits that would otherwise
 never be used in index calculations because of table bounds.
 
-[Back](#java-hashmap源码分析)
+[Back](#hashmap源码分析)
 
 ##### table index
 如何计算这个hash值在table中对应的index是什么呢? 代码如下:
@@ -686,7 +695,7 @@ i = (table.length - 1) & hash
 
 NOTE: 在JDK的设计中, table.length 为 2的幂次方.
 
-[Back](#java-hashmap源码分析)
+[Back](#hashmap源码分析)
 
 ##### resize
 `resize` 会将hash的table的 threshold变为两倍: `newThr = oldThr << 1`.
@@ -702,13 +711,80 @@ if ((newCap = oldCap << 1) < MAXIMUM_CAPACITY && oldCap >= DEFAULT_INITIAL_CAPAC
 }
 ```
 
-[Back](#java-hashmap源码分析)
+[Back](#hashmap源码分析)
+
+INFO: resize 在并发更新的时候, 可能会产生死循环(Before JDK 1.6), 见 [A Beautiful Race Condition](http://mailinator.blogspot.com/2009/06/beautiful-race-condition.html) 和 [Infinite Loop in Hashmap](http://javabypatel.blogspot.in/2016/01/infinite-loop-in-hashmap.html)
 
 NOTE: 阅读源码真的获益匪浅, 学到很多位操作如: `^`, `>>>`, `<<` 和 `++size > threshold` 等,
 惊叹一些代码的简洁性. Hash算法本身不难, 但是很精妙, 该部分只是涉及到了HashMap的很小一部分,
 关于`Object#hashCode()`方法, 有时间的时候还需要再研究一下.
 
 Hash部分的FAQ可以参考: [HashMap Interview Questions](http://www.javarticles.com/2012/11/hashmap-faq.html)
+
+### ConcurrentHashMap
+
+NOTE: ConcurrentHashMap 不允许 **null** 作为 Key和Value
+
+ConcurrentHashMap 和 HashMap 的处理逻辑类似, 但是为了解决并发写入的问题, 引入了ConcurrentLevel的概念
+
+#### ConcurrentLevel
+ConcurrentLevel 设置了同时更新该map的参考线程数. 默认值为: 16
+
+#### ~~Segement(1.7版本, 已过时)~~
+如果以Segement的角度来看待ConcurrentHashMap, 结构如下
+![concurrencyHashMap](images/concurrencyHashMap.png)
+
+可以看做 Segement 是将Map的数据进行打散并重新分配, 类似于算法中的 [Divide and Conquer](https://en.wikipedia.org/wiki/Divide_and_conquer_algorithm)
+
+每一个Segement都持有自己的lock, 故不同的Segement更新互不干扰的.
+
+INFO: 另外一种Map的数据结构: **Hashtable**, 她的相关操作都是添加了 **synchronized** 关键词的, 是整个table都添加了锁.
+下图是 Hashtable 和 ConcurrentHashMap 的获取锁的对比图
+
+![lock_compare](images/lock_compare.png)
+
+参考: [How-does-segmentation-works-in-ConcurrentHashMap](https://www.quora.com/How-does-segmentation-works-in-ConcurrentHashMap)
+
+更新: Java8 去掉了 Segement 的概念, 将锁加在了bucket维度, 也即是node维度, 部分代码如下:
+
+```java
+public class ConcurrentHashMap {
+    /** Implementation for put and putIfAbsent */
+    final V putVal(K key, V value, boolean onlyIfAbsent) {
+            if (key == null || value == null) throw new NullPointerException();
+        int hash = spread(key.hashCode());
+        int binCount = 0;
+        for (Node<K,V>[] tab = table;;) {
+            Node<K,V> f; int n, i, fh;
+
+            // 中间代码省略...
+
+            // 获取到节点
+            f = tabAt(tab, i = (n - 1) & hash);
+
+            // 更新节点
+            synchronized (f) {
+            }
+    }
+}
+```
+
+#### Volatile Read
+ConcurrentHashMap 的 读是`lock-free`的, 她使用了volatile 关键字保证了内存可见性, 如下面的定义Map的节点的结构为
+
+```java
+public class ConcurrentHashMap {
+    static class Node<K,V> implements Map.Entry<K,V> {
+        final int hash;
+        final K key;
+        volatile V val;
+        volatile Node<K,V> next;
+}
+```
+
+关于读写锁的问题, 参考[ConcurrentHashMap read and write locks](https://stackoverflow.com/q/16105554/8186609)
+
+关于 HashMap, ConcurrentHashMap 和 Hashtable 的区别, 可参考这里 [Popular HashMap and ConcurrentHashMap Interview Questions](https://howtodoinjava.com/interview-questions/popular-hashmap-and-concurrenthashmap-interview-questions/)
 
 References
 ----------
