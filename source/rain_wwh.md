@@ -41,7 +41,7 @@ b3 4 5 b6 b7 1 2
 INTRO-1
 -------
 ```
-Fmaj7 -> Edim7 -> Dm7 -> E7 -> Am7
+Fmaj7 -> Edim7 -> Dm7 -> E7 -> Am
 ```
 
 级数走向
@@ -59,7 +59,7 @@ Edim7: `3 b7 b2 5`
 
 CHORD: xx2323
 
-### Dm7 E7 Am7
+### Dm7 E7 Am
 Dm7: `2 6 1 4`
 
 CHORD: xx0211
@@ -68,7 +68,7 @@ E7: `3 7 2 #5`
 
 CHORD: 0xx434
 
-Am7: `6 6 1 3 6`
+Am: `6 6 1 3 6`
 
 CHORD: x07555
 
@@ -158,7 +158,7 @@ Part C
 Part C 和 [INTRO-1](#intro-1) 的走向是一致的.
 
 ```
-Fmaj7 -> Edim7 -> Dm7 -> E7 -> Am7
+Fmaj7 -> Edim7 -> Dm7 -> E7 -> Am
 ```
 
 Part D
