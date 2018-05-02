@@ -45,9 +45,10 @@ NOTE: Atomic类实现了原子化操作, 可以避免 Race Condition 她是无�
 
 参考: [聊聊并发（五）原子操作的实现原理](http://ifeve.com/atomic-operation/)
 
-### Locking with synchronized
-#### Thread State
-![threadLifeCycle](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/threadLifeCycle.jpeg)
+Locking
+-------
+### Thread State
+![threadLifeCycle](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/threadLifeCycle.jpeg)
 
 6个状态, 下面是从JDK8.0中摘抄的注释部分:
 
@@ -65,10 +66,10 @@ BLOCKED 是在等待排他锁, 而 WAITING 是被调用了 `Object#wait()`, `Thr
 而处于等待状态, 并且可以通过 `notify` 或者 `notifyAll` 方法进行唤醒.
 ```
 
-#### 线程通信 Cooperate
+### 线程通信 Cooperate
 为什么需要有 `WAITING` 状态, 是为了进行线程间的通信
 
-##### Share Objects
+#### Share Objects
 线程/进程可以通过共享内存的某个值进行通信. 通过不停地轮询某个值, 来判断是否要进行处理某个业务逻辑. 伪代码如下
 
 ```java
@@ -84,7 +85,7 @@ doThing
 
 参考 [Thread Signaling](http://tutorials.jenkov.com/java-concurrency/thread-signaling.html)
 
-##### Wait Notify and NotifyAll
+#### Wait Notify and NotifyAll
 wait, notify 和 notifyAll 为 Object 的方法, 故他们可以作用在所有的对象上.
 
 wait方法会使得线程放弃CPU的控制权, 只到他被notify
@@ -93,7 +94,7 @@ wait方法会使得线程放弃CPU的控制权, 只到他被notify
 
 NOTE: 为什么需要在 synchronized 里面使用? 在 [这篇文章](http://www.xyzws.com/Javafaq/why-wait-notify-notifyall-must-be-called-inside-a-synchronized-method-block/127) 和 [Stack Overflow](https://stackoverflow.com/questions/2779484/why-must-wait-always-be-in-synchronized-block) 中都有解释
 
-#### Monitor
+### Monitor
 在JVM内部, synchronized 是用 monitor 的概念实现的. Java 的 Monitor 实现了两种类型的 thread synchronized, `mutual exclusion` 和 `cooperation`, 即排他性 和 协作性.
 
 ```java
@@ -105,7 +106,7 @@ synchronized { // monitor region begin, 即 monitorenter
 
 Monitor的模型如下图所示
 
-![threadmonitor](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/threadmonitor.png)
+![threadmonitor](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/threadmonitor.png)
 
 图参考自 [这篇文章](https://www.artima.com/insidejvm/ed2/threadsynch.html)
 

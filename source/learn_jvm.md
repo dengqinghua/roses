@@ -214,7 +214,7 @@ INFO: 参考自[0xCAFEBABE ? - java class file format, an overview](https://blog
 ### 架构图
 SE7的架构如下: `Major Version: 0x0033`, 即51
 
-![class_file_overview](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/class_file_overview.png)
+![class_file_overview](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/class_file_overview.png)
 
 ### javap分析class文件
 通过`javap`可以解析class文件
@@ -424,12 +424,12 @@ CONSTANT_NameAndType_info {
 ### Constant Pool
 Constant Pool(常量池), 定义了Java中用到的常量, 包括总的常量数, 常量类型, 常量索引值等
 
-![Constant_pool](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/Constant_pool.png)
+![Constant_pool](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/Constant_pool.png)
 
 ### Access Flags
 描述了可见性等参数
 
-![access_flags](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/Access_flag.png)
+![access_flags](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/Access_flag.png)
 
 ### Fields
 Fields为字段内容, 如上面提到的 `monthSalary`
@@ -463,7 +463,7 @@ ConstantValue_attribute {
 #### Code Attribute
 下面是Code部分中的attribute
 
-![Code_attribute](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/Code_attribute.png)
+![Code_attribute](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/Code_attribute.png)
 
 ### Methods
 
