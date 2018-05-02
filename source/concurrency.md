@@ -97,6 +97,55 @@ wait方法会使得线程放弃CPU的控制权, 只到他被notify
 
 NOTE: 为什么需要在 synchronized 里面使用? 在 [这篇文章](http://www.xyzws.com/Javafaq/why-wait-notify-notifyall-must-be-called-inside-a-synchronized-method-block/127) 和 [Stack Overflow](https://stackoverflow.com/questions/2779484/why-must-wait-always-be-in-synchronized-block) 中都有解释
 
+##### Monitor
+在JVM内部, synchronized 是用 monitor 的概念实现的. Java 的 Monitor 实现了两种类型的 thread synchronized, `mutual exclusion` 和 `cooperation`, 即排他性 和 协作性.
+
+可以见图
+
+![threadmonitor](images/threadmonitor.png)
+
+图参考自 [这篇文章](https://www.artima.com/insidejvm/ed2/threadsynch.html)
+
+- Entry Set: 所有等待锁的线程集合
+- The Owner: 获得到锁的线程
+- Wait Set: 处于 WAITING 状态的线程
+
+一个线程获取锁的步骤如下:
+
+FLOW:
+goonedoor=>start: 线程 通过入口1
+进入Entry Set
+wantLock=>operation: 通过入口2
+尝试获取锁
+cond1=>condition: 获取成功
+cond1yes=>operation: 进入 The Owner 区域
+占有锁
+cond1no=>operation: 留在 Entry Set 进行等待
+lockavalable=>operation: 发现锁可被占用
+finish=>operation: 在Owner区域处理完操作
+conditonwait=>condition: 是否主动WAIT
+conditonwaityes=>operation: 通过入口3
+释放锁, 进入Wait Set区域
+conditonwaitno=>operation: 通过入口5
+释放锁, 退出
+conditionnotify=>condition: 线程进行notify
+conditionnotifyyes=>operation: Wait Set 通过入口4
+尝试获取锁
+end=>end: 退出
+condwaitlock=>condition: 获取成功
+condwaitlockyes=>operation: 进入 The Owner 区域
+占有锁
+condwaitlockno=>operation: 在 Wait Set 继续等待
+goonedoor(right)->wantLock(right)->cond1
+cond1(yes)->cond1yes->finish->conditonwait
+cond1(no, left)->cond1no->lockavalable(left)->wantLock
+conditonwait(yes, bottom)->conditonwaityes->conditionnotify
+conditionnotify(yes, left)->conditionnotifyyes->condwaitlock
+conditionnotify(no, right)->end
+condwaitlock(yes)->condwaitlockyes
+condwaitlock(no)->condwaitlockno
+conditonwait(no)->end
+
 References
 ----------
 - [What is the difference between atomic/volatile/synchronized?](https://stackoverflow.com/a/9749864/8186609)

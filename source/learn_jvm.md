@@ -193,7 +193,7 @@ export MAVEN_OPTS="-XX:+DisableExplicitGC -XX:+PrintGCDetails -XX:+PrintGCApplic
 | 名称 | 描述 |
 |    --------     |   ------   |
 | jps | 查看当前所有的java进程 |
-| jstat -gc | 查看当前gc情况, 包括GC情况, 新生代/老生代的内存占用情况等 |
+| jstat -gc | 查看当前gc情况, 包括GC情况, 新生代/老生代的内存占用情况等, 参数含义见[这里](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jstat.html) |
 | jinfo | 查看JVM的启动参数 |
 | jstack | JVM的栈信息 |
 | jconsole | JVM的可视化工具 |
