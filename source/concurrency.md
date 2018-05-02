@@ -8,10 +8,8 @@ DATE: 2018-05-01
 阅读完该文档后，您将会了解到:
 
 * 线程安全问题.
-* 内存的共享问题.
+* 锁的实现和线程通信模型.
 * 线程池设计.
-* 线程模型.
-* Java中的线程处理.
 
 --------------------------------------------------------------------------------
 
@@ -49,7 +47,7 @@ NOTE: Atomic类实现了原子化操作, 可以避免 Race Condition 她是无�
 
 ### Locking with synchronized
 #### Thread State
-![threadLifeCycle](images/threadLifeCycle.jpeg)
+![threadLifeCycle](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/threadLifeCycle.jpeg)
 
 6个状态, 下面是从JDK8.0中摘抄的注释部分:
 
@@ -107,7 +105,7 @@ synchronized { // monitor region begin, 即 monitorenter
 
 Monitor的模型如下图所示
 
-![threadmonitor](images/threadmonitor.png)
+![threadmonitor](https://cdn.rawgit.com/dengqinghua/roses/master/assets/images/threadmonitor.png)
 
 图参考自 [这篇文章](https://www.artima.com/insidejvm/ed2/threadsynch.html)
 
