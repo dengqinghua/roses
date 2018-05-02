@@ -709,8 +709,8 @@ div.code_container {
   border:none;
   background: none;
   padding: 1px 3px;
-  font-style: italic;
-  font-size: 13px;
+  font-size: 0.9em;
+  font-weight: bold;
 }
 
 #mainCol ul li {

@@ -34,7 +34,7 @@ Compound Actions:
 
 NOTE: Atomic类实现了原子化操作, 可以避免 Race Condition 她是无锁的, 而是用的[CAS, Compare and Swap](https://en.wikipedia.org/wiki/Compare-and-swap). 性能上比 synchronized 关键字要好, 我在 [这里](https://github.com/dengqinghua/my_examples/blob/master/java/src/test/java/com/dengqinghua/concurrency/AtomicKlassTest.java#L23) 写了Race Condition的例子, 分别用[atomic](https://github.com/dengqinghua/my_examples/blob/master/java/src/test/java/com/dengqinghua/concurrency/AtomicKlassTest.java#L66) 和 [synchronized](https://github.com/dengqinghua/my_examples/blob/master/java/src/test/java/com/dengqinghua/concurrency/AtomicKlassTest.java#L43) 避免了 Race Condition 的问题.
 
-##### Java Atomic Package
+#### Java Atomic Package
 关键词:
 
 - CAS (cmpxchg instruction
@@ -47,10 +47,8 @@ NOTE: Atomic类实现了原子化操作, 可以避免 Race Condition 她是无�
 
 参考: [聊聊并发（五）原子操作的实现原理](http://ifeve.com/atomic-operation/)
 
-### Locking
-
-### Thread
-#### 状态
+### Locking with synchronized
+#### Thread State
 ![threadLifeCycle](images/threadLifeCycle.jpeg)
 
 6个状态, 下面是从JDK8.0中摘抄的注释部分:
@@ -69,7 +67,7 @@ BLOCKED 是在等待排他锁, 而 WAITING 是被调用了 `Object#wait()`, `Thr
 而处于等待状态, 并且可以通过 `notify` 或者 `notifyAll` 方法进行唤醒.
 ```
 
-#### 线程通信
+#### 线程通信 Cooperate
 为什么需要有 `WAITING` 状态, 是为了进行线程间的通信
 
 ##### Share Objects
@@ -97,10 +95,17 @@ wait方法会使得线程放弃CPU的控制权, 只到他被notify
 
 NOTE: 为什么需要在 synchronized 里面使用? 在 [这篇文章](http://www.xyzws.com/Javafaq/why-wait-notify-notifyall-must-be-called-inside-a-synchronized-method-block/127) 和 [Stack Overflow](https://stackoverflow.com/questions/2779484/why-must-wait-always-be-in-synchronized-block) 中都有解释
 
-##### Monitor
+#### Monitor
 在JVM内部, synchronized 是用 monitor 的概念实现的. Java 的 Monitor 实现了两种类型的 thread synchronized, `mutual exclusion` 和 `cooperation`, 即排他性 和 协作性.
 
-可以见图
+```java
+synchronized { // monitor region begin, 即 monitorenter
+    doThingA;
+    ...
+}              // monitor region end, 即 monitorexit
+```
+
+Monitor的模型如下图所示
 
 ![threadmonitor](images/threadmonitor.png)
 
@@ -145,6 +150,11 @@ conditionnotify(no, right)->end
 condwaitlock(yes)->condwaitlockyes
 condwaitlock(no)->condwaitlockno
 conditonwait(no)->end
+
+NOTE: 上面的步骤也说明了: 一个线程如果要变成 WAITING (Object#wait, 不考虑sleep的情况) 状态, 必须要先进入
+The Owner区域获取到锁, 再通过wait方法将锁释放进入Wait Set. 而 `Object#wait` 本身的定义是: 释放锁.
+等待被notify, 那么在释放锁之前, 必须要先获得锁. 同样, `Object#notify` 的定义为: 通知Wait Set去获取锁,
+那么在notify之前也必须要获得锁, 才能释放给Wait Set.
 
 References
 ----------
