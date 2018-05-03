@@ -22,7 +22,11 @@ Racc和Rex分别来源于单词 [Yacc](https://en.wikipedia.org/wiki/Yacc) 和 `
 
 其中 Lexical 就是`词汇`的抽象, Yacc 就是`语法`的抽象
 
+下面是一个语法解析的过程示例:
+
 ![racc_example](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/racc_example.png)
+
+图片和对应的文档来源于[这里](http://epaperpress.com/lexandyacc/intro.html)
 
 对应Racc和Rex, 也是做相同的事情, 仅仅是解析和定义的语言为Ruby, 所以用R开头
 
@@ -120,5 +124,5 @@ Calculator.new.parse("2 | 1") #=> 抛出异常, 因为 | 无法解析: parse err
 
 References
 ----------
-- [http://epaperpress.com/lexandyacc/intro.html](http://epaperpress.com/lexandyacc/intro.html)
-- [rex-and-racc](http://testerstories.com/category/language-building/rex-and-racc/)
+- [Lex and Yacc](http://epaperpress.com/lexandyacc/intro.html)
+- [Rex-and-Racc](http://testerstories.com/category/language-building/rex-and-racc/)
