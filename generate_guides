@@ -4,4 +4,6 @@ puts "rm -rf output/**"
 puts "rake guides:generate"
 `bundle exec rake guides:generate`
 
-puts Dir["output/*.html"]
+Dir["output/*.html"].each do |path|
+  puts File.expand_path(File.dirname(__FILE__)) + "/" + path
+end
