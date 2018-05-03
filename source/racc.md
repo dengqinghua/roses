@@ -83,10 +83,15 @@ end
 1. expression 仅仅是一个名词, 可以起名为abc, bcd都行, 他可以被复用, 即规则可以嵌套使用.  ":"后面是代表各种不同的情况, | 代表 或
 2. DIGIT ADD SUBSTRACT 等, 均为 calculator.rex 中申明的词汇(patterns)
 3. val是指匹配成功之后, 对应的值
-    如字符串 `2 + 2`, 配置到了 `DIGIT ADD DIGIT` 这部分, 则
+
+    如字符串 `2 + 2`, 匹配到了 `DIGIT ADD DIGIT` 这部分, 则
+
+    ```ruby
     val[0] = 2
     val[1] = "+"
     val[2] = 2
+    ```
+
 4. {} 表示的是ruby代码, 即如何处理该语法.
 
 编译
