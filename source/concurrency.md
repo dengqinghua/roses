@@ -155,6 +155,26 @@ The Owner区域获取到锁, 再通过wait方法将锁释放进入Wait Set. 而 
 等待被notify, 那么在释放锁之前, 必须要先获得锁. 同样, `Object#notify` 的定义为: 通知Wait Set去获取锁,
 那么在notify之前也必须要获得锁, 才能释放给Wait Set.
 
+### Reentrancy
+如果是嵌套的 synchronized , 如下所示:
+
+```java
+synchronized(this) {
+    doSthA
+
+    synchronized(this) {
+        doSthA
+    }
+}
+```
+
+Java的锁设计成是可以重复进入的. 线程每次进入一个锁区域的时候 +1, 退出的时候 -1, 如果变为0, 线程则会释放锁
+
+NOTE: 锁的时间尽量短而小, 不然会导致性能比较差
+
+Sharing Objects
+--------------
+
 References
 ----------
 - [What is the difference between atomic/volatile/synchronized?](https://stackoverflow.com/a/9749864/8186609)
