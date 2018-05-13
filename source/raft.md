@@ -42,15 +42,49 @@ Client 和 Server 通信的时候(上图中的步骤1), Server端会写log, 其�
 
 NOTE: 在Kafka的[高可用策略](https://zhuanlan.zhihu.com/p/27587872)中, 也采用了相应的策略: Leader先写日志, 在成功同步到半数以上的Follower之后, 才返回给客户端ack.
 
-Status
-------
+### Key Concepts
+核心的概念如下:
+
+1. Leader
+
+    用于和Client交互的载体
+
+2. Term
+
+    时间序列编号(Terms act as a logical clock in Raft), 每一次Election之后, term 会递增.
+
+    在做心跳的时候, term信息是一直传输的
+
+
+    > Raft divides time into terms of arbitrary length. Terms are numbered with consecutive integers, and each term begins with an election.
+
+3. Log Entries
+
+    用于记录 commands, 即所有的操作
+
+### Consensus Problems to Subproblems
+NOTE: Raft算法将 一致性问题 拆分成了 三个子问题: `leader election`, `log replicated` 和 `safety`
+
+#### Leader Election Problem
+Leader挂了, 将重新进行election, 选出新的Leader
+
+#### Log Replication Problem
+Leader接收到消息之后, 需要写入log, 并将这些log同步到大多数的Follower
+去, Follower 返回ack 之后, Leader 才返回给Client ack.
+
+#### Safety Problem
+????
+
+Leader Election
+---------------
+### Status
 Raft算法每一个节点都有三个状态, 也可以认为是三种身份:
 
 - Follower
 - Candidate
 - Leader
 
-所有的交互都是跟 Leader 进行, 变化会写入 Leader 的log, 再进行 Log Replication, 采用的方式为 Append Entries.
+NOTE: 所有的交互都是跟 Leader 进行, 变化会写入 Leader 的log, 再进行 Log Replication, 采用的方式为 Append Entries.
 
 状态变化如下图:
 
@@ -60,18 +94,17 @@ Raft算法每一个节点都有三个状态, 也可以认为是三种身份:
 
 > Large-scale systems that have a single cluster leader, such as GFS, HDFS, and RAMCloud, typically use a separate **replicated state machine** to manage leader election and store configuration information that must survive leader crashes. Examples of replicated state machines include Chubby and ZooKeeper.
 
-Leader Election
----------------
-### Overview
-FLOW:
-f=>operation: Follower
-c=>operation: Candidate
-l=>operation: Leader
-f(right)->c(right)->l
+### Flow
+Raft采用心跳 **Heartbeat mechanism** 来触发Election.
+
+Leader会周期性地给Follower
+发送心跳, 一旦Follower接收不到消息, 则会重新进行Election
 
 FLOW:
-init=>start: Follower无法接收到Leader的心跳
+init=>start: Follower无法接收到Leader发出的
+Heartbeat(即Election Timeout)
 be_candidate=>operation: Follower变成Candidate
+时间序列Term++
 vote=>operation: Candidate
 让剩下的nodes
 进行Vote
@@ -80,36 +113,69 @@ become_leader=>condition: Candidate
 获取到大多数
 nodes的投票
 become_leader_yes=>operation: Candidate变成Leader
+send_heartbeat=>end: 发送Heartbeat信息
+停止其他节点的election
 init->be_candidate->vote->reply->become_leader
-become_leader(yes)->become_leader_yes
+become_leader(yes)->become_leader_yes->send_heartbeat
 become_leader(no)->be_candidate
 
 ### 超时问题
+一个Candidate进行Election可能会出现下面三种情况
 
-### 同时变为Candidate
+- 成功
+- 失败, 其他的Candidate变成了Leader
+- 超时, 在一定时间内没有收到投票
+
+如果超时了, 会再次进行选取, 此时如果有多个Follower变成了Candidate(Split), 则
+有可能谁都不会胜利, 拿不到大多数的投票, 此时会变回Follower, 并进行随机时间区间(150ms-300ms)的等待
+(randomized election timeouts),
+再进行下一步的leader选取.
+
+由于等待了随机的时间, 再次Split的概率就会很小.
 
 Log Replication
 ---------------
+### Overview
 
 ```
 leader_write_log # 写日志(不提交)
 leader_send_replicate # 复制节点, 发送给follower
 leader_get_majority_of_followers_ack # 获得大多数的follower的确认可写入
-leader_commit # leader 提交写入
+leader_commit # leader 提交(Committed)
 leader_send_commit_signal_to_followers # 通知followers写入
 ```
 
-Timeout Setting
-----------------
-### Election Timeout
-Timeout 之后就换人, Vote for itself
+> If followers crash or run slowly, or if network packets are lost, the leader **retries AppendEntries RPCs indefinitely** (even after it has responded to the client) until all followers eventually store all log entries.
 
-### Heartbeat Timeout
-利用 Append Entries 进行heartbeat
+### 检测不一致的方式
+Leader写入的log形式如下:
 
-如果心跳不对了, 即 Follower 接收不到心跳, 则他成为一个 Candidate, 重新进行选举
+![raft_log_entries](images/raft_log_entries.png)
 
-什么都有可能失败, 同步超时了 或者 失败了, 应该如何处理?
+其中不同的颜色, 代表不同的term.
+
+通过term值和log的最大的index,
+Leader可以知道Follower的Log Entries是否已经追上或者是落后. 如果发现落后了,
+则在下次心跳的时候, 再将数据进行同步.
+
+### 数据不一致的恢复
+下图的例子中, Leader下面所有的follower的数据都不一致
+
+![raft_wrong_replication](raft_wrong_replication.png)
+
+那么他是如何恢复的呢?
+
+
+
+
+### Committed
+论文原文摘录:
+
+> A log entry is committed once the leader that created the entry has replicated it on a majority of the servers (e.g., entry 7). This also **commits all preceding entries** in the leader’s log, including entries created by previous leaders
+
+一旦Leader提交了, 他会将所有给它发确认消息的Follower发送消息, 他们也进行Commit. 另外, 上一个Leader也会被提交.
+
+NOTE: 一旦 `term` 和 `maxIndex` 是一致的, 则最终的结果就是一致的, 存储的命令也是一致的
 
 References
 ----------
