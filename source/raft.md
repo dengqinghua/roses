@@ -68,12 +68,27 @@ NOTE: Raft算法将 一致性问题 拆分成了 三个子问题: `leader electi
 #### Leader Election Problem
 Leader挂了, 将重新进行election, 选出新的Leader
 
+选取的时候会查看 被选取的candidate的时间序列term和对应的log Index 和 自身的对比.
+
+仅仅当
+
+```
+candidate's term > voter's term ||
+(candidate's term == voter's term &&
+candidate's latestLogIndex >= voter's latestLogIndex
+)
+```
+
+这个candidate才能得到voter的赞成票.
+
+NOTE: 选举的规则非常重要, 这个规则和commited的概念一起, 解决了后面safety问题
+
 #### Log Replication Problem
 Leader接收到消息之后, 需要写入log, 并将这些log同步到大多数的Follower
 去, Follower 返回ack 之后, Leader 才返回给Client ack.
 
 #### Safety Problem
-????
+一致性问题, 当
 
 Leader Election
 ---------------
@@ -140,9 +155,8 @@ Log Replication
 ```
 leader_write_log # 写日志(不提交)
 leader_send_replicate # 复制节点, 发送给follower
-leader_get_majority_of_followers_ack # 获得大多数的follower的确认可写入
+leader_get_majority_of_followers_ack # 获得大多数的follower的确认写入
 leader_commit # leader 提交(Committed)
-leader_send_commit_signal_to_followers # 通知followers写入
 ```
 
 > If followers crash or run slowly, or if network packets are lost, the leader **retries AppendEntries RPCs indefinitely** (even after it has responded to the client) until all followers eventually store all log entries.
@@ -158,24 +172,26 @@ Leader写入的log形式如下:
 Leader可以知道Follower的Log Entries是否已经追上或者是落后. 如果发现落后了,
 则在下次心跳的时候, 再将数据进行同步.
 
-### 数据不一致的恢复
-下图的例子中, Leader下面所有的follower的数据都不一致
-
-![raft_wrong_replication](raft_wrong_replication.png)
-
-那么他是如何恢复的呢?
-
-
-
-
 ### Committed
 论文原文摘录:
 
 > A log entry is committed once the leader that created the entry has replicated it on a majority of the servers (e.g., entry 7). This also **commits all preceding entries** in the leader’s log, including entries created by previous leaders
 
-一旦Leader提交了, 他会将所有给它发确认消息的Follower发送消息, 他们也进行Commit. 另外, 上一个Leader也会被提交.
-
 NOTE: 一旦 `term` 和 `maxIndex` 是一致的, 则最终的结果就是一致的, 存储的命令也是一致的
+
+可以证明, 所有已经commited 的 entry, 在所有的机器上是一致的.
+
+Cluster Memeber Changed
+-----------------------
+这一部分讨论的问题是 **如何扩容** 的问题
+
+### Joint Consensus
+TODO: 这部分不是很理解
+
+Client Interaction
+-------------------
+客户端会随机向某一台服务器发送请求, 如果服务器不是leader的话, 它会拒绝这个请求并
+告知最新的leader的地址
 
 References
 ----------
