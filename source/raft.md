@@ -88,7 +88,8 @@ Leader接收到消息之后, 需要写入log, 并将这些log同步到大多数�
 去, Follower 返回ack 之后, Leader 才返回给Client ack.
 
 #### Safety Problem
-一致性问题, 当
+- Election restriction
+- Leader, Follower, Candidate crashed
 
 Leader Election
 ---------------
@@ -171,6 +172,8 @@ Leader写入的log形式如下:
 通过term值和log的最大的index,
 Leader可以知道Follower的Log Entries是否已经追上或者是落后. 如果发现落后了,
 则在下次心跳的时候, 再将数据进行同步.
+
+如果Follower超前了, Follower会将他的数据删除, 保持logEntries和Leader的一致.
 
 ### Committed
 论文原文摘录:
