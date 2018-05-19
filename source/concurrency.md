@@ -35,7 +35,7 @@ NOTE: Atomic类实现了原子化操作, 可以避免 Race Condition 她是无�
 #### Java Atomic Package
 关键词:
 
-- CAS (cmpxchg instruction
+- CAS (cmpxchg instruction)
 - SpinLock
 
 问题:
@@ -48,7 +48,7 @@ NOTE: Atomic类实现了原子化操作, 可以避免 Race Condition 她是无�
 Locking
 -------
 ### Thread State
-![threadLifeCycle](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/threadLifeCycle.jpeg)
+[![threadLifeCycle](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/threadLifeCycle.jpeg)](https://www.uml-diagrams.org/java-thread-uml-state-machine-diagram-example.html?context=stm-examples)
 
 6个状态, 下面是从JDK8.0中摘抄的注释部分:
 
@@ -82,7 +82,6 @@ doThing
 
 上面的方式会一直占有着CPU的时钟, 当会导致CPU的利用率很低
 
-
 参考 [Thread Signaling](http://tutorials.jenkov.com/java-concurrency/thread-signaling.html)
 
 #### Wait Notify and NotifyAll
@@ -106,9 +105,7 @@ synchronized { // monitor region begin, 即 monitorenter
 
 Monitor的模型如下图所示
 
-![threadmonitor](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/threadmonitor.png)
-
-图参考自 [这篇文章](https://www.artima.com/insidejvm/ed2/threadsynch.html)
+[![threadmonitor](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/threadmonitor.png)](https://www.artima.com/insidejvm/ed2/threadsynch.html)
 
 - Entry Set: 所有等待锁的线程集合
 - The Owner: 获得到锁的线程
@@ -174,6 +171,45 @@ NOTE: 锁的时间尽量短而小, 不然会导致性能比较差
 
 Sharing Objects
 --------------
+
+Thread Pool
+----------
+### Task Execution
+- Serial
+
+    单线程: 无法提高 Throughput, 响应缓慢
+
+- Threads Without Limits
+
+    线程的创建和销毁有开销
+    线程会占用内存
+    线程会占用文件资源(File Descriptor)
+
+    无限制的创建线程容易导致CPU负载过高, 内存泄漏等
+
+- Thread With Limits
+
+    使用线程池, 预先生成线程, 线程个数有限, 可控制资源的占用情况
+
+线程池的使用: [示例源码](https://github.com/dengqinghua/my_examples/blob/master/java/src/main/java/com/dengqinghua/concurrency/ThreadPool.java#L33)
+
+```java
+public class ThreadPool {
+    private static final int THREAD_COUNT = 100;
+    private static final Executor executor = Executors.newFixedThreadPool(THREAD_COUNT);
+    public static void runMuiltThreadServerWithThreadPool() throws IOException {
+        ServerSocket socket = new ServerSocket(10080);
+
+        while (true) {
+            final Socket connection = socket.accept();
+            // 这里采用了线程池的方式
+            executor.execute(() -> handleConnection(connection));
+        }
+    }
+}
+```
+
+#### 源码分析
 
 References
 ----------
