@@ -209,7 +209,69 @@ public class ThreadPool {
 }
 ```
 
-#### 源码分析
+### 源码分析
+线程池简而言之是: **创建了多个线程, 来并行地处理一些任务, 任务可以并发地进行, 进程的数目, 存活状态都由线程池来管理和维护**
+
+在 [Java Concurrency in Practice](https://www.amazon.com/Java-Concurrency-Practice-Brian-Goetz/dp/0321349601/ref=sr_1_1?ie=UTF8&qid=1526810637&sr=8-1&keywords=java+concurrency+in+practice) 一书中, 提到了 `Execution Policities`, 包括下面几点
+
+- **What Thread** tasks will be executed
+- **What Order** tasks will be executed(FIFO, LIFP, priority order)
+- **How Many** tasks execute concurrently
+- **How Many** tasks be queued pengding
+- **Which Task** should be selected as a victim when system is overloaded and how the app be notified
+- **What actions** should be taken before/after executing a task
+
+使用线程池会带来很多新的问题, 如上所述. 所以说线程池其实是一种 `Resouces Mangement Tool`
+
+#### Executors
+
+在 concurrency 包中, 实现了下面的几种 `Executor`
+
+- newFixedThreadPool
+- newCachedThreadPool
+- newSingleThreadExecutor
+- newScheduledThreadPool
+
+直观上理解为: thread数目固定, thread数目不固定, thread数目为1 和 定时thread 四种. 出了上述四种, 还有 newWorkStealingPool 和 unconfigurableExecutorService等
+
+#### newFixedThreadPool
+在 [示例代码](https://github.com/dengqinghua/my_examples/blob/master/java/src/main/java/com/dengqinghua/concurrency/ThreadPool.java#L33) 中使用了固定线程的线程池.
+
+```java
+public class ThreadPool {
+    private static final int THREAD_COUNT = 100;
+    private static final Executor executor = Executors.newFixedThreadPool(THREAD_COUNT);
+
+    public static void runMuiltThreadServerWithThreadPool() throws IOException {
+        ServerSocket socket = new ServerSocket(10080);
+
+        while (true) {
+            final Socket connection = socket.accept();
+            // 这里采用了线程池的方式
+            executor.execute(() -> handleConnection(connection));
+        }
+    }
+}
+```
+
+TREE:
+{
+        text: { name: "Executor FrameWork" },
+        children: [
+            {
+                text: { name: "ThreadPoolExecutor" },
+                children: [
+                  { text: { name: "corePoolSize" } },
+                  { text: { name: {val: "maxPoolSize", href: "#源码分析"} } },
+                  { text: { name: "keepAliveTime" } },
+                  { text: { name: "BlockingQueue <Runnable>" } }
+                ],
+            },
+            {
+                text: { name: "execute Runnable" }
+            }
+       ]
+}
 
 References
 ----------

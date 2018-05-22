@@ -50,10 +50,49 @@ HTML
         elsif text =~ /^FLOW:/
           text = text.gsub("FLOW:", "")
           flowchart_code(text)
+        elsif text =~ /^TREE:/
+          config = text.gsub("TREE:", "")
+          tree_code(config)
         else
           text = convert_footnotes(text)
           "<p>#{text}</p>"
         end
+      end
+
+      def tree_code(config)
+        hex_id = SecureRandom.hex
+        config = CGI.unescapeHTML(config.strip)
+
+        hash = begin
+                 eval(config)
+               rescue Exception => ex
+                 raise "#{config}不对 不能解析为hash. #{ex.message}"
+               end
+
+        json = {
+          chart: {
+            container: "##{hex_id}",
+            rootOrientation: "WEST",
+            siblingSeparation:   40,
+            subTeeSeparation:    30,
+            connectors: {
+              type: 'step',
+              style: {
+                stroke: '#bbb',
+                "arrow-end" => 'block-wide-long'
+              }
+            },
+            node: {
+              HTMLclass: 'nodeChart'
+            }
+          }
+        }.merge(nodeStructure: hash).to_json
+
+        <<-HTML
+<div class="tree_chart" style="display:none" id="#{hex_id}">
+  #{json}
+</div>
+HTML
       end
 
       def flowchart_code(code)
