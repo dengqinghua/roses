@@ -72,7 +72,7 @@ HTML
         json = {
           chart: {
             container: "##{hex_id}",
-            rootOrientation: "WEST",
+            rootOrientation: hash.delete(:direction) || "WEST",
             siblingSeparation:   40,
             subTeeSeparation:    30,
             connectors: {

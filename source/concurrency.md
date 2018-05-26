@@ -254,24 +254,118 @@ public class ThreadPool {
 }
 ```
 
+在上述示例中, 设置的 `THREAD_COUNT = 100`, 该线程池报名下面的部分:
+
 TREE:
 {
-        text: { name: "Executor FrameWork" },
+        text: { name: "Fixed Thread Pool Executor" },
         children: [
             {
                 text: { name: "ThreadPoolExecutor" },
                 children: [
-                  { text: { name: "corePoolSize" } },
-                  { text: { name: {val: "maxPoolSize", href: "#源码分析"} } },
-                  { text: { name: "keepAliveTime" } },
-                  { text: { name: "BlockingQueue <Runnable>" } }
+                  { text: { name: "corePoolSize 100", title: "线程池中的线程数 即预先生成的线程的数目" } },
+                  { text: { name: "maxPoolSize 100", title: "线程池中的最大线程数" } },
+                  { text: { name: "keepAliveTime 0ms", title: "当线程数大于 corePoolSize 时, 超出的线程的最大空闲时间" } },
+                  { text: { name: "LinkedBlockingQueue <Runnable>", title: "线程池所使用的队列" } }
                 ],
             },
             {
-                text: { name: "execute Runnable" }
+                text: { name: "execute Runnable", title: "执行的命令" }
             }
        ]
 }
+
+#### Thread Pool Status
+线程池的状态 有下面几种, 下面的内容摘抄自 JDK8.0
+
+> The runState provides the main lifecycle control, taking on values:
+
+TREE:
+{
+        text: { name: "Lifecycle" },
+        children: [
+            { text: { name: "RUNNING", title: "Accept new tasks and process queued tasks" } },
+            { text: { name: "SHUTDOWN", title: "Don't accept new tasks, but process queued tasks" } },
+            { text: { name: "STOP", title: "Don't accept new tasks, don't process queued tasks, and interrupt in-progress tasks" } },
+            { text: { name: "TIDYING", title: "All tasks have terminated, workerCount is zero, the thread transitioning to state TIDYING will run the terminated() hook method" } },
+            { text: { name: "TERMINATED", title: "terminated() has completed" } }
+       ]
+}
+
+> **The numerical order among these values matters**, to allow
+ordered comparisons. The runState monotonically increases over
+time, but need not hit each state.
+
+The transitions are:
+
+```ruby
+ RUNNING -> SHUTDOWN
+    On invocation of shutdown(), perhaps implicitly in finalize()
+ (RUNNING or SHUTDOWN) -> STOP
+    On invocation of shutdownNow()
+ SHUTDOWN -> TIDYING
+    When both queue and pool are empty
+ STOP -> TIDYING
+    When pool is empty
+ TIDYING -> TERMINATED
+    When the terminated() hook method has completed
+```
+
+部分状态的源码如下:
+
+```java
+int count_bits = Integer.SIZE - 3, // 29位
+        capacity = (1 << count_bits) - 1;
+
+        int running = -1 << count_bits,       // 11100000000000000000000000000000 -536870912
+                shutdown = 0,
+                stop = 1 << count_bits,       // 00100000000000000000000000000000 536870912
+                tidying = 2 << count_bits,    // 01000000000000000000000000000000 1073741824
+                terminated = 3 << count_bits; // 01100000000000000000000000000000 1610612736
+```
+
+NOTE: -1在计算机中如何表示? 在这里是使用的是 [Two's Complement](https://www.cs.cornell.edu/~tomf/notes/cps104/twoscomp.html), 在 [这篇文章](http://www.ruanyifeng.com/blog/2009/08/twos_complement.html) 给出有趣的例子和证明. 假设现在有一个数 a, 则 `-a = ~a + 1`, 也就是取 a 的反码再加 1. 则 (假设是32位) -1 = ~00000000000000000000000000000001 + 1 = 11111111111111111111111111111110 + 1 = 11111111111111111111111111111111, 上述中的 running 变量为  11111111111111111111111111111111 << 29, 左移 29 位为: 11100000000000000000000000000000.
+
+Doug Lea 使用了 `<<` 获取到了高位的 count_bits, stop, tidying 和 terminated 的表示. 这样每一个 `workCount` 变化的时候, 可以进行原子加减操作, 并进行取补码操作获取到当前的状态
+
+在 ThreadPoolExecutor 中, 非常重要的一个参数为 ctl, 在 JDK8.0 解释如下
+
+> The main pool control state, ctl, is an atomic integer packing
+two conceptual fields.
+**workerCount**, indicating the effective number of threads
+**runState**,    indicating whether running, shutting down etc
+
+故从ctl中可以通过一些方法获取到 `workerCount` 和 `runState` 的信息, 而ctl的计算也将包括
+`workerCount` 和 `runState` 的信息.
+
+源码如下:
+
+```java
+// 这里的 c 为 ctl, 该方法从 ctl 解析出当前的状态, 如 running/shutdown等
+private static int runStateOf(int c)     { return c & ~CAPACITY; }
+
+// 这里的 c 为 ctl, 该方法从 ctl 解析出当前的workerCount
+private static int workerCountOf(int c)  { return c & CAPACITY; }
+
+// rs 代表 runState, 如上所述的 running/shutdown/stop/tidying/termiated 等值
+// wc 代表 workerCount
+// 通过 rs 和 wc 得到 ctl 的值
+private static int ctlOf(int rs, int wc) { return rs | wc; }
+```
+
+INFO: ctl 的生成, 源码中称为 pack, ctl 的解析, 称为 unpack.
+
+NOTE: 思考: 为什么要有一个 ctl 这种值? 引入了 ctl 这个概念? 引入新概念的成本非常高, 而且也需要pack/unpack. 我的理解是如果直接使用
+runState 和 workerCount, 那么他需要添加 synchronized 进行控制, 而不是简单地使得 runState 和 workerCount 变为 AtomicInteger, 而真实
+的场景中, 这两个值是相互影响的, 与其每次都得添加 synchronized, 不如将这两个值绑定在一起.
+
+```java
+// 初始化值为 11100000000000000000000000000000 -536870912, 即 -2^29
+private final AtomicInteger ctl = new AtomicInteger(ctlOf(RUNNING, 0));
+// rs 代表 runState, 如上所述的 running/shutdown/stop/tidying/termiated 等值
+// wc 代表 workerCount
+private static int ctlOf(int rs, int wc) { return rs | wc; }
+```
 
 References
 ----------
