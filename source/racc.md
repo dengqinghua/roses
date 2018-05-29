@@ -12,6 +12,73 @@ DATE: 2018-05-11
 
 --------------------------------------------------------------------------------
 
+TL;DR
+-----
+我们在做数据中心的时候, [计算引擎](http://blog.dengqinghua.net/badge_system.html)都是基于SQL的.
+
+在Java生态中, 我们有很多解析SQL的工具, 如 [Druid](https://github.com/alibaba/druid).
+
+Ruby中我们使用 [sql-parser](https://github.com/cryodex/sql-parser)
+
+```ruby
+require 'sql-parser'
+parser = SQLParser::Parser.new
+
+# Build the AST from a SQL statement
+ast = parser.scan_str('SELECT * FROM users WHERE id = 1')
+
+# Find which columns where selected in the FROM clause
+ast.select_list.to_sql
+#=> "*"
+
+# Output the table expression as SQL
+ast.table_expression.to_sql
+#=> "FROM users WHERE id = 1"
+
+# Drill down into the WHERE clause, to examine every piece
+ast.table_expression.where_clause.to_sql
+#=> "WHERE id = 1"
+ast.table_expression.where_clause.search_condition.to_sql
+#=> "id = 1"
+ast.table_expression.where_clause.search_condition.left.to_sql
+#=> "id"
+```
+
+但是发现该功能的SQL解析能力有限, 我们使用了很多`SQL函数`, **该插件并不支持复杂的SQL函数**.
+
+我们希望可以对此插件进行扩展. 阅读源码后发现, 源码核心是由两个文件
+
+- [parser.racc](https://github.com/cryodex/sql-parser/blob/master/lib/sql-parser/parser.racc)
+- [parser.rex](https://github.com/cryodex/sql-parser/blob/master/lib/sql-parser/parser.rex)
+
+阅读了一下相关资料, 得知 `Yacc` 和 `Rexical` 的概念
+
+也就是说 SQL 解析分为两部分
+
+1. patterns, 用 `parser.rex` 来配置, 如 SELECT, ORDER 等词汇
+2. grammar,  用 `parser.racc` 来配置, 定义了语法, 即 SELECT, ORDER 的组合方式
+
+故遇到一条SQL
+
+```sql
+SELECT * FROM orders WHERE id = 1
+```
+
+的时候, 会分析出 patterns
+
+```ruby
+SELECT
+*
+FROM
+WHERE
+```
+
+再根据 `语法` 进行正则匹配即可.
+
+下面的文档是介绍了 Rex 和 Racc 的作用 和 使用方式.
+
+示例代码可以在 [这里](https://github.com/dengqinghua/my_examples/tree/master/ruby/racc) 查看
+
 Rex 和 Racc 的来源
 ------------------
 ### Yacc和Lexical

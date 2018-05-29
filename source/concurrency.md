@@ -232,7 +232,7 @@ public class ThreadPool {
 - newSingleThreadExecutor
 - newScheduledThreadPool
 
-直观上理解为: thread数目固定, thread数目不固定, thread数目为1 和 定时thread 四种. 出了上述四种, 还有 newWorkStealingPool 和 unconfigurableExecutorService等
+直观上理解为: thread数目固定, thread数目不固定, thread数目为1 和 定时thread 四种. 除了上述四种, 还有 newWorkStealingPool 和 unconfigurableExecutorService等
 
 #### newFixedThreadPool
 在 [示例代码](https://github.com/dengqinghua/my_examples/blob/master/java/src/main/java/com/dengqinghua/concurrency/ThreadPool.java#L33) 中使用了固定线程的线程池.
@@ -275,7 +275,7 @@ TREE:
        ]
 }
 
-#### Thread Pool Status
+#### ctl, Thread Pool Status and Worker Count
 线程池的状态 有下面几种, 下面的内容摘抄自 JDK8.0
 
 > The runState provides the main lifecycle control, taking on values:
@@ -314,19 +314,18 @@ The transitions are:
 部分状态的源码如下:
 
 ```java
-int count_bits = Integer.SIZE - 3, // 29位
-        capacity = (1 << count_bits) - 1;
+// 状态信息存储在第30位-第32位
+int COUNT_BITS = Integer.SIZE - 3, // 29位
+        CAPACITY = (1 << count_bits) - 1;
 
-        int running = -1 << count_bits,       // 11100000000000000000000000000000 -536870912
-                shutdown = 0,
-                stop = 1 << count_bits,       // 00100000000000000000000000000000 536870912
-                tidying = 2 << count_bits,    // 01000000000000000000000000000000 1073741824
-                terminated = 3 << count_bits; // 01100000000000000000000000000000 1610612736
+        int RUNNING = -1 << COUNT_BITS,       // 11100000000000000000000000000000 -536870912
+                SHUTDOWN = 0,
+                STOP = 1 << COUNT_BITS,       // 00100000000000000000000000000000 536870912
+                TIDYING = 2 << COUNT_BITS,    // 01000000000000000000000000000000 1073741824
+                TERMINATED = 3 << COUNT_BITS; // 01100000000000000000000000000000 1610612736
 ```
 
 NOTE: -1在计算机中如何表示? 在这里是使用的是 [Two's Complement](https://www.cs.cornell.edu/~tomf/notes/cps104/twoscomp.html), 在 [这篇文章](http://www.ruanyifeng.com/blog/2009/08/twos_complement.html) 给出有趣的例子和证明. 假设现在有一个数 a, 则 `-a = ~a + 1`, 也就是取 a 的反码再加 1. 则 (假设是32位) -1 = ~00000000000000000000000000000001 + 1 = 11111111111111111111111111111110 + 1 = 11111111111111111111111111111111, 上述中的 running 变量为  11111111111111111111111111111111 << 29, 左移 29 位为: 11100000000000000000000000000000.
-
-Doug Lea 使用了 `<<` 获取到了高位的 count_bits, stop, tidying 和 terminated 的表示. 这样每一个 `workCount` 变化的时候, 可以进行原子加减操作, 并进行取补码操作获取到当前的状态
 
 在 ThreadPoolExecutor 中, 非常重要的一个参数为 ctl, 在 JDK8.0 解释如下
 
@@ -341,6 +340,13 @@ two conceptual fields.
 源码如下:
 
 ```java
+// assertThat(Integeer.toBinaryString(CAPACITY), is("11111111111111111111111111111"));
+// assertThat(Integer.toBinaryString(CAPACITY).length(), is(29));
+
+// ctl 包含两部分: runState 为 第30位 至 第32位, workerCount 为 第1位 到 第29位
+// 故获取 runState 只需要高位(30-32)信息 为 ctl & ~CAPACITY
+// 故获取 workerCount 只需要低位(1-29)信息 为 ctl & CAPACITY
+
 // 这里的 c 为 ctl, 该方法从 ctl 解析出当前的状态, 如 running/shutdown等
 private static int runStateOf(int c)     { return c & ~CAPACITY; }
 
@@ -366,6 +372,32 @@ private final AtomicInteger ctl = new AtomicInteger(ctlOf(RUNNING, 0));
 // wc 代表 workerCount
 private static int ctlOf(int rs, int wc) { return rs | wc; }
 ```
+
+知道了 workerCount 和 runState 的计算和原子性设计之后, 便可知道基本的流程如下
+
+FLOW:
+fetchCtl=>start: 获取ctl
+unpack得到
+workCount, runState
+workCountCondition=>condition: workerCount小于
+corePoolSize
+workCountConditionYes=>condition: runState: isRunning?
+end=>end: 结束
+workCountConditionYesRunning=>operation: 添加Worker :>#worker
+fetchCtl->workCountCondition
+workCountCondition(yes)->workCountConditionYes
+workCountConditionYes(yes)->workCountConditionYesRunning
+workCountConditionYes(no)->end
+workCountCondition(no)->end
+
+#### Worker
+
+#### BlockingQueue
+在 java.util.concurrency 中, 提供了一些并发使用的队列, 他里面有一些方法, 是专门为并发而设计的
+
+- 插入操作
+  + add    往队列里面插入一条记录, 成功返回true, 插入不成功将会报错
+  + offer  往队列里面插入一条记录, 成功返回true, 插入不成功将返回false
 
 References
 ----------
