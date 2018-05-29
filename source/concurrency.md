@@ -392,12 +392,192 @@ workCountCondition(no)->end
 
 #### Worker
 
-#### BlockingQueue
-在 java.util.concurrency 中, 提供了一些并发使用的队列, 他里面有一些方法, 是专门为并发而设计的
+#### LinkedBlockingQueue
+Fixed Thread Pool, 使用的是 `LinkedBlockingQueue` 作为存储队列
 
-- 插入操作
-  + add    往队列里面插入一条记录, 成功返回true, 插入不成功将会报错
-  + offer  往队列里面插入一条记录, 成功返回true, 插入不成功将返回false
+![linkedList](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/linkedList.png)
+
+队列的特性主要有下面几点
+
+1. FIFO, `offer` 操作发生在headNode, `pool` 操作发生在lastNode
+
+    ```java
+    public class LinkedBlockingQueue<E> extends AbstractQueue<E>
+        implements BlockingQueue<E>, java.io.Serializable {
+        /**
+         * Head of linked list.
+         * Invariant: head.item == null
+         */
+        transient Node<E> head;
+
+        /**
+         * Tail of linked list.
+         * Invariant: last.next == null
+         */
+        private transient Node<E> last;
+    }
+    ```
+
+    NOTE: `add/remove` 往队列里面插入/删除一条记录, 成功返回true, 插入/删除不成功将会报错;
+    `offer/pool` 往队列里面插入/删除一条记录, 成功返回true, 插入/删除不成功将返回false
+
+2. Two Lock Queue.
+
+    设计了 `putLock` 和 `takeLock`, 在offer之前需要获取 putLock, 在pool之前需要获取 takeLock.
+
+    ```java
+    public class LinkedBlockingQueue<E> extends AbstractQueue<E>
+        implements BlockingQueue<E>, java.io.Serializable {
+
+        /** Lock held by take, poll, etc */
+        private final ReentrantLock takeLock = new ReentrantLock();
+
+        /** Wait queue for waiting takes */
+        private final Condition notEmpty = takeLock.newCondition();
+
+        /** Lock held by put, offer, etc */
+        private final ReentrantLock putLock = new ReentrantLock();
+
+        /** Wait queue for waiting puts */
+        private final Condition notFull = putLock.newCondition();
+    }
+    ```
+
+4. Signals
+
+    当队列变成非空的时候, 会通过 notEmpty.signal() 来进行通知
+
+    当队列变成未满的时候, 会通过 notFull.signal() 来进行通知
+
+    ```java
+    public class LinkedBlockingQueue<E> extends AbstractQueue<E>
+        implements BlockingQueue<E>, java.io.Serializable {
+
+        /** Wait queue for waiting takes */
+        private final Condition notEmpty = takeLock.newCondition();
+
+        /** Wait queue for waiting puts */
+        private final Condition notFull = putLock.newCondition();
+    }
+    ```
+
+    NOTE: 这种通知机制类似于 `synchronized` 的 `wait` 和 `notify`. 具体的场景为(以notFull为例): 当队列已满, 说明队列无法在offer新数据了
+    根据策略, 可以等待一段时间 notFull.awaitNanos
+
+    ```java
+    // 队列当前长度 等于 队列的容量
+    while (count.get() == capacity) {
+        if (nanos <= 0)
+            return false;
+
+        nanos = notFull.awaitNanos(nanos);
+    }
+    ```
+
+    NOTE: 当队列未满时, 需要进行通知, 也就是 `signal`
+
+    ```java
+    // 队列当前长度 小于 队列的容量
+    if (c + 1 < capacity) {
+        notFull.signal();
+    }
+    ```
+
+5. Queue Atomic Count. 队列长度为AtomicInteger对象
+
+    ```java
+    public class LinkedBlockingQueue<E> extends AbstractQueue<E>
+        implements BlockingQueue<E>, java.io.Serializable {
+
+        /** Current number of elements */
+        private final AtomicInteger count = new AtomicInteger();
+    }
+    ```
+
+6. Node<E>. 使用节点来存储数据
+
+    ```java
+    public class LinkedBlockingQueue<E> extends AbstractQueue<E>
+        implements BlockingQueue<E>, java.io.Serializable {
+
+        /**
+         * Linked list node class
+         */
+        static class Node<E> {
+            E item;
+
+            /**
+             * One of:
+             * - the real successor Node
+             * - this Node, meaning the successor is head.next
+             * - null, meaning there is no successor (this is the last node)
+             */
+            Node<E> next;
+
+            Node(E x) { item = x; }
+        }
+    }
+    ```
+
+##### offer
+`LinkedBlockingQueue#offer` 提供的是插入数据的方法
+
+JDK8.0的注释如下:
+
+> Inserts the specified element at the tail of this queue, waiting if
+necessary up to the specified wait time for space to become available.
+
+
+```java
+public class LinkedBlockingQueue<E> extends AbstractQueue<E>
+    implements BlockingQueue<E>, java.io.Serializable {
+
+    public boolean offer(E e, long timeout, TimeUnit unit)
+        throws InterruptedException {
+
+        if (e == null) throw new NullPointerException();
+        long nanos = unit.toNanos(timeout);
+
+        // Note: convention in all put/take/etc is to preset local var
+        // holding count negative to indicate failure unless set.
+        // 这个是约定, 设置为一个负值
+        int c = -1;
+        final ReentrantLock putLock = this.putLock;
+        final AtomicInteger count = this.count;
+
+        // 添加 putLock 的锁
+        putLock.lockInterruptibly();
+
+        try {
+            // 如果队列已经满了, 则进行等待一段时间
+            // 直到队列的count小于capacity 为止
+            while (count.get() == capacity) {
+                if (nanos <= 0)
+                    return false;
+                nanos = notFull.awaitNanos(nanos);
+            }
+
+            // 进行入队列操作
+            enqueue(new Node<E>(e));
+
+            // 原子性的进行加1
+            c = count.getAndIncrement();
+
+            // 如果发现队列未满, 则发 notFull 的 signal
+            if (c + 1 < capacity)
+                notFull.signal();
+        } finally {
+            // 解锁
+            putLock.unlock();
+        }
+        if (c == 0)
+            signalNotEmpty();
+        return true;
+    }
+}
+```
+
+##### poll
 
 References
 ----------
