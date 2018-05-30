@@ -383,14 +383,17 @@ workCountCondition=>condition: workerCount小于
 corePoolSize
 workCountConditionYes=>condition: runState: isRunning?
 end=>end: 结束
-workCountConditionYesRunning=>operation: 添加Worker :>#worker
+workCountConditionYesRunning=>operation: addWorker :>#addWorker
 fetchCtl->workCountCondition
 workCountCondition(yes)->workCountConditionYes
 workCountConditionYes(yes)->workCountConditionYesRunning
 workCountConditionYes(no)->end
 workCountCondition(no)->end
 
-#### Worker
+#### addWorker
+当发现队列的容量未满, 而且Pool的状态不是 SHUTDOWN 或者 STOP,
+
+则可进行 addWorker 操作
 
 #### LinkedBlockingQueue
 Fixed Thread Pool, 使用的是 `LinkedBlockingQueue` 作为存储队列
@@ -432,14 +435,8 @@ Fixed Thread Pool, 使用的是 `LinkedBlockingQueue` 作为存储队列
         /** Lock held by take, poll, etc */
         private final ReentrantLock takeLock = new ReentrantLock();
 
-        /** Wait queue for waiting takes */
-        private final Condition notEmpty = takeLock.newCondition();
-
         /** Lock held by put, offer, etc */
         private final ReentrantLock putLock = new ReentrantLock();
-
-        /** Wait queue for waiting puts */
-        private final Condition notFull = putLock.newCondition();
     }
     ```
 
@@ -540,7 +537,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
 
         // Note: convention in all put/take/etc is to preset local var
         // holding count negative to indicate failure unless set.
-        // 这个是约定, 设置为一个负值
+        // 这个是约定, 设置为一个负值, 并没有特殊的含义...
         int c = -1;
         final ReentrantLock putLock = this.putLock;
         final AtomicInteger count = this.count;
@@ -557,13 +554,15 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
                 nanos = notFull.awaitNanos(nanos);
             }
 
-            // 进行入队列操作
+            // 进行入队列操作, 该操作是不添加锁的, 仅仅修改了 last
+            // last = last.next = node;
             enqueue(new Node<E>(e));
 
             // 原子性的进行加1
             c = count.getAndIncrement();
 
             // 如果发现队列未满, 则发 notFull 的 signal
+            // TODO: signal的信号机制, ReentrantLock 还需要再看一下
             if (c + 1 < capacity)
                 notFull.signal();
         } finally {
@@ -578,6 +577,41 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
 ```
 
 ##### poll
+`LinkedBlockingQueue#poll` 提供的是获取数据的方法
+
+```java
+public class LinkedBlockingQueue<E> extends AbstractQueue<E>
+    implements BlockingQueue<E>, java.io.Serializable {
+    public E poll(long timeout, TimeUnit unit) throws InterruptedException {
+        E x = null;
+        int c = -1;
+        long nanos = unit.toNanos(timeout);
+        final AtomicInteger count = this.count;
+        final ReentrantLock takeLock = this.takeLock;
+
+        // 添加 takeLock 锁
+        takeLock.lockInterruptibly();
+        try {
+            while (count.get() == 0) {
+                if (nanos <= 0)
+                    return null;
+                nanos = notEmpty.awaitNanos(nanos);
+            }
+
+            // 从队列头部获得数据
+            x = dequeue();
+            c = count.getAndDecrement();
+            if (c > 1)
+                notEmpty.signal();
+        } finally {
+            takeLock.unlock();
+        }
+        if (c == capacity)
+            signalNotFull();
+        return x;
+    }
+}
+```
 
 References
 ----------
