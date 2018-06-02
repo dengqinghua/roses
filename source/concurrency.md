@@ -848,7 +848,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
 #### Shutdown
 线程池的关闭
 
-```
+```java
 public void shutdown() {
     final ReentrantLock mainLock = this.mainLock;
     mainLock.lock();
@@ -868,7 +868,7 @@ public void shutdown() {
 `ExecutorService`接口提供了 `submit` 方法, 她和 `execute` 的区别是 submit 返回 `Future` 对象, 我们可以通过 Future 对象来获得当前的任务的执行状态,
 或者是获得执行的结果
 
-```
+```java
 while (true) {
     final Socket connection = socket.accept();
     Future task = executorFuture.submit(() -> handleConnection(connection));
@@ -882,7 +882,7 @@ Future的实现仅仅是一个Wrapper.
 
 在调用
 
-```
+```java
 Future task = executorFuture.submit(() -> handleConnection(connection));
 ```
 
@@ -902,7 +902,7 @@ public Future<?> submit(Runnable task) {
 
 并且将传入的真正的任务变成了 RunnableFuture 的一个 field
 
-```
+```java
 public FutureTask(Runnable runnable, V result) {
     // 将需要执行的任务存储起来
     this.callable = Executors.callable(runnable, result);
@@ -912,7 +912,7 @@ public FutureTask(Runnable runnable, V result) {
 
 然后线程池执行的execute方法, 会调用 `FutureTask#run()`
 
-```
+```java
 public class FutureTask<V> implements RunnableFuture<V> {
     public void run() {
         if (state != NEW ||
@@ -947,7 +947,7 @@ public class FutureTask<V> implements RunnableFuture<V> {
 ##### Future#get()
 FutureTask对象有一个状态字段:
 
-```
+```java
 /**
  * The run state of this task, initially NEW.  The run state
  * transitions to a terminal state only in methods set,
