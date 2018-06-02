@@ -91,7 +91,7 @@ wait方法会使得线程放弃CPU的控制权, 只到他被notify
 
 注意一点, 这三个方法必须在 synchronized 里面使用, 否则会抛出 `IllegalMonitorStateException` 异常
 
-NOTE: 为什么需要在 synchronized 里面使用? 在 [这篇文章](http://www.xyzws.com/Javafaq/why-wait-notify-notifyall-must-be-called-inside-a-synchronized-method-block/127) 和 [Stack Overflow](https://stackoverflow.com/questions/2779484/why-must-wait-always-be-in-synchronized-block) 中都有解释
+NOTE: 为什么需要在 synchronized 里面使用? 在 [这篇文章](http://coding.derkeiler.com/Archive/Java/comp.lang.java.programmer/2006-01/msg01130.html) 和 [Stack Overflow](https://stackoverflow.com/q/2779484/8186609) 中都有解释. 个人认为主要是因为: `Lost Wakeup Problem`. 添加 synchronized 并不能解决该问题, 但是能降低问题出现的概率.
 
 ### Monitor
 在JVM内部, synchronized 是用 monitor 的概念实现的. Java 的 Monitor 实现了两种类型的 thread synchronized, `mutual exclusion` 和 `cooperation`, 即排他性 和 协作性.
@@ -254,7 +254,7 @@ public class ThreadPool {
 }
 ```
 
-在上述示例中, 设置的 `THREAD_COUNT = 100`, 该线程池报名下面的部分:
+在上述示例中, 设置的 `THREAD_COUNT = 100`, 该线程池包含下面的部分:
 
 TREE:
 {
@@ -263,9 +263,19 @@ TREE:
             {
                 text: { name: "ThreadPoolExecutor" },
                 children: [
-                  { text: { name: "corePoolSize 100", title: "线程池中的线程数 即预先生成的线程的数目" } },
-                  { text: { name: "maxPoolSize 100", title: "线程池中的最大线程数" } },
-                  { text: { name: "keepAliveTime 0ms", title: "当线程数大于 corePoolSize 时, 超出的线程的最大空闲时间" } },
+                  {
+                    text: {
+                      name: "corePoolSize 100",
+                      title: "执行任务的线程数. When a new task is submitted, and fewer than corePoolSize threads are running, a new thread is created to handle the request, even if other worker threads are idle"
+                      }
+                  },
+                  {
+                    text: {
+                      name: "maxPoolSize 100",
+                      title: "执行任务的最大线程数. If there are more than corePoolSize but less than maximumPoolSize threads running, a new thread will be created only if the queue is full"
+                    },
+                  },
+                  { text: { name: "keepAliveTime 0ms", title: "当线程数大于 corePoolSize 时, 超出的线程的最大空闲时间, 在对队列进行poll的时候使用" } },
                   { text: { name: "LinkedBlockingQueue <Runnable>", title: "线程池所使用的队列" } }
                 ],
             },
@@ -383,7 +393,7 @@ workCountCondition=>condition: workerCount小于
 corePoolSize
 workCountConditionYes=>condition: runState: isRunning?
 end=>end: 结束
-workCountConditionYesRunning=>operation: addWorker :>#addWorker
+workCountConditionYesRunning=>operation: addWorker :>#addworker
 fetchCtl->workCountCondition
 workCountCondition(yes)->workCountConditionYes
 workCountConditionYes(yes)->workCountConditionYesRunning
@@ -394,6 +404,228 @@ workCountCondition(no)->end
 当发现队列的容量未满, 而且Pool的状态不是 SHUTDOWN 或者 STOP,
 
 则可进行 addWorker 操作
+
+addWorker主要做下面几件事
+
+- 检查状态
+- 生成一个 [Worker](#worker-data-structure), 添加至`HashSet<E> workers`中
+- 调用 worker.thread.start() 方法
+
+NOTE: 我在阅读代码的时候, 看到存在 `workers` 和 `workQueue` 这两个field
+
+```java
+/**
+ * Set containing all worker threads in pool. Accessed only when
+ * holding mainLock.
+ */
+private final HashSet<Worker> workers = new HashSet<Worker>();
+
+/**
+ * The queue used for holding tasks and handing off to worker
+ * threads.  We do not require that workQueue.poll() returning
+ * null necessarily means that workQueue.isEmpty(), so rely
+ * solely on isEmpty to see if the queue is empty (which we must
+ * do for example when deciding whether to transition from
+ * SHUTDOWN to TIDYING).  This accommodates special-purpose
+ * queues such as DelayQueues for which poll() is allowed to
+ * return null even if it may later return non-null when delays
+ * expire.
+ */
+private final BlockingQueue<Runnable> workQueue;
+```
+
+NOTE: 当时非常难理解, 为什么需要两个类似的东西? 后来才明白, `worker` 是指 **执行命令的线程载体**, 它可以看做一个 `Thread Wrapper`, 不停地去轮询有没有任务(task)需要去执行; `workQueue` 是指所有task的集合, 他是一个阻塞队列.
+
+两者的交互方式为:
+
+INFO: `workerCount` 代表的是 `当前执行命令(task)的线程的个数`, `corePoolSize` 代表的是 `可生成的执行命令(task)的线程的总数`
+
+FLOW:
+start=>start: execute(aTask)
+workCountCondition=>condition: workerCount
+小于corePoolSize
+workCountConditionYes=>operation: 添加worker
+并直接执行
+queueCondition=>condition: workQueue.size()
+小于 capacity
+(在指定时间内)
+queueConditionYes=>operation: 添加task至workQueue
+queueConditionNo=>operation: reject task
+loopInfinity=>operation: 不停地从workQueue
+中取task执行:>#get-task
+start->workCountCondition(yes)->workCountConditionYes->loopInfinity
+workCountCondition(no)->queueCondition
+queueCondition(yes)->queueConditionYes
+queueCondition(no)->queueConditionNo
+
+##### get task
+
+在 `Worker#runWorker` 方法:
+
+```java
+final void runWorker(Worker w) {
+    Thread wt = Thread.currentThread();
+    Runnable task = w.firstTask;
+    w.firstTask = null;
+    w.unlock(); // allow interrupts
+    boolean completedAbruptly = true;
+    try {
+        // 不停地获取任务, 直到没有任务可以获取
+        while (task != null || (task = getTask()) != null) {
+            ...
+            task.run();
+            ...
+        }
+    }
+}
+```
+
+有一个 getTask 方法, 这个方法会去 workQueue 里面去数据
+
+```java
+private Runnable getTask() {
+    ...
+    try {
+        Runnable r = timed ?
+            // 如果设置了超时, 就使用 poll 方法获取 task
+            workQueue.poll(keepAliveTime, TimeUnit.NANOSECONDS) :
+            // 如果没有设置超时, 就使用 take 方法获取 task
+            workQueue.take();
+        if (r != null)
+            return r;
+    } catch (InterruptedException retry) {
+        ...
+    }
+}
+```
+
+NOTE: 对于 newFixedThreadPool 这种类型, 使用的是 [LinkedBlockingQueue](#linkedblockingqueue), 在poll的时候会添加`takeLock`, offer的时候会添加`putLock`.
+
+##### Worker Data Structure
+在上文中提到的 `workerCount` 对应的 `Worker` 就是这个.
+
+```java
+private final class Worker
+    extends AbstractQueuedSynchronizer
+    // 这个Worker 实现了 Runnable 接口!
+    implements Runnable {
+
+    // 这个线程是用来执行任务的
+    final Thread thread;
+
+    public void run() {
+        runWorker(this);
+    }
+}
+```
+
+这里非常关键的有下面几点
+
+1. Worker 对应一个线程, 从而 workerCount 数目即是 thread 的数量
+2. Worker 实现了 `Runnable` 接口, 故实现了 `run` 方法
+
+    ```java
+    private final class Worker
+        // 这个Worker 实现了 Runnable 接口!
+        implements Runnable {
+
+        public void run() {
+            runWorker(this);
+        }
+    }
+    ```
+
+3. Worker 对应的 thread, 在 Worker 被实例化的时候, 将它本身传给了 thread
+
+    ```java
+    private final class Worker
+        // 这个Worker 实现了 Runnable 接口!
+        implements Runnable {
+        /**
+         * Creates with given first task and thread from ThreadFactory.
+         * @param firstTask the first task (null if none)
+         */
+        Worker(Runnable firstTask) {
+            setState(-1); // inhibit interrupts until runWorker
+            this.firstTask = firstTask;
+            // thread创建的时候, 已经将当前的worker: this传入了
+            this.thread = getThreadFactory().newThread(this);
+        }
+    }
+    ```
+
+    在 调用 `worker.thread.start()` 的时候, 将会执行 `Worker#run` 方法
+
+4. Worker 状态的控制是在 `Worker#run` 方法中做的
+
+    NOTE: 当时我一直在想一个问题: worker线程挂了怎么办? 谁来做处理? 原本想的是 ~~线程池有一个单独的线程, 轮询其他线程的状态~~, 但是 **这个线程挂了** 怎么办? 查看源码后知道, 其实是在每一个 worker 自己去管理的, 在run方法的时候会设置 workers. 设置的时候会添加 `mainLock`
+
+    addWorker:
+
+    ```java
+        // this 为 ThreadPoolExecutor 对象
+        final ReentrantLock mainLock = this.mainLock;
+        mainLock.lock();
+        try {
+            int rs = runStateOf(ctl.get());
+
+            if (rs < SHUTDOWN ||
+                (rs == SHUTDOWN && firstTask == null)) {
+
+                ...
+
+                workers.add(w);
+            }
+        } finally {
+            mainLock.unlock();
+        }
+    ```
+
+    processWorkerExit:
+
+    ```java
+    // worker 退出的时候会调用该方法
+    private void processWorkerExit(Worker w, boolean completedAbruptly) {
+        if (completedAbruptly) // If abrupt, then workerCount wasn't adjusted
+            // workerCount 的设置是原子性的
+            decrementWorkerCount();
+
+            final ReentrantLock mainLock = this.mainLock;
+            mainLock.lock();
+            try {
+                ...
+                workers.remove(w);
+            } finally {
+                mainLock.unlock();
+            }
+        }
+    ```
+
+NOTE: 看到这里兴奋无比, Sidekiq 也是用的多线程, 实现了类似的线程池的功能, 思路是完全一致的. 下面的代码摘抄于 [Sidekiq::Processor#run](https://github.com/mperham/sidekiq/blob/master/lib/sidekiq/processor.rb#L68). 在下面的 `processor_stopped`, `processor_died` 方法中, 也都是添加了锁.
+
+```ruby
+# @mgr 即为他对应的 Manager 对象
+class Processor
+  def run
+    begin
+      while !@done
+        # 调用 perform 方法进行处理
+        process_one
+      end
+
+      # 一旦结束了, 则将 Processor对象中的manager对应的worker去掉, 即是改变了上述 Manager的 @workers 数组
+      @mgr.processor_stopped(self)
+    rescue Sidekiq::Shutdown
+      # 在接收到TERM SIGNAL之后, 等待超时的时候sidekiq会抛出异常 Sidekiq::Shutdown, 见下文分析
+      # 线程被关闭.
+      @mgr.processor_stopped(self)
+    rescue Exception => ex
+      # 程序报错了, Manager#processor_died 会重新生成一个新的Processor线程
+      @mgr.processor_died(self, ex)
+    end
+  end
+end
+```
 
 #### LinkedBlockingQueue
 Fixed Thread Pool, 使用的是 `LinkedBlockingQueue` 作为存储队列
@@ -612,6 +844,141 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
     }
 }
 ```
+
+#### Shutdown
+线程池的关闭
+
+```
+public void shutdown() {
+    final ReentrantLock mainLock = this.mainLock;
+    mainLock.lock();
+    try {
+        checkShutdownAccess();
+        advanceRunState(SHUTDOWN);
+        interruptIdleWorkers();
+        onShutdown(); // hook for ScheduledThreadPoolExecutor
+    } finally {
+        mainLock.unlock();
+    }
+    tryTerminate();
+}
+```
+
+#### Future
+`ExecutorService`接口提供了 `submit` 方法, 她和 `execute` 的区别是 submit 返回 `Future` 对象, 我们可以通过 Future 对象来获得当前的任务的执行状态,
+或者是获得执行的结果
+
+```
+while (true) {
+    final Socket connection = socket.accept();
+    Future task = executorFuture.submit(() -> handleConnection(connection));
+    System.out.println(task.get());    // 如果没有结果则堵塞
+    System.out.println(task.isDone()); // 返回true
+}
+```
+
+##### Runnable Wrapper
+Future的实现仅仅是一个Wrapper.
+
+在调用
+
+```
+Future task = executorFuture.submit(() -> handleConnection(connection));
+```
+
+的时候, submit 方法源码如下:
+
+```java
+// java/util/concurrent/AbstractExecutorService.java:114
+public Future<?> submit(Runnable task) {
+    if (task == null) throw new NullPointerException();
+    RunnableFuture<Void> ftask = newTaskFor(task, null);
+    execute(ftask);
+    return ftask;
+}
+```
+
+可以看到, 她其实是创建了一个 RunnableFuture 的对象, 这个对象实现了 `Runnable` 和 `Future`
+
+并且将传入的真正的任务变成了 RunnableFuture 的一个 field
+
+```
+public FutureTask(Runnable runnable, V result) {
+    // 将需要执行的任务存储起来
+    this.callable = Executors.callable(runnable, result);
+    this.state = NEW;       // ensure visibility of callable
+}
+```
+
+然后线程池执行的execute方法, 会调用 `FutureTask#run()`
+
+```
+public class FutureTask<V> implements RunnableFuture<V> {
+    public void run() {
+        if (state != NEW ||
+            !UNSAFE.compareAndSwapObject(this, runnerOffset,
+                                         null, Thread.currentThread()))
+            return;
+        try {
+            Callable<V> c = callable;
+            if (c != null && state == NEW) {
+                V result;
+                boolean ran;
+                try {
+                    // 在这里调用真正的需要执行的任务
+                    result = c.call();
+                    // 到这儿就说明已经执行完了
+                    ran = true;
+                } catch (Throwable ex) {
+                    result = null;
+                    ran = false;
+                    setException(ex);
+                }
+                if (ran)
+                    set(result);
+            }
+        } finally {
+            ....
+        }
+    }
+}
+```
+
+##### Future#get()
+FutureTask对象有一个状态字段:
+
+```
+/**
+ * The run state of this task, initially NEW.  The run state
+ * transitions to a terminal state only in methods set,
+ * setException, and cancel.  During completion, state may take on
+ * transient values of COMPLETING (while outcome is being set) or
+ * INTERRUPTING (only while interrupting the runner to satisfy a
+ * cancel(true)). Transitions from these intermediate to final
+ * states use cheaper ordered/lazy writes because values are unique
+ * and cannot be further modified.
+ *
+ * Possible state transitions:
+ * NEW -> COMPLETING -> NORMAL
+ * NEW -> COMPLETING -> EXCEPTIONAL
+ * NEW -> CANCELLED
+ * NEW -> INTERRUPTING -> INTERRUPTED
+ */
+private volatile int state;
+private static final int NEW          = 0;
+private static final int COMPLETING   = 1;
+private static final int NORMAL       = 2;
+private static final int EXCEPTIONAL  = 3;
+private static final int CANCELLED    = 4;
+private static final int INTERRUPTING = 5;
+private static final int INTERRUPTED  = 6;
+```
+
+可以看到, 状态的变化是非常复杂的. 我原本想的是 `Future#get()` 方法很简单, ~~不就是一个轮询吗? 完成了就返回结果即可~~
+
+但是其实如果不停的自旋等待(spin-wait), 会占有CPU资源, 所以这里做了很多优化, 如 `Thread.yield()` 等.
+
+TODO: 这块还用到了`SynchronousQueue Phaser LockSupport Treiber`等概念和相关知识, 需要恶补一下.
 
 References
 ----------

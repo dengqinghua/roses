@@ -26,14 +26,6 @@ EMaj7 -> EMaj7/#G -> B7(no3)/A
 A/B -> Adim/B -> #G/A
 ```
 
-根音走向
-
-```
-I -> III -> IV -> V
-I -> III -> IV
-V -> IV
-```
-
 该部分利用了`7`和`3`的空弦音, 再加上`Maj7`, `Maj7sus4`的转位.
 
 ### EMaj7
