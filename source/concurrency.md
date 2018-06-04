@@ -391,14 +391,19 @@ unpack得到
 workCount, runState
 workCountCondition=>condition: workerCount小于
 corePoolSize
-workCountConditionYes=>condition: runState: isRunning?
-end=>end: 结束
-workCountConditionYesRunning=>operation: addWorker :>#addworker
+workCountConditionYes=>condition: runState:
+isRunning?
+workCountConditionYesRunning=>operation: 生成新的worker :>#addworker
+goToQueue=>end: 进入
+LinkedBlockingQueue
+等待worker处理
+handleQueue=>operation: 不停地取LinkedBlockingQueue
+里面的task进行处理
 fetchCtl->workCountCondition
 workCountCondition(yes)->workCountConditionYes
-workCountConditionYes(yes)->workCountConditionYesRunning
-workCountConditionYes(no)->end
-workCountCondition(no)->end
+workCountConditionYes(yes)->workCountConditionYesRunning->handleQueue(right)
+workCountConditionYes(no)
+workCountCondition(no)->goToQueue
 
 #### addWorker
 当发现队列的容量未满, 而且Pool的状态不是 SHUTDOWN 或者 STOP,
@@ -863,6 +868,37 @@ public void shutdown() {
     tryTerminate();
 }
 ```
+
+包括下面四部分:
+
+- checkShutdownAccess, 检查是否有权限操作该线程
+- advanceRunState(SHUTDOWN), 将线程池设置为SHUTDOWN状态, 使用CAS设置.
+- interruptIdleWorkers, 将每一个没有处理任务的worker都中断
+
+    NOTE: 如何进行判断是否正在处理任务? 这里利用了 `tryLock` 方法
+
+    ```java
+    for (Worker w : workers) {
+        Thread t = w.thread;
+        // 如果没有中断, 而且可以获得锁 (如果获取不到锁, 则说明他正在处理任务)
+        if (!t.isInterrupted() && w.tryLock()) {
+            try {
+                t.interrupt();
+            } catch (SecurityException ignore) {
+            } finally {
+                w.unlock();
+            }
+        }
+    }
+    ```
+
+    NOTE: 线程池用到的 `Worker` 继承自 `AbstractQueuedSynchronizer`, 里面实现了相关的 `synchronizers`. `tryLock` 为 AbstractQueuedSynchronizer 提供的基础功能之一.
+
+- onShutdown, 给 `ScheduledThreadPoolExecutor` 添加的钩子方法.
+
+NOTE: 什么时候需要调用`shutdown`方法? 参考StackOverflow里的 [这篇回答](https://stackoverflow.com/a/16742217/8186609), 类似于 SIGINT 信号(如我们使用CTRL-C)停止使用, 或者直接发送一个信号给相应的进程等. 会用到 shutdown, 这里的 shutdown 是一种 `gracefully shutdown`, 首先停止接收新的请求, 然后关闭多余的worker, 再等待现有的任务执行完(可给一个处理超时时间). 这是一种非常经典的做法, [Sidekiq](https://github.com/dengqinghua/roses/blob/master/source/sidekiq_task_event.md#%E9%98%9F%E5%88%97%E9%87%8D%E5%90%AF%E6%97%B6job%E7%9A%84%E5%A4%84%E7%90%86) 队列的重启也是这样处理的.
+
+INFO: 这里 `停止接收新的任务` 是通过设置状态为 `SHUTDOWN` 控制的, 作者还提供了 `shutdownNow`方法, 该方法清除还存留在队列里面的值.
 
 #### Future
 `ExecutorService`接口提供了 `submit` 方法, 她和 `execute` 的区别是 submit 返回 `Future` 对象, 我们可以通过 Future 对象来获得当前的任务的执行状态,
