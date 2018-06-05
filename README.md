@@ -98,6 +98,9 @@ Ruby版本的Yacc, 语法解析器.
 #### [JVM剖析](http://blog.dengqinghua.net/learn_jvm.html)
 JVM的一些知识点和总结.
 
+#### [Concurrency](http://blog.dengqinghua.net/concurrency.html)
+Java Concurrency的基本概念, ThreadPool源码分析
+
 #### [Java知识树](http://blog.dengqinghua.net/java_knowledge_tree.html)
 
 开发Java需要了解的20%内容
@@ -115,6 +118,10 @@ JVM的一些知识点和总结.
 
 ### Go
 #### [GoInstallBinaries i/o timeout问题](http://blog.dengqinghua.net/go_get_timeout_solution.html)
+
+#### [Go知识树](http://blog.dengqinghua.net/go_knowledge_tree.html)
+
+Go的学习计划和相关知识树.
 
 ### 音乐
 #### [City Of Star](http://blog.dengqinghua.net/lalaland-city_of_stars.html)
@@ -146,6 +153,10 @@ Rails Guides风格的markdown模板.
 #### [Rails服务的Java Thrift微服务迁移](http://blog.dengqinghua.net/microsystem_refactor.html)
 
 面对日益复杂的业务系统和人员储备问题, 我们做了一个艰难的决定, 将原有的Ruby On Rails项目迁移为Java Thrift微服务, 对现有的业务系统进行了分析和重构, 并对业务微服务化之后的分布式事务一致性, 跨服务数据检索等提供了解决方案.
+
+#### [Raft算法](http://blog.dengqinghua.net/raft.html)
+
+分布式一致性算法Raft的论文阅读笔记
 
 Issues
 ------

@@ -48,6 +48,10 @@
       url: learn_jvm.html
       description: JVM的一些知识点和总结.
     -
+      name: Concurrency
+      url: concurrency.html
+      description: 并发的基本概念和ThreadPool源码分析.
+    -
       name: Java知识树
       url: java_knowledge_tree.html
       description: 开发Java需要了解的20%内容.
@@ -74,6 +78,10 @@
       name: GoInstallBinaries i/o timeout问题
       url: go_get_timeout_solution.html
       description: 解决golang.org无法访问问题.
+    -
+      name: Go知识树
+      url: go_knowledge_tree.html
+      description: Go的学习计划和相关知识树.
 -
   name: 音乐
   documents:
@@ -108,6 +116,10 @@
       name: 零bug落地方案
       url: best_programming.html
       description: 可执行的软件开发实践的零bug落地方案.
+    -
+      name: Raft算法
+      url: raft.html
+      description: 分布式一致性算法Raft的论文阅读笔记
     -
       name: Memorize My Mentor
       url: memorize_my_mentor.html
