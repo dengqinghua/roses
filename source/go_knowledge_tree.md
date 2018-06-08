@@ -19,6 +19,34 @@ DATE: 2018-06-05
 - 提问的智慧原文: [这里](http://www.catb.org/~esr/faqs/smart-questions.html)
 - 提问的智慧中文版本: [这里](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md)
 
+Go Proverbs
+-----------
+> Simple, Poetic, Pithy
+
+[Go Proverbs - Rob Pike - Gopherfest](http://go-proverbs.github.io/)
+
+- Don't communicate by sharing memory, share memory by communicating.
+- Concurrency is not parallelism.
+- Channels orchestrate; mutexes serialize.
+- The bigger the interface, the weaker the abstraction.
+- Make the zero value useful.
+- interface{} says nothing.
+- Gofmt's style is no one's favorite, yet gofmt is everyone's favorite.
+- A little copying is better than a little dependency.
+- Syscall must always be guarded with build tags.
+- Cgo must always be guarded with build tags.
+- Cgo is not Go.
+- With the unsafe package there are no guarantees.
+- Clear is better than clever.
+- Reflection is never clear.
+- Errors are values.
+- Don't just check errors, handle them gracefully.
+- Design the architecture, name the components, document the details.
+- Documentation is for users.
+- Don't panic.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PAAkCSZUG1c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 Vim-Go
 ------
 > Vim and ONLY Vim.
@@ -48,6 +76,70 @@ Test
 - [Testify](https://github.com/stretchr/testify)
 - [Package Testing](https://golang.org/pkg/testing/)
 
+### Test Func
+测试单独的一个方法
+
+hello_world.go
+
+```go
+package main
+
+// go run hello_world.go
+// go build hello_world.go
+// :GoRun / :GoBuild
+func main() {
+	println(Sum(5, 5))
+}
+
+func Sum(x int, y int) int {
+	return x + y
+}
+```
+
+hello_world_test.go
+
+```go
+package main
+
+import "testing"
+
+// go test -run TestSum
+func TestSum(t *testing.T) {
+	total := Sum(5, 5)
+
+	if total != 5 {
+		// t.Errorf; t.Fail; t.Log
+		t.Errorf("Sumw was incorrect, got %d, want %d", total, 10)
+	}
+}
+
+// go test -run TestSum1
+func TestSum1(t *testing.T) {
+	total := Sum(5, 5)
+
+	if total != 6 {
+		// t.Errorf; t.Fail; t.Log
+		t.Errorf("Sumw was incorrect, got %d, want %d", total, 10)
+	}
+}
+```
+
+测试全部的case
+
+```shell
+go test
+```
+
+测试某个case
+
+```shell
+go test -run TestSum
+```
+
+NOTE: test文件必须写成 `*_test` 的形式. 可以执行 `go help test` 查看更多信息.
+
+
+INFO: 参考自 [StackOverflow: How to run test cases in a specified file?](https://stackoverflow.com/a/16936314/8186609) 和 [这里](https://golang.org/pkg/testing/#hdr-Subtests_and_Sub_benchmarks), 我的源码例子: [这里](https://github.com/dengqinghua/my_examples/blob/master/go/hello_world_test.go)
 
 Debugger
 -------
@@ -79,7 +171,7 @@ func main() {
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XCsL89YtqCs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-```
+```shell
 go help
 ```
 
