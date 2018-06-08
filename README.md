@@ -14,7 +14,7 @@ Hello, 这里是是邓擎铧的[技术blog](http://blog.dengqinghua.net/)源码.
 Usage
 -----
 ### 安装环境
-```
+```shell
 git clone https://github.com/dengqinghua/roses.git
 cd roses
 bundle install

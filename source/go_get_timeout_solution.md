@@ -64,8 +64,8 @@ golang.org/x/tools (download)
 在bash中执行
 
 ```shell
-export http_proxy=127.0.0.1:63709
-export https_proxy=127.0.0.1:63709
+export http_proxy=127.0.0.1:63708
+export https_proxy=127.0.0.1:63708
 ```
 
 ### 验证

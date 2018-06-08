@@ -104,7 +104,7 @@ CHORD: xxBDCE
 CHORD: xxB99C
 
 ### Aadd#4
-A: `6 3 6 #1`
+A: `6 3 6 #2`
 
 CHORD: x0x9AB
 

@@ -150,7 +150,7 @@ HTML
 
         def brush_for(code_type)
           case code_type
-          when "ruby", "sql", "plain", "java", "shell", "c", "cpp", "bash", "csharp", "css", "js", "py", "sql", "scala", "xml"
+          when "ruby", "sql", "plain", "java", "shell", "c", "cpp", "bash", "csharp", "css", "js", "py", "sql", "scala", "xml", "go", "golang"
             code_type
           when "erb", "html+erb"
             "ruby; html-script: true"

@@ -25,6 +25,8 @@ Vim-Go
 
 ```vim
 plugin 'fatih/vim-go'
+:GoInstallBinaries
+:help vim-go
 ```
 
 NOTE: 如果执行 `:GoInstallBinaries` 报错, 请参考 [go_get_timeout_solution](http://blog.dengqinghua.net/go_get_timeout_solution.html)
@@ -58,8 +60,26 @@ Debugger
 
 基础知识
 --------
+```java
+package main
+import "fmt"
+
+func main() {
+  fmt.Println("Hello World")
+}
+```
+
 - [Go Tour](https://tour.golang.org/list)
 - [The Little Go Book](https://github.com/karlseguin/the-little-go-book)
+
+### GoPath
+[Code organization](https://golang.org/doc/code.html)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XCsL89YtqCs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+```
+go help
+```
 
 并发
 ----
