@@ -23,7 +23,7 @@ Vim-Go
 ------
 > Vim and ONLY Vim.
 
-```vim
+```shell
 plugin 'fatih/vim-go'
 :GoInstallBinaries
 :help vim-go
@@ -60,7 +60,7 @@ Debugger
 
 基础知识
 --------
-```java
+```go
 package main
 import "fmt"
 
