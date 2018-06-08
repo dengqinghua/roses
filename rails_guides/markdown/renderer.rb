@@ -154,6 +154,8 @@ HTML
             code_type
           when "erb", "html+erb"
             "ruby; html-script: true"
+          when "go" # 使用java的关键词, 已经在 syntaxhighlighter 的 brush-java 部分做了关键词的修改
+            "java"
           when "music"
             "ruby"
           when "html"
