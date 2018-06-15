@@ -87,7 +87,7 @@ doThing
 #### Wait Notify and NotifyAll
 wait, notify 和 notifyAll 为 Object 的方法, 故他们可以作用在所有的对象上.
 
-wait方法会使得线程放弃CPU的控制权, 只到他被notify
+wait方法会使得线程放弃CPU的控制权, 直到他被notify
 
 注意一点, 这三个方法必须在 synchronized 里面使用, 否则会抛出 `IllegalMonitorStateException` 异常
 
