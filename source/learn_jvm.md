@@ -45,7 +45,7 @@ GC
 ### 垃圾收集算法
 1. Mark Sweep, 标记, 清除. 会产生大量的内存碎片, 可能会导致程序在分配内存时获取不到连续的内存空间, 而不得不进行第二次GC操作
 2. Copying, 复制算法. 将内存按容量划分为两块, 每次只用其中的一块. 用完了就将存活的对象拷贝到另外一块, 再将原来的清除
-3. Mark Compact. 标记, 整理. Compact的意思是, 让存活的对象往一段移动, 避免大量的内存碎片
+3. Mark Compact. 标记, 整理. Compact的意思是, 让存活的对象往一端移动, 避免大量的内存碎片
 4. Generational Collection. 分代收集, 1,2,3的结合体, 在不同的情况采取不同的方式.
 
 NOTE: 推荐阅读这篇文章: [Java Garbage Collection Basics](http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html),

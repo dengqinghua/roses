@@ -139,7 +139,7 @@ go test -run TestSum
 NOTE: test文件必须写成 `*_test` 的形式. 可以执行 `go help test` 查看更多信息.
 
 
-INFO: 参考自 [StackOverflow: How to run test cases in a specified file?](https://stackoverflow.com/a/16936314/8186609) 和 [这里](https://golang.org/pkg/testing/#hdr-Subtests_and_Sub_benchmarks), 我的源码例子: [这里](https://github.com/dengqinghua/my_examples/blob/master/go/hello_world_test.go)
+INFO: 参考自 [StackOverflow: How to run test cases in a specified file?](https://stackoverflow.com/a/16936314/8186609) 和 [这里](https://golang.org/pkg/testing/#hdr-Subtests_and_Sub_benchmarks), 我的源码例子: [这里](https://github.com/dengqinghua/my_examples/blob/master/golang/hello_world_test.go)
 
 Debugger
 -------
@@ -148,7 +148,6 @@ Debugger
 - [Delve](https://github.com/derekparker/delve)
 - [Vim Godebug](https://github.com/jodosha/vim-godebug)
 - [Gdb](https://golang.org/doc/gdb)
-
 
 基础知识
 --------
