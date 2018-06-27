@@ -76,6 +76,42 @@ Test
 - [Testify](https://github.com/stretchr/testify)
 - [Package Testing](https://golang.org/pkg/testing/)
 
+NOTE: 最终选择的是 [Goconvey](https://github.com/smartystreets/goconvey)
+
+测试Case如下:
+
+```go
+package golang
+
+import (
+	. "github.com/smartystreets/goconvey/convey"
+	"testing"
+)
+
+// go test -v -run TestBasicMap
+func TestBasicMap(t *testing.T) {
+	Convey("TestBasicMap", t, func() {
+		Convey("get, put", func() {
+			Convey("should get right", func() {
+				oneMap := make(map[string]int)
+
+				oneMap["dsgv"] = 587
+
+				value, exist := oneMap["dsgv"]
+
+				So(exist, ShouldBeTrue)
+				So(value, ShouldEqual, 587)
+
+				value, exist = oneMap["dsg"]
+
+				So(exist, ShouldBeFalse)
+				So(value, ShouldEqual, 0)
+			})
+		})
+	})
+}
+```
+
 ### Test Func
 测试单独的一个方法
 
@@ -138,7 +174,6 @@ go test -run TestSum
 
 NOTE: test文件必须写成 `*_test` 的形式. 可以执行 `go help test` 查看更多信息.
 
-
 INFO: 参考自 [StackOverflow: How to run test cases in a specified file?](https://stackoverflow.com/a/16936314/8186609) 和 [这里](https://golang.org/pkg/testing/#hdr-Subtests_and_Sub_benchmarks), 我的源码例子: [这里](https://github.com/dengqinghua/my_examples/blob/master/golang/hello_world_test.go)
 
 Debugger
@@ -148,6 +183,11 @@ Debugger
 - [Delve](https://github.com/derekparker/delve)
 - [Vim Godebug](https://github.com/jodosha/vim-godebug)
 - [Gdb](https://golang.org/doc/gdb)
+- [Vim Delve](https://github.com/sebdah/vim-delve)
+
+NOTE: [Vim Godebug](https://github.com/jodosha/vim-godebug) 依赖 [Neovim](https://neovim.io/), 最终选择的调试工具为 [sebdah/vim-delve](https://github.com/sebdah/vim-delve), vim-delve 需要安装 [Shougo/vimshell.vim](https://github.com/Shougo/vimshell.vim).
+
+[![delve-demo](https://github.com/sebdah/vim-delve/raw/master/vim-delve-demo.gif)](https://github.com/sebdah/vim-delve)
 
 基础知识
 --------
