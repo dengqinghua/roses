@@ -185,7 +185,7 @@ Debugger
 - [Gdb](https://golang.org/doc/gdb)
 - [Vim Delve](https://github.com/sebdah/vim-delve)
 
-NOTE: [Vim Godebug](https://github.com/jodosha/vim-godebug) 依赖 [Neovim](https://neovim.io/), 最终选择的调试工具为 [sebdah/vim-delve](https://github.com/sebdah/vim-delve), vim-delve 需要安装 [Shougo/vimshell.vim](https://github.com/Shougo/vimshell.vim).
+NOTE: 由于 [Vim Godebug](https://github.com/jodosha/vim-godebug) 依赖 [Neovim](https://neovim.io/), 而我们一般使用的是vim, 故最终选择的调试工具为 [sebdah/vim-delve](https://github.com/sebdah/vim-delve), vim-delve 依赖 [Shougo/vimshell.vim](https://github.com/Shougo/vimshell.vim).
 
 [![delve-demo](https://github.com/sebdah/vim-delve/raw/master/vim-delve-demo.gif)](https://github.com/sebdah/vim-delve)
 
