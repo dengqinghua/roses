@@ -180,6 +180,7 @@ go help
 
 其他
 ----
+- [Go Books](https://github.com/dariubs/GoBooks)
 - [gRPC](https://github.com/grpc/grpc-go)
 - [Net Work Programming with Go](https://github.com/tumregels/Network-Programming-with-Go)
 - [Building Web Apps with Go](https://codegangsta.gitbooks.io/building-web-apps-with-go/content/)
@@ -189,3 +190,11 @@ go help
 ---
 ### Go Strings
 用Go语言做跟音乐相关的东西, 正在筹划中
+
+Books
+-----
+- [The Little Go Book](https://github.com/karlseguin/the-little-go-book)
+- [Effective Go](https://golang.org/doc/effective_go.html)
+- [The Go Programming Language](http://a.co/4HWJ4G6)
+- [Go In Action](http://a.co/0hqvvC2)
+- [Net Work Programming with Go](http://tumregels.github.io/Network-Programming-with-Go/)
