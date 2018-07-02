@@ -38,9 +38,13 @@ Cmaj7: `1 5 7 3`
 CHORD: x3545x
 
 ### Fmaj7
-Cmaj7: `4 6 1 3`
+1. Fmaj7: `4 6 1 3`
 
-CHORD: xx3210
+    CHORD: xx3210
+
+2. Fmaj7: `4 1 3 6`
+
+    CHORD: xx3555
 
 七和弦
 ------
