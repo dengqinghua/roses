@@ -176,6 +176,13 @@ NOTE: test文件必须写成 `*_test` 的形式. 可以执行 `go help test` 查
 
 INFO: 参考自 [StackOverflow: How to run test cases in a specified file?](https://stackoverflow.com/a/16936314/8186609) 和 [这里](https://golang.org/pkg/testing/#hdr-Subtests_and_Sub_benchmarks), 我的源码例子: [这里](https://github.com/dengqinghua/my_examples/blob/master/golang/hello_world_test.go)
 
+### Mock
+学会mock方法. 考察了很多 mock 的插件, 如 [testify/mock](https://github.com/stretchr/testify#mock-package), [Gomock](https://github.com/golang/mock), [Gostub](https://github.com/prashantv/gostub) 等, 最终我们选择了 testify/mock
+
+NOTE: Golang 的 mock, 不像面向对象语言, 她只能对 interface 进行mock. 有人对此也提出了疑问, 详情请见 [How to write mock for structs in Go](https://stackoverflow.com/q/41053280)
+
+代码请见我的[mock_test](https://github.com/dengqinghua/my_examples/blob/master/golang/mock_test.go)
+
 Debugger
 -------
 > 学会调试, 查看源码, 阅读源码.
