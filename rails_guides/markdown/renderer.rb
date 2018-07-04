@@ -1,3 +1,5 @@
+require 'digest'
+
 module RailsGuides
   class Markdown
     class Renderer < Redcarpet::Render::HTML
@@ -45,6 +47,9 @@ HTML
           root ||= shape.chars.find_index { |char| char.downcase != "x" }.to_i + 1
 
           chord_code(shape, root, name)
+        elsif text =~ /^MUSIC:\s+(.+)$/
+          config = text.gsub("MUSIC:", "")
+          music_code(config)
         elsif text =~ /^PDF:\s+(.+)$/
           doc_code(:pdf, $1)
         elsif text =~ /^FLOW:/
@@ -59,8 +64,26 @@ HTML
         end
       end
 
+      def music_code(config)
+        hex_id = Digest::MD5.hexdigest(config)
+
+        config.gsub!("<sup>", "^")
+        config.gsub!("</sup>", "")
+
+        <<-HTML
+<div>
+<textarea style="display:none" class=music id="#{hex_id}">
+#{config.strip}
+</textarea>
+
+<div id="midi-#{hex_id}"></div>
+<div id="canvas-#{hex_id}"></div>
+</div>
+HTML
+      end
+
       def tree_code(config)
-        hex_id = SecureRandom.hex
+        hex_id = Digest::MD5.hexdigest(config)
         config = CGI.unescapeHTML(config.strip)
 
         hash = begin
@@ -97,7 +120,7 @@ HTML
 
       def flowchart_code(code)
         <<-HTML
-<div class="flowchart" style="display:none" id="#{SecureRandom.hex}">
+<div class="flowchart" style="display:none" id="#{Digest::MD5.hexdigest(code)}">
   #{code.strip}
 </div>
 HTML
@@ -174,7 +197,7 @@ HTML
           # if a bulleted list follows the first item is not rendered
           # as a list item, but as a paragraph starting with a plain
           # asterisk.
-          body.gsub(/^(TIP|IMPORTANT|CAUTION|WARNING|NOTE|INFO|TODO|DATE|PDF|CHORD|FLOW)[.:](.*?)(\n(?=\n)|\Z)/m) do
+          body.gsub(/^(TIP|IMPORTANT|CAUTION|WARNING|NOTE|INFO|TODO|DATE|PDF|CHORD|MUSIC|FLOW)[.:](.*?)(\n(?=\n)|\Z)/m) do
             css_class = \
               case $1
               when "CAUTION", "IMPORTANT"
