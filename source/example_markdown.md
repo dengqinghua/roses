@@ -173,6 +173,11 @@ C和弦
 -----------
 ```
 
+Mardown的扩展
+-------------
+### 五线谱
+INFO: Thanks to [abcjs](http://abcjs.net)
+
 MUSIC:
 X: 1
 T: Cooley's
@@ -186,3 +191,134 @@ EBBA B2 EB|B2 AB defg|afe^c dBAF|DEFD E2:|
 eB B2 eBgB|eB B2 defg|afe^c dBAF|DEFD E2:|
 
 NOTE: Thanks to [abcjs](https://abcjs.net/)
+
+```
+MUSIC:
+X: 1
+T: Cooley's
+M: 4/4
+L: 1/8
+R: reel
+K: Emin
+|:D2|EB{c}BA B2 EB|~B2 AB dBAG|FDAD BDAD|FDAD dAFD|
+EBBA B2 EB|B2 AB defg|afe^c dBAF|DEFD E2:|
+|:gf|eB B2 efge|eB B2 gedB|A2 FA DAFA|A2 FA defg|
+eB B2 eBgB|eB B2 defg|afe^c dBAF|DEFD E2:|
+```
+
+### 和弦
+INFO: Thanks to [chordy-svg](https://github.com/andygock/chordy-svg)
+
+Em9: `3 7 #4 5 7`
+
+CHORD: 02400x
+
+```
+CHORD: 02400x
+```
+
+### 流程图
+INFO: Thanks to [flowchart](https://flowchart.js.org)
+
+FLOW:
+init=>start: Follower无法接收到Leader发出的
+Heartbeat(即Election Timeout)
+be_candidate=>operation: Follower变成Candidate
+时间序列Term++
+vote=>operation: Candidate
+让剩下的nodes
+进行Vote
+reply=>operation: 其他的nodes进行vote
+become_leader=>condition: Candidate
+获取到大多数
+nodes的投票
+become_leader_yes=>operation: Candidate变成Leader
+send_heartbeat=>end: 发送Heartbeat信息
+停止其他节点的election
+init->be_candidate->vote->reply->become_leader
+become_leader(yes)->become_leader_yes->send_heartbeat
+become_leader(no)->be_candidate
+
+```
+FLOW:
+init=>start: Follower无法接收到Leader发出的
+Heartbeat(即Election Timeout)
+be_candidate=>operation: Follower变成Candidate
+时间序列Term++
+vote=>operation: Candidate
+让剩下的nodes
+进行Vote
+reply=>operation: 其他的nodes进行vote
+become_leader=>condition: Candidate
+获取到大多数
+nodes的投票
+become_leader_yes=>operation: Candidate变成Leader
+send_heartbeat=>end: 发送Heartbeat信息
+停止其他节点的election
+init->be_candidate->vote->reply->become_leader
+become_leader(yes)->become_leader_yes->send_heartbeat
+become_leader(no)->be_candidate
+```
+
+### 树形结构
+INFO: Thanks to [Trent](http://fperucic.github.io/treant-js/)
+
+TREE:
+{
+        text: { name: "Fixed Thread Pool Executor" },
+        children: [
+            {
+                text: { name: "ThreadPoolExecutor" },
+                children: [
+                  {
+                    text: {
+                      name: "corePoolSize 100",
+                      title: "执行任务的线程数. When a new task is submitted, and fewer than corePoolSize threads are running, a new thread is created to handle the request, even if other worker threads are idle"
+                      }
+                  },
+                  {
+                    text: {
+                      name: "maxPoolSize 100",
+                      title: "执行任务的最大线程数. If there are more than corePoolSize but less than maximumPoolSize threads running, a new thread will be created only if the queue is full"
+                    },
+                  },
+                  { text: { name: "keepAliveTime 0ms", title: "当线程数大于 corePoolSize 时, 超出的线程的最大空闲时间, 在对队列进行poll的时候使用" } },
+                  { text: { name: "LinkedBlockingQueue <Runnable>", title: "线程池所使用的队列" } }
+                ],
+            },
+            {
+                text: { name: "execute Runnable", title: "执行的命令" }
+            }
+       ]
+}
+
+```
+TREE:
+{
+        text: { name: "Fixed Thread Pool Executor" },
+        children: [
+            {
+                text: { name: "ThreadPoolExecutor" },
+                children: [
+                  {
+                    text: {
+                      name: "corePoolSize 100",
+                      title: "执行任务的线程数. When a new task is submitted, and fewer than corePoolSize threads are running, a new thread is created to handle the request, even if other worker threads are idle"
+                      }
+                  },
+                  {
+                    text: {
+                      name: "maxPoolSize 100",
+                      title: "执行任务的最大线程数. If there are more than corePoolSize but less than maximumPoolSize threads running, a new thread will be created only if the queue is full"
+                    },
+                  },
+                  { text: { name: "keepAliveTime 0ms", title: "当线程数大于 corePoolSize 时, 超出的线程的最大空闲时间, 在对队列进行poll的时候使用" } },
+                  { text: { name: "LinkedBlockingQueue <Runnable>", title: "线程池所使用的队列" } }
+                ],
+            },
+            {
+                text: { name: "execute Runnable", title: "执行的命令" }
+            }
+       ]
+}
+```
