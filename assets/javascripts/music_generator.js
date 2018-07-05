@@ -2,7 +2,6 @@ $(function(){
   window.onload = function() {
     $(".music").each(function(){
       var id = $(this).attr("id");
-      //$(this).css("display", "block");
 
       new ABCJS.Editor(id, {
         canvas_id: "canvas-" + id,
@@ -17,6 +16,11 @@ $(function(){
           },
         }
       });
+
+      $("#edit-" + id).click(function() {
+        $("#" + id).css("display", "block");
+        $(this).hide();
+      })
     })
   }
 })

@@ -164,3 +164,9 @@
 	margin-right: 10px;
 	margin-left: 10px;
 }
+
+textarea.music {
+  width:100%;
+  font-size: 12px;
+  height:222px;
+}

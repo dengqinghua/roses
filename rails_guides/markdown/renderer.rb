@@ -72,12 +72,14 @@ HTML
 
         <<-HTML
 <div>
-<textarea style="display:none" class=music id="#{hex_id}">
-#{config.strip}
-</textarea>
-
+<hr>
 <div id="midi-#{hex_id}"></div>
 <div id="canvas-#{hex_id}"></div>
+<a href="javascript:void(0);" id="edit-#{hex_id}">Edit Tab</a>
+<textarea style="display:none" class="music" id="#{hex_id}">
+#{config.strip}
+</textarea>
+<hr>
 </div>
 HTML
       end
