@@ -69,7 +69,6 @@ NOTE: ♩=120, 代表的是每分钟120个♩
 NOTE: 小节线 |; 如果要分段或者换调用, 则使用双小节线 ||; 反复记号 ||: :||
 
 ### 吉他和五线谱关系
-![stuff](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/music_notation.jpg)
 ![stuff](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/guitar_tab.jpg)
 ![stuff](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/guitar_tab_c_f.jpg)
 
