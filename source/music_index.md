@@ -71,6 +71,7 @@ NOTE: 小节线 |; 如果要分段或者换调用, 则使用双小节线 ||; 反
 ### 吉他和五线谱关系
 ![stuff](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/guitar_tab.jpg)
 ![stuff](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/guitar_tab_c_f.jpg)
+![stuff](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/music_mutations.jpg)
 
 吉他演奏的音域
 ![range](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/guitar_ranges.jpg)
