@@ -141,10 +141,10 @@ CAGED and 3 Note Per String
 ------
 了解和弦的组成之后, 可以通过不同把位的变换得到不同调的和弦, 调和调之间的关系可以通过 [CAGED](https://www.youtube.com/watch?v=LhrGeolItvw) 来进行记忆.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LhrGeolItvw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe class="youtube" src="https://www.youtube.com/embed/LhrGeolItvw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 和 CAGED 对应, 还有 [3 Note Per String](https://youtu.be/N_I4dW-nJ9E) 理论
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/N_I4dW-nJ9E" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe class="youtube" src="https://www.youtube.com/embed/N_I4dW-nJ9E" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 [另外一种方式](https://www.youtube.com/watch?v=1dTZ9P9UrFk)

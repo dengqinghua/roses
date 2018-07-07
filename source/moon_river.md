@@ -14,7 +14,7 @@ DATE: 2018-05-19
 
 INFO: Author: 伍々慧, 1=E, 试听: [这里](https://www.xiami.com/song/1771866338?spm=a1z1s.7154410.1996860241.24.EsDBDu)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/BpePvqwk-KQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe class="youtube" src="https://www.youtube.com/embed/BpePvqwk-KQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 NOTE: E大调: `3 #4 #5 6 7 #1 #2 3`, `E #F #G A B #C #D E`
 

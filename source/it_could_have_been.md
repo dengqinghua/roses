@@ -14,7 +14,7 @@ DATE: 2018-04-16
 
 INFO: Author: Ulli Bögershausen, 1=Em, 试听: [这里](http://www.xiami.com/song/8FZ8wmfaaf1?spm=a1z1s.6659509.0.0.rHuhQw)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/umxQmJ1nqv0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe class="youtube" src="https://www.youtube.com/embed/umxQmJ1nqv0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 Part A
 ------

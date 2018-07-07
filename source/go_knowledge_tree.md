@@ -45,7 +45,7 @@ Go Proverbs
 - Documentation is for users.
 - Don't panic.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PAAkCSZUG1c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe class="youtube" src="https://www.youtube.com/embed/PAAkCSZUG1c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 Vim-Go
 ------
@@ -215,7 +215,7 @@ func main() {
 ### GoPath
 [Code organization](https://golang.org/doc/code.html)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XCsL89YtqCs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe class="youtube" src="https://www.youtube.com/embed/XCsL89YtqCs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ```shell
 go help
