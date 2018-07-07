@@ -14,7 +14,7 @@ DATE: 2017-12-10
 
 INFO: Author: 伍々慧, 1=bE, 试听: [这里](https://www.xiami.com/song/1771866339)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/u5HBydD5CKw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe class="youtube" src="https://www.youtube.com/embed/u5HBydD5CKw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 NOTE: 由 [完整曲谱](#曲谱) 中可以看到, 该曲的五线谱谱号为bbb, 查看五线谱的对照关系, 为 **bE** 调,
 从[维基百科](https://en.wikipedia.org/wiki/Key_signature) 中可以知道: 该谱号约定为一个 **#** 表示添加一个5度, **b** 表示减一个5度.
