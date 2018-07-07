@@ -770,6 +770,12 @@ div.important p, div.caution p, div.warning p, div.note p, div.info p {
   border: none;
 }
 
+.youtube {
+  position: relative;
+  height: 394px;
+  width: 100%;
+}
+
 /* Foundation v2.1.4 http://foundation.zurb.com */
 /* Artfully masterminded by ZURB  */
 
@@ -792,12 +798,11 @@ table td, table th { padding: 9px 10px; text-align: left; }
   table.responsive td, table.responsive th { position: relative; white-space: nowrap; overflow: hidden; }
   table.responsive th:first-child, table.responsive td:first-child, table.responsive td:first-child, table.responsive.pinned td { display: none; }
 
+  .youtube {
+    position: relative;
+    height: 149px;
+    width: 100%;
+  }
 }
 
 #guidesMenu { display:inline-block; }
-
-.youtube {
-  position: relative;
-  height: 394px;
-  width: 100%;
-}
