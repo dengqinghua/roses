@@ -86,6 +86,10 @@
   name: 音乐
   documents:
     -
+      name: 音乐学习体系
+      url: music_index.html
+      description: 一些音乐系统学习资料汇总和索引
+    -
       name: City Of Star
       url: lalaland-city_of_stars.html
       description: 很喜欢 [爱乐之城] 这部电影, City of Stars为其中的原声音乐之一, 刚好在公众号看到了该曲子的吉他版本和Ukulele版本, 便参考和分析了一下歌曲的和弦走向, 和弦编配等.
