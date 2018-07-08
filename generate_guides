@@ -1,10 +1,15 @@
 #!/usr/bin/env ruby
 puts Time.now.to_s
 
-puts "rm -rf output/**"
-`rm -rf output/**`
+if ARGV[0] == "r"
+  puts "rm -rf output/**"
+  `rm -rf output/**`
+end
+
 puts "rake guides:generate"
 `bundle exec rake guides:generate`
+
+puts "============"
 
 Dir["output/*.html"].each do |path|
   puts File.expand_path(File.dirname(__FILE__)) + "/" + path

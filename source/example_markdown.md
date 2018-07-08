@@ -178,6 +178,8 @@ Mardown的扩展
 ### 五线谱
 INFO: Thanks to [abcjs](http://abcjs.net)
 
+NOTE: 使用教程: [Learn Abc](http://abcnotation.com/learn)
+
 MUSIC:
 X: 1
 T: Cooley's
