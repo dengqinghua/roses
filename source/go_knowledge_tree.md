@@ -221,6 +221,11 @@ func main() {
 go help
 ```
 
+### Go Tags in structures
+- [What are the use(s) for tags in Go?](https://stackoverflow.com/a/30889373)
+- [Spec#Struct_types](https://golang.org/ref/spec#Struct_types)
+- [Sam Helman & Kyle Erf - The Many Faces of Struct Tags](https://github.com/gophercon/2015-talks/blob/master/Sam%20Helman%20%26%20Kyle%20Erf%20-%20The%20Many%20Faces%20of%20Struct%20Tags/StructTags.pdf)
+
 并发
 ----
 - [Mastering Concurrency in Go](https://www.packtpub.com/application-development/mastering-concurrency-go)
