@@ -178,7 +178,7 @@ Mardown的扩展
 ### 五线谱
 INFO: Thanks to [abcjs](http://abcjs.net)
 
-NOTE: 使用教程: [Learn Abc](http://abcnotation.com/learn)
+NOTE: 使用教程: [Learn Abc](http://abcnotation.com/learn), [abc_notation](http://www.lesession.co.uk/abc/abc_notation.htm)
 
 MUSIC:
 X: 1

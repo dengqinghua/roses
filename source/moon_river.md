@@ -21,7 +21,7 @@ NOTE: E大调: `3 #4 #5 6 7 #1 #2 3`, `E #F #G A B #C #D E`
 INTRO
 -----
 ```
-EMaj7 -> EMaj7/#G -> EMaj7sus4/A -> EMaj11/B
+EMaj7 -> EMaj7/#G -> EMaj7sus4/A -> B13
 EMaj7 -> EMaj7/#G -> B7(no3)/A
 A/B -> Adim/B -> #G/A
 ```
@@ -33,7 +33,7 @@ EMaj7: `3 #5 #2 7 3`
 
 CHORD: 0x6800
 
-### EMaj7/#G(或#Gm6) EMaj7sus4/A EMaj11/B
+### EMaj7/#G(或#Gm6) EMaj7sus4/A B11no5add6
 EMaj7/#G: `#5 #5 #2 7 3`
 
 CHORD: 4x6800
@@ -44,7 +44,7 @@ CHORD: x06800
 
 NOTE: 11度音为 `6`, 3 到 6 为 纯四度
 
-EMaj11/B: `7 6 #2 #5 3`
+B11no5add6: `7 6 #2 #5 3`
 
 CHORD: 7x7890
 
