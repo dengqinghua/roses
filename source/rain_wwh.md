@@ -182,6 +182,10 @@ Part E
 ------
 Part E 和 [Part C](#part-c) 走向一致.
 
+END
+---
+重复 [INTRO-2](#intro-2)
+
 总结
 ----
 容易弹错的几个小节
@@ -221,10 +225,6 @@ CHORD: 1x32x5
 \#G: `#5 #5 #7 #7`
 
 CHORD: 4x65x8
-
-END
----
-重复 [INTRO-2](#intro-2)
 
 曲谱
 ----
