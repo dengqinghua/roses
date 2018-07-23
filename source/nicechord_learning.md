@@ -80,3 +80,75 @@ L:1/4
 ```
 1 2 b3 4 5 6 7 1 1 b7 b6 5 4 b3 2 1
 ```
+
+Ep03. Add2
+---------
+C: 1 3 5
+
+Cadd2: 1 2 3 5
+
+Cmadd2: 1 2 b3 5
+
+进行I:
+
+```
+Cadd2 Amadd2 Fadd2 Gadd2 C
+```
+
+进行II:
+
+```
+Ab Bb Fm Db
+```
+
+Ep07. 十二小节蓝调
+------------------
+[Twelve-bar blues](https://en.wikipedia.org/wiki/Twelve-bar_blues)
+
+> The twelve-bar blues or blues changes is one of the most prominent chord progressions in popular music.
+
+```
+C7 C7 C7 C7
+F7 F7 C7 C7
+G7 F7 C7 C7
+```
+
+变种I: 去掉 5度音
+
+```
+C7: 1 3 b7
+F7: 4 6 b3
+G7: 5 7 4
+```
+
+变种II: 让高音的位置离得更近
+
+```
+C7: 1 3 b7
+F7: 4 b3 6
+G7: 5  4 7
+```
+
+变种III: 添加9度音和13度音
+
+```
+C9:  1 3 b7 2
+F13: 4 b3 6 2
+G13: 5 4 7 3
+```
+
+再添加 `Walking Bass`
+
+Ep10. Walking Bass
+------------------
+每个音都一样长
+
+1. 分解和弦
+
+2. 音的顺序改变, 使得相邻的音联结起来
+
+3. 加入经过音, 如2
+
+4. 添加下一小节的高/低半音
+
+5. 添加8分音符或者三连音等等

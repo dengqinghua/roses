@@ -18,7 +18,7 @@ Guitar Lessons
 1. [音阶](./scales.html)
 2. [音程](./intervals.html)
 3. [和弦](./chords.html)
-4. [好和弦视频笔记](./nice_chord_records.html)
+4. [好和弦视频笔记](./nicechord_learning.html)
 
 ### Pieces
 一些自己扒的音乐收集
