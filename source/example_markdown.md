@@ -55,66 +55,6 @@ WARNING: 这个是需要提醒的点
 
 ### 标题2-2
 #### 下一级标题2-2
-
-内容XXX
-
-实例源码
--------
-
-```markown
-markdown格式实例
-================
-
-这个是您的文档简介.
-
-阅读完该文档之后, 您将了解到:
-
-* 您最想表述的观点1.
-* 您最想表述的观点2.
-* 您最想表述的观点3.
-
---------------------------------------------------------------------------------
-
-主目录
--------
-### 标题
-
-内容XXX
-
-NOTE: 这里是需要记录的点
-
-INFO: 这里是提示的点
-
-WARNING: 这个是需要提醒的点
-
-#### 下一级标题
-
-### 标题
-#### 下一级标题
-
-内容XXX
-
-主目录2
--------
-### 标题
-
-内容XXX
-
-NOTE: 这里是需要记录的点
-
-INFO: 这里是提示的点
-
-WARNING: 这个是需要提醒的点
-
-#### 下一级标题
-
-### 标题
-#### 下一级标题
-
-内容XXX
-
-```
-
 ```
 # 吉他和弦图案
 # 特殊符号: <C-K>开始
@@ -178,7 +118,7 @@ Mardown的扩展
 ### 五线谱
 INFO: Thanks to [abcjs](http://abcjs.net)
 
-NOTE: 使用教程: [Learn Abc](http://abcnotation.com/learn), [abc_notation](http://www.lesession.co.uk/abc/abc_notation.htm)
+NOTE: 使用教程: [Learn Abc](http://abcnotation.com/learn), [abc_notation](http://www.lesession.co.uk/abc/abc_notation.htm), [abc:standard](http://abcnotation.com/wiki/abc:standard:v2.1)
 
 MUSIC:
 X: 1

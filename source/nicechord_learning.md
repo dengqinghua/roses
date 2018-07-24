@@ -152,3 +152,17 @@ Ep10. Walking Bass
 4. 添加下一小节的高/低半音
 
 5. 添加8分音符或者三连音等等
+
+Ep19. 13和弦
+-----------
+版本I: `1 3 7 13`
+
+MUSIC: "G13" [G,Feb]8 "Cmaj9" [CEbd]8
+
+版本II `1 3 7 9 13`
+
+MUSIC: "G13" [G,Feb]8 "Cmaj9" [CEbd]8
+
+版本III `1 7 9 13`
+
+MUSIC: "G13" [G,FAe]8
