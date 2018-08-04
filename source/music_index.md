@@ -27,7 +27,7 @@ Guitar Lessons
 ### Song Books
 一些弹唱或者指弹的曲目等
 
-[songbooks](songbooks.html)
+[songbooks](./songbooks.html)
 
 五线谱(Five-line Staff)
 -----------------------

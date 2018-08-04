@@ -52,7 +52,7 @@ B调音阶
 #### IV
 Emaj7sus2: `3 #4 7 #2`
 
-CHORD: 0xx444x
+CHORD: 0x444x
 
 Emaj13: `3 #4 7 #1`
 
