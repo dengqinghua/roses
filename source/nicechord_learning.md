@@ -166,3 +166,10 @@ MUSIC: "G13" [G,Feb]8 "Cmaj9" [CEbd]8
 版本III `1 7 9 13`
 
 MUSIC: "G13" [G,FAe]8
+
+Ep34. 蓝调即兴
+-------------
+蓝调音阶: `1 b3 4 b5 5 b7 1`
+
+MUSIC:
+C _E F _G =G _B c

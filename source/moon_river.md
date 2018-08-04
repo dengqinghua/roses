@@ -228,6 +228,6 @@ CHORD: 7x7887
 ----
 完整曲谱下载: [这里](https://github.com/dengqinghua/roses/raw/master/assets/doc/MoonRiver-v2.pdf)
 
-PDF: MoonRiver
+PDF: MoonRiver-v2
 
 INFO: Thanks To [Chord Designer](http://www.chorderator.com/designer/)
