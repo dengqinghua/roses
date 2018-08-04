@@ -81,5 +81,5 @@ L: 1/4
 B c d e f g a b
 
 ### 曲谱
-![HotSpotHeapStructure](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/鱼书-1.png)
-![HotSpotHeapStructure](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/鱼书-2.png)
+![HotSpotHeapStructure](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/鱼书-part1.png)
+![HotSpotHeapStructure](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/鱼书-part2.png)
