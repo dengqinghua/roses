@@ -162,4 +162,4 @@ Rails Guides风格的markdown模板.
 
 Issues
 ------
-如果您觉得有文章对您有启发, 或者有任何问题, 可以通过邮箱联系我: dengqinghua.42@gmail.com.
+如果您觉得有文章对您有启发, 或者有任何问题, 可以通过邮箱联系我: dengqinghua.42@gmail.com
