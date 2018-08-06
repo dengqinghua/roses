@@ -6,7 +6,7 @@ if ARGV[0] == "r"
   `rm -rf output/**`
 end
 
-puts "rake guides:generate"
+puts "bundle exec rake guides:generate"
 `bundle exec rake guides:generate`
 
 puts "============"
