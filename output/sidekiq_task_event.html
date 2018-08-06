@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="baidu-site-verification" content="N1Q3HiESgp" />
+
+<title>dengqinghua&#39;s blog</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shCore.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shThemeRailsGuides.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/fixes.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/abcjs-midi.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/gitalk.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/Treant.css" />
+  <link href="images/favicon.jpeg" rel="shortcut icon" type="image/x-icon" />
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body class="guide">
+  <div id="topNav">
+    <div class="wrapper">
+
+      <strong class="more-info-label">More:</strong>
+
+      <span class="red-button more-info-button">More Dengqinghua</span>
+      <ul class="more-info-links s-hidden">
+        <li class="more-info"><a href="http://www.dengqinghua.net/">About me</a></li>
+        <li class="more-info"><a href="https://github.com/dengqinghua/">Github</a></li>
+        <li class="more-info"><a href="mailto:dengqinghua.42@gmail.com">Gmail</a></li>
+        <li class="more-info"><a href="https://twitter.com/dengqinghua_42">Twitter</a></li>
+      </ul>
+
+      <form action="http://google.com/search" method="get">
+          <input name="q" value="site:blog.dengqinghua.net" type="hidden">
+          <input class="search" name="q" placeholder="Search Blog" type="text">
+      </form>
+    </div>
+  </div>
+  <div id="header">
+    <div class="wrapper clearfix">
+      <h1><a href="http://blog.dengqinghua.net" title="Return to home page">http://blog.dengqinghua.net</a></h1>
+      <ul class="nav">
+        <li><a class="nav-item" href="http://blog.dengqinghua.net">Home</a></li>
+        <li class="guides-index guides-index-large">
+          <a href="index.html" id="guidesMenu" class="guides-index-item nav-item">
+            Index <span id="guidesArrow">▸</span>
+          </a>
+
+          <div id="guides" class="clearfix" style="display: none;">
+            <hr />
+              <dl class="L">
+                <dt>推荐</dt>
+                <dd><a href="badge_system.html">基于内存数据库的角标系统设计</a></dd>
+                <dd><a href="witness_flow.html">业务流引擎系统</a></dd>
+                <dt>Ruby</dt>
+                <dd><a href="ruby_knowledge_tree.html">Ruby知识树</a></dd>
+                <dd><a href="ruby_model.html">Ruby数据模型</a></dd>
+                <dd><a href="arel.html?lang=en">Arel源码分析</a></dd>
+                <dd><a href="sidekiq_task_event.html">基于Sidekiq的异步任务管理引擎</a></dd>
+                <dd><a href="racc.html">Racc</a></dd>
+                <dd><a href="witness_flow.html">业务流引擎系统</a></dd>
+                <dt>Java</dt>
+                <dd><a href="data_structures.html">数据结构</a></dd>
+                <dd><a href="learn_jvm.html">JVM剖析</a></dd>
+                <dd><a href="concurrency.html">Concurrency</a></dd>
+                <dd><a href="badge_system.html">基于内存数据库的角标系统设计</a></dd>
+                <dd><a href="maven_under_command_line.html">命令行下的Maven</a></dd>
+                <dt>MySQL</dt>
+                <dd><a href="mysql_knowledge_tree.html">MySQL知识树</a></dd>
+              </dl>
+              <dl class="R">
+                <dt>Go</dt>
+                <dd><a href="go_get_timeout_solution.html">GoInstallBinaries i/o timeout问题</a></dd>
+                <dd><a href="go_knowledge_tree.html">Go知识树</a></dd>
+                <dt>音乐</dt>
+                <dd><a href="music_index.html">音乐学习体系</a></dd>
+                <dd><a href="lalaland-city_of_stars.html">City Of Star</a></dd>
+                <dd><a href="あの日の帰り道.html">あの日の帰り道</a></dd>
+                <dd><a href="rain_wwh.html">雨の日はワルツを踊って</a></dd>
+                <dd><a href="it_could_have_been.html">Es Ware Schon Gewesen</a></dd>
+                <dt>杂记</dt>
+                <dd><a href="example_markdown.html">markdown格式实例</a></dd>
+                <dd><a href="comments.html">注释规范</a></dd>
+                <dd><a href="best_programming.html">零bug落地方案</a></dd>
+                <dd><a href="raft.html">Raft算法</a></dd>
+                <dd><a href="memorize_my_mentor.html">Memorize My Mentor</a></dd>
+              </dl>
+          </div>
+        </li>
+        <li class="guides-index guides-index-small">
+          <select class="guides-index-item nav-item">
+            <option value="index.html">Index</option>
+              <optgroup label="推荐">
+                  <option value="badge_system.html">基于内存数据库的角标系统设计</option>
+                  <option value="witness_flow.html">业务流引擎系统</option>
+              </optgroup>
+              <optgroup label="Ruby">
+                  <option value="ruby_knowledge_tree.html">Ruby知识树</option>
+                  <option value="ruby_model.html">Ruby数据模型</option>
+                  <option value="arel.html?lang=en">Arel源码分析</option>
+                  <option value="sidekiq_task_event.html">基于Sidekiq的异步任务管理引擎</option>
+                  <option value="racc.html">Racc</option>
+                  <option value="witness_flow.html">业务流引擎系统</option>
+              </optgroup>
+              <optgroup label="Java">
+                  <option value="data_structures.html">数据结构</option>
+                  <option value="learn_jvm.html">JVM剖析</option>
+                  <option value="concurrency.html">Concurrency</option>
+                  <option value="badge_system.html">基于内存数据库的角标系统设计</option>
+                  <option value="maven_under_command_line.html">命令行下的Maven</option>
+              </optgroup>
+              <optgroup label="MySQL">
+                  <option value="mysql_knowledge_tree.html">MySQL知识树</option>
+              </optgroup>
+              <optgroup label="Go">
+                  <option value="go_get_timeout_solution.html">GoInstallBinaries i/o timeout问题</option>
+                  <option value="go_knowledge_tree.html">Go知识树</option>
+              </optgroup>
+              <optgroup label="音乐">
+                  <option value="music_index.html">音乐学习体系</option>
+                  <option value="lalaland-city_of_stars.html">City Of Star</option>
+                  <option value="あの日の帰り道.html">あの日の帰り道</option>
+                  <option value="rain_wwh.html">雨の日はワルツを踊って</option>
+                  <option value="it_could_have_been.html">Es Ware Schon Gewesen</option>
+              </optgroup>
+              <optgroup label="杂记">
+                  <option value="example_markdown.html">markdown格式实例</option>
+                  <option value="comments.html">注释规范</option>
+                  <option value="best_programming.html">零bug落地方案</option>
+                  <option value="raft.html">Raft算法</option>
+                  <option value="memorize_my_mentor.html">Memorize My Mentor</option>
+              </optgroup>
+          </select>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr class="hide" />
+
+  <div id="feature">
+    <div class="wrapper">
+      <h3>基于Sidekiq的异步任务管理引擎</h3><div class="date"><p>2016-11-28</p></div><p>我们在项目中大量使用到了<a href="https://github.com/mperham/sidekiq">Sidekiq</a>
+作为队列任务处理, 但是Sidekiq无法获取到每一个任务的处理情况.</p><p>在系统中有一类问题的抽象为:</p><p>批量处理n个任务, 每个任务都比较耗时, 希望可以快速地处理, 并且能知道每一个任务的执行结果情况.</p><p>基于这类问题, 我们研发了基于Sidekiq的异步任务管理引擎.</p><p>阅读完该文档之后, 您将了解到:</p>
+<ul>
+<li>Sidekiq基本框架源码分析.</li>
+<li>Sidekiq Middleware.</li>
+<li>异步任务管理引擎设计.</li>
+</ul>
+
+
+                <div id="subCol">
+            <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Chapters</h3>
+            <ol class="chapters">
+<li><a href="#sidekiq%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6">Sidekiq基本框架</a></li>
+<li><a href="#sidekiq-client">Sidekiq Client</a></li>
+<li>
+<a href="#sidekiq-server">Sidekiq Server</a>
+
+<ul>
+<li><a href="#before-4-0">Before 4.0</a></li>
+<li><a href="#after-4-0">After 4.0</a></li>
+<li><a href="#%E9%98%9F%E5%88%97%E9%87%8D%E5%90%AF%E6%97%B6job%E7%9A%84%E5%A4%84%E7%90%86">队列重启时job的处理</a></li>
+</ul>
+</li>
+<li><a href="#sidekiq-middleware">Sidekiq Middleware</a></li>
+<li>
+<a href="#asynctask">AsyncTask</a>
+
+<ul>
+<li><a href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90">需求分析</a></li>
+<li><a href="#asynctask-asynctask">AsyncTask</a></li>
+<li><a href="#%E9%97%AE%E9%A2%98%E5%89%96%E6%9E%90">问题剖析</a></li>
+</ul>
+</li>
+</ol>
+
+          </div>
+
+    </div>
+  </div>
+
+  <div id="container">
+    <div class="wrapper">
+      <div id="mainCol">
+        <h3 id="sidekiq基本框架"><a class="anchorlink" href="#sidekiq%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6">1 Sidekiq基本框架</a></h3><p>Sidekiq基于Redis作为存储, 一个例子如下:</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/sidekiq_exmaple.png" alt="sidekiq_exmaple"></p><h3 id="sidekiq-client"><a class="anchorlink" href="#sidekiq-client">2 Sidekiq Client</a></h3><p>Sidekiq Client部分为队列数据的生产者, 在 Sidekiq 源码中可以看到</p><div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+module Sidekiq
+  class Client
+    def push(item)
+      normed = normalize_item(item)
+      payload = process_single(item['class'.freeze], normed)
+
+      if payload
+        raw_push([payload])
+        payload['jid'.freeze]
+      end
+    end
+
+    def atomic_push(conn, payloads)
+      q = payloads.first['queue'.freeze]
+      now = Time.now.to_f
+      to_push = payloads.map do |entry|
+        entry['enqueued_at'.freeze] = now
+        Sidekiq.dump_json(entry)
+      end
+      conn.sadd('queues'.freeze, q)
+      conn.lpush("queue:#{q}", to_push)
+    end
+  end
+end
+
+</pre>
+</div>
+<p>最终会在Redis中存储下面这些信息</p>
+<ul>
+<li>retry 重试次数</li>
+<li>queue 队列名称</li>
+<li>backtrace 错误栈</li>
+<li>class 处理类名称</li>
+<li>args  参数</li>
+<li>jid   job_id</li>
+<li>enqueued_at 进入队列的时间</li>
+</ul>
+<p>并将这些信息通过<a href="https://redis.io/commands/lpush">lpush</a>存储在Redis的队列中.</p><h3 id="sidekiq-server"><a class="anchorlink" href="#sidekiq-server">3 Sidekiq Server</a></h3><h4 id="before-4-0"><a class="anchorlink" href="#before-4-0">3.1 Before 4.0</a></h4><p>Sidekiq4.0之前, 使用的是<a href="https://github.com/celluloid/celluloid">Celluloid</a>作为多线程的抽象层</p><p>模型如下:</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/sidekiq_actor_architecture.png" alt="sidekiq_actor_architecture"></p><p>源码分析请参考 <a href="https://www.jstorimer.com/products/working-with-ruby-threads">Working With Ruby Threads-Chapter 15</a></p><h4 id="after-4-0"><a class="anchorlink" href="#after-4-0">3.2 After 4.0</a></h4><p>在4.0版本之后, Sidekiq出于性能考虑, 使用原生的<code>Thread</code>实现了一个简易的Actor版本模型. 相关文章请见<a href="http://www.mikeperham.com/2015/10/14/should-you-use-celluloid/">这里</a> 和 <a href="https://github.com/mperham/sidekiq/issues/2583">这里</a></p><p>模型如下:</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/sidekiq_new_framework.png" alt="sidekiq_new_framework"></p><p>核心的组件包括</p>
+<ol>
+<li>
+<p>Manager</p>
+<p><code>Manager</code> 根据用户设置的并发数, 生成处理队列任务的 <code>Processor</code>, 并对idle或者dead的 <code>Processsor</code> 进行管理, 包括:</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+1. start: Spin up Processors.
+2. processor_died: Handle job failure, throw away Processor, create new one.
+3. quiet: shutdown idle Processors.
+4. stop: hard stop the Processors by deadline.
+
+</pre>
+</div>
+<p>初始化Manager</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+class Manager
+  def initialize(options={})
+    logger.debug { options.inspect }
+    @options = options
+    @count = options[:concurrency] || 25
+    raise ArgumentError, "Concurrency of #{@count} is not supported" if @count &lt; 1
+
+    # @done代表是否结束处理任务
+    @done = false
+    @workers = Set.new
+
+    # 生成多个Processor, 每一个Processor对象在被调用start方法的时候, 会生成了一个线程
+    @count.times do
+      @workers &lt;&lt; Processor.new(self)
+    end
+
+    # 添加一个锁, 用于修改 @workers 的数据, 管理Processor对象
+    @plock = Mutex.new
+  end
+end
+
+</pre>
+</div>
+<p>启动Manager, 即调用<code>Processor#start</code></p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+class Manager
+  def start
+    @workers.each do |x|
+      x.start
+    end
+  end
+end
+
+</pre>
+</div>
+</li>
+<li>
+<p>Processor</p>
+<p><code>Processor</code> 是处理任务的类, 包括下面的功能</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+1. fetches a job from Redis using brpop
+2. executes the job
+  a. instantiate the Worker
+  b. run the middleware chain
+  c. call #perform
+
+</pre>
+</div>
+<p><code>Processor#start</code>, 启动Processor, 创建一个线程</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+class Processor
+  def start
+    # 生成一个线程, 并调用run方法
+    @thread ||= safe_thread("processor", &amp;method(:run))
+  end
+end
+
+</pre>
+</div>
+<p><code>Processor#run</code>, 处理任务, 去Redis获取队列数据</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+# @mgr 即为他对应的 Manager 对象
+class Processor
+  def run
+    begin
+      while !@done
+        # 调用 perform 方法进行处理
+        process_one
+      end
+
+      # 一旦结束了, 则将 Processor对象中的manager对应的worker去掉, 即是改变了上述 Manager的 @workers 数组
+      @mgr.processor_stopped(self)
+    rescue Sidekiq::Shutdown
+      # 在接收到TERM SIGNAL之后, 等待超时的时候sidekiq会抛出异常 Sidekiq::Shutdown, 见下文分析
+      # 线程被关闭.
+      @mgr.processor_stopped(self)
+    rescue Exception =&gt; ex
+      # 程序报错了, Manager#processor_died 会重新生成一个新的Processor线程
+      @mgr.processor_died(self, ex)
+    end
+  end
+end
+
+</pre>
+</div>
+</li>
+</ol>
+<h4 id="队列重启时job的处理"><a class="anchorlink" href="#%E9%98%9F%E5%88%97%E9%87%8D%E5%90%AF%E6%97%B6job%E7%9A%84%E5%A4%84%E7%90%86">3.3 队列重启时job的处理</a></h4><p>当我们更新代码后, 需要重启<code>Sidekiq</code>的进程. 一般来说, 我们会发送一个 <code>TERM SIGNAL</code> 指令给Sidekiq进程, 它的执行步骤如下</p>
+<ol>
+<li>
+<p>停止Fetch jobs.</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+class Manager
+  def quiet
+    return if @done
+    # 将 @done 设置为 true
+    @done = true
+
+    logger.info { "Terminating quiet workers" }
+    @workers.each { |x| x.terminate } # 这里的每一个 x 都是一个Processor对象
+    fire_event(:quiet, reverse: true)
+  end
+end
+
+class Processsor
+  def terminate(wait=false)
+    @done = true # 将每一个Processor 的 @done 设置为 true, 下面的run方法则不再fetch新的job
+    return if !@thread
+    @thread.value if wait
+  end
+
+  def run
+    begin
+      while !@done
+        process_one
+      end
+      # 一旦结束了, 则将 Processor对象中的manager对应的worker去掉, 即是改变了上述 Manager的 @workers 数组
+      @mgr.processor_stopped(self)
+    rescue Sidekiq::Shutdown
+      @mgr.processor_stopped(self)
+    rescue Exception =&gt; ex
+      @mgr.processor_died(self, ex)
+  end
+end
+
+</pre>
+</div>
+</li>
+<li>
+<p>等待<code>Sidekiq.options[:timeout]</code>秒(默认为8秒)的时间, 使得Processor去处理完当前未完成的jobs</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+class Manager
+  def stop(deadline)
+    quiet
+    fire_event(:shutdown, reverse: true)
+
+    # some of the shutdown events can be async,
+    # we don't have any way to know when they're done but
+    # give them a little time to take effect
+    sleep PAUSE_TIME
+    return if @workers.empty?
+
+    logger.info { "Pausing to allow workers to finish..." }
+    remaining = deadline - Time.now
+
+    # 等待默认的8s后, 如果 @workers 为空, 则代表在规定时间内任务都处理完, 退出
+    while remaining &gt; PAUSE_TIME
+      return if @workers.empty?
+      sleep PAUSE_TIME
+      remaining = deadline - Time.now
+    end
+    return if @workers.empty?
+
+    # 等待默认的8s后, 如果 @workers 不为空, 则进行强制shutdown
+    hard_shutdown
+  end
+end
+
+</pre>
+</div>
+</li>
+<li>
+<p>如果在等待时间之后, 仍存在正在处理的job, 则将job通过rpush命令推入Redis, 强制使 processor 退出</p>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+class Manager
+  def hard_shutdown
+    # We've reached the timeout and we still have busy workers.
+    # They must die but their jobs shall live on.
+    cleanup = nil
+    @plock.synchronize do
+      cleanup = @workers.dup
+    end
+
+    if cleanup.size &gt; 0
+      # 获取没有处理完的job
+      jobs = cleanup.map {|p| p.job }.compact
+
+      logger.warn { "Terminating #{cleanup.size} busy worker threads" }
+      logger.warn { "Work still in progress #{jobs.inspect}" }
+
+      # Re-enqueue unfinished jobs
+      # NOTE: You may notice that we may push a job back to redis before
+      # the worker thread is terminated. This is ok because Sidekiq's
+      # contract says that jobs are run AT LEAST once. Process termination
+      # is delayed until we're certain the jobs are back in Redis because
+      # it is worse to lose a job than to run it twice.
+      strategy = (@options[:fetch] || Sidekiq::BasicFetch)
+
+      # 将未处理完的jobs推入队列的头部
+      strategy.bulk_requeue(jobs, @options)
+    end
+
+    # 强制kill掉线程
+    cleanup.each do |processor|
+      processor.kill
+    end
+  end
+end
+
+class Processor
+  def kill(wait=false)
+    @done = true
+    return if !@thread
+    # unlike the other actors, terminate does not wait
+    # for the thread to finish because we don't know how
+    # long the job will take to finish.  Instead we
+    # provide a `kill` method to call after the shutdown
+    # timeout passes.
+    @thread.raise ::Sidekiq::Shutdown
+    @thread.value if wait
+  end
+end
+
+</pre>
+</div>
+</li>
+</ol>
+<div class="note"><p>注意在接收到<code>TERM SIGNAL</code>一些job有可能被重复执行. Sidekiq的FAQ中有说明: <strong>Remember that Sidekiq will run your jobs AT LEAST once</strong>.</p></div><div class="info"><p>Sidekiq 还提供了 Scheduling Job 的功能, 即到时执行任务, 该部分使用了一个 SortedSet 的redis数据结构, 排序的因子为任务的执行时间. 在启动 Sidekiq 服务的时候, 会启动了一个线程轮询所有执行时间小于等于当前时间的队列数据, 将该部分的数据在pop至队列, 再由 Processor 处理.</p></div><h3 id="sidekiq-middleware"><a class="anchorlink" href="#sidekiq-middleware">4 Sidekiq Middleware</a></h3><p>Sidekiq 在 client-side 和 server-side 都支持AOP操作, 该部分和<a href="https://rack.github.io/">Rack</a>的原理一致.</p><p>有了<code>server-side middleware</code>的支持, 我们可以</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+在sidekiq处理任务前后, 捕捉到任务的处理情况
+
+</pre>
+</div>
+<p>如Sidekiq提供了 <code>ActiveRecord</code> 的 <code>server-side middleware</code></p><div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+module Sidekiq
+  module Middleware
+    module Server
+      class ActiveRecord
+        def initialize
+          # With Rails 5+ we must use the Reloader **always**.
+          # The reloader handles code loading and db connection management.
+          if defined?(::Rails) &amp;&amp; ::Rails::VERSION::MAJOR &gt;= 5
+            raise ArgumentError, "Rails 5 no longer needs or uses the ActiveRecord middleware."
+          end
+        end
+
+        def call(*args)
+          yield
+        ensure
+          ::ActiveRecord::Base.clear_active_connections!
+        end
+      end
+    end
+  end
+end
+
+</pre>
+</div>
+<p>对于基于Rails的Sidekiq服务, Sidekiq会确保在每次执行任务之后, 都会清掉使用的连接, 避免多线程占用过多的Rails数据库连接.</p><h3 id="asynctask"><a class="anchorlink" href="#asynctask">5 AsyncTask</a></h3><h4 id="需求分析"><a class="anchorlink" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90">5.1 需求分析</a></h4><p>我们经常有一些这样的需求:</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+1. 给卖家批量报名活动, 一次可以报名200个商品, 如果报名失败的记录, 需要有提示信息
+2. 批量创建活动, 一次导入一个1万条商品的excel, 需要给这1万条数据创建
+3. 批量导出50万大促信息
+
+</pre>
+</div>
+<p>最开始我们都是通过串行的方式进行处理, 比如</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+1. 给卖家批量报名活动, 一次可以报名200个商品, 如果报名失败的记录, 需要有提示信息
+
+</pre>
+</div>
+<p>我们提供一个商品的HTTP接口, 然后由JS发Ajax请求进行调用, 但是该方式有一些问题:</p>
+<ul>
+<li>数据容易丢失</li>
+<li>一些接口请求很慢, 容易造成超时</li>
+<li>JS交互复杂, 大量的逻辑都放在了前端, 出问题不好排查</li>
+</ul>
+<p>但是对于数据量大的情况, 串行调用变得非常慢, 如</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+2. 批量创建活动, 一次导入一个1万条商品的excel, 需要给这1万条数据创建
+3. 批量导出50万大促信息
+
+</pre>
+</div>
+<p>我们考虑使用Sidekiq进行处理, 即每一个任务都放在Redis里面. 调用perform_async方法, 获取到任务的job_id</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+job_id = ProductWorker.perform_async(params)
+
+</pre>
+</div>
+<p>但是新的问题出现了: 我们无法获取到这个job的完成情况, 如果逻辑上处理失败, 也无法获取到对应的错误信息.</p><div class="note"><p><a href="https://sidekiq.org/products/pro.html">Sidekiq-Pro</a> 支持batches功能, 但是它是收费的.</p></div><p>我们最终决定利用 Sidekiq 的 Middleware 特性, 研发出一套异步任务管理引擎, 它支持</p>
+<ul>
+<li>任务的聚合管理. 一个task和多个job进行关联</li>
+<li>可以获得job的执行状态</li>
+<li>所有执行过程可视化</li>
+</ul>
+<h4 id="asynctask-asynctask"><a class="anchorlink" href="#asynctask-asynctask">5.2 AsyncTask</a></h4><p>任务处理引擎架构图</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/async_task.png" alt="async_task"></p><p>它包含三部分</p>
+<ol>
+<li>创建Task, 生成task_id, 将每一个任务都推入Redis, 并获取到对应的job_id</li>
+<li>生成Event记录, 该Event和job_id一一对应, 记录了整个job的生命周期</li>
+<li>利用Server-Side Middleware, 记录Event的状态和相关信息</li>
+</ol>
+<div class="note"><p>步骤一的job_id由Sidekiq生成</p></div><h5 id="task-和-event-创建"><a class="anchorlink" href="#task-%E5%92%8C-event-%E5%88%9B%E5%BB%BA">5.2.1 Task 和 Event 创建</a></h5><p>我们将Task和Event都创建了对应的数据库表, 则</p><div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+class Task
+  has_many :events
+end
+
+class Event
+  validates_uniqueness_of :job_id
+  belongs_to :task
+end
+
+</pre>
+</div>
+<p>Task的数据结构为</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>worker_name</td>
+<td>worker的名称</td>
+</tr>
+<tr>
+<td>id</td>
+<td>主键id</td>
+</tr>
+</tbody>
+</table>
+<p>Event的数据结构为</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>job_id</td>
+<td>任务id,全局唯一</td>
+</tr>
+<tr>
+<td>status</td>
+<td>当前状态,包括<code>enqueue</code>,<code>working</code>, <code>finish</code>, <code>failed</code>, <code>error</code>
+</td>
+</tr>
+<tr>
+<td>params</td>
+<td>任务执行的所有参数</td>
+</tr>
+<tr>
+<td>added_messages</td>
+<td>增量的信息,记录整个任务的流程</td>
+</tr>
+</tbody>
+</table>
+<div class="note"><p>注意到status包含了 falied 和 error 两个不同的状态. 其中 failed 代表为 业务逻辑上的失败, 如一个卖家因为资质不合格导致无法报名, 为了获取该状态, 处理时可直接抛出异常(NormalException), 状态为failed. 而 error 代表为系统错误, 如程序bug或者接口超时等</p></div><h5 id="server-side-middleware"><a class="anchorlink" href="#server-side-middleware">5.2.2 Server-Side Middleware</a></h5><p>在这里我们配置了 <code>use_task_event</code>, 如果需要使用该插件, 需要在 worker 中配置 <code>use_task_event: true</code>.</p><div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+class AWorker
+  include Sidekiq::Worker
+
+  sidekiq_options use_task_event: true
+
+  def perform(options)
+    handle_job(options)
+  end
+end
+
+</pre>
+</div>
+<p>Server-Side Middleware代码和注释如下:</p><div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+module AsyncTask
+  class MiddlewareServer
+    def call(worker, item, queue)
+      if item['use_task_event'] # 配置入口
+        begin
+          job_id = item['jid']
+          Task.record(job_id, :working, message: "处理中")
+
+          yield
+
+          # 正常处理成功, 设置 status 为 finish
+          Task.record(job_id, :finish, message: "已经完成")
+        rescue SystemExit, Interrupt =&gt; ex
+          # 被中断, 设置 status 为 error
+          Task.record(job_id, :error, message: "被中断")
+
+          # 如果之后会被重试, 则重新再设置为 :enqueue
+          if retry_status.is_a?(Integer) &amp;&amp; (retry_status &gt; 0) &amp;&amp; retry_count &amp;&amp;
+            (retry_status - 1 != retry_count.to_i)
+
+            Task.record(job_id, :enqueue, message: "等待重试")
+          end
+
+          raise ex
+        rescue NormalException =&gt; ex
+          # 业务逻辑上的失败, 设置 status 为 failed, 错误信息放在 message 中
+          Task.record(job_id, :failed, message: "发生错误: #{ex.message}")
+        rescue Exception =&gt; ex
+          # 程序bug, 设置 status 为 error
+          Task.record(job_id, :error, message: "发生致命错误: #{ex.message}")
+
+          # 如果之后会被重试, 则重新再设置为 :enqueue
+          if retry_status.is_a?(Integer) &amp;&amp; (retry_status &gt; 0) &amp;&amp; retry_count &amp;&amp;
+            (retry_status - 1 != retry_count.to_i)
+
+            Task.record(job_id, :enqueue, message: "等待重试")
+          end
+
+          raise ex
+        end
+      else
+        yield
+      end
+    end
+  end
+end
+
+</pre>
+</div>
+<p>在项目启动时加载该Middleware</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+Sidekiq.configure_server do |config|
+  config.server_middleware do |chain|
+    chain.add AsyncTask::MiddlewareServer
+  end
+end
+
+</pre>
+</div>
+<h4 id="问题剖析"><a class="anchorlink" href="#%E9%97%AE%E9%A2%98%E5%89%96%E6%9E%90">5.3 问题剖析</a></h4><p>回顾在文章开始时提到的需求</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+1. 给卖家批量报名, 一次可以报名200个商品, 进行活动, 如果报名失败的记录, 需要有提示信息
+2. 批量创建活动, 一次导入一个1万条商品的excel, 需要给这1万条数据创建
+3. 批量导出50万大促信息
+
+</pre>
+</div>
+<p>对于需求1, 2, 都可以用相同的处理方式, 流程如下:</p>
+<ol>
+<li>前端一次将所有的数据全部提到给后端.</li>
+<li>后端根据数据量拆分为n个jobs, 并生成一个task_id, 返回给前端.</li>
+<li>前端每隔一段时间, 调用后端的接口来询问 task_id 对于的 job 的状态, 如果出错, 则一同返回错误信息.</li>
+</ol>
+<p>对于需求3, 我们可以将50万信息分为不同的worker来处理, 并用统一的task_id进行关联, 也将大大提高导出的效率.</p>
+
+        <div id="comment"></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="hide" />
+  <div id="footer">
+    <div class="wrapper">
+      <p>版权声明：自由转载-非商用-非衍生-保持署名(<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享3.0许可证</a>)</p>
+<p>For Ruby Roses.</p>
+
+    </div>
+  </div>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/responsive-tables.js"></script>
+  <script type="text/javascript" src="javascripts/guides.js"></script>
+
+  <!-- ./node_modules/gulp/bin/gulp.js build -\-brushes=bash,cpp,css,javascript,java,plain,python,ruby,scala,sql,xml -->
+  <!-- uglifyjs syntaxhighlighter.js  -\-output syntaxhighlighter.min.js -->
+  <script type="text/javascript" src="javascripts/syntaxhighlighter.min.js"></script>
+  <script type="text/javascript" src="javascripts/tonal.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.0.1/Tone.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/tone/13.1.22/Tone.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.4/svg.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/svg.js/2.6.5/svg.js"></script>
+  <script type="text/javascript" src="javascripts/chordy-svg.min.js"></script>
+  <script type="text/javascript" src="javascripts/chord.js"></script>
+  <!-- <script type="text/javascript" src="javascripts/gitalk.min.js"></script> -->
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.2.2/gitalk.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/gitalk/1.2.2/gitalk.js"></script>
+  <script type="text/javascript" src="javascripts/load_docs.js"></script>
+  <!-- <script type="text/javascript" src="javascripts/Treant.js"></script> -->
+  <script src="https://cdn.bootcss.com/treant-js/1.0/Treant.min.js"></script>
+  <!-- <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.0/raphael&#45;min.js"></script> -->
+  <script src="https://cdn.bootcss.com/raphael/2.2.7/raphael.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.11.0/flowchart.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/flowchart/1.11.0/flowchart.min.js"></script>
+  <script type="text/javascript" src="javascripts/flowchart_generator.js"></script>
+  <script type="text/javascript" src="javascripts/tree_generator.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115746206-1"></script>
+
+  <script type="text/javascript" src="javascripts/abcjs_midi_5.1.2-min.js"></script>
+  <script type="text/javascript" src="javascripts/music_generator.js"></script>
+
+  <script type="text/javascript">
+    syntaxhighlighterConfig = {
+      autoLinks: false,
+    };
+
+    $(guidesIndex.bind);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115746206-1');
+  </script>
+
+  <script type="text/javascript">
+    var locationId = (location.pathname).split("/").pop().substring(0, 49);
+
+    if (locationId) {
+      var language = window.location.search.match("lang=en") ? "en" : "zh-CN"
+      var gitalk   = new Gitalk({
+        clientID: '0f5824fe1c09851e9781',
+        clientSecret: '61710a77ee98cddce06f408a398f05c8622e9575',
+        repo: 'blog_comments',
+        owner: 'dengqinghua',
+        admin: ['dengqinghua'],
+        id: locationId,
+        distractionFreeMode: true,
+        language: language
+      });
+
+      gitalk.render('comment');
+    }
+  </script>
+</body>
+</html>

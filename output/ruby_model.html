@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="baidu-site-verification" content="N1Q3HiESgp" />
+
+<title>Ruby对象模型 — dengqinghua&#39;s blog</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shCore.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shThemeRailsGuides.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/fixes.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/abcjs-midi.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/gitalk.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/Treant.css" />
+  <link href="images/favicon.jpeg" rel="shortcut icon" type="image/x-icon" />
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body class="guide">
+  <div id="topNav">
+    <div class="wrapper">
+
+      <strong class="more-info-label">More:</strong>
+
+      <span class="red-button more-info-button">More Dengqinghua</span>
+      <ul class="more-info-links s-hidden">
+        <li class="more-info"><a href="http://www.dengqinghua.net/">About me</a></li>
+        <li class="more-info"><a href="https://github.com/dengqinghua/">Github</a></li>
+        <li class="more-info"><a href="mailto:dengqinghua.42@gmail.com">Gmail</a></li>
+        <li class="more-info"><a href="https://twitter.com/dengqinghua_42">Twitter</a></li>
+      </ul>
+
+      <form action="http://google.com/search" method="get">
+          <input name="q" value="site:blog.dengqinghua.net" type="hidden">
+          <input class="search" name="q" placeholder="Search Blog" type="text">
+      </form>
+    </div>
+  </div>
+  <div id="header">
+    <div class="wrapper clearfix">
+      <h1><a href="http://blog.dengqinghua.net" title="Return to home page">http://blog.dengqinghua.net</a></h1>
+      <ul class="nav">
+        <li><a class="nav-item" href="http://blog.dengqinghua.net">Home</a></li>
+        <li class="guides-index guides-index-large">
+          <a href="index.html" id="guidesMenu" class="guides-index-item nav-item">
+            Index <span id="guidesArrow">▸</span>
+          </a>
+
+          <div id="guides" class="clearfix" style="display: none;">
+            <hr />
+              <dl class="L">
+                <dt>推荐</dt>
+                <dd><a href="badge_system.html">基于内存数据库的角标系统设计</a></dd>
+                <dd><a href="witness_flow.html">业务流引擎系统</a></dd>
+                <dt>Ruby</dt>
+                <dd><a href="ruby_knowledge_tree.html">Ruby知识树</a></dd>
+                <dd><a href="ruby_model.html">Ruby数据模型</a></dd>
+                <dd><a href="arel.html?lang=en">Arel源码分析</a></dd>
+                <dd><a href="sidekiq_task_event.html">基于Sidekiq的异步任务管理引擎</a></dd>
+                <dd><a href="racc.html">Racc</a></dd>
+                <dd><a href="witness_flow.html">业务流引擎系统</a></dd>
+                <dt>Java</dt>
+                <dd><a href="data_structures.html">数据结构</a></dd>
+                <dd><a href="learn_jvm.html">JVM剖析</a></dd>
+                <dd><a href="concurrency.html">Concurrency</a></dd>
+                <dd><a href="badge_system.html">基于内存数据库的角标系统设计</a></dd>
+                <dd><a href="maven_under_command_line.html">命令行下的Maven</a></dd>
+                <dt>MySQL</dt>
+                <dd><a href="mysql_knowledge_tree.html">MySQL知识树</a></dd>
+              </dl>
+              <dl class="R">
+                <dt>Go</dt>
+                <dd><a href="go_get_timeout_solution.html">GoInstallBinaries i/o timeout问题</a></dd>
+                <dd><a href="go_knowledge_tree.html">Go知识树</a></dd>
+                <dt>音乐</dt>
+                <dd><a href="music_index.html">音乐学习体系</a></dd>
+                <dd><a href="lalaland-city_of_stars.html">City Of Star</a></dd>
+                <dd><a href="あの日の帰り道.html">あの日の帰り道</a></dd>
+                <dd><a href="rain_wwh.html">雨の日はワルツを踊って</a></dd>
+                <dd><a href="it_could_have_been.html">Es Ware Schon Gewesen</a></dd>
+                <dt>杂记</dt>
+                <dd><a href="example_markdown.html">markdown格式实例</a></dd>
+                <dd><a href="comments.html">注释规范</a></dd>
+                <dd><a href="best_programming.html">零bug落地方案</a></dd>
+                <dd><a href="raft.html">Raft算法</a></dd>
+                <dd><a href="memorize_my_mentor.html">Memorize My Mentor</a></dd>
+              </dl>
+          </div>
+        </li>
+        <li class="guides-index guides-index-small">
+          <select class="guides-index-item nav-item">
+            <option value="index.html">Index</option>
+              <optgroup label="推荐">
+                  <option value="badge_system.html">基于内存数据库的角标系统设计</option>
+                  <option value="witness_flow.html">业务流引擎系统</option>
+              </optgroup>
+              <optgroup label="Ruby">
+                  <option value="ruby_knowledge_tree.html">Ruby知识树</option>
+                  <option value="ruby_model.html">Ruby数据模型</option>
+                  <option value="arel.html?lang=en">Arel源码分析</option>
+                  <option value="sidekiq_task_event.html">基于Sidekiq的异步任务管理引擎</option>
+                  <option value="racc.html">Racc</option>
+                  <option value="witness_flow.html">业务流引擎系统</option>
+              </optgroup>
+              <optgroup label="Java">
+                  <option value="data_structures.html">数据结构</option>
+                  <option value="learn_jvm.html">JVM剖析</option>
+                  <option value="concurrency.html">Concurrency</option>
+                  <option value="badge_system.html">基于内存数据库的角标系统设计</option>
+                  <option value="maven_under_command_line.html">命令行下的Maven</option>
+              </optgroup>
+              <optgroup label="MySQL">
+                  <option value="mysql_knowledge_tree.html">MySQL知识树</option>
+              </optgroup>
+              <optgroup label="Go">
+                  <option value="go_get_timeout_solution.html">GoInstallBinaries i/o timeout问题</option>
+                  <option value="go_knowledge_tree.html">Go知识树</option>
+              </optgroup>
+              <optgroup label="音乐">
+                  <option value="music_index.html">音乐学习体系</option>
+                  <option value="lalaland-city_of_stars.html">City Of Star</option>
+                  <option value="あの日の帰り道.html">あの日の帰り道</option>
+                  <option value="rain_wwh.html">雨の日はワルツを踊って</option>
+                  <option value="it_could_have_been.html">Es Ware Schon Gewesen</option>
+              </optgroup>
+              <optgroup label="杂记">
+                  <option value="example_markdown.html">markdown格式实例</option>
+                  <option value="comments.html">注释规范</option>
+                  <option value="best_programming.html">零bug落地方案</option>
+                  <option value="raft.html">Raft算法</option>
+                  <option value="memorize_my_mentor.html">Memorize My Mentor</option>
+              </optgroup>
+          </select>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr class="hide" />
+
+  <div id="feature">
+    <div class="wrapper">
+      <h2>Ruby对象模型</h2><div class="date"><p>2017-11-28</p></div><p>本文在语言层面上总结了Ruby的对象模型.</p><p>阅读完该文档之后, 您将了解到:</p>
+<ul>
+<li>Ruby的基本结构.</li>
+<li>Ruby的变量和常量.</li>
+<li>Ruby的方法查找.</li>
+<li>Ruby的作用域和作用域门.</li>
+</ul>
+
+
+                <div id="subCol">
+            <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Chapters</h3>
+            <ol class="chapters">
+<li>
+<a href="#ruby%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84">Ruby基本结构</a>
+
+<ul>
+<li><a href="#symbol">Symbol</a></li>
+</ul>
+</li>
+<li>
+<a href="#%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F">变量和常量</a>
+
+<ul>
+<li><a href="#%E5%8F%98%E9%87%8F">变量</a></li>
+<li><a href="#%E5%B8%B8%E9%87%8F">常量</a></li>
+</ul>
+</li>
+<li>
+<a href="#%E6%96%B9%E6%B3%95%E6%9F%A5%E6%89%BE">方法查找</a>
+
+<ul>
+<li><a href="#%E6%96%B9%E6%B3%95%E5%AE%9A%E4%B9%89">方法定义</a></li>
+<li><a href="#%E6%96%B9%E6%B3%95%E6%9F%A5%E6%89%BE-%E6%96%B9%E6%B3%95%E6%9F%A5%E6%89%BE">方法查找</a></li>
+<li><a href="#%E5%BD%B1%E5%93%8D%E7%A5%96%E5%85%88%E9%93%BE%E7%9A%84%E5%9B%A0%E7%B4%A0">影响祖先链的因素</a></li>
+<li><a href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%97%A8">作用域和作用域门</a></li>
+</ul>
+</li>
+<li><a href="#%E5%90%8E%E8%AE%B0">后记</a></li>
+<li><a href="#todo">TODO</a></li>
+</ol>
+
+          </div>
+
+    </div>
+  </div>
+
+  <div id="container">
+    <div class="wrapper">
+      <div id="mainCol">
+        <div class="note"><p>该文档并非详尽Ruby的一切特性, 而是希望能抓住Ruby本身的特性和迷人之处.</p></div><div class="info"><p>推荐两本书: <a href="https://book.douban.com/subject/26575429/">Ruby metaprogramming</a> 和 <a href="https://book.douban.com/subject/24718740/">Ruby Under a Microscope</a></p></div><h3 id="ruby基本结构"><a class="anchorlink" href="#ruby%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84">1 Ruby基本结构</a></h3><div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+String
+Array
+Hash
+Numeric
+Symbol
+Object
+
+</pre>
+</div>
+<h4 id="symbol"><a class="anchorlink" href="#symbol">1.1 Symbol</a></h4><p>如<code>:dsg</code>, symbol用于很多地方, 其很重要一点为: symbol在内存中仅存储一份.</p><div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+:dsg.object_id === :dsg.object_id #=&gt; 返回true
+
+</pre>
+</div>
+<p>而字符串不是.</p><div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+"dsg".object_id == "dsg".object_id #=&gt; 返回false
+
+</pre>
+</div>
+<h3 id="变量和常量"><a class="anchorlink" href="#%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F">2 变量和常量</a></h3><h4 id="变量"><a class="anchorlink" href="#%E5%8F%98%E9%87%8F">2.1 变量</a></h4><h5 id="普通变量-local-variable"><a class="anchorlink" href="#%E6%99%AE%E9%80%9A%E5%8F%98%E9%87%8F-local-variable">2.1.1 普通变量(local variable)</a></h5><p>ruby的变量非常简单</p><p>如果上下文没有给一个陌生的'变量'赋值, 那么该'变量'不是'变量', 而是方法</p><div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+class User
+  attr_accessor :name
+
+  def set_name
+    origin_name = name # name为方法, origin_name为变量
+    self.name = "reseted #{name}" # name为方法, 重新赋值
+  end
+end
+
+</pre>
+</div>
+<h5 id="实例变量-instance-variable"><a class="anchorlink" href="#%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F-instance-variable">2.1.2 实例变量(instance variable)</a></h5><p>存储在对象中的变量, 如下面的 @score</p><div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+class User
+  def initialize
+    @score = 0
+  end
+end
+
+</pre>
+</div>
+<h5 id="类实例变量-class-instance-variable"><a class="anchorlink" href="#%E7%B1%BB%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F-class-instance-variable">2.1.3 类实例变量(class instance variable)</a></h5><p>ruby中一切都是对象, 类也是对象, 存储在类中的实例变量为类实例变量</p><div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+class People
+  @alive = true
+end
+
+</pre>
+</div>
+<p>上述的 @alive 为People类的实例变量</p><div class="note"><p>类实例变量存储在该类中, 是不被子类共享的.</p></div><p>如</p><div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+class Man &lt; People
+end
+
+Man.instance_variable_get(:@alive) #=&gt; 输出是nil, 而不是@alive
+
+</pre>
+</div>
+<h5 id="类变量-class-variable"><a class="anchorlink" href="#%E7%B1%BB%E5%8F%98%E9%87%8F-class-variable">2.1.4 类变量(class variable)</a></h5><p>类变量存在整个继承链中, 被所有继承的子类共享</p><div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+class People
+  @@alive = true
+end
+
+class Man &lt; People
+end
+
+Man.class_variable_get(:@@alive) #=&gt; true
+
+Man.class_variable_set(:@@alive, false)
+
+People.class_variable_get(:@@alive) #=&gt; false
+
+</pre>
+</div>
+<div class="info"><p>Rails中关于类变量的应用: <a href="https://github.com/rails/rails/blob/20c91119903f70eb19aed33fe78417789dbf070f/activesupport/lib/active_support/core_ext/module/attribute_accessors.rb">mattr_accessor</a></p></div><h5 id="全局变量-global-variable"><a class="anchorlink" href="#%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F-global-variable">2.1.5 全局变量(global variable)</a></h5><p>全局共享</p><div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+$DSG = "dsgv587"
+
+</pre>
+</div>
+<h4 id="常量"><a class="anchorlink" href="#%E5%B8%B8%E9%87%8F">2.2 常量</a></h4>
+<ul>
+<li>常量在内存中只存在一份</li>
+<li>常量有<a href="http://guides.rubyonrails.org/autoloading_and_reloading_constants.html#class-and-module-definitions-are-constant-assignments">查找算法</a>
+</li>
+<li>如果查找不到该常量, 会走到<strong>Module#const_missing</strong>方法</li>
+<li>Rails通过复写const_missing方法, 使得常量的加载可以自动require该常量对应的文件</li>
+<li>类名, module名都是常量</li>
+</ul>
+<h3 id="方法查找"><a class="anchorlink" href="#%E6%96%B9%E6%B3%95%E6%9F%A5%E6%89%BE">3 方法查找</a></h3><h4 id="方法定义"><a class="anchorlink" href="#%E6%96%B9%E6%B3%95%E5%AE%9A%E4%B9%89">3.1 方法定义</a></h4><p>在ruby中, 方法只能定义一次, 不支持类似于java中overloading机制.</p><p>如</p><div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+class User
+  def get_name
+  end
+
+  def get_name(type)
+  end
+end
+
+</pre>
+</div>
+<p>在User类中同时定义了两个同名方法 get_name, 在ruby中, 后定义的方法生效.</p><h4 id="方法查找-方法查找"><a class="anchorlink" href="#%E6%96%B9%E6%B3%95%E6%9F%A5%E6%89%BE-%E6%96%B9%E6%B3%95%E6%9F%A5%E6%89%BE">3.2 方法查找</a></h4><h5 id="ancestors"><a class="anchorlink" href="#ancestors">3.2.1 ancestors</a></h5><p>所有的方法查找都从当前的self对应的类的ancestor中去查找</p><p>如下面的例子所示:</p><div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+class People
+  def name
+    puts "People name"
+  end
+end
+
+module MixinUser
+  def name
+    puts "MixinUser"
+  end
+end
+
+class User &lt; People
+  include MixinUser
+
+  def name
+    puts "User name"
+    super
+  end
+end
+
+</pre>
+</div>
+<div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+User.new.name
+#=&gt;
+User name
+MixinUser
+
+</pre>
+</div>
+<div class="info"><p>该部分Ruby metaprogramming讲解地非常好. 请查看该书的第二章</p></div><p>方法查找方式</p>
+<ol>
+<li><p>获取所有的祖先链
+<code>ruby
+User.ancestors #=&gt; [User, MixinUser, People, Object, Kernel, BasicObject]
+</code></p></li>
+<li><p>从祖先链依次遍历, 看其中是否有name方法, 如果是super, 则从祖先链的上一级去找</p></li>
+</ol>
+<h4 id="影响祖先链的因素"><a class="anchorlink" href="#%E5%BD%B1%E5%93%8D%E7%A5%96%E5%85%88%E9%93%BE%E7%9A%84%E5%9B%A0%E7%B4%A0">3.3 影响祖先链的因素</a></h4><div class="note"><p>方法存在类里面</p></div>
+<ul>
+<li>prepend</li>
+<li>sigleton method</li>
+<li>self</li>
+<li>include</li>
+<li>super</li>
+</ul>
+<p>最终如果找不到方法, 则去Object, Kernel, BasicObject找, 如果还找不到, 则进入method_missing方法</p><h4 id="作用域和作用域门"><a class="anchorlink" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%97%A8">3.4 作用域和作用域门</a></h4><div class="info"><p>参见Ruby metaprogramming的第四章: Blocks-Blocks Are closures-Scope</p></div><p>三个作用域门(Scope Gates)</p>
+<ul>
+<li>Class definitions</li>
+<li>Module definitions</li>
+<li>Methods</li>
+</ul>
+<p>即 <code>class</code>, <code>module</code>和<code>def</code>关键字</p><p>在metaprogramming中的例子如下:</p><div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+v1 = 1
+
+class MyClass
+  v2 = 2
+  local_variables #=&gt; [:v2]
+
+  def my_method
+    v3 = 3
+    local_variables #=&gt; [:v3]
+  end
+
+  local_variables #=&gt; [:v2]
+end
+
+local_variables #=&gt; [:v1]
+
+</pre>
+</div>
+<div class="note"><p>可以其他方式打开作用域门, 即: define_method 代替 def, Class.new 代替 class, Module.new 代替 module</p></div><h3 id="后记"><a class="anchorlink" href="#%E5%90%8E%E8%AE%B0">4 后记</a></h3><p>个人理解中, Ruby是设计得非常好的, Ruby中遵循了<a href="https://en.wikipedia.org/wiki/Principle_of_least_astonishment">最小惊讶原则: principle of least surprise</a>, 理解了上面提到的Ruby的数据模型, 变量常量定义, 方法查找, 作用域之后, 基本上Ruby不会再给你其他的惊喜或者特殊的地方.</p><p>非常感谢<a href="https://github.com/nusco">Paolo Perrotta</a>, 您的<code>metaprogramming</code>给我们打开了Ruby的另一扇门, 让我们能理解到Ruby的精髓和奇妙之处, 也支撑着我们以后学习其他语言如Go, Elixir, Javascript等, 都会思考相同的问题:</p>
+<ul>
+<li>语言的数据模型是什么?</li>
+<li>变量和方法是如何定义和寻找?</li>
+<li>变量的作用域是什么?</li>
+<li>这些语言提供的特性Ruby有吗?</li>
+</ul>
+<p>对比着学习一门语言, 可以让我们事半功倍, 让精通第二门, 第三门语言的时间越来越短, 也能真正地感受到编程之美.</p><p>另外一本我们非常喜欢的书为<a href="https://book.douban.com/subject/24718740/">Ruby Under a Microscope</a>, 从C源码分析了Ruby的类, 方法是如何实现的, 尤其是AST, GC部分的分析, 非常地深入浅出. 很值得大家一看.</p><h3 id="todo"><a class="anchorlink" href="#todo">5 TODO</a></h3>
+<ul>
+<li>GC</li>
+<li>Thread</li>
+<li>Why ruby is slow compared with NodeJS or Java or C?</li>
+</ul>
+
+
+        <div id="comment"></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="hide" />
+  <div id="footer">
+    <div class="wrapper">
+      <p>版权声明：自由转载-非商用-非衍生-保持署名(<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享3.0许可证</a>)</p>
+<p>For Ruby Roses.</p>
+
+    </div>
+  </div>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/responsive-tables.js"></script>
+  <script type="text/javascript" src="javascripts/guides.js"></script>
+
+  <!-- ./node_modules/gulp/bin/gulp.js build -\-brushes=bash,cpp,css,javascript,java,plain,python,ruby,scala,sql,xml -->
+  <!-- uglifyjs syntaxhighlighter.js  -\-output syntaxhighlighter.min.js -->
+  <script type="text/javascript" src="javascripts/syntaxhighlighter.min.js"></script>
+  <script type="text/javascript" src="javascripts/tonal.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.0.1/Tone.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/tone/13.1.22/Tone.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.4/svg.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/svg.js/2.6.5/svg.js"></script>
+  <script type="text/javascript" src="javascripts/chordy-svg.min.js"></script>
+  <script type="text/javascript" src="javascripts/chord.js"></script>
+  <!-- <script type="text/javascript" src="javascripts/gitalk.min.js"></script> -->
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.2.2/gitalk.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/gitalk/1.2.2/gitalk.js"></script>
+  <script type="text/javascript" src="javascripts/load_docs.js"></script>
+  <!-- <script type="text/javascript" src="javascripts/Treant.js"></script> -->
+  <script src="https://cdn.bootcss.com/treant-js/1.0/Treant.min.js"></script>
+  <!-- <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.0/raphael&#45;min.js"></script> -->
+  <script src="https://cdn.bootcss.com/raphael/2.2.7/raphael.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.11.0/flowchart.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/flowchart/1.11.0/flowchart.min.js"></script>
+  <script type="text/javascript" src="javascripts/flowchart_generator.js"></script>
+  <script type="text/javascript" src="javascripts/tree_generator.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115746206-1"></script>
+
+  <script type="text/javascript" src="javascripts/abcjs_midi_5.1.2-min.js"></script>
+  <script type="text/javascript" src="javascripts/music_generator.js"></script>
+
+  <script type="text/javascript">
+    syntaxhighlighterConfig = {
+      autoLinks: false,
+    };
+
+    $(guidesIndex.bind);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115746206-1');
+  </script>
+
+  <script type="text/javascript">
+    var locationId = (location.pathname).split("/").pop().substring(0, 49);
+
+    if (locationId) {
+      var language = window.location.search.match("lang=en") ? "en" : "zh-CN"
+      var gitalk   = new Gitalk({
+        clientID: '0f5824fe1c09851e9781',
+        clientSecret: '61710a77ee98cddce06f408a398f05c8622e9575',
+        repo: 'blog_comments',
+        owner: 'dengqinghua',
+        admin: ['dengqinghua'],
+        id: locationId,
+        distractionFreeMode: true,
+        language: language
+      });
+
+      gitalk.render('comment');
+    }
+  </script>
+</body>
+</html>

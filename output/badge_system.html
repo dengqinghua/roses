@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="baidu-site-verification" content="N1Q3HiESgp" />
+
+<title>基于内存数据库的角标系统设计 — dengqinghua&#39;s blog</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shCore.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shThemeRailsGuides.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/fixes.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/abcjs-midi.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/gitalk.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/Treant.css" />
+  <link href="images/favicon.jpeg" rel="shortcut icon" type="image/x-icon" />
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body class="guide">
+  <div id="topNav">
+    <div class="wrapper">
+
+      <strong class="more-info-label">More:</strong>
+
+      <span class="red-button more-info-button">More Dengqinghua</span>
+      <ul class="more-info-links s-hidden">
+        <li class="more-info"><a href="http://www.dengqinghua.net/">About me</a></li>
+        <li class="more-info"><a href="https://github.com/dengqinghua/">Github</a></li>
+        <li class="more-info"><a href="mailto:dengqinghua.42@gmail.com">Gmail</a></li>
+        <li class="more-info"><a href="https://twitter.com/dengqinghua_42">Twitter</a></li>
+      </ul>
+
+      <form action="http://google.com/search" method="get">
+          <input name="q" value="site:blog.dengqinghua.net" type="hidden">
+          <input class="search" name="q" placeholder="Search Blog" type="text">
+      </form>
+    </div>
+  </div>
+  <div id="header">
+    <div class="wrapper clearfix">
+      <h1><a href="http://blog.dengqinghua.net" title="Return to home page">http://blog.dengqinghua.net</a></h1>
+      <ul class="nav">
+        <li><a class="nav-item" href="http://blog.dengqinghua.net">Home</a></li>
+        <li class="guides-index guides-index-large">
+          <a href="index.html" id="guidesMenu" class="guides-index-item nav-item">
+            Index <span id="guidesArrow">▸</span>
+          </a>
+
+          <div id="guides" class="clearfix" style="display: none;">
+            <hr />
+              <dl class="L">
+                <dt>推荐</dt>
+                <dd><a href="badge_system.html">基于内存数据库的角标系统设计</a></dd>
+                <dd><a href="witness_flow.html">业务流引擎系统</a></dd>
+                <dt>Ruby</dt>
+                <dd><a href="ruby_knowledge_tree.html">Ruby知识树</a></dd>
+                <dd><a href="ruby_model.html">Ruby数据模型</a></dd>
+                <dd><a href="arel.html?lang=en">Arel源码分析</a></dd>
+                <dd><a href="sidekiq_task_event.html">基于Sidekiq的异步任务管理引擎</a></dd>
+                <dd><a href="racc.html">Racc</a></dd>
+                <dd><a href="witness_flow.html">业务流引擎系统</a></dd>
+                <dt>Java</dt>
+                <dd><a href="data_structures.html">数据结构</a></dd>
+                <dd><a href="learn_jvm.html">JVM剖析</a></dd>
+                <dd><a href="concurrency.html">Concurrency</a></dd>
+                <dd><a href="badge_system.html">基于内存数据库的角标系统设计</a></dd>
+                <dd><a href="maven_under_command_line.html">命令行下的Maven</a></dd>
+                <dt>MySQL</dt>
+                <dd><a href="mysql_knowledge_tree.html">MySQL知识树</a></dd>
+              </dl>
+              <dl class="R">
+                <dt>Go</dt>
+                <dd><a href="go_get_timeout_solution.html">GoInstallBinaries i/o timeout问题</a></dd>
+                <dd><a href="go_knowledge_tree.html">Go知识树</a></dd>
+                <dt>音乐</dt>
+                <dd><a href="music_index.html">音乐学习体系</a></dd>
+                <dd><a href="lalaland-city_of_stars.html">City Of Star</a></dd>
+                <dd><a href="あの日の帰り道.html">あの日の帰り道</a></dd>
+                <dd><a href="rain_wwh.html">雨の日はワルツを踊って</a></dd>
+                <dd><a href="it_could_have_been.html">Es Ware Schon Gewesen</a></dd>
+                <dt>杂记</dt>
+                <dd><a href="example_markdown.html">markdown格式实例</a></dd>
+                <dd><a href="comments.html">注释规范</a></dd>
+                <dd><a href="best_programming.html">零bug落地方案</a></dd>
+                <dd><a href="raft.html">Raft算法</a></dd>
+                <dd><a href="memorize_my_mentor.html">Memorize My Mentor</a></dd>
+              </dl>
+          </div>
+        </li>
+        <li class="guides-index guides-index-small">
+          <select class="guides-index-item nav-item">
+            <option value="index.html">Index</option>
+              <optgroup label="推荐">
+                  <option value="badge_system.html">基于内存数据库的角标系统设计</option>
+                  <option value="witness_flow.html">业务流引擎系统</option>
+              </optgroup>
+              <optgroup label="Ruby">
+                  <option value="ruby_knowledge_tree.html">Ruby知识树</option>
+                  <option value="ruby_model.html">Ruby数据模型</option>
+                  <option value="arel.html?lang=en">Arel源码分析</option>
+                  <option value="sidekiq_task_event.html">基于Sidekiq的异步任务管理引擎</option>
+                  <option value="racc.html">Racc</option>
+                  <option value="witness_flow.html">业务流引擎系统</option>
+              </optgroup>
+              <optgroup label="Java">
+                  <option value="data_structures.html">数据结构</option>
+                  <option value="learn_jvm.html">JVM剖析</option>
+                  <option value="concurrency.html">Concurrency</option>
+                  <option value="badge_system.html">基于内存数据库的角标系统设计</option>
+                  <option value="maven_under_command_line.html">命令行下的Maven</option>
+              </optgroup>
+              <optgroup label="MySQL">
+                  <option value="mysql_knowledge_tree.html">MySQL知识树</option>
+              </optgroup>
+              <optgroup label="Go">
+                  <option value="go_get_timeout_solution.html">GoInstallBinaries i/o timeout问题</option>
+                  <option value="go_knowledge_tree.html">Go知识树</option>
+              </optgroup>
+              <optgroup label="音乐">
+                  <option value="music_index.html">音乐学习体系</option>
+                  <option value="lalaland-city_of_stars.html">City Of Star</option>
+                  <option value="あの日の帰り道.html">あの日の帰り道</option>
+                  <option value="rain_wwh.html">雨の日はワルツを踊って</option>
+                  <option value="it_could_have_been.html">Es Ware Schon Gewesen</option>
+              </optgroup>
+              <optgroup label="杂记">
+                  <option value="example_markdown.html">markdown格式实例</option>
+                  <option value="comments.html">注释规范</option>
+                  <option value="best_programming.html">零bug落地方案</option>
+                  <option value="raft.html">Raft算法</option>
+                  <option value="memorize_my_mentor.html">Memorize My Mentor</option>
+              </optgroup>
+          </select>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr class="hide" />
+
+  <div id="feature">
+    <div class="wrapper">
+      <h2>基于内存数据库的角标系统设计</h2><div class="date"><p>2018-03-09</p></div><p>角标是公司最复杂的系统之一, 每次大促活动的时候, 角标承担着引流的重要责任, 是GMV的保证之一, 角标系统经过几年的演化, 已经变得非常复杂, 我们在近期对角标系统进行了整理和重构, 将角标系统变成了一个基于内存数据库和规则的数据计算系统.</p><p>阅读完该文档后，您将会了解到:</p>
+<ul>
+<li>角标系统的整体设计.</li>
+<li>角标系统的规则结构设计.</li>
+<li>角标的查询流程.</li>
+<li>角标的查询优化.</li>
+</ul>
+
+
+                <div id="subCol">
+            <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Chapters</h3>
+            <ol class="chapters">
+<li><a href="#tl-dr">TL;DR</a></li>
+<li>
+<a href="#%E8%A7%92%E6%A0%87%E7%9A%84%E6%95%B4%E4%BD%93%E8%AE%BE%E8%AE%A1">角标的整体设计</a>
+
+<ul>
+<li><a href="#%E8%A7%92%E6%A0%87%E5%9F%BA%E6%9C%AC%E5%B1%9E%E6%80%A7">角标基本属性</a></li>
+<li><a href="#%E8%A7%92%E6%A0%87%E4%BD%9C%E7%94%A8%E5%AE%9E%E4%BD%93">角标作用实体</a></li>
+<li><a href="#%E8%A7%92%E6%A0%87%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B">角标基础模型</a></li>
+<li><a href="#%E8%A7%92%E6%A0%87%E9%9C%80%E6%B1%82%E8%8C%83%E5%9B%B4%E6%89%A9%E5%B1%95">角标需求范围扩展</a></li>
+<li><a href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90">问题分析</a></li>
+</ul>
+</li>
+<li>
+<a href="#%E8%A7%92%E6%A0%87%E7%89%B9%E6%AE%8A%E8%A7%84%E5%88%99%E8%AE%BE%E8%AE%A1">角标特殊规则设计</a>
+
+<ul>
+<li><a href="#%E7%89%B9%E6%AE%8A%E8%A7%84%E5%88%99%E7%A4%BA%E4%BE%8B">特殊规则示例</a></li>
+<li><a href="#%E8%A7%92%E6%A0%87%E6%9D%A1%E4%BB%B6">角标条件</a></li>
+<li><a href="#%E7%89%B9%E6%AE%8A%E8%A7%84%E5%88%99%E8%AE%BE%E8%AE%A1">特殊规则设计</a></li>
+</ul>
+</li>
+<li>
+<a href="#%E8%A7%92%E6%A0%87%E8%AE%A1%E7%AE%97">角标计算</a>
+
+<ul>
+<li><a href="#%E5%86%85%E5%AD%98%E6%95%B0%E6%8D%AE%E5%BA%93">内存数据库</a></li>
+<li><a href="#%E8%A7%92%E6%A0%87%E8%AE%A1%E7%AE%97%E8%AE%BE%E8%AE%A1">角标计算设计</a></li>
+</ul>
+</li>
+<li>
+<a href="#%E8%A7%92%E6%A0%87%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96">角标查询优化</a>
+
+<ul>
+<li><a href="#%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90">算法复杂度分析</a></li>
+<li><a href="#sql%E6%89%A7%E8%A1%8C%E4%BC%98%E5%8C%96">SQL执行优化</a></li>
+<li><a href="#connection-pool">Connection Pool</a></li>
+<li><a href="#%E4%BC%98%E5%8C%96%E6%80%BB%E7%BB%93">优化总结</a></li>
+</ul>
+</li>
+<li>
+<a href="#%E6%80%BB%E7%BB%93">总结</a>
+
+<ul>
+<li><a href="#sql%E7%9A%84%E7%BC%BA%E7%82%B9">SQL的缺点</a></li>
+<li><a href="#%E6%80%BB%E4%BD%93%E8%AF%84%E4%BB%B7">总体评价</a></li>
+</ul>
+</li>
+</ol>
+
+          </div>
+
+    </div>
+  </div>
+
+  <div id="container">
+    <div class="wrapper">
+      <div id="mainCol">
+        <h3 id="tl-dr"><a class="anchorlink" href="#tl-dr">1 TL;DR</a></h3><p>角标的计算使用了 <code>视图</code> + <code>SQL</code> 的数据计算引擎概念.</p><p>如现在需要表达一个角标, 满足这个角标条件的SQL为:</p><div class="code_container">
+<pre class="brush: sql; gutter: false; toolbar: true;">
+SELECT * FROM deals
+WHERE
+    isHongPiPiWuyou = 1
+  AND
+    isSingleOnSale = 1
+  AND
+    isZhuanchangPromoted = 1
+  AND
+    isTodayNew = 1
+
+</pre>
+</div>
+<p>计算引擎将上述SQL进行了分析, 分析过程为:</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/sql_tree_example.png" alt="sql_tree"></p><p>通过一层一层的视图建立和计算, 我们将复杂的问题变成了 <code>视图数据准备</code> + <code>SQL表达逻辑</code> 这两个部分,
+将逻辑表达和数据准备进行<strong>解耦</strong>, 从而可以通过简单的配置和组合, 实现复杂的业务逻辑.</p><div class="note"><p>该思路理论上可以用于任何复杂的业务系统, 实现前端数据层和后端数据层的解耦, 表示层和数据层解耦</p></div><h3 id="角标的整体设计"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E7%9A%84%E6%95%B4%E4%BD%93%E8%AE%BE%E8%AE%A1">2 角标的整体设计</a></h3><h4 id="角标基本属性"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E5%9F%BA%E6%9C%AC%E5%B1%9E%E6%80%A7">2.1 角标基本属性</a></h4>
+<blockquote>
+<p>角标作用于一个展示的坑位, 在坑位的不同位置展示角标的文字或者图片信息</p>
+</blockquote>
+<div class="note"><p>坑位: 指一个商品的展示位置</p></div><p>角标有下面这些属性</p>
+<ul>
+<li>开始时间</li>
+<li>结束时间</li>
+<li>角标文案信息(如示例中的 "即将恢复至49.9")</li>
+<li>角标图片信息(如示例中左上角的图标 "限时特价")</li>
+</ul>
+<p>如下图所示, 页面中 <code>限时特价</code> 和 <code>即将恢复至49.9元</code> 即为一个完整的角标</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_example.png" alt="example"></p><h4 id="角标作用实体"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E4%BD%9C%E7%94%A8%E5%AE%9E%E4%BD%93">2.2 角标作用实体</a></h4><p>角标的作用实体为一个坑位, 这个坑位里面可以是</p>
+<ul>
+<li>商品</li>
+<li>一张图片</li>
+<li>一个聚合形式的商品(如特卖活动等)</li>
+</ul>
+<h4 id="角标基础模型"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B">2.3 角标基础模型</a></h4><p>什么样的坑位能命中角标? 可以考虑用id来配置角标, 即建立<code>坑位id</code> 和<code>角标</code>的关联关系</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_model_origin.png" alt="origin_model"></p><h4 id="角标需求范围扩展"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E9%9C%80%E6%B1%82%E8%8C%83%E5%9B%B4%E6%89%A9%E5%B1%95">2.4 角标需求范围扩展</a></h4><p>上述设计为最初的角标设计模型, 只是一个简单的 坑位id 和 角标id的对应关系, 通过该关系来进行配置.</p><p>慢慢随着业务地增长, 角标变得复杂起来. 主要包括下面的需求:</p>
+<ol>
+<li>
+<p>要求在某个特定client展示</p>
+<div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+我有一个活动, 这个活动为了将PC端的用户引流到APP端, 所以我要求在PC打一个特殊的标, 这个标不在APP展示
+
+</pre>
+</div>
+<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_with_client.png" alt="badge_with_client"></p>
+</li>
+<li>
+<p>要求在某个页面中展示</p>
+<div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+我有一个秒杀的活动, 这个活动有可能在APP的任何地方展示, 但是我这个角标, 只能在APP的秒杀列表页展示, 其他的地方不展示
+
+</pre>
+</div>
+<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_with_pages.png" alt="badge_with_pages"></p>
+</li>
+<li>
+<p>要求不同用户身份打不同的标</p>
+<div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+我有一个拉新客的活动, 这个活动只给新用户展示, 不给老用户展示
+
+</pre>
+</div>
+<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_with_user_type.png" alt="badge_with_user_type"></p>
+</li>
+<li>
+<p>要求不同用户角色打不同的标</p>
+<div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+3月8日, 我想搞一个女神活动, 希望一些标只对 女性 用户展示
+
+</pre>
+</div>
+<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_with_user_role.png" alt="badge_with_user_role"></p>
+</li>
+<li>
+<p>要求通过店铺id进行批量打标</p>
+<div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+我有一个店铺, 这个店铺很不错, 我想给这个店铺下所有的活动都打上一个 "好商家" 的角标, 我不希望用 商品id 来设置角标, 而是希望用店铺id来配置
+
+</pre>
+</div>
+<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_with_user_association.png" alt="badge_with_user_association"></p>
+</li>
+<li>
+<p>特殊规则打标</p>
+<div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+我希望对全网所有商品中, 库存小于100的商品都打上一个标: "库存告急, 仅剩XXX件"
+我希望所有满足"一个商品就可以商品优惠"的商品, 打上一个 "促销价XXX元"的标, 全网适用
+我希望...
+
+</pre>
+</div>
+<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_with_special_rule.png" alt="badge_with_special_rule"></p>
+</li>
+</ol>
+<h5 id="黑暗时代"><a class="anchorlink" href="#%E9%BB%91%E6%9A%97%E6%97%B6%E4%BB%A3">2.4.1 黑暗时代</a></h5><p>虽然出现了上述需求, 当时角标系统还是坚持着简单的 <code>坑位id 和 角标id的对应关系</code> 的方式, 仅保存角标的基本属性, 所以出现了下面的情况</p>
+<ul>
+<li>一个简单地添加角标需求, 需要 PC端, APP端, 角标后台设置, 数据服务端同时进行更改.</li>
+<li>角标展示逻辑都是以文字形式提出, 很多角标命中逻辑纷繁复杂, 很多逻辑都是硬编码在各个业务代码中</li>
+<li>为了满足按照 "店铺id, 大促id" 等聚合id打标, 实现了大量地定时任务, 将店铺id/大促id下的所有的活动都创建了一条对应(坑位-角标)关系记录</li>
+<li>角标设置混乱, 容易导致重叠, 出了问题之后很难排查, 不同的需求方来投诉角标不对的问题, 应该展示的角标没展示或者展示错误, 由于角标逻辑分散, 问题很难排查</li>
+</ul>
+<h4 id="问题分析"><a class="anchorlink" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90">2.5 问题分析</a></h4>
+<ol>
+<li>
+<p>角标规则问题</p>
+<p>角标的主要问题在于, 未将 "规则" 纳入到角标的体系中, 需要让规则可以配置, 这样才可以约束规则, 变得更加规范</p>
+</li>
+<li>
+<p>角标服务</p>
+<p>将角标系统的逻辑收敛, 所有角标系统需要参数都需要传入, 统一提供接口</p>
+</li>
+<li>
+<p>角标需要有优先级</p>
+<p>给角标的规则设置上权重, 当一个商品命中多个角标的时候, 可以选择权重最高的角标</p>
+</li>
+</ol>
+<p>最终的角标设计如下:</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_add_rule.png" alt="badge_add_rule"></p><h3 id="角标特殊规则设计"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E7%89%B9%E6%AE%8A%E8%A7%84%E5%88%99%E8%AE%BE%E8%AE%A1">3 角标特殊规则设计</a></h3><p>角标的基础规则包括:</p>
+<ol>
+<li>客户端类型 client_type, 如 PC, APP</li>
+<li>命中的页面 page_lists, 如 "秒杀页面, 男装分类页面"</li>
+<li>新老用户 user_type, 如新老用户</li>
+<li>用户角色 user_role, 如 男用户, 女用户 等</li>
+</ol>
+<p>上述的规则可以通过枚举值, 提前存储在表中. 但是特殊规则怎么办?</p><h4 id="特殊规则示例"><a class="anchorlink" href="#%E7%89%B9%E6%AE%8A%E8%A7%84%E5%88%99%E7%A4%BA%E4%BE%8B">3.1 特殊规则示例</a></h4><p>我们先看看一下一些例子</p>
+<ul>
+<li>我想给 所有 "<strong>参加</strong>秒杀活动的商品" 添加一个角标</li>
+<li>我想给 "分类 <strong>等于</strong> 男装 <strong>而且</strong> 尺码 <strong>&gt;</strong> XXL的商品" 添加一个角标</li>
+<li>我想给 "库存 <strong>&gt;</strong> 0 <strong>而且</strong> <strong>&lt;</strong> 10 的商品" 添加一个角标</li>
+<li>我想给 所有 "<strong>是</strong>单件优惠的商品" 添加一个角标</li>
+</ul>
+<p>根据下面的这些情况, 我们总结如下</p>
+<ol>
+<li>特殊规则由 <code>条件</code>组成, 通过  "AND" 和 "OR" 的关系进行组合</li>
+<li>条件包括下面几种类型
+
+<ul>
+<li>是否 (是否是秒杀, 是否是单件优惠)</li>
+<li>输入 (分类 == ?)</li>
+<li>区间 (如库存 BETWEEN (0, 10))</li>
+</ul>
+</li>
+</ol>
+<p>考虑一个非常复杂的例子:</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+我想要打一个超级男装单件优惠标, 标的定义如下:
+
+(商品是秒杀 而且 分类是男装) 或者 (商品为单件优惠 而且 剩余库存 在 10 到 20 之间)
+
+</pre>
+</div>
+<p>可以设计为下面的形式:</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/special_rule.png" alt="special_rule"></p><h4 id="角标条件"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E6%9D%A1%E4%BB%B6">3.2 角标条件</a></h4><p>从上面的设计形式, 可以看到, 最原子化的数据为 <strong>条件</strong>, 条件和条件之间, 由条件组进行关系组装</p><h5 id="条件"><a class="anchorlink" href="#%E6%9D%A1%E4%BB%B6">3.2.1 条件</a></h5><p>她的属性包括:</p>
+<ul>
+<li>type: 是否/输入/区间</li>
+<li>DSL:  对于程序段可以识别的字符串, 如 isMiaosha, 在程序段将有一个映射表, 后续会讲到该字段</li>
+<li>name: 标识条件的具体含义</li>
+</ul>
+<h5 id="条件组"><a class="anchorlink" href="#%E6%9D%A1%E4%BB%B6%E7%BB%84">3.2.2 条件组</a></h5><p>条件组 包含 多个条件, 条件组中的条件为 <code>AND</code> 的关系</p><h4 id="特殊规则设计"><a class="anchorlink" href="#%E7%89%B9%E6%AE%8A%E8%A7%84%E5%88%99%E8%AE%BE%E8%AE%A1">3.3 特殊规则设计</a></h4>
+<ul>
+<li>特殊规则 由 多个 条件组 关联</li>
+<li>条件组 由 多个角标条件 构成</li>
+<li>条件包含三个类型: 是否/输入/区间</li>
+<li>条件DSL为一个算法约定, 在之后计算角标时使用, 该算法可以重用</li>
+</ul>
+<p>添加了特殊角标规则之后的设计图如下:</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_add_rule_complete.png" alt="badge_add_rule_complete"></p><h3 id="角标计算"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E8%AE%A1%E7%AE%97">4 角标计算</a></h3>
+<blockquote>
+<p>数据结构 + 算法 = 程序。结构是本质，故数据结构决定算法。如果一个语言即能无缝的表示数据，又能表示算法，该多棒! LISP 和 SQL就是, LISP是因为其高度自由的表达，即：语法 和语义解耦; SQL即表示数据计算、数据本身、又表示数据的迁移、存储、数据的访问, 是高度的抽象，是命令式的语言。                  ---- 亚历山大 K Liu</p>
+</blockquote>
+<h4 id="内存数据库"><a class="anchorlink" href="#%E5%86%85%E5%AD%98%E6%95%B0%E6%8D%AE%E5%BA%93">4.1 内存数据库</a></h4><h5 id="什么是内存数据库"><a class="anchorlink" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%86%85%E5%AD%98%E6%95%B0%E6%8D%AE%E5%BA%93">4.1.1 什么是内存数据库</a></h5><p>内存数据库是指构造bean数组, 将这些数组认为是表, 再将数据聚合变成一个数据库. 我们可以通过SQL对该数据库进行查询</p><p>下面是一个内存数据库的例子, 源码在<a href="https://github.com/dengqinghua/my_examples/blob/master/java/src/main/java/com/dengqinghua/calcite/SqlRunner.java">这里</a></p><div class="note"><p>该部分使用到了 <a href="https://calcite.apache.org/">calcite</a> 和 <a href="http://jooq.org/">jooq</a>, 其中calcite 用于内存SQL查询, jooq用于处理查询后的结果数据</p></div><p>现有 products 和 sellers 两张表, 她们通过 products.sellerId 和 sellers.id 进行关联. 对应的数据模型为</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class SqlRunnerTest {
+    // 使用一个Database对象来存储这些数据
+    public static class Database {
+        public Seller[] sellers;
+        public Product[] products;
+    }
+
+    public static class Seller {
+        public String name;
+        public int id;
+
+        public Seller(String name, int id) {
+            this.name = name;
+            this.id   = id;
+        }
+    }
+
+    public static class Product {
+        public int id, sellerId;
+
+        public Product(int id, int sellerId) {
+            this.id       = id;
+            this.sellerId = sellerId;
+        }
+    }
+}
+
+</pre>
+</div>
+<p>构造数据如下:</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class SqlRunnerTest {
+    static Database database;
+    static SqlRunner sqlRunner;
+    static String sql;
+
+    @BeforeClass public static void setUp() {
+        Seller[] sellers = {
+                new Seller("dengqinghua", 1),
+                new Seller("kimiGao", 2),
+                new Seller("DS", 3),
+        };
+
+        Product[] products = {
+                new Product(1024, 1),
+                new Product(1025, 2),
+                new Product(1026, 3),
+        };
+
+        database = new Database();
+        database.products = products;
+        database.sellers  = sellers;
+    }
+
+}
+
+</pre>
+</div>
+<p>测试用例如下:</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class SqlRunnerTest {
+    static Database database;
+    static SqlRunner sqlRunner;
+    static String sql;
+
+    @Test public void run() throws Exception {
+        sqlRunner = new SqlRunner("merchant_system", database);
+        sql = "SELECT \n"
+                + "\"products\".\"id\", \"sellers\".\"name\" \n"
+                + "FROM \n"
+                + " \"merchant_system\".\"products\" \n"
+                + "INNER JOIN \n"
+                + " \"merchant_system\".\"sellers\" \n"
+                + "ON \n"
+                + " \"merchant_system\".\"sellers\".\"id\" = \"merchant_system\".\"products\".\"sellerId\" \n"
+                + "WHERE \n"
+                + " \"sellers\".\"name\" = 'dengqinghua'";
+
+        Result&lt;Record&gt; result = sqlRunner.run(sql);
+        assertThat(result.format(), is(
+                "+----+-----------+" + "\n" +
+                "|  id|name       |" + "\n" +
+                "+----+-----------+" + "\n" +
+                "|1024|dengqinghua|" + "\n" +
+                "+----+-----------+"
+                ));
+    }
+}
+
+</pre>
+</div>
+<h5 id="为什么使用内存数据库"><a class="anchorlink" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E5%86%85%E5%AD%98%E6%95%B0%E6%8D%AE%E5%BA%93">4.1.2 为什么使用内存数据库</a></h5>
+<blockquote>
+<p>SQL即表示数据计算、数据本身、又表示数据的迁移、存储、数据的访问, 是高度的抽象，是命令式的语言。 ---- 亚历山大 K Liu</p>
+</blockquote>
+<p>角标非常重要的特色就是, 她存在非常多的"特殊规则", 而特殊规则的组成, 其实就是一条SQL拼接的过程. 如果使用内存数据库, 我们可以很方便地对角标进行管理和配置</p><p>回到上面说的例子:</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+我想要打一个超级男装单件优惠标, 标的定义如下:
+
+(商品是秒杀 而且 分类是男装) 或者 (商品为单件优惠 而且 剩余库存 在 10 到 20 之间)
+
+</pre>
+</div>
+<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/special_rule.png" alt="special_rule"></p><p>如果我们以角标来看所有数据, 假设有一张角标视图表(badge_views), 她存储了所有的数据, 那么结合上述的DSL设计, 我们可以将上述需求转化为一条SQL:</p><div class="code_container">
+<pre class="brush: sql; gutter: false; toolbar: true;">
+SELECT
+  *
+FROM
+  badge_views
+WHERE
+    (isMiaosha = 1 AND inputTag = '男装')
+  OR
+    (isSingeSale =1 AND rangeStock BETEEN (10, 20))
+
+</pre>
+</div>
+<p>从上面可以看到, 使用SQL的好处</p>
+<ol>
+<li>SQL里面的字段, 可将需求方的需求范围划分边界, 所有的需求都需要被审核, 必须是<code>条件集</code>的一部分</li>
+<li>所有的规则组成的SQL是所见即所得的, 排查bug非常方便</li>
+<li>SQL只是一种表达方式, 对应的存储介质可以是 MySQL, SQLlite, 内存数据库 或 任何一种可以解析SQL的存储引擎</li>
+</ol>
+<p>最终我们考虑, 选择了内存数据库.</p>
+<ol>
+<li>内存数据库速度很快(响应时间在0.01ms左右), 适合前端请求的实时查询</li>
+<li>内存数据库可以执行SQL</li>
+</ol>
+<h4 id="角标计算设计"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E8%AE%A1%E7%AE%97%E8%AE%BE%E8%AE%A1">4.2 角标计算设计</a></h4><p>下面描述一个请求过来, 角标的匹配过程</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_procedure.png" alt="badge_procedure"></p><p>下面通过这个例子, 描述一下角标匹配的完整过程</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+我想要打一个超级男装单件优惠标, 标的定义如下:
+
+(商品是秒杀 而且 分类是男装) 或者 (商品为单件优惠 而且 剩余库存 在 10 到 20 之间),
+
+该角标只给男用户展示, 新老用户都可以看到, 所有页面都生效, 来源只作用于PC端
+
+</pre>
+</div>
+<h5 id="角标数据准备和过滤"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E5%92%8C%E8%BF%87%E6%BB%A4">4.2.1 角标数据准备和过滤</a></h5><p>首先需要创建一个角标</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+角标id    2
+角标文案  超级男装单件优惠标
+角标图片  XXX图片
+开始时间  1月1日
+结束时间  1月5日
+
+</pre>
+</div>
+<p>基础规则</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+基础规则
+1. 客户端类型 client_type: PC
+2. 命中的页面 page_lists: 所有页面
+3. 新老用户 user_type: 所有用户
+4. 用户角色 user_role: 男用户
+
+</pre>
+</div>
+<p>特殊规则</p><div class="code_container">
+<pre class="brush: sql; gutter: false; toolbar: true;">
+SELECT
+  *
+FROM
+  badge_views
+WHERE
+    (isMiaosha = 1 AND inputTag = '男装')
+  OR
+    (isSingeSale =1 AND rangeStock BETEEN (10, 20))
+
+</pre>
+</div>
+<p>前端在请求角标数据时, 会获取到所有的角标, 假设现在按照规则权重由高到低<code>排序</code>之后, 有下面三个角标</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+角标1 用户角色: 女
+角标2 超级男装单件优惠标
+角标3 用户角色: 男
+
+</pre>
+</div>
+<p>其中 角标1 被过滤调了, 只剩下角标2, 3</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_procedure1.png" alt="badge_procedure1"></p><h5 id="角标匹配数据准备"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E5%8C%B9%E9%85%8D%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87">4.2.2 角标匹配数据准备</a></h5><div class="info"><p>角标匹配数据是指 查看一个商品是否命中角标需要的数据, 如 一个角标的规则为: 商品库存 &gt; 10. 那么 角标匹配数据则为: 商品库存</p></div><p>分析角标的特殊规则</p><div class="code_container">
+<pre class="brush: sql; gutter: false; toolbar: true;">
+SELECT
+  *
+FROM
+  badge_views
+WHERE
+    (isMiaosha = 1 AND inputTag = '男装')
+  OR
+    (isSingeSale = 1 AND rangeStock BETEEN (10, 20))
+
+</pre>
+</div>
+<p>可以知道, 涉及到的字段包括</p>
+<ul>
+<li>isMiaosha</li>
+<li>inputTag</li>
+<li>isSingeSale</li>
+<li>rangeStock</li>
+</ul>
+<p>这四个字段是从角标的视角来看的, 真实的业务系统的存储并没有 isMiaosha, inputTag 没有这些, 那到底要准备哪些字段呢? 故我们需要有一个映射配置</p><div class="code_container">
+<pre class="brush: xml; gutter: false; toolbar: true;">
+&lt;SqlAnalyzer&gt;
+    &lt;!--是否为秒杀活动--&gt;
+    &lt;Entry&gt;
+        &lt;field&gt;isMiaosha&lt;/field&gt;
+        &lt;type&gt;boolean&lt;/type&gt;
+        &lt;sql&gt;
+            &lt;!--真实业务系统中的数据结构--&gt;
+            SELECT 1 FROM products WHERE isSeckill = 1
+        &lt;/sql&gt;
+    &lt;/Entry&gt;
+
+    &lt;!--分类名称--&gt;
+    &lt;Entry&gt;
+        &lt;field&gt;inputTag&lt;/field&gt;
+        &lt;type&gt;input&lt;/type&gt;
+        &lt;sql&gt;
+            SELECT products.tagName FROM products
+        &lt;/sql&gt;
+    &lt;/Entry&gt;
+
+    &lt;!--是否单件优惠--&gt;
+    &lt;Entry&gt;
+        &lt;field&gt;isSingeSale&lt;/field&gt;
+        &lt;type&gt;boolean&lt;/type&gt;
+        &lt;sql&gt;
+            SELECT 1 FROM discountProducts WHERE discounts.conditionPurchaseCount = 1
+        &lt;/sql&gt;
+    &lt;/Entry&gt;
+
+    &lt;!--库存范围--&gt;
+    &lt;Entry&gt;
+        &lt;field&gt;rangeStock&lt;/field&gt;
+        &lt;type&gt;range&lt;/type&gt;
+        &lt;sql&gt;
+            SELECT product_stocks.count FROM product_stocks
+        &lt;/sql&gt;
+    &lt;/Entry&gt;
+&lt;/SqlAnalyzer&gt;
+
+</pre>
+</div>
+<p>从配置关系表可以知道, 我们将会建立一些内存数据模型和对应的数据</p>
+<ol>
+<li>
+<p>products</p>
+<div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class Product {
+  public int isSeckill;
+  public String tagName;
+}
+
+</pre>
+</div>
+</li>
+<li>
+<p>discount_products</p>
+<div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class DiscountProduct {
+  public int conditionPurchaseCount;
+}
+
+</pre>
+</div>
+</li>
+<li>
+<p>product_stocks</p>
+<div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class productStock {
+  public int count;
+}
+
+</pre>
+</div>
+</li>
+</ol>
+<p>假设当前的商品的信息数据为</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+isSeckill: 1,
+tagName: "男装"
+conditionPurchaseCount: 1
+count: 15
+
+</pre>
+</div>
+<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_procedure2.png" alt="badge_procedure2"></p><h5 id="角标视图数据准备"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E8%A7%86%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87">4.2.3 角标视图数据准备</a></h5><p>角标匹配数据准备好之后, 便可以开始计算了</p><p>我们最终是希望执行这一条SQL</p><div class="code_container">
+<pre class="brush: sql; gutter: false; toolbar: true;">
+SELECT
+  *
+FROM
+  badge_views
+WHERE
+    (isMiaosha = 1 AND inputTag = '男装')
+  OR
+    (isSingeSale = 1 AND rangeStock BETEEN (10, 20))
+
+</pre>
+</div>
+<p>这个就是角标视图的sql</p><div class="note"><p>为什么叫做角标视图? 因为角标所需要的数据, 和真实系统存在的数据是不一样的, 比如角标的 <code>是否是秒杀</code> isMiaosha 字段, 在真实业务系统是不存在的, 而这个字段其实是一个SQL的Map: isMiaosha =&gt; SELECT 1 FROM products WHERE isSeckill = 1, 我们称之为视图.</p></div><p>所以我们会建立一个角标的数据库</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class BadgeView {
+  public int isMiaosha,
+    isSingeSale,
+    rangeStock;
+
+  public String inputTag;
+}
+
+</pre>
+</div>
+<p>而每一个字段都对应着一条SQL</p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>对应的SQL</th>
+<th>SQL执行的结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>isMiaosha</td>
+<td>SELECT 1 FROM products WHERE isSeckill = 1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>isSingeSale</td>
+<td>SELECT 1 FROM discountProducts WHERE discounts.conditionPurchaseCount = 1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>rangeStock</td>
+<td>SELECT product_stocks.count FROM product_stocks</td>
+<td>15</td>
+</tr>
+<tr>
+<td>inputTag</td>
+<td>SELECT products.tagName FROM products</td>
+<td>"男装"</td>
+</tr>
+</tbody>
+</table>
+<p>故我们得到了一个 BadgeView 的一条内存数据库数据</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+badgeView = new BadgeView();
+
+badgeView.isMiaosha = 1
+badgeView.isSingeSale = 1
+badgeView.rangeStock = 15
+badgeView.inputTag = "男装"
+
+</pre>
+</div>
+<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_procedure3.png" alt="badge_procedure3"></p><h5 id="执行角标视图sql"><a class="anchorlink" href="#%E6%89%A7%E8%A1%8C%E8%A7%92%E6%A0%87%E8%A7%86%E5%9B%BEsql">4.2.4 执行角标视图SQL</a></h5><p>执行SQL</p><div class="code_container">
+<pre class="brush: sql; gutter: false; toolbar: true;">
+SELECT
+  *
+FROM
+  badge_views
+WHERE
+    (isMiaosha = 1 AND inputTag = '男装')
+  OR
+    (isSingeSale = 1 AND rangeStock BETEEN (10, 20))
+
+</pre>
+</div>
+<p>可以发现, 执行出来是有结果的, 所以命中角标</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_procedure4.png" alt="badge_procedure4"></p><p>整个过程如下:</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_procedure_all.png" alt="badge_procedure_all"></p><h3 id="角标查询优化"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96">5 角标查询优化</a></h3><div class="info"><p>角标查询由原来前端计算 迁移 到了一个统一的服务, 供前端来调用. 所以各方对响应时间有着非常高的要求.
+在不做优化的时候, 一个商品的角标匹配需要200ms左右, 这个是远远达不到响应时间要求的(5ms以内),
+最终经过了优化之后, 角标匹配的时间稳定在1ms左右.</p></div><h4 id="算法复杂度分析"><a class="anchorlink" href="#%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90">5.1 算法复杂度分析</a></h4><p>假设 条件集合的总数为 N, 过滤后的角标数为 M, 单条SQL的执行时间为 S</p><p>则最坏情况下的时间复杂度为 O(M * N * S)</p><p>我们的时间优化主要放在</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+单条SQL的执行时间
+
+</pre>
+</div>
+<p>这一点上</p><h4 id="sql执行优化"><a class="anchorlink" href="#sql%E6%89%A7%E8%A1%8C%E4%BC%98%E5%8C%96">5.2 SQL执行优化</a></h4><h4 id="connection-pool"><a class="anchorlink" href="#connection-pool">5.3 Connection Pool</a></h4><p>在<a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%86%85%E5%AD%98%E6%95%B0%E6%8D%AE%E5%BA%93">什么是内存数据库</a>这一节中, 我们有一个测试</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class SqlRunnerTest {
+    static Database database;
+    static SqlRunner sqlRunner;
+    static String sql;
+
+    @Test public void run() throws Exception {
+        sqlRunner = new SqlRunner("merchant_system", database);
+        sql = "SELECT \n"
+                + "\"products\".\"id\", \"sellers\".\"name\" \n"
+                + "FROM \"merchant_system\".\"products\" \n"
+                + "INNER JOIN \"merchant_system\".\"sellers\" \n"
+                + "ON \"merchant_system\".\"sellers\".\"id\" = \"merchant_system\".\"products\".\"sellerId\" \n"
+                + "WHERE \"sellers\".\"name\" = 'dengqinghua'";
+
+        Result&lt;Record&gt; result = sqlRunner.run(sql);
+        assertThat(result.format(), is(
+                "+----+-----------+" + "\n" +
+                "|  id|name       |" + "\n" +
+                "+----+-----------+" + "\n" +
+                "|1024|dengqinghua|" + "\n" +
+                "+----+-----------+"
+                ));
+    }
+}
+
+</pre>
+</div>
+<p>您可以下载<a href="https://github.com/dengqinghua/my_examples/blob/master/java/src/test/java/com/dengqinghua/calcite/SqlRunnerTest.java">源码</a> run 一下该部分的测试, 可以发现这个测试非常慢</p><div class="code_container">
+<pre class="brush: shell; gutter: false; toolbar: true;">
+mvn test -Dtest=SqlRunnerTest
+
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.23 s - in com.dengqinghua.calcite.SqlRunnerTest
+
+</pre>
+</div>
+<p>一个非常简单的测试, 需要 4.23 s!, 这是完全不能接受的</p><p>经过分析得知, 主要的时间是在</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class SqlRunner {
+        private CalciteConnection initConnection() {
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:calcite:", new Properties());
+            return connection.unwrap(CalciteConnection.class);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            throw new RuntimeException();
+        }
+    }
+}
+
+</pre>
+</div>
+<p>测试代码中, 每一次查询都是重新创建一个新的连接. 创建连接是非常耗时的. 最终, 我们选择使用了 connection_pool, 在项目启动的时候, 预生成一些连接</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+static final int POOL_SIZE = Runtime.getRuntime().availableProcessors() * 2 + 1;
+static Connection[POOL_SIZE] connectionPools;
+
+static {
+    IntStream.range(0, POOL_SIZE).forEach(i -&gt; {
+          connectionPools[i] = createConnection;
+    })
+}
+
+</pre>
+</div>
+<p>每次执行sql的时候, connection 直接从 connectionPools 中获取, 这样就可以直接优化创建连接的时间</p><h5 id="prepare-statement"><a class="anchorlink" href="#prepare-statement">5.3.1 Prepare Statement</a></h5><p>我们发现在使用 SQL 查询的时候, 第一次查询非常慢, 但是反复执行多次之后, 之后的查询就很快了, 查看源码发现, calcite 使用了 jdbc 的接口. 而 jdbc 有 <a href="https://www.javatpoint.com/PreparedStatement-interface">prepare Statement</a> 的功能.</p><p>所以我们在执行SQL之前, 可以提前对SQL进行prepare</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class PreparedStatement {
+    public static void prepare(String[] sqls) {
+        for(sql : sqls) {
+            // 在项目启动的时候, 就执行一下所有可能的sql
+            prepare(sql);
+        }
+    }
+}
+
+</pre>
+</div>
+<h5 id="nonematcher"><a class="anchorlink" href="#nonematcher">5.3.2 NoneMatcher</a></h5><p>我们在做了 connection_pool 和 preare statement 优化之后, 性能已经有了很大的提升, 但是还是有优化空间</p><p>考虑一个简单的角标视图的SQL:</p><div class="code_container">
+<pre class="brush: sql; gutter: false; toolbar: true;">
+SELECT
+    *
+FROM
+    badge_views
+WHERE
+      isMiaosha = 1
+    AND
+      inputTag = '男装'
+    AND
+      isSingeSale = 1
+    AND
+      rangeStock BETEEN (10, 20)
+
+</pre>
+</div>
+<p>涉及到的字段和查询</p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>对应的SQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>isMiaosha</td>
+<td>SELECT 1 FROM products WHERE isSeckill = 1</td>
+</tr>
+<tr>
+<td>isSingeSale</td>
+<td>SELECT 1 FROM discountProducts WHERE discounts.conditionPurchaseCount = 1</td>
+</tr>
+<tr>
+<td>rangeStock</td>
+<td>SELECT product_stocks.count FROM product_stocks</td>
+</tr>
+<tr>
+<td>inputTag</td>
+<td>SELECT products.tagName FROM products</td>
+</tr>
+</tbody>
+</table>
+<p>可以看到, 为了执行 badge_views 对应的SQL, 必须要先执行上面的4条sql, 才能构造出一个 badgeView 的对象. 那么这个是不是必须的呢?</p><p>其实分析语义的时候我们发现</p>
+<ul>
+<li>isMiaosha</li>
+<li>inputTag</li>
+<li>isSingeSale</li>
+<li>rangeStock</li>
+</ul>
+<p>这几个值只有有一个不满足条件, 其实下面的SQL就没有不要再执行了</p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>对应的SQL</th>
+<th>SQL执行的结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>isMiaosha</td>
+<td>SELECT 1 FROM products WHERE isSeckill = 1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>isSingeSale</td>
+<td><del>SELECT 1 FROM discountProducts WHERE discounts.conditionPurchaseCount = 1</del></td>
+<td>无需计算</td>
+</tr>
+<tr>
+<td>rangeStock</td>
+<td><del>SELECT product_stocks.count FROM product_stocks</del></td>
+<td>无需计算</td>
+</tr>
+<tr>
+<td>inputTag</td>
+<td><del>SELECT products.tagName FROM products</del></td>
+<td>无需计算</td>
+</tr>
+</tbody>
+</table>
+<p>假如 isMiaosha 的结果为 0 了, 其实没有必要往下面再执行了, 直接返回即可.</p><p>所以我们提出了 NoneMatcher 的概念</p>
+<blockquote>
+<p>如果我执行一条sql, 发现这条sql的值和预期的值不一致, 则直接返回(not match成功, 剩下的sql不需要执行了), 如果是一致, 则继续往下执行</p>
+</blockquote>
+<p>这样99%的角标匹配规则都非常快, 而且将原来的 O(M) 的复杂度直接变成了 O(1)</p><h5 id="sql自动转化为java代码"><a class="anchorlink" href="#sql%E8%87%AA%E5%8A%A8%E8%BD%AC%E5%8C%96%E4%B8%BAjava%E4%BB%A3%E7%A0%81">5.3.3 SQL自动转化为java代码</a></h5><p><a href="https://github.com/mperham/sidekiq">Sidekiq</a>的作者在一遍<a href="http://www.mikeperham.com/2015/10/14/should-you-use-celluloid/">博文</a>中提到</p>
+<blockquote>
+<p>To make something easier or safer to use, create an abstraction layer.
+To make something faster, remove one or more abstraction layers.</p>
+</blockquote>
+<p>SQL即是高度抽象的语言, 但是为了执行SQL, SQL内存引擎会生成对应的代码, 检测SQL的正确性, 字段存在性等一系列操作. 这些抽象会使得本来一个很简单的操作变得很慢.</p><p>如下面的例子:</p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>对应的SQL</th>
+<th>SQL执行的结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>isMiaosha</td>
+<td>SELECT 1 FROM products WHERE isSeckill = 1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>如果我们已经有了products对象, 直接取 product.isSeckill 即可获取到数据</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class Product {
+  public int isSeckill;
+  public String tagName;
+}
+
+</pre>
+</div>
+<p>进一步的优化为:</p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>对应的SQL</th>
+<th>对应的java代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>isMiaosha</td>
+<td>SELECT 1 FROM products WHERE isSeckill = 1</td>
+<td>product.isSeckill == 1  ? 1 : 0</td>
+</tr>
+</tbody>
+</table>
+<p>经过测试发现, 执行java原生的代码的时间, 大约为 单条sql 的100 倍</p><p>所以我们分析了一些命中率非常高的 条件, 将这些条件转化为 java 原生代码, 再使用 NoneMatcher 进行匹配, 最终角标的整体的响应时间在 1ms 左右</p><h4 id="优化总结"><a class="anchorlink" href="#%E4%BC%98%E5%8C%96%E6%80%BB%E7%BB%93">5.4 优化总结</a></h4>
+<ol>
+<li>connectionPool, 项目启动时创建连接</li>
+<li>PreparedStatement, 项目启动时将所有sql执行一遍</li>
+<li>NoneMatcher, 分析sql语义, 存在一个不满足条件的, 剩下的sql不再执行</li>
+<li>将一些简单的sql转化为java代码</li>
+</ol>
+<h3 id="总结"><a class="anchorlink" href="#%E6%80%BB%E7%BB%93">6 总结</a></h3><p>角标系统的例子是SQL型数据处理的一个非常常见的例子, 她的整体思路为</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+源数据 -&gt; 视图数据 -&gt; 源数据 -&gt; 视图数据 -&gt; ...
+
+</pre>
+</div>
+<p>也就是说将不同的数据组合, 组合完之后变成一个视图, 该视图又是下一个数据视图的源数据</p><p>源数据 到 视图数据, 是通过 SQL 这个通用语句来表达的.</p><p>但是使用该方式也有一些缺点, 下面分别分情况进行表述.</p><h4 id="sql的缺点"><a class="anchorlink" href="#sql%E7%9A%84%E7%BC%BA%E7%82%B9">6.1 SQL的缺点</a></h4><h5 id="sql爆炸"><a class="anchorlink" href="#sql%E7%88%86%E7%82%B8">6.1.1 SQL爆炸</a></h5><p>有时候源数据 -&gt; 视图数据是很复杂的, 即SQL中包含很多语句, 包括 INNER JOIN, UNION, CASE, WHEN 等等, 这样的SQL是非常不可读的, 而且很难进行维护</p><p>如下面的SQL:</p><div class="code_container">
+<pre class="brush: sql; gutter: false; toolbar: true;">
+SELECT
+    ROUND(COALESCE(MIN(p), 0)/100.0, 2)
+FROM (
+        SELECT
+            CAST(discountRules.price - discountRules.savedAmount AS DECIMAL(10, 2))
+             AS p
+        FROM
+            input_view.discountRules
+        WHERE
+            (discountRules.price &gt;= discountRules.conditionMoney AND discountRules.type = 0 AND discountRules.conditionMoney &gt; 0)
+            OR
+            (discountRules.conditionPurchaseCount = 1 AND discountRules.type = 1)
+    UNION
+        SELECT
+            CAST((discountRules.price) * (1 - discountRules.savedPercent/10000.0) AS DECIMAL(10, 2))
+            AS p
+        FROM
+            input_view.discountRules
+        WHERE
+            (discountRules.price &gt;= discountRules.conditionMoney AND discountRules.type = 0 AND discountRules.conditionMoney &gt; 0)
+            OR
+            (discountRules.conditionPurchaseCount = 1 AND discountRules.type = 1)
+    UNION
+        SELECT
+            CAST((discountRules.price - COALESCE(discountRules.price/NULLIF(input_view.discountRules.conditionMoney, 0), 0) * discountRules.noLimit * discountRules.savedAmount) AS DECIMAL(10, 2))
+             AS p
+        FROM
+            input_view.discountRules
+        WHERE
+            (discountRules.price &gt;= discountRules.conditionMoney AND discountRules.type = 0 AND discountRules.conditionMoney &gt; 0)
+            OR
+            (discountRules.conditionPurchaseCount = 1 AND discountRules.type = 1)
+) t
+
+</pre>
+</div>
+<p>看到人大都是在心里说WTF. 像上面的例子就是一个<code>SQL爆炸</code>的case.</p>
+<blockquote>
+<p>SQL不应过多的进行数据地处理流程, 而是简单的查询和组合等操作.</p>
+</blockquote>
+<p>数据的处理应该是提供对应的操作算子或者函数, 在 <a href="https://github.com/cjuexuan/mynote/issues/21">spark sql在喜马拉雅的使用之xql</a> 这篇文章中就实现了操作算子: <code>load</code> 和 <code>save</code> 等.</p><p>操作算子的实现比较复杂, 而角标系统只有这一个复杂的SQL爆炸case, 所以角标系统并未对此做扩展.</p><h5 id="sql测试困难"><a class="anchorlink" href="#sql%E6%B5%8B%E8%AF%95%E5%9B%B0%E9%9A%BE">6.1.2 SQL测试困难</a></h5><p>SQL如何进行unit test? 修改了之后如何保证修改的逻辑是对的?</p><p>角标系统将原有的业务代码大都浓缩到了SQL中, 这使得原来便于测试的业务代码变得困难. 在当前的角标系统中, 我写了一个test, 仅仅检测SQL的语法, 而不检查SQL本身的业务含义.</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+/**
+ * 防止SQL写得不对, 导致直接报错, 所以在这里会跑这个测试
+ *
+ * &lt;p&gt;
+ * 在上线之前务必执行
+ *
+ * &lt;pre&gt;
+ *      mvn -Dtest="SqlAnalyzerTest#testEverySQLRunnable" test
+ * &lt;/pre&gt;
+ *
+ * @throws Exception 如果SQL写得不对, 在这儿测试这儿会报错
+ */
+@Test public void testEverySQLRunnable() throws Exception {
+    // 这个地方设置了如果执行SQL报错, 就会抛出异常
+    Helper.setPrivateStaticField(SqlRunner.class, "isThrowExceptionWhenRunSqlFailed", true);
+
+    Field field = SqlRunner.class.getDeclaredField("PREPARE_VIEWS");
+    field.setAccessible(true);
+    SchemaView[] prepareViews = (SchemaView[]) field.get(SqlRunner.class);
+
+    for (SchemaView bean : prepareViews) {
+        List&lt;String&gt; sqlList = bean.allPossibleSqls();
+
+        // 执行所有SQL
+        sqlList.forEach(sql -&gt; SqlRunner.run(bean, sql));
+    }
+}
+
+</pre>
+</div>
+<h4 id="总体评价"><a class="anchorlink" href="#%E6%80%BB%E4%BD%93%E8%AF%84%E4%BB%B7">6.2 总体评价</a></h4><p>虽然SQL存在上述问题, 但是总的来说, 角标解决了原有的问题, 缩短了角标的实现时间, 添加一个角标只需要在后台配置, APP, PC端和数据层都不需要做任何更改. 另外, SQL本身的自解释性很强, 数据的流转也很清晰, 出了问题也很好排查, 是一次非常不错的优化.</p>
+
+        <div id="comment"></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="hide" />
+  <div id="footer">
+    <div class="wrapper">
+      <p>版权声明：自由转载-非商用-非衍生-保持署名(<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享3.0许可证</a>)</p>
+<p>For Ruby Roses.</p>
+
+    </div>
+  </div>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/responsive-tables.js"></script>
+  <script type="text/javascript" src="javascripts/guides.js"></script>
+
+  <!-- ./node_modules/gulp/bin/gulp.js build -\-brushes=bash,cpp,css,javascript,java,plain,python,ruby,scala,sql,xml -->
+  <!-- uglifyjs syntaxhighlighter.js  -\-output syntaxhighlighter.min.js -->
+  <script type="text/javascript" src="javascripts/syntaxhighlighter.min.js"></script>
+  <script type="text/javascript" src="javascripts/tonal.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.0.1/Tone.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/tone/13.1.22/Tone.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.4/svg.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/svg.js/2.6.5/svg.js"></script>
+  <script type="text/javascript" src="javascripts/chordy-svg.min.js"></script>
+  <script type="text/javascript" src="javascripts/chord.js"></script>
+  <!-- <script type="text/javascript" src="javascripts/gitalk.min.js"></script> -->
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.2.2/gitalk.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/gitalk/1.2.2/gitalk.js"></script>
+  <script type="text/javascript" src="javascripts/load_docs.js"></script>
+  <!-- <script type="text/javascript" src="javascripts/Treant.js"></script> -->
+  <script src="https://cdn.bootcss.com/treant-js/1.0/Treant.min.js"></script>
+  <!-- <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.0/raphael&#45;min.js"></script> -->
+  <script src="https://cdn.bootcss.com/raphael/2.2.7/raphael.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.11.0/flowchart.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/flowchart/1.11.0/flowchart.min.js"></script>
+  <script type="text/javascript" src="javascripts/flowchart_generator.js"></script>
+  <script type="text/javascript" src="javascripts/tree_generator.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115746206-1"></script>
+
+  <script type="text/javascript" src="javascripts/abcjs_midi_5.1.2-min.js"></script>
+  <script type="text/javascript" src="javascripts/music_generator.js"></script>
+
+  <script type="text/javascript">
+    syntaxhighlighterConfig = {
+      autoLinks: false,
+    };
+
+    $(guidesIndex.bind);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115746206-1');
+  </script>
+
+  <script type="text/javascript">
+    var locationId = (location.pathname).split("/").pop().substring(0, 49);
+
+    if (locationId) {
+      var language = window.location.search.match("lang=en") ? "en" : "zh-CN"
+      var gitalk   = new Gitalk({
+        clientID: '0f5824fe1c09851e9781',
+        clientSecret: '61710a77ee98cddce06f408a398f05c8622e9575',
+        repo: 'blog_comments',
+        owner: 'dengqinghua',
+        admin: ['dengqinghua'],
+        id: locationId,
+        distractionFreeMode: true,
+        language: language
+      });
+
+      gitalk.render('comment');
+    }
+  </script>
+</body>
+</html>

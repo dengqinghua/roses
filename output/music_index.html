@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="baidu-site-verification" content="N1Q3HiESgp" />
+
+<title>Music Index — dengqinghua&#39;s blog</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shCore.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shThemeRailsGuides.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/fixes.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/abcjs-midi.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/gitalk.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/Treant.css" />
+  <link href="images/favicon.jpeg" rel="shortcut icon" type="image/x-icon" />
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body class="guide">
+  <div id="topNav">
+    <div class="wrapper">
+
+      <strong class="more-info-label">More:</strong>
+
+      <span class="red-button more-info-button">More Dengqinghua</span>
+      <ul class="more-info-links s-hidden">
+        <li class="more-info"><a href="http://www.dengqinghua.net/">About me</a></li>
+        <li class="more-info"><a href="https://github.com/dengqinghua/">Github</a></li>
+        <li class="more-info"><a href="mailto:dengqinghua.42@gmail.com">Gmail</a></li>
+        <li class="more-info"><a href="https://twitter.com/dengqinghua_42">Twitter</a></li>
+      </ul>
+
+      <form action="http://google.com/search" method="get">
+          <input name="q" value="site:blog.dengqinghua.net" type="hidden">
+          <input class="search" name="q" placeholder="Search Blog" type="text">
+      </form>
+    </div>
+  </div>
+  <div id="header">
+    <div class="wrapper clearfix">
+      <h1><a href="http://blog.dengqinghua.net" title="Return to home page">http://blog.dengqinghua.net</a></h1>
+      <ul class="nav">
+        <li><a class="nav-item" href="http://blog.dengqinghua.net">Home</a></li>
+        <li class="guides-index guides-index-large">
+          <a href="index.html" id="guidesMenu" class="guides-index-item nav-item">
+            Index <span id="guidesArrow">▸</span>
+          </a>
+
+          <div id="guides" class="clearfix" style="display: none;">
+            <hr />
+              <dl class="L">
+                <dt>推荐</dt>
+                <dd><a href="badge_system.html">基于内存数据库的角标系统设计</a></dd>
+                <dd><a href="witness_flow.html">业务流引擎系统</a></dd>
+                <dt>Ruby</dt>
+                <dd><a href="ruby_knowledge_tree.html">Ruby知识树</a></dd>
+                <dd><a href="ruby_model.html">Ruby数据模型</a></dd>
+                <dd><a href="arel.html?lang=en">Arel源码分析</a></dd>
+                <dd><a href="sidekiq_task_event.html">基于Sidekiq的异步任务管理引擎</a></dd>
+                <dd><a href="racc.html">Racc</a></dd>
+                <dd><a href="witness_flow.html">业务流引擎系统</a></dd>
+                <dt>Java</dt>
+                <dd><a href="data_structures.html">数据结构</a></dd>
+                <dd><a href="learn_jvm.html">JVM剖析</a></dd>
+                <dd><a href="concurrency.html">Concurrency</a></dd>
+                <dd><a href="badge_system.html">基于内存数据库的角标系统设计</a></dd>
+                <dd><a href="maven_under_command_line.html">命令行下的Maven</a></dd>
+                <dt>MySQL</dt>
+                <dd><a href="mysql_knowledge_tree.html">MySQL知识树</a></dd>
+              </dl>
+              <dl class="R">
+                <dt>Go</dt>
+                <dd><a href="go_get_timeout_solution.html">GoInstallBinaries i/o timeout问题</a></dd>
+                <dd><a href="go_knowledge_tree.html">Go知识树</a></dd>
+                <dt>音乐</dt>
+                <dd><a href="music_index.html">音乐学习体系</a></dd>
+                <dd><a href="lalaland-city_of_stars.html">City Of Star</a></dd>
+                <dd><a href="あの日の帰り道.html">あの日の帰り道</a></dd>
+                <dd><a href="rain_wwh.html">雨の日はワルツを踊って</a></dd>
+                <dd><a href="it_could_have_been.html">Es Ware Schon Gewesen</a></dd>
+                <dt>杂记</dt>
+                <dd><a href="example_markdown.html">markdown格式实例</a></dd>
+                <dd><a href="comments.html">注释规范</a></dd>
+                <dd><a href="best_programming.html">零bug落地方案</a></dd>
+                <dd><a href="raft.html">Raft算法</a></dd>
+                <dd><a href="memorize_my_mentor.html">Memorize My Mentor</a></dd>
+              </dl>
+          </div>
+        </li>
+        <li class="guides-index guides-index-small">
+          <select class="guides-index-item nav-item">
+            <option value="index.html">Index</option>
+              <optgroup label="推荐">
+                  <option value="badge_system.html">基于内存数据库的角标系统设计</option>
+                  <option value="witness_flow.html">业务流引擎系统</option>
+              </optgroup>
+              <optgroup label="Ruby">
+                  <option value="ruby_knowledge_tree.html">Ruby知识树</option>
+                  <option value="ruby_model.html">Ruby数据模型</option>
+                  <option value="arel.html?lang=en">Arel源码分析</option>
+                  <option value="sidekiq_task_event.html">基于Sidekiq的异步任务管理引擎</option>
+                  <option value="racc.html">Racc</option>
+                  <option value="witness_flow.html">业务流引擎系统</option>
+              </optgroup>
+              <optgroup label="Java">
+                  <option value="data_structures.html">数据结构</option>
+                  <option value="learn_jvm.html">JVM剖析</option>
+                  <option value="concurrency.html">Concurrency</option>
+                  <option value="badge_system.html">基于内存数据库的角标系统设计</option>
+                  <option value="maven_under_command_line.html">命令行下的Maven</option>
+              </optgroup>
+              <optgroup label="MySQL">
+                  <option value="mysql_knowledge_tree.html">MySQL知识树</option>
+              </optgroup>
+              <optgroup label="Go">
+                  <option value="go_get_timeout_solution.html">GoInstallBinaries i/o timeout问题</option>
+                  <option value="go_knowledge_tree.html">Go知识树</option>
+              </optgroup>
+              <optgroup label="音乐">
+                  <option value="music_index.html">音乐学习体系</option>
+                  <option value="lalaland-city_of_stars.html">City Of Star</option>
+                  <option value="あの日の帰り道.html">あの日の帰り道</option>
+                  <option value="rain_wwh.html">雨の日はワルツを踊って</option>
+                  <option value="it_could_have_been.html">Es Ware Schon Gewesen</option>
+              </optgroup>
+              <optgroup label="杂记">
+                  <option value="example_markdown.html">markdown格式实例</option>
+                  <option value="comments.html">注释规范</option>
+                  <option value="best_programming.html">零bug落地方案</option>
+                  <option value="raft.html">Raft算法</option>
+                  <option value="memorize_my_mentor.html">Memorize My Mentor</option>
+              </optgroup>
+          </select>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr class="hide" />
+
+  <div id="feature">
+    <div class="wrapper">
+      <h2>Music Index</h2><div class="date"><p>2018-07-07</p></div><p>本文档对自己的音乐材料做了汇总和整理.</p><p>阅读完该文档之后, 您将了解到这些内容:</p>
+<ul>
+<li>我在一诺老师的授课总结.</li>
+<li>一些网络视频和教学资料.</li>
+</ul>
+
+
+                <div id="subCol">
+            <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Chapters</h3>
+            <ol class="chapters">
+<li>
+<a href="#guitar-lessons">Guitar Lessons</a>
+
+<ul>
+<li><a href="#%E9%9F%B3%E4%B9%90%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80">音乐理论基础</a></li>
+<li><a href="#pieces">Pieces</a></li>
+<li><a href="#song-books">Song Books</a></li>
+</ul>
+</li>
+<li>
+<a href="#%E4%BA%94%E7%BA%BF%E8%B0%B1-five-line-staff">五线谱(Five-line Staff)</a>
+
+<ul>
+<li><a href="#%E6%95%99%E5%AD%A6%E8%A7%86%E9%A2%91">教学视频</a></li>
+<li><a href="#%E5%90%89%E4%BB%96%E5%92%8C%E4%BA%94%E7%BA%BF%E8%B0%B1%E5%85%B3%E7%B3%BB">吉他和五线谱关系</a></li>
+<li><a href="#%E4%BA%94%E7%BA%BF%E8%B0%B1%E4%B8%8A%E7%9A%84%E8%B0%B1%E5%8F%B7">五线谱上的谱号</a></li>
+</ul>
+</li>
+<li>
+<a href="#abc-notation">ABC Notation</a>
+
+<ul>
+<li><a href="#%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7%E6%95%B4%E7%90%86">常用符号整理</a></li>
+<li><a href="#%E7%A4%BA%E4%BE%8B">示例</a></li>
+<li><a href="#%E4%BE%8B%E5%AD%90">例子</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</li>
+</ol>
+
+          </div>
+
+    </div>
+  </div>
+
+  <div id="container">
+    <div class="wrapper">
+      <div id="mainCol">
+        <h3 id="guitar-lessons"><a class="anchorlink" href="#guitar-lessons">1 Guitar Lessons</a></h3><h4 id="音乐理论基础"><a class="anchorlink" href="#%E9%9F%B3%E4%B9%90%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80">1.1 音乐理论基础</a></h4>
+<ol>
+<li><a href="./scales.html">音阶</a></li>
+<li><a href="./intervals.html">音程</a></li>
+<li><a href="./chords.html">和弦</a></li>
+<li><a href="./nicechord_learning.html">好和弦视频笔记</a></li>
+</ol>
+<h4 id="pieces"><a class="anchorlink" href="#pieces">1.2 Pieces</a></h4><p>一些音乐片段收集</p><p><a href="./pieces.html">pieces</a></p><h4 id="song-books"><a class="anchorlink" href="#song-books">1.3 Song Books</a></h4><p>一些弹唱或者指弹的曲目等</p><p><a href="./songbooks.html">songbooks</a></p><h3 id="五线谱-five-line-staff"><a class="anchorlink" href="#%E4%BA%94%E7%BA%BF%E8%B0%B1-five-line-staff">2 五线谱(Five-line Staff)</a></h3><h4 id="教学视频"><a class="anchorlink" href="#%E6%95%99%E5%AD%A6%E8%A7%86%E9%A2%91">2.1 教学视频</a></h4><p>推荐: <a href="http://nicechord.com/">好和弦</a>的五线谱教程</p>
+<iframe class="youtube" src="https://www.youtube.com/embed/qkt5X_4FJBY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<p>一些五线谱的英文对照表</p><p>音符 musical note</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>翻译</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>音符</td>
+<td>Musical                   Note</td>
+</tr>
+<tr>
+<td>全/半/四/八分音符</td>
+<td>Whole/Half/Quarter/Eighth Note</td>
+</tr>
+<tr>
+<td>拍号</td>
+<td>Time Signature</td>
+</tr>
+<tr>
+<td>调号</td>
+<td>Key Signature</td>
+</tr>
+<tr>
+<td>附点音符</td>
+<td>Dotted Note</td>
+</tr>
+<tr>
+<td>连音</td>
+<td>Tuplet</td>
+</tr>
+<tr>
+<td>符头/干/尾/酐</td>
+<td>Note Head/Stem/Flag/Beam</td>
+</tr>
+<tr>
+<td>休止符</td>
+<td>Rest</td>
+</tr>
+<tr>
+<td>全/半/四/八分休止符</td>
+<td>Whole/Half/Quarter/Eighth Rest</td>
+</tr>
+<tr>
+<td>加线</td>
+<td>Ledger Line</td>
+</tr>
+<tr>
+<td>谱号</td>
+<td>Clef</td>
+</tr>
+<tr>
+<td>升/降/还原</td>
+<td>Sharp/Flat/natural</td>
+</tr>
+<tr>
+<td>重降/重升</td>
+<td>Double Flat/Double Sharp</td>
+</tr>
+<tr>
+<td>临时记号</td>
+<td>Accidental</td>
+</tr>
+<tr>
+<td>从头开始</td>
+<td>D.C</td>
+</tr>
+<tr>
+<td>结束</td>
+<td>FINE (意大利文)</td>
+</tr>
+<tr>
+<td>第一/第二结尾</td>
+<td>First/Second Ending</td>
+</tr>
+<tr>
+<td>颤音</td>
+<td>Tremolo</td>
+</tr>
+<tr>
+<td>断奏</td>
+<td>Staccato</td>
+</tr>
+<tr>
+<td>强音</td>
+<td>Accent</td>
+</tr>
+<tr>
+<td>持音</td>
+<td>Tenuto</td>
+</tr>
+<tr>
+<td>延长</td>
+<td>Fermata</td>
+</tr>
+<tr>
+<td>强/弱/中</td>
+<td>Forte/Piano/Mezzo 这里就是F/P/M</td>
+</tr>
+<tr>
+<td>渐强/渐弱</td>
+<td>cresc./dim.</td>
+</tr>
+</tbody>
+</table>
+<div class="note"><p>♩=120, 代表的是每分钟120个♩</p></div><div class="note"><p>小节线 |; 如果要分段或者换调用, 则使用双小节线 ||; 反复记号 ||: :||</p></div><h4 id="吉他和五线谱关系"><a class="anchorlink" href="#%E5%90%89%E4%BB%96%E5%92%8C%E4%BA%94%E7%BA%BF%E8%B0%B1%E5%85%B3%E7%B3%BB">2.2 吉他和五线谱关系</a></h4><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/guitar_tab.jpg" alt="stuff">
+<img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/guitar_tab_c_f.jpg" alt="stuff">
+<img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/music_mutations.jpg" alt="stuff"></p><p>吉他演奏的音域
+<img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/guitar_ranges.jpg" alt="range"></p><div class="note"><p>图片来源于 <a href="https://www.zhihu.com/question/26296830/answer/83856060">古典吉他弹奏怎样识记五线谱？ - woodoo001的回答</a></p></div><h4 id="五线谱上的谱号"><a class="anchorlink" href="#%E4%BA%94%E7%BA%BF%E8%B0%B1%E4%B8%8A%E7%9A%84%E8%B0%B1%E5%8F%B7">2.3 五线谱上的谱号</a></h4><p><img src="images/music_intervals.png" alt="music_intervals"></p><h3 id="abc-notation"><a class="anchorlink" href="#abc-notation">3 ABC Notation</a></h3><h4 id="常用符号整理"><a class="anchorlink" href="#%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7%E6%95%B4%E7%90%86">3.1 常用符号整理</a></h4><div class="note"><p>下面的 <code>+</code> 代表 <code>|</code></p></div>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T</td>
+<td>标题</td>
+<td>T: Title</td>
+</tr>
+<tr>
+<td>C</td>
+<td>作曲作者</td>
+<td>C: 周杰伦</td>
+</tr>
+<tr>
+<td>L</td>
+<td>unit note length</td>
+<td>L: 1/4</td>
+</tr>
+<tr>
+<td>Q</td>
+<td>tempo, 速度</td>
+<td>Q: 100</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Key</td>
+<td>K: C#m</td>
+</tr>
+<tr>
+<td><sup>,=,_</sup></td>
+<td>Accidentals</td>
+<td>^E =E _E, 分别代表 E♯, ♮E 和 E♭</td>
+</tr>
+<tr>
+<td>/</td>
+<td>lengths</td>
+<td>a/ 代表a/2; a// 代表 a/4</td>
+</tr>
+<tr>
+<td>+: :+</td>
+<td>开始 结束重复</td>
+<td>+: a b c :+</td>
+</tr>
+<tr>
+<td>+[1</td>
+<td>第一遍重复</td>
+<td>+:  common body of tune  +1  first ending  :+2  second ending  +]</td>
+</tr>
+<tr>
+<td>(), -</td>
+<td>Ties and slurs</td>
+<td>(a b) c4-c</td>
+</tr>
+<tr>
+<td>(3</td>
+<td>三连音</td>
+<td>(3abc</td>
+</tr>
+<tr>
+<td>" D"</td>
+<td>标记/和弦</td>
+<td>添加空格代表为标记, 没有空格则可认为是和弦D</td>
+</tr>
+<tr>
+<td>" D"</td>
+<td>标记/和弦</td>
+<td>添加空格代表为标记, 没有空格则可认为是和弦D</td>
+</tr>
+</tbody>
+</table>
+<h4 id="示例"><a class="anchorlink" href="#%E7%A4%BA%E4%BE%8B">3.2 示例</a></h4><h5 id="多声部"><a class="anchorlink" href="#%E5%A4%9A%E5%A3%B0%E9%83%A8">3.2.1 多声部</a></h5><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+MUSIC:
+X:1
+T:Zocharti Loch
+C:Louis Lewandowski (1821-1894)
+M:C
+Q:1/4=76
+%%score (T1 T2) (B1 B2)
+V:T1           clef=treble-8  name="Tenore I"   snm="T.I"
+V:T2           clef=treble-8  name="Tenore II"  snm="T.II"
+V:B1  middle=d clef=bass      name="Basso I"    snm="B.I"  transpose=-24
+V:B2  middle=d clef=bass      name="Basso II"   snm="B.II" transpose=-24
+K:Gm
+%            End of header, start of tune body:
+% 1
+[V:T1]  (B2c2 d2g2)  | f6e2      | (d2c2 d2)e2 | d4 c2z2 |
+[V:T2]  (G2A2 B2e2)  | d6c2      | (B2A2 B2)c2 | B4 A2z2 |
+[V:B1]       z8      | z2f2 g2a2 | b2z2 z2 e2  | f4 f2z2 |
+[V:B2]       x8      |     x8    |      x8     |    x8   |
+% 5
+[V:T1]  (B2c2 d2g2)  | f8        | d3c (d2fe)  | H d6    ||
+[V:T2]       z8      |     z8    | B3A (B2c2)  | H A6    ||
+[V:B1]  (d2f2 b2e'2) | d'8       | g3g  g4     | H^f6    ||
+[V:B2]       x8      | z2B2 c2d2 | e3e (d2c2)  | H d6    ||
+
+</pre>
+</div>
+<div>
+<hr>
+<div id="midi-32fd3b8e659c42f1ff393dba7041c2b6"></div>
+<div id="canvas-32fd3b8e659c42f1ff393dba7041c2b6"></div>
+<a href="javascript:void(0);" id="edit-32fd3b8e659c42f1ff393dba7041c2b6">Edit Tab</a>
+<textarea style="display:none" class="music" id="32fd3b8e659c42f1ff393dba7041c2b6">
+X:1
+T:Zocharti Loch
+C:Louis Lewandowski (1821-1894)
+M:C
+Q:1/4=76
+%%score (T1 T2) (B1 B2)
+V:T1           clef=treble-8  name="Tenore I"   snm="T.I"
+V:T2           clef=treble-8  name="Tenore II"  snm="T.II"
+V:B1  middle=d clef=bass      name="Basso I"    snm="B.I"  transpose=-24
+V:B2  middle=d clef=bass      name="Basso II"   snm="B.II" transpose=-24
+K:Gm
+%            End of header, start of tune body:
+% 1
+<a href="B2c2%20d2g2">V:T1</a>  | f6e2      | (d2c2 d2)e2 | d4 c2z2 |
+<a href="G2A2%20B2e2">V:T2</a>  | d6c2      | (B2A2 B2)c2 | B4 A2z2 |
+[V:B1]       z8      | z2f2 g2a2 | b2z2 z2 e2  | f4 f2z2 |
+[V:B2]       x8      |     x8    |      x8     |    x8   |
+% 5
+<a href="B2c2%20d2g2">V:T1</a>  | f8        | d3c (d2fe)  | H d6    ||
+[V:T2]       z8      |     z8    | B3A (B2c2)  | H A6    ||
+<a href="d2f2%20b2e'2">V:B1</a> | d'8       | g3g  g4     | H^f6    ||
+[V:B2]       x8      | z2B2 c2d2 | e3e (d2c2)  | H d6    ||
+</textarea>
+<hr>
+</div>
+<h5 id="简易版本"><a class="anchorlink" href="#%E7%AE%80%E6%98%93%E7%89%88%E6%9C%AC">3.2.2 简易版本</a></h5><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+MUSIC:
+X:1
+T:Speed The Plough
+M:4/4
+L:1/8
+N:Simple version
+Z:Steve Mansfield 1/2/2000
+K:G
+GABc dedB | dedB dedB | c2ec B2dB | A2A2 A2 BA|
+GABc dedB | dedB dedB | c2ec B2dB | A2A2 G4 ::
+g2g2 g4 | g2fe dBGB | c2ec B2dB | A2A2 A4 |
+g2g2 g4 | g2fe dBGB | c2ec B2dB | A2A2 G4 :|
+
+</pre>
+</div>
+<div>
+<hr>
+<div id="midi-3dcae5343d193e3c5aef515a4decaa05"></div>
+<div id="canvas-3dcae5343d193e3c5aef515a4decaa05"></div>
+<a href="javascript:void(0);" id="edit-3dcae5343d193e3c5aef515a4decaa05">Edit Tab</a>
+<textarea style="display:none" class="music" id="3dcae5343d193e3c5aef515a4decaa05">
+X:1
+T:Speed The Plough
+M:4/4
+L:1/8
+N:Simple version
+Z:Steve Mansfield 1/2/2000
+K:G
+GABc dedB | dedB dedB | c2ec B2dB | A2A2 A2 BA|
+GABc dedB | dedB dedB | c2ec B2dB | A2A2 G4 ::
+g2g2 g4 | g2fe dBGB | c2ec B2dB | A2A2 A4 |
+g2g2 g4 | g2fe dBGB | c2ec B2dB | A2A2 G4 :|
+</textarea>
+<hr>
+</div>
+<h4 id="例子"><a class="anchorlink" href="#%E4%BE%8B%E5%AD%90">3.3 例子</a></h4><p><a href="http://abcnotation.com/examples">examples</a></p><h4 id="references"><a class="anchorlink" href="#references">3.4 References</a></h4><p><a href="http://www.lesession.co.uk/abc/abc_notation.htm">abc_notation</a>
+<a href="http://abcnotation.com/wiki/abc:standard:v2.1">abc:standard:v2.1</a></p>
+
+        <div id="comment"></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="hide" />
+  <div id="footer">
+    <div class="wrapper">
+      <p>版权声明：自由转载-非商用-非衍生-保持署名(<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享3.0许可证</a>)</p>
+<p>For Ruby Roses.</p>
+
+    </div>
+  </div>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/responsive-tables.js"></script>
+  <script type="text/javascript" src="javascripts/guides.js"></script>
+
+  <!-- ./node_modules/gulp/bin/gulp.js build -\-brushes=bash,cpp,css,javascript,java,plain,python,ruby,scala,sql,xml -->
+  <!-- uglifyjs syntaxhighlighter.js  -\-output syntaxhighlighter.min.js -->
+  <script type="text/javascript" src="javascripts/syntaxhighlighter.min.js"></script>
+  <script type="text/javascript" src="javascripts/tonal.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.0.1/Tone.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/tone/13.1.22/Tone.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.4/svg.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/svg.js/2.6.5/svg.js"></script>
+  <script type="text/javascript" src="javascripts/chordy-svg.min.js"></script>
+  <script type="text/javascript" src="javascripts/chord.js"></script>
+  <!-- <script type="text/javascript" src="javascripts/gitalk.min.js"></script> -->
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.2.2/gitalk.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/gitalk/1.2.2/gitalk.js"></script>
+  <script type="text/javascript" src="javascripts/load_docs.js"></script>
+  <!-- <script type="text/javascript" src="javascripts/Treant.js"></script> -->
+  <script src="https://cdn.bootcss.com/treant-js/1.0/Treant.min.js"></script>
+  <!-- <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.0/raphael&#45;min.js"></script> -->
+  <script src="https://cdn.bootcss.com/raphael/2.2.7/raphael.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.11.0/flowchart.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/flowchart/1.11.0/flowchart.min.js"></script>
+  <script type="text/javascript" src="javascripts/flowchart_generator.js"></script>
+  <script type="text/javascript" src="javascripts/tree_generator.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115746206-1"></script>
+
+  <script type="text/javascript" src="javascripts/abcjs_midi_5.1.2-min.js"></script>
+  <script type="text/javascript" src="javascripts/music_generator.js"></script>
+
+  <script type="text/javascript">
+    syntaxhighlighterConfig = {
+      autoLinks: false,
+    };
+
+    $(guidesIndex.bind);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115746206-1');
+  </script>
+
+  <script type="text/javascript">
+    var locationId = (location.pathname).split("/").pop().substring(0, 49);
+
+    if (locationId) {
+      var language = window.location.search.match("lang=en") ? "en" : "zh-CN"
+      var gitalk   = new Gitalk({
+        clientID: '0f5824fe1c09851e9781',
+        clientSecret: '61710a77ee98cddce06f408a398f05c8622e9575',
+        repo: 'blog_comments',
+        owner: 'dengqinghua',
+        admin: ['dengqinghua'],
+        id: locationId,
+        distractionFreeMode: true,
+        language: language
+      });
+
+      gitalk.render('comment');
+    }
+  </script>
+</body>
+</html>

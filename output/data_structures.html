@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="baidu-site-verification" content="N1Q3HiESgp" />
+
+<title>数据结构 — dengqinghua&#39;s blog</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shCore.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shThemeRailsGuides.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/fixes.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/abcjs-midi.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/gitalk.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/Treant.css" />
+  <link href="images/favicon.jpeg" rel="shortcut icon" type="image/x-icon" />
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body class="guide">
+  <div id="topNav">
+    <div class="wrapper">
+
+      <strong class="more-info-label">More:</strong>
+
+      <span class="red-button more-info-button">More Dengqinghua</span>
+      <ul class="more-info-links s-hidden">
+        <li class="more-info"><a href="http://www.dengqinghua.net/">About me</a></li>
+        <li class="more-info"><a href="https://github.com/dengqinghua/">Github</a></li>
+        <li class="more-info"><a href="mailto:dengqinghua.42@gmail.com">Gmail</a></li>
+        <li class="more-info"><a href="https://twitter.com/dengqinghua_42">Twitter</a></li>
+      </ul>
+
+      <form action="http://google.com/search" method="get">
+          <input name="q" value="site:blog.dengqinghua.net" type="hidden">
+          <input class="search" name="q" placeholder="Search Blog" type="text">
+      </form>
+    </div>
+  </div>
+  <div id="header">
+    <div class="wrapper clearfix">
+      <h1><a href="http://blog.dengqinghua.net" title="Return to home page">http://blog.dengqinghua.net</a></h1>
+      <ul class="nav">
+        <li><a class="nav-item" href="http://blog.dengqinghua.net">Home</a></li>
+        <li class="guides-index guides-index-large">
+          <a href="index.html" id="guidesMenu" class="guides-index-item nav-item">
+            Index <span id="guidesArrow">▸</span>
+          </a>
+
+          <div id="guides" class="clearfix" style="display: none;">
+            <hr />
+              <dl class="L">
+                <dt>推荐</dt>
+                <dd><a href="badge_system.html">基于内存数据库的角标系统设计</a></dd>
+                <dd><a href="witness_flow.html">业务流引擎系统</a></dd>
+                <dt>Ruby</dt>
+                <dd><a href="ruby_knowledge_tree.html">Ruby知识树</a></dd>
+                <dd><a href="ruby_model.html">Ruby数据模型</a></dd>
+                <dd><a href="arel.html?lang=en">Arel源码分析</a></dd>
+                <dd><a href="sidekiq_task_event.html">基于Sidekiq的异步任务管理引擎</a></dd>
+                <dd><a href="racc.html">Racc</a></dd>
+                <dd><a href="witness_flow.html">业务流引擎系统</a></dd>
+                <dt>Java</dt>
+                <dd><a href="data_structures.html">数据结构</a></dd>
+                <dd><a href="learn_jvm.html">JVM剖析</a></dd>
+                <dd><a href="concurrency.html">Concurrency</a></dd>
+                <dd><a href="badge_system.html">基于内存数据库的角标系统设计</a></dd>
+                <dd><a href="maven_under_command_line.html">命令行下的Maven</a></dd>
+                <dt>MySQL</dt>
+                <dd><a href="mysql_knowledge_tree.html">MySQL知识树</a></dd>
+              </dl>
+              <dl class="R">
+                <dt>Go</dt>
+                <dd><a href="go_get_timeout_solution.html">GoInstallBinaries i/o timeout问题</a></dd>
+                <dd><a href="go_knowledge_tree.html">Go知识树</a></dd>
+                <dt>音乐</dt>
+                <dd><a href="music_index.html">音乐学习体系</a></dd>
+                <dd><a href="lalaland-city_of_stars.html">City Of Star</a></dd>
+                <dd><a href="あの日の帰り道.html">あの日の帰り道</a></dd>
+                <dd><a href="rain_wwh.html">雨の日はワルツを踊って</a></dd>
+                <dd><a href="it_could_have_been.html">Es Ware Schon Gewesen</a></dd>
+                <dt>杂记</dt>
+                <dd><a href="example_markdown.html">markdown格式实例</a></dd>
+                <dd><a href="comments.html">注释规范</a></dd>
+                <dd><a href="best_programming.html">零bug落地方案</a></dd>
+                <dd><a href="raft.html">Raft算法</a></dd>
+                <dd><a href="memorize_my_mentor.html">Memorize My Mentor</a></dd>
+              </dl>
+          </div>
+        </li>
+        <li class="guides-index guides-index-small">
+          <select class="guides-index-item nav-item">
+            <option value="index.html">Index</option>
+              <optgroup label="推荐">
+                  <option value="badge_system.html">基于内存数据库的角标系统设计</option>
+                  <option value="witness_flow.html">业务流引擎系统</option>
+              </optgroup>
+              <optgroup label="Ruby">
+                  <option value="ruby_knowledge_tree.html">Ruby知识树</option>
+                  <option value="ruby_model.html">Ruby数据模型</option>
+                  <option value="arel.html?lang=en">Arel源码分析</option>
+                  <option value="sidekiq_task_event.html">基于Sidekiq的异步任务管理引擎</option>
+                  <option value="racc.html">Racc</option>
+                  <option value="witness_flow.html">业务流引擎系统</option>
+              </optgroup>
+              <optgroup label="Java">
+                  <option value="data_structures.html">数据结构</option>
+                  <option value="learn_jvm.html">JVM剖析</option>
+                  <option value="concurrency.html">Concurrency</option>
+                  <option value="badge_system.html">基于内存数据库的角标系统设计</option>
+                  <option value="maven_under_command_line.html">命令行下的Maven</option>
+              </optgroup>
+              <optgroup label="MySQL">
+                  <option value="mysql_knowledge_tree.html">MySQL知识树</option>
+              </optgroup>
+              <optgroup label="Go">
+                  <option value="go_get_timeout_solution.html">GoInstallBinaries i/o timeout问题</option>
+                  <option value="go_knowledge_tree.html">Go知识树</option>
+              </optgroup>
+              <optgroup label="音乐">
+                  <option value="music_index.html">音乐学习体系</option>
+                  <option value="lalaland-city_of_stars.html">City Of Star</option>
+                  <option value="あの日の帰り道.html">あの日の帰り道</option>
+                  <option value="rain_wwh.html">雨の日はワルツを踊って</option>
+                  <option value="it_could_have_been.html">Es Ware Schon Gewesen</option>
+              </optgroup>
+              <optgroup label="杂记">
+                  <option value="example_markdown.html">markdown格式实例</option>
+                  <option value="comments.html">注释规范</option>
+                  <option value="best_programming.html">零bug落地方案</option>
+                  <option value="raft.html">Raft算法</option>
+                  <option value="memorize_my_mentor.html">Memorize My Mentor</option>
+              </optgroup>
+          </select>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr class="hide" />
+
+  <div id="feature">
+    <div class="wrapper">
+      <h2>数据结构</h2><div class="date"><p>2018-03-20</p></div><p>该文档涵盖了计算机基础的数据结构设计.</p><p>阅读完该文档后，您将会了解到:</p>
+<ul>
+<li>基础的数据结构设计如 List, Queue, Stack.</li>
+<li>基于基础数据结构之上的复杂结构如 Graph, Tree</li>
+<li>数据结构的基本组成部分</li>
+</ul>
+
+
+                <div id="subCol">
+            <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Chapters</h3>
+            <ol class="chapters">
+<li>
+<a href="#tl-dr">TL;DR</a>
+
+<ul>
+<li><a href="#java-collections">Java Collections</a></li>
+</ul>
+</li>
+<li>
+<a href="#list">List</a>
+
+<ul>
+<li><a href="#arraylist">ArrayList</a></li>
+<li><a href="#linkedlist">LinkedList</a></li>
+<li><a href="#linkedlist%E5%92%8Carraylist%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF">LinkedList和ArrayList的使用场景</a></li>
+</ul>
+</li>
+<li>
+<a href="#stack">Stack</a>
+
+<ul>
+<li><a href="#vector">Vector</a></li>
+<li><a href="#%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E6%A0%88%E7%9A%84%E5%9C%BA%E6%99%AF">一些使用栈的场景</a></li>
+</ul>
+</li>
+<li>
+<a href="#queue">Queue</a>
+
+<ul>
+<li><a href="#circular-array">Circular Array</a></li>
+<li><a href="#queue%E7%9A%84java%E5%AE%9E%E7%8E%B0">Queue的Java实现</a></li>
+</ul>
+</li>
+<li>
+<a href="#tree">Tree</a>
+
+<ul>
+<li><a href="#binary-tree">Binary Tree</a></li>
+<li><a href="#avl-tree">AVL Tree</a></li>
+<li><a href="#b-tree">B(+) Tree</a></li>
+</ul>
+</li>
+<li>
+<a href="#map">Map</a>
+
+<ul>
+<li><a href="#hashmap">HashMap</a></li>
+<li><a href="#concurrenthashmap">ConcurrentHashMap</a></li>
+</ul>
+</li>
+<li><a href="#references">References</a></li>
+</ol>
+
+          </div>
+
+    </div>
+  </div>
+
+  <div id="container">
+    <div class="wrapper">
+      <div id="mainCol">
+        <h3 id="tl-dr"><a class="anchorlink" href="#tl-dr">1 TL;DR</a></h3><h4 id="java-collections"><a class="anchorlink" href="#java-collections">1.1 Java Collections</a></h4><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/Collection_interfaces.png" alt="Collection_interfaces"></p><div class="info"><p>推荐阅读<a href="https://www.ntu.edu.sg/home/ehchua/programming/java/J5c_Collection.html">这篇文章</a>, 了解Java(1.7)的Collections框架</p></div><div class="warning"><p>源码基于 <strong>1.8.0_144</strong></p></div><div class="code_container">
+<pre class="brush: shell; gutter: false; toolbar: true;">
+➜ java -version
+java version "1.8.0_144"
+Java(TM) SE Runtime Environment (build 1.8.0_144-b01)
+Java HotSpot(TM) 64-Bit Server VM (build 25.144-b01, mixed mode)
+
+</pre>
+</div>
+<h3 id="list"><a class="anchorlink" href="#list">2 List</a></h3>
+<ol>
+<li>基础操作</li>
+</ol>
+
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get</td>
+<td>获取数据</td>
+</tr>
+<tr>
+<td>set</td>
+<td>设置数据</td>
+</tr>
+<tr>
+<td>add</td>
+<td>添加数据</td>
+</tr>
+<tr>
+<td>remove</td>
+<td>移除数据</td>
+</tr>
+<tr>
+<td>size</td>
+<td>获取长度</td>
+</tr>
+</tbody>
+</table>
+
+<ol>
+<li>
+<p>Java中List的接口关系图</p>
+<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/Collection_ListImplementation.png" alt="Collection_interfacesList"></p>
+</li>
+</ol>
+<div class="note"><p>为什么接口中要提供一个<code>iterator</code>? 我的理解包括下面几点: iterator 要求在获取数据的时候, List没有被修改, 否则就报错(<code>ConcurrentModificationException</code>), 这样相对更安全, 更多讨论请查看StackOverflow上的<a href="https://stackoverflow.com/a/27984817/8186609">讨论</a></p></div><h4 id="arraylist"><a class="anchorlink" href="#arraylist">2.1 ArrayList</a></h4><h5 id="arraylist-implements-iterable"><a class="anchorlink" href="#arraylist-implements-iterable">2.1.1 ArrayList implements Iterable</a></h5><p>在 ArrayList 里面, 需要有一个 <code>iterator</code> 方法, 这里用到了 inner class</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class MyArrayList&lt;AnyType&gt; implements Iterable&lt;AnyType&gt; {
+    private AnyType[] theItems;
+
+    public java.util.Iterator&lt;AnyType&gt; iterator() {
+        return new ArrayListIterator&lt;AnyType&gt;();
+    }
+
+    private static class ArrayListIterator&lt;AnyType&gt; implements java.util.Iterator&lt;AnyType&gt; {
+        private int current = 0;
+
+        public AnyType next() {
+            return theItems[current++];
+        }
+
+        // ...
+    }
+}
+
+</pre>
+</div>
+<p>使用 inner class 的原因是: 我们在 inner class 里面可以获取当前对象的fields. 在这里是: <code>theItems</code></p><h5 id="ensurecapacity"><a class="anchorlink" href="#ensurecapacity">2.1.2 ensureCapacity</a></h5><p>List和数组最大的一个特点是不用设置长度</p><p>但是ArrayList是用 Array 来实现的, 每一个数组需要在初始化的时候就将长度设置好, 那 ArrayList 是如何做到的呢?</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class ArrayList&lt;E&gt; extends AbstractList&lt;E&gt;
+        implements List&lt;E&gt;, RandomAccess, Cloneable, java.io.Serializable {
+    private static final int DEFAULT_CAPACITY = 10;
+
+    private void ensureExplicitCapacity(int minCapacity) {
+        modCount++;
+
+        // 在这里判断容量不够用了, 就对容量进行增长
+        if (minCapacity - elementData.length &gt; 0) {
+            grow(minCapacity);
+        }
+    }
+
+    /**
+     * Increases the capacity to ensure that it can hold at least the
+     * number of elements specified by the minimum capacity argument.
+     *
+     * @param minCapacity the desired minimum capacity
+     */
+    private void grow(int minCapacity) {
+        // overflow-conscious code
+        int oldCapacity = elementData.length;
+        int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);
+        if (newCapacity - minCapacity &lt; 0)
+            newCapacity = minCapacity;
+        if (newCapacity - MAX_ARRAY_SIZE &gt; 0)
+            newCapacity = hugeCapacity(minCapacity);
+        // minCapacity is usually close to size, so this is a win:
+        elementData = Arrays.copyOf(elementData, newCapacity);
+    }
+}
+
+</pre>
+</div>
+<p>在上面看到了几个关键的方法</p>
+<ul>
+<li>ensureExplicitCapacity</li>
+<li>grow</li>
+</ul>
+<p>在 grow 方法中, 可以看到关键的一行</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)
+
+</pre>
+</div>
+<div class="note"><p>&gt;&gt; 符号为<a href="http://www.cnblogs.com/hongten/p/hongten_java_yiweiyunsuangfu.html">位移</a>操作, 可以看下<a href="https://github.com/dengqinghua/my_examples/blob/master/java/src/test/java/com/dengqinghua/algorithms/QuickSortTest.java#L72">测试code</a></p></div><p>新增的容量为原有容量的1.5倍</p><div class="info"><p>ArrayList能动态地增长长度, 当容量不够的时候, 会进行<code>grow</code>操作, 将所有的数据拷贝(Arrays.copyOf)到一个新的数组中, 并进行数组的扩容处理.</p></div><h5 id="modcount"><a class="anchorlink" href="#modcount">2.1.3 modCount</a></h5><p>在Iterator的实现中, 有一个非常奇怪的变量: modCount, 源码中对她的解释为:</p>
+<blockquote>
+<p>The number of times this list has been <i>structurally modified</i>.
+Structural modifications are those that change the size of the
+list, or otherwise perturb it in such a fashion that iterations in
+progress may yield incorrect results.</p>
+</blockquote>
+<p>我们在源码中可以看到, 只要对该ArrayList进行任何操作, 都会修改这个值. 我的理解是 modCount 为 modifications count 的缩写, 即修改的次数. 它用在哪儿呢?</p><p>在 Iterator 中, 定义了一个 <code>expectedModCount</code></p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class MyArrayList&lt;AnyType&gt; implements Iterable&lt;AnyType&gt; {
+    private AnyType[] theItems;
+
+    public java.util.Iterator&lt;AnyType&gt; iterator() {
+        return new ArrayListIterator&lt;AnyType&gt;();
+    }
+
+    private static class ArrayListIterator&lt;AnyType&gt; implements java.util.Iterator&lt;AnyType&gt; {
+        int expectedModCount = modCount;
+
+        // ...
+    }
+}
+
+</pre>
+</div>
+<p>expectedModCount 初始值为 modCount 的值, 如果发现 Iterator 对象在使用的时候, 发现两个值不相等, 则会抛出<code>ConcurrentModificationException</code>异常</p><div class="info"><p>modCount确保了在使用Iterator的过程中, 这个List没有被修改过. 在LinkedList也有相同的变量.</p></div><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+final void checkForComodification() {
+    if (modCount != expectedModCount) {
+        throw new ConcurrentModificationException();
+    }
+}
+
+</pre>
+</div>
+<h5 id="支持randomaccess"><a class="anchorlink" href="#%E6%94%AF%E6%8C%81randomaccess">2.1.4 支持RandomAccess</a></h5><p>她支持<code>RandomAccess</code>, 在 <a href="https://github.com/dengqinghua/my_examples/blob/master/java/src/main/java/com/dengqinghua/algorithms/BinarySearch.java#L30">二分法查找</a> 的时候比 LinkedList 更加有优势</p><h4 id="linkedlist"><a class="anchorlink" href="#linkedlist">2.2 LinkedList</a></h4><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/linkedList.png" alt="linkedList"></p><h5 id="doubly-linked"><a class="anchorlink" href="#doubly-linked">2.2.1 Doubly Linked</a></h5><p>在Java中, LinkedList是双向的, 他还实现了 <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Deque.html">Deque</a>, double ended queue</p><p>在 数据结构中, 有一个 inner class: <code>Node</code></p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class LinkedList&lt;E&gt; {
+    private static class Node&lt;E&gt; {
+        E item;
+        Node&lt;E&gt; next;
+        Node&lt;E&gt; prev;
+
+        Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; next) {
+            this.item = element;
+            this.next = next;
+            this.prev = prev;
+        }
+    }
+}
+
+</pre>
+</div>
+<p>其中包含<code>next</code>和<code>prev</code>两个field</p><h5 id="sentinel-nodes"><a class="anchorlink" href="#sentinel-nodes">2.2.2 Sentinel Nodes</a></h5>
+<ul>
+<li>head node</li>
+<li>tail node</li>
+</ul>
+<p>一些使用场景如下:</p>
+<ol>
+<li>
+<p>clearNode</p>
+<p>当清空该 LinkedList 的时候, 只需要设置</p>
+<div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+head.next = tail
+
+</pre>
+</div>
+</li>
+<li>
+<p>addAll</p>
+<p>将两个LinkedList连接, 只需要直接处理 head 和 tail 即可</p>
+</li>
+<li>
+<p>查找某个位置的节点数据
+在源码中可以看到, 有了size, head 和 tail node, 如果要找位置index的node, 则可以判断 index 和 size 之间的关系:</p>
+<p>如果 index &lt; size / 2, 则从head开始找, 否则从tail开始找</p>
+<div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+    Node&lt;E&gt; node(int index) {
+      // 如果 index &lt; size / 2, 则从head开始找, 否则从tail开始找
+      if (index &lt; (size &gt;&gt; 1)) {
+          Node&lt;E&gt; x = head;
+          for (int i = 0; i &lt; index; i++)
+              x = x.next;
+          return x;
+      } else {
+          Node&lt;E&gt; x = tail;
+          for (int i = size - 1; i &gt; index; i--)
+              x = x.prev;
+          return x;
+      }
+  }
+
+</pre>
+</div>
+</li>
+</ol>
+<h5 id="不支持randomaccess"><a class="anchorlink" href="#%E4%B8%8D%E6%94%AF%E6%8C%81randomaccess">2.2.3 不支持RandomAccess</a></h5><p>二分查找法的时候, 总的来说平均时间比 ArrayList 要慢. 在原生的Java的二分查找的时候, 对非RandomAccess的List做了不同的处理</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class Collections {
+    public static &lt;T&gt; int binarySearch(List&lt;? extends T&gt; list, T key, Comparator&lt;? super T&gt; c) {
+        if (c==null)
+            return binarySearch((List&lt;? extends Comparable&lt;? super T&gt;&gt;) list, key);
+
+        if (list instanceof RandomAccess || list.size()&lt;BINARYSEARCH_THRESHOLD)
+            return Collections.indexedBinarySearch(list, key, c);
+        else
+            return Collections.iteratorBinarySearch(list, key, c);
+    }
+}
+
+</pre>
+</div>
+<h4 id="linkedlist和arraylist的使用场景"><a class="anchorlink" href="#linkedlist%E5%92%8Carraylist%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF">2.3 LinkedList和ArrayList的使用场景</a></h4><p>见 StackOverflow: <a href="https://stackoverflow.com/a/322742/8186609">When to use LinkedList over ArrayList?</a></p><div class="info"><p>所经历的项目中没有使用过LinkedList.</p></div><h3 id="stack"><a class="anchorlink" href="#stack">3 Stack</a></h3><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/stack.png" alt="stack"></p><p>Java8中用<code>Vector</code>来实现栈的数据结构</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+class Stack extends Vector {}
+class Vector extends AbstractList implements List, RandomAccess {}
+
+</pre>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pop</td>
+<td>出栈</td>
+</tr>
+<tr>
+<td>push</td>
+<td>入栈</td>
+</tr>
+<tr>
+<td>size</td>
+<td>栈的高度</td>
+</tr>
+<tr>
+<td>peek</td>
+<td>top data</td>
+</tr>
+<tr>
+<td>size</td>
+<td>获取长度</td>
+</tr>
+</tbody>
+</table>
+<h4 id="vector"><a class="anchorlink" href="#vector">3.1 Vector</a></h4><h5 id="elementdata"><a class="anchorlink" href="#elementdata">3.1.1 elementData</a></h5><p>Vector使用数组来存储数据</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+class Vector {
+    protected Object[] elementData;
+}
+
+</pre>
+</div>
+<p>和 ArrayList 类似, 她也有一个初始的容量 10:</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+class Vector {
+    /**
+     * Constructs an empty vector so that its internal data array
+     * has size {@code 10} and its standard capacity increment is
+     * zero.
+     */
+    public Vector() {
+        this(10);
+    }
+}
+
+</pre>
+</div>
+<p>支持在容量不够的时候, 自动地<code>grow</code>. 实现方式和ArrayList类似, 这里不再重复</p><h5 id="synchronized"><a class="anchorlink" href="#synchronized">3.1.2 synchronized</a></h5><p>Vector 有很多方法是添加了 <code>synchronized</code> 关键词.</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+class Vector {
+    public synchronized void trimToSize() {}
+    public synchronized void ensureCapacity(int minCapacity) {}
+}
+
+</pre>
+</div>
+<h5 id="官方不建议使用vector"><a class="anchorlink" href="#%E5%AE%98%E6%96%B9%E4%B8%8D%E5%BB%BA%E8%AE%AE%E4%BD%BF%E7%94%A8vector">3.1.3 官方不建议使用Vector</a></h5>
+<blockquote>
+<p> As of the Java 2 platform v1.2, this class was retrofitted to
+implement the {@link List} interface, making it a member of the
+Java Collections Framework.  Unlike the new collection
+implementations, Vector is synchronized.  If a thread-safe
+implementation is not needed, it is recommended to use ArrayList
+in place of Vector.</p>
+</blockquote>
+<p>建议用 ArrayList 替换 Vector</p><h4 id="一些使用栈的场景"><a class="anchorlink" href="#%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E6%A0%88%E7%9A%84%E5%9C%BA%E6%99%AF">3.2 一些使用栈的场景</a></h4><h5 id="balancing-symbols"><a class="anchorlink" href="#balancing-symbols">3.2.1 Balancing Symbols</a></h5><p>检查一些符号, 如<code>(\['"</code> 是否封闭</p><p>算法思路: 以<code>()</code>的检测举例子, 遇到 <code>(</code> 的时候, 入栈, 遇到 <code>)</code> 的出栈. 最终在所有的符号都结束之后, 看下栈里面是否有数据, 如果有, 则说明<code>()</code>是未封闭的</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+(a == 1) &amp;&amp; (b == 2)  // 检测通过
+(a == 1) &amp;&amp; (b == 2   // 检测不通过, 栈内还存在元素: (
+
+</pre>
+</div>
+<h3 id="queue"><a class="anchorlink" href="#queue">4 Queue</a></h3><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/queue.png" alt="queue"></p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pop</td>
+<td>出队列</td>
+</tr>
+<tr>
+<td>push</td>
+<td>入队列</td>
+</tr>
+<tr>
+<td>size</td>
+<td>队列长度</td>
+</tr>
+</tbody>
+</table>
+<p>核心fields:</p>
+<ul>
+<li>theItems 数组, 记录队列的值</li>
+<li>front    队列头的位置</li>
+<li>back     队列尾的位置</li>
+<li>size     队列长度</li>
+</ul>
+<h4 id="circular-array"><a class="anchorlink" href="#circular-array">4.1 Circular Array</a></h4><p>可以使用环状的数组来存储Queue的数据. 初始化的时候, 而 back 的位置为 <code>N - 1</code>, front 的位置为 <code>N - k - 1</code>. 其中 N 为数组的长度, k 为初始队列的数据的个数</p><p>入队列, 则从数组的头开始. 入队列和出队列就是改变 front 和 back 的过程</p><p>空Queue的条件为</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+back = front - 1
+
+</pre>
+</div>
+<p>另外, 还需要注意Queue满的情况,此时需要考虑扩容.</p><h4 id="queue的java实现"><a class="anchorlink" href="#queue%E7%9A%84java%E5%AE%9E%E7%8E%B0">4.2 Queue的Java实现</a></h4><p>Java中, LinkedList实现了 Deque, Deque继承自Queue</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+class LinkedList implements Deque {}
+interface Deque extends Queue {}
+
+</pre>
+</div>
+<div class="note"><p>Deque: A linear collection that supports element insertion and removal at
+both ends.  The name <i>deque</i> is short for "double ended queue"
+and is usually pronounced "deck".  Most {@code Deque}
+implementations place no fixed limits on the number of elements
+they may contain, but this interface supports capacity-restricted
+deques as well as those with no fixed size limit.</p></div><h3 id="tree"><a class="anchorlink" href="#tree">5 Tree</a></h3><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/tree.png" alt="tree"></p>
+<ol>
+<li>
+<p>基础概念</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>node</td>
+<td>节点</td>
+</tr>
+<tr>
+<td>edge</td>
+<td>连接线</td>
+</tr>
+<tr>
+<td>path</td>
+<td>节点到节点之间的路径</td>
+</tr>
+<tr>
+<td>length</td>
+<td>path所经过的edge的个数</td>
+</tr>
+<tr>
+<td>root</td>
+<td>根节点</td>
+</tr>
+<tr>
+<td>depth</td>
+<td>深度,是指从root节点到该节点经过某一个path的length.节点J的depth为2</td>
+</tr>
+<tr>
+<td>height</td>
+<td>高度,是指节点到最远的一个leaf的length,节点E的hieght为2</td>
+</tr>
+<tr>
+<td>leaves</td>
+<td>叶子节点</td>
+</tr>
+<tr>
+<td>siblings</td>
+<td>兄弟节点</td>
+</tr>
+<tr>
+<td>child</td>
+<td>子树</td>
+</tr>
+<tr>
+<td>preorderTraversal</td>
+<td>前序遍历 <img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/preorder_traversal.jpeg" alt="pre_order_traversal">
+</td>
+</tr>
+<tr>
+<td>inorderTraversal</td>
+<td>中序遍历 <img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/inorder_traversal.jpeg" alt="in_order_traversal">
+</td>
+</tr>
+<tr>
+<td>postorderTraversal</td>
+<td>后序遍历 <img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/postorder_traversal.jpeg" alt="post_order_traversal">
+</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h4 id="binary-tree"><a class="anchorlink" href="#binary-tree">5.1 Binary Tree</a></h4><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/binary_tree.png" alt="binary_tree"></p><h5 id="基本结构"><a class="anchorlink" href="#%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84">5.1.1 基本结构</a></h5>
+<ul>
+<li>element</li>
+<li>leftNode</li>
+<li>rightNode</li>
+</ul>
+<h5 id="使用场景"><a class="anchorlink" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF">5.1.2 使用场景</a></h5><h6 id="表达式"><a class="anchorlink" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F">5.1.2.1 表达式</a></h6><p>将表达式转化为postfix形式, 再用栈创建一颗可以中序遍历的树</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+(a + b) * (c * (d + e))
+
+</pre>
+</div>
+<p>利用栈, 转变为postfix形式:</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+a b + c d e + * *
+
+</pre>
+</div>
+<p>利用栈, 转化为树.</p><div class="note"><p><code>a b + c d e + * *</code> 依次入栈, 遇到 a, b 创建树, 分别入栈, 遇到 <code>+</code> 将 <code>a, b</code> 出栈, <code>a, b, +</code> 组成一个新的树, 最终的树为下图所示. 最终可以通过中序遍历进行运算. 另外, 可以后序遍历恢复为 <code>a b + c d e + * *</code>`</p></div><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/tree_example.png" alt="tree_example"></p><div class="info"><p><code>Operand</code> 操作数, 如 a, b, c, d, e; <code>Operator</code> 操作符, 如 <code>+ *</code></p></div><h6 id="bst-binarysearchtree"><a class="anchorlink" href="#bst-binarysearchtree">5.1.2.2 BST BinarySearchTree</a></h6>
+<ul>
+<li>leftNode &lt;= parentNode &lt;= rightNode</li>
+</ul>
+<p>一些重要的方法包括</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+- .build              构建一棵树
+- #insert             插入某个数字
+- #remove             移除
+- #contains           是否包含某个数字
+- #preOrderTraversal  先序遍历
+- #inOrderTraversal   中序遍历
+- #postOrderTraversal 后序遍历
+
+</pre>
+</div>
+<p>上述方法的实现请见例子: <a href="https://github.com/dengqinghua/my_examples/blob/master/java/src/main/java/com/dengqinghua/algorithms/BinarySearchTree.java">BinarySearchTree</a> 和 对应的测试用例: <a href="https://github.com/dengqinghua/my_examples/blob/master/java/src/test/java/com/dengqinghua/algorithms/BinarySearchTreeTest.java">BinarySearchTreeTest</a></p><h4 id="avl-tree"><a class="anchorlink" href="#avl-tree">5.2 AVL Tree</a></h4><p>AVL (Adelson-Velskii and Landis), a balanced Tree</p>
+<ul>
+<li>Binary Tree</li>
+<li>任何一个节点的左右子树的高度差的绝对值 &lt;= 1</li>
+</ul>
+<div class="note"><p>depth: 深度,是指从root节点到该节点经过某一个path的length, height: 高度, 是指节点到最远的一个leaf的length</p></div><p>如下图所示, 只有 左边是 AVL Tree, 右边不是, 右边的 2 的高度为2, 8 的高度为0, 不满足 左右子树的高度差的绝对值 &lt;= 1 的条件</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/avl_tree.png" alt="avl_tree"></p><p>平衡的情况包括四种</p>
+<ol>
+<li>
+<p>左子树 的 左子树 插入 一个节点</p>
+<div class="code_container">
+<pre class="brush: shell; gutter: false; toolbar: true;">
+ 如下图 10 的 左子树 5, 插入 节点 1
+
+                  20                     10
+            10        30    -&gt;       5        20
+         5     15                  1        15   30
+      1
+
+ 以20为节点, 向右旋转20的左节点10
+
+</pre>
+</div>
+</li>
+<li>
+<p>右子树 的 右子树 插入 一个节点</p>
+<div class="code_container">
+<pre class="brush: shell; gutter: false; toolbar: true;">
+如下图 30 的 右子树 40, 插入 节点 50
+
+      20                           30
+ 10        30          -&gt;    20         40
+         25   40           10  25          50
+                 50
+
+以20为节点, 向左旋转20的右节点30
+
+</pre>
+</div>
+</li>
+<li>
+<p>左子树 的 右子树 插入 一个节点</p>
+<div class="code_container">
+<pre class="brush: shell; gutter: false; toolbar: true;">
+如下图 10 的 右子树 15, 插入 节点 18
+
+              20                        15
+     10             30    -&gt;    10             20
+   8    15                    8             18    30
+          18
+
+分两步: 先按照case2旋转10, 再按照case1旋转20
+
+</pre>
+</div>
+</li>
+<li>
+<p>右子树 的 左子树 插入 一个节点</p>
+<div class="code_container">
+<pre class="brush: shell; gutter: false; toolbar: true;">
+如下图 30 的 左子树 25, 插入 节点 21
+
+           20                     25
+    10            30     -&gt;    20    30
+               25    50      10 21     50
+            21
+
+</pre>
+</div>
+</li>
+</ol>
+<p>算法代码: <a href="https://github.com/dengqinghua/my_examples/blob/master/java/src/main/java/com/dengqinghua/algorithms/AVLTree.java">这里</a></p><h4 id="b-tree"><a class="anchorlink" href="#b-tree">5.3 B(+) Tree</a></h4>
+<blockquote>
+<p>Disk accesses are incredibly expensive!</p>
+</blockquote>
+<p>B 树的高度一般为3层左右, 通过一些冗余的搜索信息, 可以快速地进行数据的定位</p>
+<ul>
+<li>数据存储在叶子节点中</li>
+<li>非叶子节点保存搜索信息</li>
+</ul>
+<h5 id="b-和-b-的区别"><a class="anchorlink" href="#b-%E5%92%8C-b-%E7%9A%84%E5%8C%BA%E5%88%AB">5.3.1 B 和 B+ 的区别</a></h5><p>参考这里 <a href="http://www.differencebetween.info/difference-between-b-tree-and-b-plus-tree">Difference between B Tree and B+ Tree</a></p><h3 id="map"><a class="anchorlink" href="#map">6 Map</a></h3><p><img src="images/Collection_MapImplementation.png" alt="Collection_MapImplementation"></p><h4 id="hashmap"><a class="anchorlink" href="#hashmap">6.1 HashMap</a></h4><p>Hash包含两个元素</p>
+<ul>
+<li>Hash Function</li>
+<li>Storage, 一般是Array</li>
+</ul>
+<p>例子:</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+Map&lt;String, String&gt; map = new HashMap&lt;&gt;();
+map.put("ds", "v587");
+
+</pre>
+</div>
+<p>上述过程的伪代码包括:</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+mapInMemory = map.getMemory        // 预获取内存的一块区域
+hashValue = hash("ds")             // 获取到一个内存地址
+mapInMemory.set(hashValue, "v587") // 设置值
+
+</pre>
+</div>
+<p>参考: <a href="https://www.cnblogs.com/gaochundong/p/hashtable_and_perfect_hashing.html">hashtable_and_perfect_hashing</a></p><h5 id="collision"><a class="anchorlink" href="#collision">6.1.1 Collision</a></h5><p>当不同的key, 调用hash函数的时候, 返回的值相同(<a href="https://github.com/dengqinghua/my_examples/blob/master/java/src/test/java/com/dengqinghua/EverythingTest.java#L42">示例代码</a>), 这样的情况称为 Collision</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+hash("ds1") === hash("ds2")
+
+</pre>
+</div>
+<p>尽量减少 Collision 情况的发生, 需要是的 hash() 不重复</p><p>在 <a href="https://www.amazon.com/Data-Structures-Algorithm-Analysis-Java/dp/0132576279/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1519441056&amp;sr=1-1&amp;keywords=Data+Structures+Algorithm+Analysis+java">Data Structures and Algorithm Analysis in Java</a> 这本书书中, 介绍了两种处理冲突的方案</p>
+<ol>
+<li>
+<p>Separate Chaining</p>
+<p>用LinkedList存储Collision的数据</p>
+<div class="note"><p>一般来说, 会对 tableSize 进行 mod 运算, 作为数组的下标值</p></div>
+</li>
+<li>
+<p>Open Addressing</p>
+<p>将数据按照某种方法存储在相邻的位置, 需要更小的<code>Load Factor</code></p>
+</li>
+</ol>
+<div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+- Linear Probing
+- Quadratic Probing
+- Double Hashing
+
+</pre>
+</div>
+<p>参考 <a href="http://preshing.com/20110504/hash-collision-probabilities/">Hash Collision Probabilities</a></p><h5 id="load-factor"><a class="anchorlink" href="#load-factor">6.1.2 Load Factor</a></h5><p>真实的数据的个数/分配的内存区域的个数</p><p>在java中设置了一个 <code>DEFAULT_LOAD_FACTOR</code> 参数, 初始化 threshold = table.length * DEFAULT_CAPACITY
+当 实际数据的size 大于 threshold 这个值, 说明内存区域不够了, 有更大地概率产生 collision, 故
+需要进行rehash</p><div class="note"><p>尽量减少她rehash的概率, 如果确定了HashMap的Size, 可以在新建的时候就设置好</p></div><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+// 预先设置大小为 100
+Map&lt;String, String&gt; map = new HashMap&lt;&gt;(100);
+
+</pre>
+</div>
+<div class="note"><p>Java中的 DEFAULT_LOAD_FACTOR 为 0.75, 初始的容量 DEFAULT_INITIAL_CAPACITY 为 16</p></div><p>建议阅读: <a href="https://stackoverflow.com/q/10901752/8186609">What is the significance of load factor in HashMap?</a></p><h5 id="equals-and-hashcode"><a class="anchorlink" href="#equals-and-hashcode">6.1.3 equals and hashCode</a></h5><p>hashCode: 用于 hash 函数中</p><div class="note"><p>在String类中会有一个field为<code>hash</code>, 默认为0, 如果一个string被调用了hashCode方法,
+该hash值会被自动赋值, 即使用 <code>String#hash</code> 做了hashCode的缓存.</p></div><p>equals: 在SDK中, 解决Collision的方式为 Chaining, 即使用一条链表来存储对应的冲突记录, 此时获取一个key对应的value时,
+假如链表中有多个值, 则使用<code>equals</code>方法对 key 进行比对, 如果相等, 则取该key对于的value值返回</p><h5 id="hashmap源码分析"><a class="anchorlink" href="#hashmap%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90">6.1.4 HashMap源码分析</a></h5><div class="flowchart" style="display:none" id="3dce1474ae77cf6e66d0a637e6e5e345">
+  initMap=&gt;start: 初始化HashMap
+initDatas=&gt;operation: 设置相关参数:
+capacity: 16
+loadFactor: 0.75f
+threshold: 16 * 0.75 = 12
+table: Node<string string>[16]
+putView=&gt;operation: hashMap.put("key", "dsgv587")
+setHash=&gt;operation: hash运算: hash("key"):&gt;#hash-function
+calculateI=&gt;operation: 计算hash值对应的table中的位置i:&gt;#table-index
+cond1=&gt;condition: 位置i不为空
+cond1yes=&gt;operation: table[i] = new Node("key", "dsgv587")
+cond2=&gt;condition: 检查key值冲突
+cond2yes=&gt;operation: 添加一个新的节点,
+将原有节点放在该节点后面
+trySplit=&gt;operation: 如果发现位置i中的冲突的节点数大于
+TREEIFY_THRESHOLD - 1 (7)
+makeTree=&gt;operation: 将冲突的所有节点变成一颗红黑树
+cond2no=&gt;operation: 更新该节点
+isOverflowed=&gt;condition: table已经使用的
+size大于threshold
+double=&gt;operation: 进行resize
+创建一个2倍容量的table
+将原有的值rehash写入新的table:&gt;#resize
+initMap-&gt;putView-&gt;initDatas-&gt;setHash-&gt;calculateI-&gt;cond1
+cond1(yes)-&gt;cond1yes-&gt;isOverflowed
+cond1(no)-&gt;cond2
+cond2(yes)-&gt;cond2yes-&gt;trySplit
+trySplit-&gt;makeTree(right)-&gt;isOverflowed
+cond2(no)-&gt;cond2no
+isOverflowed(yes)-&gt;double
+</string>
+</div>
+<h6 id="hash-function"><a class="anchorlink" href="#hash-function">6.1.4.1 hash function</a></h6><p>java的hash函数很有意思, <code>h &gt;&gt;&gt; 16</code> 是指对h的指往右移16位, 然后再做异或门(XOR)操作, 这样做是为了让高位值分布更加均匀一些</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+static final int hash(Object key) {
+    int h;
+    return (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16);
+}
+
+</pre>
+</div>
+
+<blockquote>
+<p> Computes key.hashCode() and spreads (XORs) higher bits of hash
+to lower.  Because the table uses power-of-two masking, sets of
+hashes that vary only in bits above the current mask will
+always collide. (Among known examples are sets of Float keys
+holding consecutive whole numbers in small tables.)  So we
+apply a transform that spreads the impact of higher bits
+downward. There is a tradeoff between speed, utility, and
+quality of bit-spreading. Because many common sets of hashes
+are already reasonably distributed (so don't benefit from
+spreading), and because we use trees to handle large sets of
+collisions in bins, we just XOR some shifted bits in the
+cheapest possible way to reduce systematic lossage, as well as
+to incorporate impact of the highest bits that would otherwise
+never be used in index calculations because of table bounds.</p>
+</blockquote>
+<p><a href="#hashmap%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90">Back</a></p><h6 id="table-index"><a class="anchorlink" href="#table-index">6.1.4.2 table index</a></h6><p>如何计算这个hash值在table中对应的index是什么呢? 代码如下:</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+i = (table.length - 1) &amp; hash
+
+</pre>
+</div>
+<p>即取hash的低位, 比如初始化的table大小为 16,</p><p>假如 hash 函数的返回值为 9, 则 i 为 9</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+1111 &amp; 1001 = 1001
+
+</pre>
+</div>
+<p>假如 hash 函数的返回值为 18, 则 i 为 2</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+1111 &amp; 1 0010 = 0010
+
+</pre>
+</div>
+<div class="note"><p>在JDK的设计中, table.length 为 2的幂次方.</p></div><p><a href="#hashmap%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90">Back</a></p><h6 id="resize"><a class="anchorlink" href="#resize">6.1.4.3 resize</a></h6><p><code>resize</code> 会将hash的table的 threshold变为两倍: <code>newThr = oldThr &lt;&lt; 1</code>.
+容量capacity变成两倍: <code>newCap = oldCap &lt;&lt; 1</code>.</p><div class="note"><p>这里设置了table的最大的threshold: <code>1 &lt;&lt; 30</code></p></div><p>部分源码如下:</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+if ((newCap = oldCap &lt;&lt; 1) &lt; MAXIMUM_CAPACITY &amp;&amp; oldCap &gt;= DEFAULT_INITIAL_CAPACITY) {
+  newThr = oldThr &lt;&lt; 1; // double threshold
+}
+
+</pre>
+</div>
+<p><a href="#hashmap%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90">Back</a></p><div class="info"><p>resize 在并发更新的时候, 可能会产生死循环(Before JDK 1.6), 见 <a href="http://mailinator.blogspot.com/2009/06/beautiful-race-condition.html">A Beautiful Race Condition</a> 和 <a href="http://javabypatel.blogspot.in/2016/01/infinite-loop-in-hashmap.html">Infinite Loop in Hashmap</a></p></div><div class="note"><p>阅读源码真的获益匪浅, 学到很多位操作如: <code>^</code>, <code>&gt;&gt;&gt;</code>, <code>&lt;&lt;</code> 和 <code>++size &gt; threshold</code> 等,
+惊叹一些代码的简洁性. Hash算法本身不难, 但是很精妙, 该部分只是涉及到了HashMap的很小一部分,
+关于<code>Object#hashCode()</code>方法, 有时间的时候还需要再研究一下.</p></div><p>Hash部分的FAQ可以参考: <a href="http://www.javarticles.com/2012/11/hashmap-faq.html">HashMap Interview Questions</a></p><h4 id="concurrenthashmap"><a class="anchorlink" href="#concurrenthashmap">6.2 ConcurrentHashMap</a></h4><div class="note"><p>ConcurrentHashMap 不允许 <strong>null</strong> 作为 Key和Value</p></div><p>ConcurrentHashMap 和 HashMap 的处理逻辑类似, 但是为了解决并发写入的问题, 引入了ConcurrentLevel的概念</p><h5 id="concurrentlevel"><a class="anchorlink" href="#concurrentlevel">6.2.1 ConcurrentLevel</a></h5><p>ConcurrentLevel 设置了同时更新该map的参考线程数. 默认值为: 16</p><h5 id="segement-1-7版本-已过时"><a class="anchorlink" href="#segement-1-7%E7%89%88%E6%9C%AC-%E5%B7%B2%E8%BF%87%E6%97%B6">6.2.2 <del>Segement(1.7版本, 已过时)</del></a></h5><p>如果以Segement的角度来看待ConcurrentHashMap, 结构如下
+<img src="images/concurrencyHashMap.png" alt="concurrencyHashMap"></p><p>可以看做 Segement 是将Map的数据进行打散并重新分配, 类似于算法中的 <a href="https://en.wikipedia.org/wiki/Divide_and_conquer_algorithm">Divide and Conquer</a></p><p>每一个Segement都持有自己的lock, 故不同的Segement更新互不干扰的.</p><div class="info"><p>另外一种Map的数据结构: <strong>Hashtable</strong>, 她的相关操作都是添加了 <strong>synchronized</strong> 关键词的, 是整个table都添加了锁.
+下图是 Hashtable 和 ConcurrentHashMap 的获取锁的对比图</p></div><p><img src="images/lock_compare.png" alt="lock_compare"></p><p>参考: <a href="https://www.quora.com/How-does-segmentation-works-in-ConcurrentHashMap">How-does-segmentation-works-in-ConcurrentHashMap</a></p><p>更新: Java8 去掉了 Segement 的概念, 将锁加在了bucket维度, 也即是node维度, 部分代码如下:</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class ConcurrentHashMap {
+    /** Implementation for put and putIfAbsent */
+    final V putVal(K key, V value, boolean onlyIfAbsent) {
+            if (key == null || value == null) throw new NullPointerException();
+        int hash = spread(key.hashCode());
+        int binCount = 0;
+        for (Node&lt;K,V&gt;[] tab = table;;) {
+            Node&lt;K,V&gt; f; int n, i, fh;
+
+            // 中间代码省略...
+
+            // 获取到节点
+            f = tabAt(tab, i = (n - 1) &amp; hash);
+
+            // 更新节点
+            synchronized (f) {
+            }
+    }
+}
+
+</pre>
+</div>
+<h5 id="volatile-read"><a class="anchorlink" href="#volatile-read">6.2.3 Volatile Read</a></h5><p>ConcurrentHashMap 的 读是<code>lock-free</code>的, 她使用了volatile 关键字保证了内存可见性, 如下面的定义Map的节点的结构为</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class ConcurrentHashMap {
+    static class Node&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; {
+        final int hash;
+        final K key;
+        volatile V val;
+        volatile Node&lt;K,V&gt; next;
+}
+
+</pre>
+</div>
+<p>关于读写锁的问题, 参考<a href="https://stackoverflow.com/q/16105554/8186609">ConcurrentHashMap read and write locks</a></p><p>关于 HashMap, ConcurrentHashMap 和 Hashtable 的区别, 可参考这里 <a href="https://howtodoinjava.com/interview-questions/popular-hashmap-and-concurrenthashmap-interview-questions/">Popular HashMap and ConcurrentHashMap Interview Questions</a></p><h3 id="references"><a class="anchorlink" href="#references">7 References</a></h3>
+<ul>
+<li><a href="https://www.amazon.com/Grokking-Algorithms-illustrated-programmers-curious/dp/1617292230/ref=sr_1_1?ie=UTF8&amp;qid=1519440970&amp;sr=8-1&amp;keywords=Grokking+Algorithms">Grokking Algorithms: An illustrated guide for programmers and other curious people</a></li>
+<li><a href="https://www.amazon.com/Data-Structures-Algorithm-Analysis-Java/dp/0132576279/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1519441056&amp;sr=1-1&amp;keywords=Data+Structures+Algorithm+Analysis+java">Data Structures and Algorithm Analysis in Java</a></li>
+</ul>
+
+
+        <div id="comment"></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="hide" />
+  <div id="footer">
+    <div class="wrapper">
+      <p>版权声明：自由转载-非商用-非衍生-保持署名(<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享3.0许可证</a>)</p>
+<p>For Ruby Roses.</p>
+
+    </div>
+  </div>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/responsive-tables.js"></script>
+  <script type="text/javascript" src="javascripts/guides.js"></script>
+
+  <!-- ./node_modules/gulp/bin/gulp.js build -\-brushes=bash,cpp,css,javascript,java,plain,python,ruby,scala,sql,xml -->
+  <!-- uglifyjs syntaxhighlighter.js  -\-output syntaxhighlighter.min.js -->
+  <script type="text/javascript" src="javascripts/syntaxhighlighter.min.js"></script>
+  <script type="text/javascript" src="javascripts/tonal.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.0.1/Tone.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/tone/13.1.22/Tone.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.4/svg.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/svg.js/2.6.5/svg.js"></script>
+  <script type="text/javascript" src="javascripts/chordy-svg.min.js"></script>
+  <script type="text/javascript" src="javascripts/chord.js"></script>
+  <!-- <script type="text/javascript" src="javascripts/gitalk.min.js"></script> -->
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.2.2/gitalk.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/gitalk/1.2.2/gitalk.js"></script>
+  <script type="text/javascript" src="javascripts/load_docs.js"></script>
+  <!-- <script type="text/javascript" src="javascripts/Treant.js"></script> -->
+  <script src="https://cdn.bootcss.com/treant-js/1.0/Treant.min.js"></script>
+  <!-- <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.0/raphael&#45;min.js"></script> -->
+  <script src="https://cdn.bootcss.com/raphael/2.2.7/raphael.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.11.0/flowchart.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/flowchart/1.11.0/flowchart.min.js"></script>
+  <script type="text/javascript" src="javascripts/flowchart_generator.js"></script>
+  <script type="text/javascript" src="javascripts/tree_generator.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115746206-1"></script>
+
+  <script type="text/javascript" src="javascripts/abcjs_midi_5.1.2-min.js"></script>
+  <script type="text/javascript" src="javascripts/music_generator.js"></script>
+
+  <script type="text/javascript">
+    syntaxhighlighterConfig = {
+      autoLinks: false,
+    };
+
+    $(guidesIndex.bind);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115746206-1');
+  </script>
+
+  <script type="text/javascript">
+    var locationId = (location.pathname).split("/").pop().substring(0, 49);
+
+    if (locationId) {
+      var language = window.location.search.match("lang=en") ? "en" : "zh-CN"
+      var gitalk   = new Gitalk({
+        clientID: '0f5824fe1c09851e9781',
+        clientSecret: '61710a77ee98cddce06f408a398f05c8622e9575',
+        repo: 'blog_comments',
+        owner: 'dengqinghua',
+        admin: ['dengqinghua'],
+        id: locationId,
+        distractionFreeMode: true,
+        language: language
+      });
+
+      gitalk.render('comment');
+    }
+  </script>
+</body>
+</html>

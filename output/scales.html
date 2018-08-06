@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="baidu-site-verification" content="N1Q3HiESgp" />
+
+<title>音阶 — dengqinghua&#39;s blog</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shCore.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shThemeRailsGuides.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/fixes.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/abcjs-midi.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/gitalk.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/Treant.css" />
+  <link href="images/favicon.jpeg" rel="shortcut icon" type="image/x-icon" />
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body class="guide">
+  <div id="topNav">
+    <div class="wrapper">
+
+      <strong class="more-info-label">More:</strong>
+
+      <span class="red-button more-info-button">More Dengqinghua</span>
+      <ul class="more-info-links s-hidden">
+        <li class="more-info"><a href="http://www.dengqinghua.net/">About me</a></li>
+        <li class="more-info"><a href="https://github.com/dengqinghua/">Github</a></li>
+        <li class="more-info"><a href="mailto:dengqinghua.42@gmail.com">Gmail</a></li>
+        <li class="more-info"><a href="https://twitter.com/dengqinghua_42">Twitter</a></li>
+      </ul>
+
+      <form action="http://google.com/search" method="get">
+          <input name="q" value="site:blog.dengqinghua.net" type="hidden">
+          <input class="search" name="q" placeholder="Search Blog" type="text">
+      </form>
+    </div>
+  </div>
+  <div id="header">
+    <div class="wrapper clearfix">
+      <h1><a href="http://blog.dengqinghua.net" title="Return to home page">http://blog.dengqinghua.net</a></h1>
+      <ul class="nav">
+        <li><a class="nav-item" href="http://blog.dengqinghua.net">Home</a></li>
+        <li class="guides-index guides-index-large">
+          <a href="index.html" id="guidesMenu" class="guides-index-item nav-item">
+            Index <span id="guidesArrow">▸</span>
+          </a>
+
+          <div id="guides" class="clearfix" style="display: none;">
+            <hr />
+              <dl class="L">
+                <dt>推荐</dt>
+                <dd><a href="badge_system.html">基于内存数据库的角标系统设计</a></dd>
+                <dd><a href="witness_flow.html">业务流引擎系统</a></dd>
+                <dt>Ruby</dt>
+                <dd><a href="ruby_knowledge_tree.html">Ruby知识树</a></dd>
+                <dd><a href="ruby_model.html">Ruby数据模型</a></dd>
+                <dd><a href="arel.html?lang=en">Arel源码分析</a></dd>
+                <dd><a href="sidekiq_task_event.html">基于Sidekiq的异步任务管理引擎</a></dd>
+                <dd><a href="racc.html">Racc</a></dd>
+                <dd><a href="witness_flow.html">业务流引擎系统</a></dd>
+                <dt>Java</dt>
+                <dd><a href="data_structures.html">数据结构</a></dd>
+                <dd><a href="learn_jvm.html">JVM剖析</a></dd>
+                <dd><a href="concurrency.html">Concurrency</a></dd>
+                <dd><a href="badge_system.html">基于内存数据库的角标系统设计</a></dd>
+                <dd><a href="maven_under_command_line.html">命令行下的Maven</a></dd>
+                <dt>MySQL</dt>
+                <dd><a href="mysql_knowledge_tree.html">MySQL知识树</a></dd>
+              </dl>
+              <dl class="R">
+                <dt>Go</dt>
+                <dd><a href="go_get_timeout_solution.html">GoInstallBinaries i/o timeout问题</a></dd>
+                <dd><a href="go_knowledge_tree.html">Go知识树</a></dd>
+                <dt>音乐</dt>
+                <dd><a href="music_index.html">音乐学习体系</a></dd>
+                <dd><a href="lalaland-city_of_stars.html">City Of Star</a></dd>
+                <dd><a href="あの日の帰り道.html">あの日の帰り道</a></dd>
+                <dd><a href="rain_wwh.html">雨の日はワルツを踊って</a></dd>
+                <dd><a href="it_could_have_been.html">Es Ware Schon Gewesen</a></dd>
+                <dt>杂记</dt>
+                <dd><a href="example_markdown.html">markdown格式实例</a></dd>
+                <dd><a href="comments.html">注释规范</a></dd>
+                <dd><a href="best_programming.html">零bug落地方案</a></dd>
+                <dd><a href="raft.html">Raft算法</a></dd>
+                <dd><a href="memorize_my_mentor.html">Memorize My Mentor</a></dd>
+              </dl>
+          </div>
+        </li>
+        <li class="guides-index guides-index-small">
+          <select class="guides-index-item nav-item">
+            <option value="index.html">Index</option>
+              <optgroup label="推荐">
+                  <option value="badge_system.html">基于内存数据库的角标系统设计</option>
+                  <option value="witness_flow.html">业务流引擎系统</option>
+              </optgroup>
+              <optgroup label="Ruby">
+                  <option value="ruby_knowledge_tree.html">Ruby知识树</option>
+                  <option value="ruby_model.html">Ruby数据模型</option>
+                  <option value="arel.html?lang=en">Arel源码分析</option>
+                  <option value="sidekiq_task_event.html">基于Sidekiq的异步任务管理引擎</option>
+                  <option value="racc.html">Racc</option>
+                  <option value="witness_flow.html">业务流引擎系统</option>
+              </optgroup>
+              <optgroup label="Java">
+                  <option value="data_structures.html">数据结构</option>
+                  <option value="learn_jvm.html">JVM剖析</option>
+                  <option value="concurrency.html">Concurrency</option>
+                  <option value="badge_system.html">基于内存数据库的角标系统设计</option>
+                  <option value="maven_under_command_line.html">命令行下的Maven</option>
+              </optgroup>
+              <optgroup label="MySQL">
+                  <option value="mysql_knowledge_tree.html">MySQL知识树</option>
+              </optgroup>
+              <optgroup label="Go">
+                  <option value="go_get_timeout_solution.html">GoInstallBinaries i/o timeout问题</option>
+                  <option value="go_knowledge_tree.html">Go知识树</option>
+              </optgroup>
+              <optgroup label="音乐">
+                  <option value="music_index.html">音乐学习体系</option>
+                  <option value="lalaland-city_of_stars.html">City Of Star</option>
+                  <option value="あの日の帰り道.html">あの日の帰り道</option>
+                  <option value="rain_wwh.html">雨の日はワルツを踊って</option>
+                  <option value="it_could_have_been.html">Es Ware Schon Gewesen</option>
+              </optgroup>
+              <optgroup label="杂记">
+                  <option value="example_markdown.html">markdown格式实例</option>
+                  <option value="comments.html">注释规范</option>
+                  <option value="best_programming.html">零bug落地方案</option>
+                  <option value="raft.html">Raft算法</option>
+                  <option value="memorize_my_mentor.html">Memorize My Mentor</option>
+              </optgroup>
+          </select>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr class="hide" />
+
+  <div id="feature">
+    <div class="wrapper">
+      <h2>音阶</h2><div class="date"><p>2018-07-07</p></div><p>该文档涵盖了音阶的相关知识.</p><p>阅读完该文档之后, 您将了解到这些内容:</p>
+<ul>
+<li>音阶小程序.</li>
+<li>需要记住吉他1-12品上面的所有音.</li>
+</ul>
+
+
+                <div id="subCol">
+            <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Chapters</h3>
+            <ol class="chapters">
+<li><a href="#scalse-in-guitar">Scalse In Guitar</a></li>
+<li>
+<a href="#usage">Usage</a>
+
+<ul>
+<li><a href="#%E6%B5%8B%E8%AF%95%E9%9F%B3%E7%AC%A6">测试音符</a></li>
+<li><a href="#%E6%B5%8B%E8%AF%95%E5%93%81%E4%BD%8D%E4%BD%8D%E7%BD%AE">测试品位位置</a></li>
+</ul>
+</li>
+<li>
+<a href="#%E9%9F%B3%E9%98%B6%E6%8E%92%E5%88%97">音阶排列</a>
+
+<ul>
+<li><a href="#guitar">Guitar</a></li>
+<li><a href="#ukulele">Ukulele</a></li>
+</ul>
+</li>
+</ol>
+
+          </div>
+
+    </div>
+  </div>
+
+  <div id="container">
+    <div class="wrapper">
+      <div id="mainCol">
+        <div class="note"><p>没有其他的聪明方法, 就记住吉他上每个品味是什么音即可.</p></div><h3 id="scalse-in-guitar"><a class="anchorlink" href="#scalse-in-guitar">1 Scalse In Guitar</a></h3><div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+SCALES = {
+  1 =&gt; {
+    0  =&gt; %w(Mi 3),  # 0   - 3
+    1  =&gt; %w(Fa 4),  # 1   | 4
+    2  =&gt; %w(b5 #4), # 2   | b5
+    3  =&gt; %w(Suo 5), # 3  o| 5
+    4  =&gt; %w(b6 #5), # 4   | b6
+    5  =&gt; %w(La 6),  # 5  o| 6
+    6  =&gt; %w(b7 #6), # 6   | b7
+    7  =&gt; %w(Xi 7),  # 7  o| 7
+    8  =&gt; %w(Duo 1), # 8   | 1
+    9  =&gt; %w(b2 #1), # 9  o| b2
+    10 =&gt; %w(Rui 2), # 10  | 2
+    11 =&gt; %w(b3 #2), # 11  | b3
+    12 =&gt; %w(Mi 3),  # 12 o| 3
+  },
+  2 =&gt; {
+    0  =&gt; %w(Xi 7),  # 0   - 7
+    1  =&gt; %w(Duo 1), # 1   | 1
+    2  =&gt; %w(b2 #1), # 2   | b2
+    3  =&gt; %w(Rui 2), # 3  o| 2
+    4  =&gt; %w(b3 #2), # 4   | b3
+    5  =&gt; %w(Mi 3),  # 5  o| 3
+    6  =&gt; %w(Fa 4),  # 6   | 4
+    7  =&gt; %w(b5 #4), # 7  o| b5
+    8  =&gt; %w(Suo 5), # 8   | 5
+    9  =&gt; %w(b6 #5), # 9  o| b6
+    10 =&gt; %w(La 6),  # 10  | 6
+    11 =&gt; %w(b7 #6), # 11  | b7
+    12 =&gt; %w(Xi 7),  # 12 o| 7
+  },
+  3 =&gt; {
+    0  =&gt; %w(Suo 5), # 0   - 5
+    1  =&gt; %w(b6 #5), # 1   | b6
+    2  =&gt; %w(La 6),  # 2   | 6
+    3  =&gt; %w(b7 #6), # 3  o| b7
+    4  =&gt; %w(Xi 7),  # 4   | 7
+    5  =&gt; %w(Duo 1), # 5  o| 1
+    6  =&gt; %w(b2 #1), # 6   | b2
+    7  =&gt; %w(Rui 2), # 7  o| 2
+    8  =&gt; %w(b3 #2), # 8   | b3
+    9  =&gt; %w(Mi 3),  # 9  o| 3
+    10 =&gt; %w(Fa 4),  # 10  | 4
+    11 =&gt; %w(b5 #4), # 11  | b5
+    12 =&gt; %w(Suo 5), # 12 o| 5
+  },
+  4 =&gt; {
+    0  =&gt; %w(Rui 2), # 0   - 2
+    1  =&gt; %w(b3 #2), # 1   | b3
+    2  =&gt; %w(Mi 3),  # 2   | 3
+    3  =&gt; %w(Fa 4),  # 3  o| 4
+    4  =&gt; %w(b5 #4), # 4   | b5
+    5  =&gt; %w(Suo 5), # 5  o| 5
+    6  =&gt; %w(b6 #5), # 6   | b6
+    7  =&gt; %w(La 6),  # 7  o| 6
+    8  =&gt; %w(b7 #6), # 8   | b7
+    9  =&gt; %w(Xi 7),  # 9  o| 7
+    10 =&gt; %w(Duo 1), # 10  | 1
+    11 =&gt; %w(b2 #1), # 11  | b2
+    12 =&gt; %w(Rui 2), # 12 o| 2
+  },
+  5 =&gt; {
+    0  =&gt; %w(La 6),  # 0   - 6
+    1  =&gt; %w(b7 #6), # 1   | b7
+    2  =&gt; %w(Xi 7),  # 2   | 7
+    3  =&gt; %w(Duo 1), # 3  o| 1
+    4  =&gt; %w(b2 #1), # 4   | b2
+    5  =&gt; %w(Rui 2), # 5  o| 2
+    6  =&gt; %w(b3 #2), # 6   | b3
+    7  =&gt; %w(Mi 3),  # 7  o| 3
+    8  =&gt; %w(Fa 4),  # 8   | 4
+    9  =&gt; %w(b5 #4), # 9  o| b5
+    10 =&gt; %w(Suo 5), # 10  | 5
+    11 =&gt; %w(b6 #5), # 11  | b6
+    12 =&gt; %w(La 6),  # 12 o| 6
+  },
+  6 =&gt; {
+    0  =&gt; %w(Mi 3),  # 0   - 3
+    1  =&gt; %w(Fa 4),  # 1   | 4
+    2  =&gt; %w(b5 #4), # 2   | b5
+    3  =&gt; %w(Suo 5), # 3  o| 5
+    4  =&gt; %w(b6 #5), # 4   | b6
+    5  =&gt; %w(La 6),  # 5  o| 6
+    6  =&gt; %w(b7 #6), # 6   | b7
+    7  =&gt; %w(Xi 7),  # 7  o| 7
+    8  =&gt; %w(Duo 1), # 8   | 1
+    9  =&gt; %w(b2 #1), # 9  o| b2
+    10 =&gt; %w(Rui 2), # 10  | 2
+    11 =&gt; %w(b3 #2), # 11  | b3
+    12 =&gt; %w(Mi 3),  # 12 o| 3
+  },
+}
+
+</pre>
+</div>
+<h3 id="usage"><a class="anchorlink" href="#usage">2 Usage</a></h3><div class="note"><p>使用我的 <a href="https://github.com/dengqinghua/scales_practice">音阶练习脚本</a></p></div><h4 id="测试音符"><a class="anchorlink" href="#%E6%B5%8B%E8%AF%95%E9%9F%B3%E7%AC%A6">2.1 测试音符</a></h4><div class="code_container">
+<pre class="brush: shell; gutter: false; toolbar: true;">
+ruby guitar/practice.rb t  # 测试吉他
+ruby ukulele/practice.rb t # 测试尤克里里
+
+5 弦 第 8 品 是 什么音?
+
+# 需要输入正确答案, 以吉他为例
+4
+
+</pre>
+</div>
+<h4 id="测试品位位置"><a class="anchorlink" href="#%E6%B5%8B%E8%AF%95%E5%93%81%E4%BD%8D%E4%BD%8D%E7%BD%AE">2.2 测试品位位置</a></h4><div class="code_container">
+<pre class="brush: shell; gutter: false; toolbar: true;">
+ruby guitar/practice.rb p  # 测试吉他
+ruby ukulele/practice.rb p # 测试尤克里里
+
+音 2 在 第 3 弦 是 第几品?
+
+# 需要输入正确答案, 以吉他为例
+7
+
+</pre>
+</div>
+<h3 id="音阶排列"><a class="anchorlink" href="#%E9%9F%B3%E9%98%B6%E6%8E%92%E5%88%97">3 音阶排列</a></h3><h4 id="guitar"><a class="anchorlink" href="#guitar">3.1 Guitar</a></h4><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+0   - 3  6  2  5  7  3
+1   | 4  b7 b3 b6 1  4
+2   | b5 7  3  6  b2 b5
+3  o| 5  1  4  b7 2  5
+4   | b6 b2 b5 7  b3 b6
+5  o| 6  2  5  1  3  6
+6   | b7 b3 b6 b2 4  b7
+7  o| 7  3  6  2  b5 7
+8   | 1  4  b7 b3 5  1
+9  o| b2 b5 7  3  b6 b2
+10  | 2  5  1  4  6  2
+11  | b3 b6 b2 b5 b7 b3
+12 o| 3  6  2  5  7  3
+
+</pre>
+</div>
+<div class="info"><p>新增了尤克里里的分析</p></div><h4 id="ukulele"><a class="anchorlink" href="#ukulele">3.2 Ukulele</a></h4><div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+SCALES = {
+  1 =&gt; {
+    0  =&gt; %w(La 6),  # 0  o- 6
+    1  =&gt; %w(b7 #6), # 1   | b7
+    2  =&gt; %w(Xi 7),  # 2  o| 7
+    3  =&gt; %w(Duo 1), # 3   | 1
+    4  =&gt; %w(b2 #1), # 4  o| b2
+    5  =&gt; %w(Rui 2), # 5   | 2
+    6  =&gt; %w(b3 #2), # 6   | b3
+    7  =&gt; %w(Mi 3),  # 7   | 3
+    8  =&gt; %w(Fa 4),  # 8   | 4
+    9  =&gt; %w(b5 #4), # 9   | b5
+    10 =&gt; %w(Suo 5), # 10 o| 5
+    11 =&gt; %w(b6 #5), # 11  | b6
+    12 =&gt; %w(La 6),  # 12 o| 6
+  },
+  2 =&gt; {
+    0  =&gt; %w(Mi 3),  # 0  o- 3
+    1  =&gt; %w(Fa 4),  # 1   | 4
+    2  =&gt; %w(b5 #4), # 2  o| b5
+    3  =&gt; %w(Suo 5), # 3   | 5
+    4  =&gt; %w(b6 #5), # 4  o| b6
+    5  =&gt; %w(La 6),  # 5   | 6
+    6  =&gt; %w(b7 #6), # 6   | b7
+    7  =&gt; %w(Xi 7),  # 7   | 7
+    8  =&gt; %w(Duo 1), # 8   | 1
+    9  =&gt; %w(b2 #1), # 9   | b2
+    10 =&gt; %w(Rui 2), # 10 o| 2
+    11 =&gt; %w(b3 #2), # 11  | b3
+    12 =&gt; %w(Mi 3),  # 12 o| 3
+  },
+  3 =&gt; {
+    0  =&gt; %w(Duo 1), # 0  o- 1
+    1  =&gt; %w(b2 #1), # 1   | b2
+    2  =&gt; %w(Rui 2), # 2  o| 2
+    3  =&gt; %w(b3 #2), # 3   | b3
+    4  =&gt; %w(Mi 3),  # 4  o| 3
+    5  =&gt; %w(Fa 4),  # 5   | 4
+    6  =&gt; %w(b5 #4), # 6   | b5
+    7  =&gt; %w(Suo 5), # 7   | 5
+    8  =&gt; %w(b6 #5), # 8   | b6
+    9  =&gt; %w(La 6),  # 9   | 6
+    10 =&gt; %w(b7 #6), # 10 o| b7
+    11 =&gt; %w(Xi 7),  # 11  | 7
+    12 =&gt; %w(Duo 1), # 12 o| 1
+  },
+  4 =&gt; {
+    0  =&gt; %w(Suo 5), # 0  o- 5
+    1  =&gt; %w(b6 #5), # 1   | b6
+    2  =&gt; %w(La 6),  # 2  o| 6
+    3  =&gt; %w(b7 #6), # 3   | b7
+    4  =&gt; %w(Xi 7),  # 4  o| 7
+    5  =&gt; %w(Duo 1), # 5   | 1
+    6  =&gt; %w(b2 #1), # 6   | b2
+    7  =&gt; %w(Rui 2), # 7   | 2
+    8  =&gt; %w(b3 #2), # 8   | b3
+    9  =&gt; %w(Mi 3),  # 9   | 3
+    10 =&gt; %w(Fa 4),  # 10 o| 4
+    11 =&gt; %w(b5 #4), # 11  | b5
+    12 =&gt; %w(Suo 5), # 12 o| 5
+  }
+}
+
+</pre>
+</div>
+<div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+0  o- 5  1  3  6
+1   | b6 b2 4  b7
+2  o| 6  2  b5 7
+3   | b7 b3 5  1
+4  o| 7  3  b6 b2
+5   | 1  4  6  2
+6   | b2 b5 b7 b3
+7   | 2  5  7  3
+8   | b3 b6 1  4
+9   | 3  6  b2 b5
+10 o| 4  b7 2  5
+11  | b5 7  b3 b6
+12 o| 5  1  3  6
+
+</pre>
+</div>
+
+
+        <div id="comment"></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="hide" />
+  <div id="footer">
+    <div class="wrapper">
+      <p>版权声明：自由转载-非商用-非衍生-保持署名(<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享3.0许可证</a>)</p>
+<p>For Ruby Roses.</p>
+
+    </div>
+  </div>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/responsive-tables.js"></script>
+  <script type="text/javascript" src="javascripts/guides.js"></script>
+
+  <!-- ./node_modules/gulp/bin/gulp.js build -\-brushes=bash,cpp,css,javascript,java,plain,python,ruby,scala,sql,xml -->
+  <!-- uglifyjs syntaxhighlighter.js  -\-output syntaxhighlighter.min.js -->
+  <script type="text/javascript" src="javascripts/syntaxhighlighter.min.js"></script>
+  <script type="text/javascript" src="javascripts/tonal.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.0.1/Tone.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/tone/13.1.22/Tone.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.4/svg.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/svg.js/2.6.5/svg.js"></script>
+  <script type="text/javascript" src="javascripts/chordy-svg.min.js"></script>
+  <script type="text/javascript" src="javascripts/chord.js"></script>
+  <!-- <script type="text/javascript" src="javascripts/gitalk.min.js"></script> -->
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.2.2/gitalk.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/gitalk/1.2.2/gitalk.js"></script>
+  <script type="text/javascript" src="javascripts/load_docs.js"></script>
+  <!-- <script type="text/javascript" src="javascripts/Treant.js"></script> -->
+  <script src="https://cdn.bootcss.com/treant-js/1.0/Treant.min.js"></script>
+  <!-- <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.0/raphael&#45;min.js"></script> -->
+  <script src="https://cdn.bootcss.com/raphael/2.2.7/raphael.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.11.0/flowchart.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/flowchart/1.11.0/flowchart.min.js"></script>
+  <script type="text/javascript" src="javascripts/flowchart_generator.js"></script>
+  <script type="text/javascript" src="javascripts/tree_generator.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115746206-1"></script>
+
+  <script type="text/javascript" src="javascripts/abcjs_midi_5.1.2-min.js"></script>
+  <script type="text/javascript" src="javascripts/music_generator.js"></script>
+
+  <script type="text/javascript">
+    syntaxhighlighterConfig = {
+      autoLinks: false,
+    };
+
+    $(guidesIndex.bind);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115746206-1');
+  </script>
+
+  <script type="text/javascript">
+    var locationId = (location.pathname).split("/").pop().substring(0, 49);
+
+    if (locationId) {
+      var language = window.location.search.match("lang=en") ? "en" : "zh-CN"
+      var gitalk   = new Gitalk({
+        clientID: '0f5824fe1c09851e9781',
+        clientSecret: '61710a77ee98cddce06f408a398f05c8622e9575',
+        repo: 'blog_comments',
+        owner: 'dengqinghua',
+        admin: ['dengqinghua'],
+        id: locationId,
+        distractionFreeMode: true,
+        language: language
+      });
+
+      gitalk.render('comment');
+    }
+  </script>
+</body>
+</html>

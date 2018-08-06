@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="baidu-site-verification" content="N1Q3HiESgp" />
+
+<title>Concurrency In Java — dengqinghua&#39;s blog</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shCore.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shThemeRailsGuides.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/fixes.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/abcjs-midi.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/gitalk.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/Treant.css" />
+  <link href="images/favicon.jpeg" rel="shortcut icon" type="image/x-icon" />
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body class="guide">
+  <div id="topNav">
+    <div class="wrapper">
+
+      <strong class="more-info-label">More:</strong>
+
+      <span class="red-button more-info-button">More Dengqinghua</span>
+      <ul class="more-info-links s-hidden">
+        <li class="more-info"><a href="http://www.dengqinghua.net/">About me</a></li>
+        <li class="more-info"><a href="https://github.com/dengqinghua/">Github</a></li>
+        <li class="more-info"><a href="mailto:dengqinghua.42@gmail.com">Gmail</a></li>
+        <li class="more-info"><a href="https://twitter.com/dengqinghua_42">Twitter</a></li>
+      </ul>
+
+      <form action="http://google.com/search" method="get">
+          <input name="q" value="site:blog.dengqinghua.net" type="hidden">
+          <input class="search" name="q" placeholder="Search Blog" type="text">
+      </form>
+    </div>
+  </div>
+  <div id="header">
+    <div class="wrapper clearfix">
+      <h1><a href="http://blog.dengqinghua.net" title="Return to home page">http://blog.dengqinghua.net</a></h1>
+      <ul class="nav">
+        <li><a class="nav-item" href="http://blog.dengqinghua.net">Home</a></li>
+        <li class="guides-index guides-index-large">
+          <a href="index.html" id="guidesMenu" class="guides-index-item nav-item">
+            Index <span id="guidesArrow">▸</span>
+          </a>
+
+          <div id="guides" class="clearfix" style="display: none;">
+            <hr />
+              <dl class="L">
+                <dt>推荐</dt>
+                <dd><a href="badge_system.html">基于内存数据库的角标系统设计</a></dd>
+                <dd><a href="witness_flow.html">业务流引擎系统</a></dd>
+                <dt>Ruby</dt>
+                <dd><a href="ruby_knowledge_tree.html">Ruby知识树</a></dd>
+                <dd><a href="ruby_model.html">Ruby数据模型</a></dd>
+                <dd><a href="arel.html?lang=en">Arel源码分析</a></dd>
+                <dd><a href="sidekiq_task_event.html">基于Sidekiq的异步任务管理引擎</a></dd>
+                <dd><a href="racc.html">Racc</a></dd>
+                <dd><a href="witness_flow.html">业务流引擎系统</a></dd>
+                <dt>Java</dt>
+                <dd><a href="data_structures.html">数据结构</a></dd>
+                <dd><a href="learn_jvm.html">JVM剖析</a></dd>
+                <dd><a href="concurrency.html">Concurrency</a></dd>
+                <dd><a href="badge_system.html">基于内存数据库的角标系统设计</a></dd>
+                <dd><a href="maven_under_command_line.html">命令行下的Maven</a></dd>
+                <dt>MySQL</dt>
+                <dd><a href="mysql_knowledge_tree.html">MySQL知识树</a></dd>
+              </dl>
+              <dl class="R">
+                <dt>Go</dt>
+                <dd><a href="go_get_timeout_solution.html">GoInstallBinaries i/o timeout问题</a></dd>
+                <dd><a href="go_knowledge_tree.html">Go知识树</a></dd>
+                <dt>音乐</dt>
+                <dd><a href="music_index.html">音乐学习体系</a></dd>
+                <dd><a href="lalaland-city_of_stars.html">City Of Star</a></dd>
+                <dd><a href="あの日の帰り道.html">あの日の帰り道</a></dd>
+                <dd><a href="rain_wwh.html">雨の日はワルツを踊って</a></dd>
+                <dd><a href="it_could_have_been.html">Es Ware Schon Gewesen</a></dd>
+                <dt>杂记</dt>
+                <dd><a href="example_markdown.html">markdown格式实例</a></dd>
+                <dd><a href="comments.html">注释规范</a></dd>
+                <dd><a href="best_programming.html">零bug落地方案</a></dd>
+                <dd><a href="raft.html">Raft算法</a></dd>
+                <dd><a href="memorize_my_mentor.html">Memorize My Mentor</a></dd>
+              </dl>
+          </div>
+        </li>
+        <li class="guides-index guides-index-small">
+          <select class="guides-index-item nav-item">
+            <option value="index.html">Index</option>
+              <optgroup label="推荐">
+                  <option value="badge_system.html">基于内存数据库的角标系统设计</option>
+                  <option value="witness_flow.html">业务流引擎系统</option>
+              </optgroup>
+              <optgroup label="Ruby">
+                  <option value="ruby_knowledge_tree.html">Ruby知识树</option>
+                  <option value="ruby_model.html">Ruby数据模型</option>
+                  <option value="arel.html?lang=en">Arel源码分析</option>
+                  <option value="sidekiq_task_event.html">基于Sidekiq的异步任务管理引擎</option>
+                  <option value="racc.html">Racc</option>
+                  <option value="witness_flow.html">业务流引擎系统</option>
+              </optgroup>
+              <optgroup label="Java">
+                  <option value="data_structures.html">数据结构</option>
+                  <option value="learn_jvm.html">JVM剖析</option>
+                  <option value="concurrency.html">Concurrency</option>
+                  <option value="badge_system.html">基于内存数据库的角标系统设计</option>
+                  <option value="maven_under_command_line.html">命令行下的Maven</option>
+              </optgroup>
+              <optgroup label="MySQL">
+                  <option value="mysql_knowledge_tree.html">MySQL知识树</option>
+              </optgroup>
+              <optgroup label="Go">
+                  <option value="go_get_timeout_solution.html">GoInstallBinaries i/o timeout问题</option>
+                  <option value="go_knowledge_tree.html">Go知识树</option>
+              </optgroup>
+              <optgroup label="音乐">
+                  <option value="music_index.html">音乐学习体系</option>
+                  <option value="lalaland-city_of_stars.html">City Of Star</option>
+                  <option value="あの日の帰り道.html">あの日の帰り道</option>
+                  <option value="rain_wwh.html">雨の日はワルツを踊って</option>
+                  <option value="it_could_have_been.html">Es Ware Schon Gewesen</option>
+              </optgroup>
+              <optgroup label="杂记">
+                  <option value="example_markdown.html">markdown格式实例</option>
+                  <option value="comments.html">注释规范</option>
+                  <option value="best_programming.html">零bug落地方案</option>
+                  <option value="raft.html">Raft算法</option>
+                  <option value="memorize_my_mentor.html">Memorize My Mentor</option>
+              </optgroup>
+          </select>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr class="hide" />
+
+  <div id="feature">
+    <div class="wrapper">
+      <h2>Concurrency In Java</h2><div class="date"><p>2018-05-01</p></div><p>该文档涵盖了Concurrency的基本内容.</p><p>阅读完该文档后，您将会了解到:</p>
+<ul>
+<li>线程安全问题.</li>
+<li>锁的实现和线程通信模型.</li>
+<li>线程池设计.</li>
+</ul>
+
+
+                <div id="subCol">
+            <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Chapters</h3>
+            <ol class="chapters">
+<li>
+<a href="#thread-safety">Thread Safety</a>
+
+<ul>
+<li><a href="#atomicity">Atomicity</a></li>
+</ul>
+</li>
+<li>
+<a href="#locking">Locking</a>
+
+<ul>
+<li><a href="#thread-state">Thread State</a></li>
+<li><a href="#%E7%BA%BF%E7%A8%8B%E9%80%9A%E4%BF%A1-cooperate">线程通信 Cooperate</a></li>
+<li><a href="#monitor">Monitor</a></li>
+<li><a href="#reentrancy">Reentrancy</a></li>
+</ul>
+</li>
+<li><a href="#sharing-objects">Sharing Objects</a></li>
+<li>
+<a href="#thread-pool">Thread Pool</a>
+
+<ul>
+<li><a href="#task-execution">Task Execution</a></li>
+<li><a href="#%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90">源码分析</a></li>
+</ul>
+</li>
+<li><a href="#references">References</a></li>
+</ol>
+
+          </div>
+
+    </div>
+  </div>
+
+  <div id="container">
+    <div class="wrapper">
+      <div id="mainCol">
+        <h3 id="thread-safety"><a class="anchorlink" href="#thread-safety">1 Thread Safety</a></h3>
+<blockquote>
+<p>Stateless objects are always thread safe.</p>
+</blockquote>
+<h4 id="atomicity"><a class="anchorlink" href="#atomicity">1.1 Atomicity</a></h4><h5 id="race-condition"><a class="anchorlink" href="#race-condition">1.1.1 Race Condition</a></h5>
+<blockquote>
+<p>Reaching the desired outcome depends  on the relative timing of events.</p>
+</blockquote>
+<p>Compound Actions:</p>
+<ul>
+<li>check then act (lazy  initialization)</li>
+<li>read modify write (increment i++)</li>
+</ul>
+<p>需要使得两个线程有序执行</p>
+<blockquote>
+<p>Sequences of operations that must be executed atomically in order to remain thread safe</p>
+</blockquote>
+<div class="note"><p>Atomic类实现了原子化操作, 可以避免 Race Condition 她是无锁的, 而是用的<a href="https://en.wikipedia.org/wiki/Compare-and-swap">CAS, Compare and Swap</a>. 性能上比 synchronized 关键字要好, 我在 <a href="https://github.com/dengqinghua/my_examples/blob/master/java/src/test/java/com/dengqinghua/concurrency/AtomicKlassTest.java#L23">这里</a> 写了Race Condition的例子, 分别用<a href="https://github.com/dengqinghua/my_examples/blob/master/java/src/test/java/com/dengqinghua/concurrency/AtomicKlassTest.java#L66">atomic</a> 和 <a href="https://github.com/dengqinghua/my_examples/blob/master/java/src/test/java/com/dengqinghua/concurrency/AtomicKlassTest.java#L43">synchronized</a> 避免了 Race Condition 的问题.</p></div><h5 id="java-atomic-package"><a class="anchorlink" href="#java-atomic-package">1.1.2 Java Atomic Package</a></h5><p>关键词:</p>
+<ul>
+<li>CAS (cmpxchg instruction)</li>
+<li>SpinLock</li>
+</ul>
+<p>问题:</p>
+<ul>
+<li>ABA</li>
+<li>循环时间长</li>
+</ul>
+<p>参考: <a href="http://ifeve.com/atomic-operation/">聊聊并发（五）原子操作的实现原理</a></p><h3 id="locking"><a class="anchorlink" href="#locking">2 Locking</a></h3><h4 id="thread-state"><a class="anchorlink" href="#thread-state">2.1 Thread State</a></h4><p><a href="https://www.uml-diagrams.org/java-thread-uml-state-machine-diagram-example.html?context=stm-examples"><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/threadLifeCycle.jpeg" alt="threadLifeCycle"></a></p><p>6个状态, 下面是从JDK8.0中摘抄的注释部分:</p>
+<ul>
+<li>NEW not yet started</li>
+<li>RUNNABLE executing in the Java virtual machine</li>
+<li>BLOCKED waiting for a monitor lock.</li>
+<li>WAITING called by <code>Object#wait()</code>, <code>Thread#join()</code> or <code>LockSupport#park()</code>
+</li>
+<li>TIMED_WAITING  WAITING with timeout, called by <code>Thread#sleep()</code>, <code>Object#wait()</code>, <code>Thread#join()</code>, <code>LockSupport.parkNanos</code> or <code>LockSupport.parkUntil</code>
+</li>
+<li>TERMINATED termiated</li>
+</ul>
+<p>其中 BLOCKED 和 WAITING 的区别为:</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+BLOCKED 是在等待排他锁, 而 WAITING 是被调用了 `Object#wait()`, `Thread#join()` or `LockSupport#park()` 方法,
+而处于等待状态, 并且可以通过 `notify` 或者 `notifyAll` 方法进行唤醒.
+
+</pre>
+</div>
+<h4 id="线程通信-cooperate"><a class="anchorlink" href="#%E7%BA%BF%E7%A8%8B%E9%80%9A%E4%BF%A1-cooperate">2.2 线程通信 Cooperate</a></h4><p>为什么需要有 <code>WAITING</code> 状态, 是为了进行线程间的通信</p><h5 id="share-objects"><a class="anchorlink" href="#share-objects">2.2.1 Share Objects</a></h5><p>线程/进程可以通过共享内存的某个值进行通信. 通过不停地轮询某个值, 来判断是否要进行处理某个业务逻辑. 伪代码如下</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+while (!needHandle) {
+    // doNothing
+}
+
+doThing
+
+</pre>
+</div>
+<p>上面的方式会一直占有着CPU的时钟, 当会导致CPU的利用率很低</p><p>参考 <a href="http://tutorials.jenkov.com/java-concurrency/thread-signaling.html">Thread Signaling</a></p><h5 id="wait-notify-and-notifyall"><a class="anchorlink" href="#wait-notify-and-notifyall">2.2.2 Wait Notify and NotifyAll</a></h5><p>wait, notify 和 notifyAll 为 Object 的方法, 故他们可以作用在所有的对象上.</p><p>wait方法会使得线程放弃CPU的控制权, 直到他被notify</p><p>注意一点, 这三个方法必须在 synchronized 里面使用, 否则会抛出 <code>IllegalMonitorStateException</code> 异常</p><div class="note"><p>为什么需要在 synchronized 里面使用? 在 <a href="http://coding.derkeiler.com/Archive/Java/comp.lang.java.programmer/2006-01/msg01130.html">这篇文章</a> 和 <a href="https://stackoverflow.com/q/2779484/8186609">Stack Overflow</a> 中都有解释. 个人认为主要是因为: <code>Lost Wakeup Problem</code>. 添加 synchronized 并不能解决该问题, 但是能降低问题出现的概率.</p></div><h4 id="monitor"><a class="anchorlink" href="#monitor">2.3 Monitor</a></h4><p>在JVM内部, synchronized 是用 monitor 的概念实现的. Java 的 Monitor 实现了两种类型的 thread synchronized, <code>mutual exclusion</code> 和 <code>cooperation</code>, 即排他性 和 协作性.</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+synchronized { // monitor region begin, 即 monitorenter
+    doThingA;
+    ...
+}              // monitor region end, 即 monitorexit
+
+</pre>
+</div>
+<p>Monitor的模型如下图所示</p><p><a href="https://www.artima.com/insidejvm/ed2/threadsynch.html"><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/threadmonitor.png" alt="threadmonitor"></a></p>
+<ul>
+<li>Entry Set: 所有等待锁的线程集合</li>
+<li>The Owner: 获得到锁的线程</li>
+<li>Wait Set: 处于 WAITING 状态的线程</li>
+</ul>
+<p>一个线程获取锁的步骤如下:</p><div class="flowchart" style="display:none" id="dd3e1c6e6696c60a50849ec9c018049d">
+  goonedoor=&gt;start: 线程 通过入口1
+进入Entry Set
+wantLock=&gt;operation: 通过入口2
+尝试获取锁
+cond1=&gt;condition: 获取成功
+cond1yes=&gt;operation: 进入 The Owner 区域
+占有锁
+cond1no=&gt;operation: 留在 Entry Set 进行等待
+lockavalable=&gt;operation: 发现锁可被占用
+finish=&gt;operation: 在Owner区域处理完操作
+conditonwait=&gt;condition: 是否主动WAIT
+conditonwaityes=&gt;operation: 通过入口3
+释放锁, 进入Wait Set区域
+conditonwaitno=&gt;operation: 通过入口5
+释放锁, 退出
+conditionnotify=&gt;condition: 线程进行notify
+conditionnotifyyes=&gt;operation: Wait Set 通过入口4
+尝试获取锁
+end=&gt;end: 退出
+condwaitlock=&gt;condition: 获取成功
+condwaitlockyes=&gt;operation: 进入 The Owner 区域
+占有锁
+condwaitlockno=&gt;operation: 在 Wait Set 继续等待
+goonedoor(right)-&gt;wantLock(right)-&gt;cond1
+cond1(yes)-&gt;cond1yes-&gt;finish-&gt;conditonwait
+cond1(no, left)-&gt;cond1no-&gt;lockavalable(left)-&gt;wantLock
+conditonwait(yes, bottom)-&gt;conditonwaityes-&gt;conditionnotify
+conditionnotify(yes, left)-&gt;conditionnotifyyes-&gt;condwaitlock
+conditionnotify(no, right)-&gt;end
+condwaitlock(yes)-&gt;condwaitlockyes
+condwaitlock(no)-&gt;condwaitlockno
+conditonwait(no)-&gt;end
+</div>
+<div class="note"><p>上面的步骤也说明了: 一个线程如果要变成 WAITING (Object#wait, 不考虑sleep的情况) 状态, 必须要先进入
+The Owner区域获取到锁, 再通过wait方法将锁释放进入Wait Set. 而 <code>Object#wait</code> 本身的定义是: 释放锁.
+等待被notify, 那么在释放锁之前, 必须要先获得锁. 同样, <code>Object#notify</code> 的定义为: 通知Wait Set去获取锁,
+那么在notify之前也必须要获得锁, 才能释放给Wait Set.</p></div><h4 id="reentrancy"><a class="anchorlink" href="#reentrancy">2.4 Reentrancy</a></h4><p>如果是嵌套的 synchronized , 如下所示:</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+synchronized(this) {
+    doSthA
+
+    synchronized(this) {
+        doSthA
+    }
+}
+
+</pre>
+</div>
+<p>Java的锁设计成是可以重复进入的. 线程每次进入一个锁区域的时候 +1, 退出的时候 -1, 如果变为0, 线程则会释放锁</p><div class="note"><p>锁的时间尽量短而小, 不然会导致性能比较差</p></div><h3 id="sharing-objects"><a class="anchorlink" href="#sharing-objects">3 Sharing Objects</a></h3><h3 id="thread-pool"><a class="anchorlink" href="#thread-pool">4 Thread Pool</a></h3><h4 id="task-execution"><a class="anchorlink" href="#task-execution">4.1 Task Execution</a></h4>
+<ul>
+<li>
+<p>Serial</p>
+<p>单线程: 无法提高 Throughput, 响应缓慢</p>
+</li>
+<li>
+<p>Threads Without Limits</p>
+<p>线程的创建和销毁有开销
+线程会占用内存
+线程会占用文件资源(File Descriptor)</p>
+<p>无限制的创建线程容易导致CPU负载过高, 内存泄漏等</p>
+</li>
+<li>
+<p>Thread With Limits</p>
+<p>使用线程池, 预先生成线程, 线程个数有限, 可控制资源的占用情况</p>
+</li>
+</ul>
+<p>线程池的使用: <a href="https://github.com/dengqinghua/my_examples/blob/master/java/src/main/java/com/dengqinghua/concurrency/ThreadPool.java#L33">示例源码</a></p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class ThreadPool {
+    private static final int THREAD_COUNT = 100;
+    private static final Executor executor = Executors.newFixedThreadPool(THREAD_COUNT);
+    public static void runMuiltThreadServerWithThreadPool() throws IOException {
+        ServerSocket socket = new ServerSocket(10080);
+
+        while (true) {
+            final Socket connection = socket.accept();
+            // 这里采用了线程池的方式
+            executor.execute(() -&gt; handleConnection(connection));
+        }
+    }
+}
+
+</pre>
+</div>
+<h4 id="源码分析"><a class="anchorlink" href="#%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90">4.2 源码分析</a></h4><p>线程池简而言之是: <strong>创建了多个线程, 来并行地处理一些任务, 任务可以并发地进行, 进程的数目, 存活状态都由线程池来管理和维护</strong></p><p>在 <a href="https://www.amazon.com/Java-Concurrency-Practice-Brian-Goetz/dp/0321349601/ref=sr_1_1?ie=UTF8&amp;qid=1526810637&amp;sr=8-1&amp;keywords=java+concurrency+in+practice">Java Concurrency in Practice</a> 一书中, 提到了 <code>Execution Policities</code>, 包括下面几点</p>
+<ul>
+<li>
+<strong>What Thread</strong> tasks will be executed</li>
+<li>
+<strong>What Order</strong> tasks will be executed(FIFO, LIFP, priority order)</li>
+<li>
+<strong>How Many</strong> tasks execute concurrently</li>
+<li>
+<strong>How Many</strong> tasks be queued pengding</li>
+<li>
+<strong>Which Task</strong> should be selected as a victim when system is overloaded and how the app be notified</li>
+<li>
+<strong>What actions</strong> should be taken before/after executing a task</li>
+</ul>
+<p>使用线程池会带来很多新的问题, 如上所述. 所以说线程池其实是一种 <code>Resouces Mangement Tool</code></p><h5 id="executors"><a class="anchorlink" href="#executors">4.2.1 Executors</a></h5><p>在 concurrency 包中, 实现了下面的几种 <code>Executor</code></p>
+<ul>
+<li>newFixedThreadPool</li>
+<li>newCachedThreadPool</li>
+<li>newSingleThreadExecutor</li>
+<li>newScheduledThreadPool</li>
+</ul>
+<p>直观上理解为: thread数目固定, thread数目不固定, thread数目为1 和 定时thread 四种. 除了上述四种, 还有 newWorkStealingPool 和 unconfigurableExecutorService等</p><h5 id="newfixedthreadpool"><a class="anchorlink" href="#newfixedthreadpool">4.2.2 newFixedThreadPool</a></h5><p>在 <a href="https://github.com/dengqinghua/my_examples/blob/master/java/src/main/java/com/dengqinghua/concurrency/ThreadPool.java#L33">示例代码</a> 中使用了固定线程的线程池.</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class ThreadPool {
+    private static final int THREAD_COUNT = 100;
+    private static final Executor executor = Executors.newFixedThreadPool(THREAD_COUNT);
+
+    public static void runMuiltThreadServerWithThreadPool() throws IOException {
+        ServerSocket socket = new ServerSocket(10080);
+
+        while (true) {
+            final Socket connection = socket.accept();
+            // 这里采用了线程池的方式
+            executor.execute(() -&gt; handleConnection(connection));
+        }
+    }
+}
+
+</pre>
+</div>
+<p>在上述示例中, 设置的 <code>THREAD_COUNT = 100</code>, 该线程池包含下面的部分:</p><div class="tree_chart" style="display:none" id="cd2e15d3c22f75eafde29b97e9186a6f">
+  {"chart":{"container":"#cd2e15d3c22f75eafde29b97e9186a6f","rootOrientation":"WEST","siblingSeparation":40,"subTeeSeparation":30,"connectors":{"type":"step","style":{"stroke":"#bbb","arrow-end":"block-wide-long"}},"node":{"HTMLclass":"nodeChart"}},"nodeStructure":{"text":{"name":"Fixed Thread Pool Executor"},"children":[{"text":{"name":"ThreadPoolExecutor"},"children":[{"text":{"name":"corePoolSize 100","title":"执行任务的线程数. When a new task is submitted, and fewer than corePoolSize threads are running, a new thread is created to handle the request, even if other worker threads are idle"}},{"text":{"name":"maxPoolSize 100","title":"执行任务的最大线程数. If there are more than corePoolSize but less than maximumPoolSize threads running, a new thread will be created only if the queue is full"}},{"text":{"name":"keepAliveTime 0ms","title":"当线程数大于 corePoolSize 时, 超出的线程的最大空闲时间, 在对队列进行poll的时候使用"}},{"text":{"name":"LinkedBlockingQueue \u003cRunnable\u003e","title":"线程池所使用的队列"}}]},{"text":{"name":"execute Runnable","title":"执行的命令"}}]}}
+</div>
+<h5 id="ctl-thread-pool-status-and-worker-count"><a class="anchorlink" href="#ctl-thread-pool-status-and-worker-count">4.2.3 ctl, Thread Pool Status and Worker Count</a></h5><p>线程池的状态 有下面几种, 下面的内容摘抄自 JDK8.0</p>
+<blockquote>
+<p>The runState provides the main lifecycle control, taking on values:</p>
+</blockquote>
+<div class="tree_chart" style="display:none" id="e88c3929de09dce72de0da9ffafddaa4">
+  {"chart":{"container":"#e88c3929de09dce72de0da9ffafddaa4","rootOrientation":"WEST","siblingSeparation":40,"subTeeSeparation":30,"connectors":{"type":"step","style":{"stroke":"#bbb","arrow-end":"block-wide-long"}},"node":{"HTMLclass":"nodeChart"}},"nodeStructure":{"text":{"name":"Lifecycle"},"children":[{"text":{"name":"RUNNING","title":"Accept new tasks and process queued tasks"}},{"text":{"name":"SHUTDOWN","title":"Don't accept new tasks, but process queued tasks"}},{"text":{"name":"STOP","title":"Don't accept new tasks, don't process queued tasks, and interrupt in-progress tasks"}},{"text":{"name":"TIDYING","title":"All tasks have terminated, workerCount is zero, the thread transitioning to state TIDYING will run the terminated() hook method"}},{"text":{"name":"TERMINATED","title":"terminated() has completed"}}]}}
+</div>
+
+<blockquote>
+<p><strong>The numerical order among these values matters</strong>, to allow
+ordered comparisons. The runState monotonically increases over
+time, but need not hit each state.</p>
+</blockquote>
+<p>The transitions are:</p><div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+ RUNNING -&gt; SHUTDOWN
+    On invocation of shutdown(), perhaps implicitly in finalize()
+ (RUNNING or SHUTDOWN) -&gt; STOP
+    On invocation of shutdownNow()
+ SHUTDOWN -&gt; TIDYING
+    When both queue and pool are empty
+ STOP -&gt; TIDYING
+    When pool is empty
+ TIDYING -&gt; TERMINATED
+    When the terminated() hook method has completed
+
+</pre>
+</div>
+<p>部分状态的源码如下:</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+// 状态信息存储在第30位-第32位
+int COUNT_BITS = Integer.SIZE - 3, // 29位
+        CAPACITY = (1 &lt;&lt; count_bits) - 1;
+
+        int RUNNING = -1 &lt;&lt; COUNT_BITS,       // 11100000000000000000000000000000 -536870912
+                SHUTDOWN = 0,
+                STOP = 1 &lt;&lt; COUNT_BITS,       // 00100000000000000000000000000000 536870912
+                TIDYING = 2 &lt;&lt; COUNT_BITS,    // 01000000000000000000000000000000 1073741824
+                TERMINATED = 3 &lt;&lt; COUNT_BITS; // 01100000000000000000000000000000 1610612736
+
+</pre>
+</div>
+<div class="note"><p>-1在计算机中如何表示? 在这里是使用的是 <a href="https://www.cs.cornell.edu/~tomf/notes/cps104/twoscomp.html">Two's Complement</a>, 在 <a href="http://www.ruanyifeng.com/blog/2009/08/twos_complement.html">这篇文章</a> 给出有趣的例子和证明. 假设现在有一个数 a, 则 <code>-a = ~a + 1</code>, 也就是取 a 的反码再加 1. 则 (假设是32位) -1 = ~00000000000000000000000000000001 + 1 = 11111111111111111111111111111110 + 1 = 11111111111111111111111111111111, 上述中的 running 变量为  11111111111111111111111111111111 &lt;&lt; 29, 左移 29 位为: 11100000000000000000000000000000.</p></div><p>在 ThreadPoolExecutor 中, 非常重要的一个参数为 ctl, 在 JDK8.0 解释如下</p>
+<blockquote>
+<p>The main pool control state, ctl, is an atomic integer packing
+two conceptual fields.
+<strong>workerCount</strong>, indicating the effective number of threads
+<strong>runState</strong>,    indicating whether running, shutting down etc</p>
+</blockquote>
+<p>故从ctl中可以通过一些方法获取到 <code>workerCount</code> 和 <code>runState</code> 的信息, 而ctl的计算也将包括
+<code>workerCount</code> 和 <code>runState</code> 的信息.</p><p>源码如下:</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+// assertThat(Integeer.toBinaryString(CAPACITY), is("11111111111111111111111111111"));
+// assertThat(Integer.toBinaryString(CAPACITY).length(), is(29));
+
+// ctl 包含两部分: runState 为 第30位 至 第32位, workerCount 为 第1位 到 第29位
+// 故获取 runState 只需要高位(30-32)信息 为 ctl &amp; ~CAPACITY
+// 故获取 workerCount 只需要低位(1-29)信息 为 ctl &amp; CAPACITY
+
+// 这里的 c 为 ctl, 该方法从 ctl 解析出当前的状态, 如 running/shutdown等
+private static int runStateOf(int c)     { return c &amp; ~CAPACITY; }
+
+// 这里的 c 为 ctl, 该方法从 ctl 解析出当前的workerCount
+private static int workerCountOf(int c)  { return c &amp; CAPACITY; }
+
+// rs 代表 runState, 如上所述的 running/shutdown/stop/tidying/termiated 等值
+// wc 代表 workerCount
+// 通过 rs 和 wc 得到 ctl 的值
+private static int ctlOf(int rs, int wc) { return rs | wc; }
+
+</pre>
+</div>
+<div class="info"><p>ctl 的生成, 源码中称为 pack, ctl 的解析, 称为 unpack.</p></div><div class="note"><p>思考: 为什么要有一个 ctl 这种值? 引入了 ctl 这个概念? 引入新概念的成本非常高, 而且也需要pack/unpack. 我的理解是如果直接使用
+runState 和 workerCount, 那么他需要添加 synchronized 进行控制, 而不是简单地使得 runState 和 workerCount 变为 AtomicInteger, 而真实
+的场景中, 这两个值是相互影响的, 与其每次都得添加 synchronized, 不如将这两个值绑定在一起.</p></div><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+// 初始化值为 11100000000000000000000000000000 -536870912, 即 -2^29
+private final AtomicInteger ctl = new AtomicInteger(ctlOf(RUNNING, 0));
+// rs 代表 runState, 如上所述的 running/shutdown/stop/tidying/termiated 等值
+// wc 代表 workerCount
+private static int ctlOf(int rs, int wc) { return rs | wc; }
+
+</pre>
+</div>
+<p>知道了 workerCount 和 runState 的计算和原子性设计之后, 便可知道基本的流程如下</p><div class="flowchart" style="display:none" id="91114289f7ab32df8895f26c1234f28a">
+  fetchCtl=&gt;start: 获取ctl
+unpack得到
+workCount, runState
+workCountCondition=&gt;condition: workerCount小于
+corePoolSize
+workCountConditionYes=&gt;condition: runState:
+isRunning?
+workCountConditionYesRunning=&gt;operation: 生成新的worker :&gt;#addworker
+goToQueue=&gt;end: 进入
+LinkedBlockingQueue
+等待worker处理
+handleQueue=&gt;operation: 不停地取LinkedBlockingQueue
+里面的task进行处理
+fetchCtl-&gt;workCountCondition
+workCountCondition(yes)-&gt;workCountConditionYes
+workCountConditionYes(yes)-&gt;workCountConditionYesRunning-&gt;handleQueue(right)
+workCountConditionYes(no)
+workCountCondition(no)-&gt;goToQueue
+</div>
+<h5 id="addworker"><a class="anchorlink" href="#addworker">4.2.4 addWorker</a></h5><p>当发现队列的容量未满, 而且Pool的状态不是 SHUTDOWN 或者 STOP,</p><p>则可进行 addWorker 操作</p><p>addWorker主要做下面几件事</p>
+<ul>
+<li>检查状态</li>
+<li>生成一个 <a href="#worker-data-structure">Worker</a>, 添加至<code>HashSet&lt;E&gt; workers</code>中</li>
+<li>调用 worker.thread.start() 方法</li>
+</ul>
+<div class="note"><p>我在阅读代码的时候, 看到存在 <code>workers</code> 和 <code>workQueue</code> 这两个field</p></div><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+/**
+ * Set containing all worker threads in pool. Accessed only when
+ * holding mainLock.
+ */
+private final HashSet&lt;Worker&gt; workers = new HashSet&lt;Worker&gt;();
+
+/**
+ * The queue used for holding tasks and handing off to worker
+ * threads.  We do not require that workQueue.poll() returning
+ * null necessarily means that workQueue.isEmpty(), so rely
+ * solely on isEmpty to see if the queue is empty (which we must
+ * do for example when deciding whether to transition from
+ * SHUTDOWN to TIDYING).  This accommodates special-purpose
+ * queues such as DelayQueues for which poll() is allowed to
+ * return null even if it may later return non-null when delays
+ * expire.
+ */
+private final BlockingQueue&lt;Runnable&gt; workQueue;
+
+</pre>
+</div>
+<div class="note"><p>当时非常难理解, 为什么需要两个类似的东西? 后来才明白, <code>worker</code> 是指 <strong>执行命令的线程载体</strong>, 它可以看做一个 <code>Thread Wrapper</code>, 不停地去轮询有没有任务(task)需要去执行; <code>workQueue</code> 是指所有task的集合, 他是一个阻塞队列.</p></div><p>两者的交互方式为:</p><div class="info"><p><code>workerCount</code> 代表的是 <code>当前执行命令(task)的线程的个数</code>, <code>corePoolSize</code> 代表的是 <code>可生成的执行命令(task)的线程的总数</code></p></div><div class="flowchart" style="display:none" id="e6ef1006ac0dd7afbc77a818794c58dd">
+  start=&gt;start: execute(aTask)
+workCountCondition=&gt;condition: workerCount
+小于corePoolSize
+workCountConditionYes=&gt;operation: 添加worker
+并直接执行
+queueCondition=&gt;condition: workQueue.size()
+小于 capacity
+(在指定时间内)
+queueConditionYes=&gt;operation: 添加task至workQueue
+queueConditionNo=&gt;operation: reject task
+loopInfinity=&gt;operation: 不停地从workQueue
+中取task执行:&gt;#get-task
+start-&gt;workCountCondition(yes)-&gt;workCountConditionYes-&gt;loopInfinity
+workCountCondition(no)-&gt;queueCondition
+queueCondition(yes)-&gt;queueConditionYes
+queueCondition(no)-&gt;queueConditionNo
+</div>
+<h6 id="get-task"><a class="anchorlink" href="#get-task">4.2.4.1 get task</a></h6><p>在 <code>Worker#runWorker</code> 方法:</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+final void runWorker(Worker w) {
+    Thread wt = Thread.currentThread();
+    Runnable task = w.firstTask;
+    w.firstTask = null;
+    w.unlock(); // allow interrupts
+    boolean completedAbruptly = true;
+    try {
+        // 不停地获取任务, 直到没有任务可以获取
+        while (task != null || (task = getTask()) != null) {
+            ...
+            task.run();
+            ...
+        }
+    }
+}
+
+</pre>
+</div>
+<p>有一个 getTask 方法, 这个方法会去 workQueue 里面去数据</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+private Runnable getTask() {
+    ...
+    try {
+        Runnable r = timed ?
+            // 如果设置了超时, 就使用 poll 方法获取 task
+            workQueue.poll(keepAliveTime, TimeUnit.NANOSECONDS) :
+            // 如果没有设置超时, 就使用 take 方法获取 task
+            workQueue.take();
+        if (r != null)
+            return r;
+    } catch (InterruptedException retry) {
+        ...
+    }
+}
+
+</pre>
+</div>
+<div class="note"><p>对于 newFixedThreadPool 这种类型, 使用的是 <a href="#linkedblockingqueue">LinkedBlockingQueue</a>, 在poll的时候会添加<code>takeLock</code>, offer的时候会添加<code>putLock</code>.</p></div><h6 id="worker-data-structure"><a class="anchorlink" href="#worker-data-structure">4.2.4.2 Worker Data Structure</a></h6><p>在上文中提到的 <code>workerCount</code> 对应的 <code>Worker</code> 就是这个.</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+private final class Worker
+    extends AbstractQueuedSynchronizer
+    // 这个Worker 实现了 Runnable 接口!
+    implements Runnable {
+
+    // 这个线程是用来执行任务的
+    final Thread thread;
+
+    public void run() {
+        runWorker(this);
+    }
+}
+
+</pre>
+</div>
+<p>这里非常关键的有下面几点</p>
+<ol>
+<li>Worker 对应一个线程, 从而 workerCount 数目即是 thread 的数量</li>
+<li>
+<p>Worker 实现了 <code>Runnable</code> 接口, 故实现了 <code>run</code> 方法</p>
+<div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+private final class Worker
+    // 这个Worker 实现了 Runnable 接口!
+    implements Runnable {
+
+    public void run() {
+        runWorker(this);
+    }
+}
+
+</pre>
+</div>
+</li>
+<li>
+<p>Worker 对应的 thread, 在 Worker 被实例化的时候, 将它本身传给了 thread</p>
+<div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+private final class Worker
+    // 这个Worker 实现了 Runnable 接口!
+    implements Runnable {
+    /**
+     * Creates with given first task and thread from ThreadFactory.
+     * @param firstTask the first task (null if none)
+     */
+    Worker(Runnable firstTask) {
+        setState(-1); // inhibit interrupts until runWorker
+        this.firstTask = firstTask;
+        // thread创建的时候, 已经将当前的worker: this传入了
+        this.thread = getThreadFactory().newThread(this);
+    }
+}
+
+</pre>
+</div>
+<p>在 调用 <code>worker.thread.start()</code> 的时候, 将会执行 <code>Worker#run</code> 方法</p>
+</li>
+<li>
+<p>Worker 状态的控制是在 <code>Worker#run</code> 方法中做的</p>
+<div class="note"><p>当时我一直在想一个问题: worker线程挂了怎么办? 谁来做处理? 原本想的是 <del>线程池有一个单独的线程, 轮询其他线程的状态</del>, 但是 <strong>这个线程挂了</strong> 怎么办? 查看源码后知道, 其实是在每一个 worker 自己去管理的, 在run方法的时候会设置 workers. 设置的时候会添加 <code>mainLock</code></p></div>
+<p>addWorker:</p>
+<div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+    // this 为 ThreadPoolExecutor 对象
+    final ReentrantLock mainLock = this.mainLock;
+    mainLock.lock();
+    try {
+        int rs = runStateOf(ctl.get());
+
+        if (rs &lt; SHUTDOWN ||
+            (rs == SHUTDOWN &amp;&amp; firstTask == null)) {
+
+            ...
+
+            workers.add(w);
+        }
+    } finally {
+        mainLock.unlock();
+    }
+
+</pre>
+</div>
+<p>processWorkerExit:</p>
+<div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+// worker 退出的时候会调用该方法
+private void processWorkerExit(Worker w, boolean completedAbruptly) {
+    if (completedAbruptly) // If abrupt, then workerCount wasn't adjusted
+        // workerCount 的设置是原子性的
+        decrementWorkerCount();
+
+        final ReentrantLock mainLock = this.mainLock;
+        mainLock.lock();
+        try {
+            ...
+            workers.remove(w);
+        } finally {
+            mainLock.unlock();
+        }
+    }
+
+</pre>
+</div>
+</li>
+</ol>
+<div class="note"><p>看到这里兴奋无比, Sidekiq 也是用的多线程, 实现了类似的线程池的功能, 思路是完全一致的. 下面的代码摘抄于 <a href="https://github.com/mperham/sidekiq/blob/master/lib/sidekiq/processor.rb#L68">Sidekiq::Processor#run</a>. 在下面的 <code>processor_stopped</code>, <code>processor_died</code> 方法中, 也都是添加了锁.</p></div><div class="code_container">
+<pre class="brush: ruby; gutter: false; toolbar: true;">
+# @mgr 即为他对应的 Manager 对象
+class Processor
+  def run
+    begin
+      while !@done
+        # 调用 perform 方法进行处理
+        process_one
+      end
+
+      # 一旦结束了, 则将 Processor对象中的manager对应的worker去掉, 即是改变了上述 Manager的 @workers 数组
+      @mgr.processor_stopped(self)
+    rescue Sidekiq::Shutdown
+      # 在接收到TERM SIGNAL之后, 等待超时的时候sidekiq会抛出异常 Sidekiq::Shutdown, 见下文分析
+      # 线程被关闭.
+      @mgr.processor_stopped(self)
+    rescue Exception =&gt; ex
+      # 程序报错了, Manager#processor_died 会重新生成一个新的Processor线程
+      @mgr.processor_died(self, ex)
+    end
+  end
+end
+
+</pre>
+</div>
+<h5 id="linkedblockingqueue"><a class="anchorlink" href="#linkedblockingqueue">4.2.5 LinkedBlockingQueue</a></h5><p>Fixed Thread Pool, 使用的是 <code>LinkedBlockingQueue</code> 作为存储队列</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/linkedList.png" alt="linkedList"></p><p>队列的特性主要有下面几点</p>
+<ol>
+<li>
+<p>FIFO, <code>offer</code> 操作发生在headNode, <code>pool</code> 操作发生在lastNode</p>
+<div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class LinkedBlockingQueue&lt;E&gt; extends AbstractQueue&lt;E&gt;
+    implements BlockingQueue&lt;E&gt;, java.io.Serializable {
+    /**
+     * Head of linked list.
+     * Invariant: head.item == null
+     */
+    transient Node&lt;E&gt; head;
+
+    /**
+     * Tail of linked list.
+     * Invariant: last.next == null
+     */
+    private transient Node&lt;E&gt; last;
+}
+
+</pre>
+</div>
+<div class="note"><p><code>add/remove</code> 往队列里面插入/删除一条记录, 成功返回true, 插入/删除不成功将会报错;
+<code>offer/pool</code> 往队列里面插入/删除一条记录, 成功返回true, 插入/删除不成功将返回false</p></div>
+</li>
+<li>
+<p>Two Lock Queue.</p>
+<p>设计了 <code>putLock</code> 和 <code>takeLock</code>, 在offer之前需要获取 putLock, 在pool之前需要获取 takeLock.</p>
+<div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class LinkedBlockingQueue&lt;E&gt; extends AbstractQueue&lt;E&gt;
+    implements BlockingQueue&lt;E&gt;, java.io.Serializable {
+
+    /** Lock held by take, poll, etc */
+    private final ReentrantLock takeLock = new ReentrantLock();
+
+    /** Lock held by put, offer, etc */
+    private final ReentrantLock putLock = new ReentrantLock();
+}
+
+</pre>
+</div>
+</li>
+<li>
+<p>Signals</p>
+<p>当队列变成非空的时候, 会通过 notEmpty.signal() 来进行通知</p>
+<p>当队列变成未满的时候, 会通过 notFull.signal() 来进行通知</p>
+<div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class LinkedBlockingQueue&lt;E&gt; extends AbstractQueue&lt;E&gt;
+    implements BlockingQueue&lt;E&gt;, java.io.Serializable {
+
+    /** Wait queue for waiting takes */
+    private final Condition notEmpty = takeLock.newCondition();
+
+    /** Wait queue for waiting puts */
+    private final Condition notFull = putLock.newCondition();
+}
+
+</pre>
+</div>
+<div class="note"><p>这种通知机制类似于 <code>synchronized</code> 的 <code>wait</code> 和 <code>notify</code>. 具体的场景为(以notFull为例): 当队列已满, 说明队列无法在offer新数据了
+根据策略, 可以等待一段时间 notFull.awaitNanos</p></div>
+<div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+// 队列当前长度 等于 队列的容量
+while (count.get() == capacity) {
+    if (nanos &lt;= 0)
+        return false;
+
+    nanos = notFull.awaitNanos(nanos);
+}
+
+</pre>
+</div>
+<div class="note"><p>当队列未满时, 需要进行通知, 也就是 <code>signal</code></p></div>
+<div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+// 队列当前长度 小于 队列的容量
+if (c + 1 &lt; capacity) {
+    notFull.signal();
+}
+
+</pre>
+</div>
+</li>
+<li>
+<p>Queue Atomic Count. 队列长度为AtomicInteger对象</p>
+<div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class LinkedBlockingQueue&lt;E&gt; extends AbstractQueue&lt;E&gt;
+    implements BlockingQueue&lt;E&gt;, java.io.Serializable {
+
+    /** Current number of elements */
+    private final AtomicInteger count = new AtomicInteger();
+}
+
+</pre>
+</div>
+</li>
+<li>
+<p>Node<e>. 使用节点来存储数据</e></p>
+<div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class LinkedBlockingQueue&lt;E&gt; extends AbstractQueue&lt;E&gt;
+    implements BlockingQueue&lt;E&gt;, java.io.Serializable {
+
+    /**
+     * Linked list node class
+     */
+    static class Node&lt;E&gt; {
+        E item;
+
+        /**
+         * One of:
+         * - the real successor Node
+         * - this Node, meaning the successor is head.next
+         * - null, meaning there is no successor (this is the last node)
+         */
+        Node&lt;E&gt; next;
+
+        Node(E x) { item = x; }
+    }
+}
+
+</pre>
+</div>
+</li>
+</ol>
+<h6 id="offer"><a class="anchorlink" href="#offer">4.2.5.1 offer</a></h6><p><code>LinkedBlockingQueue#offer</code> 提供的是插入数据的方法</p><p>JDK8.0的注释如下:</p>
+<blockquote>
+<p>Inserts the specified element at the tail of this queue, waiting if
+necessary up to the specified wait time for space to become available.</p>
+</blockquote>
+<div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class LinkedBlockingQueue&lt;E&gt; extends AbstractQueue&lt;E&gt;
+    implements BlockingQueue&lt;E&gt;, java.io.Serializable {
+
+    public boolean offer(E e, long timeout, TimeUnit unit)
+        throws InterruptedException {
+
+        if (e == null) throw new NullPointerException();
+        long nanos = unit.toNanos(timeout);
+
+        // Note: convention in all put/take/etc is to preset local var
+        // holding count negative to indicate failure unless set.
+        // 这个是约定, 设置为一个负值, 并没有特殊的含义...
+        int c = -1;
+        final ReentrantLock putLock = this.putLock;
+        final AtomicInteger count = this.count;
+
+        // 添加 putLock 的锁
+        putLock.lockInterruptibly();
+
+        try {
+            // 如果队列已经满了, 则进行等待一段时间
+            // 直到队列的count小于capacity 为止
+            while (count.get() == capacity) {
+                if (nanos &lt;= 0)
+                    return false;
+                nanos = notFull.awaitNanos(nanos);
+            }
+
+            // 进行入队列操作, 该操作是不添加锁的, 仅仅修改了 last
+            // last = last.next = node;
+            enqueue(new Node&lt;E&gt;(e));
+
+            // 原子性的进行加1
+            c = count.getAndIncrement();
+
+            // 如果发现队列未满, 则发 notFull 的 signal
+            // TODO: signal的信号机制, ReentrantLock 还需要再看一下
+            if (c + 1 &lt; capacity)
+                notFull.signal();
+        } finally {
+            // 解锁
+            putLock.unlock();
+        }
+        if (c == 0)
+            signalNotEmpty();
+        return true;
+    }
+}
+
+</pre>
+</div>
+<h6 id="poll"><a class="anchorlink" href="#poll">4.2.5.2 poll</a></h6><p><code>LinkedBlockingQueue#poll</code> 提供的是获取数据的方法</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class LinkedBlockingQueue&lt;E&gt; extends AbstractQueue&lt;E&gt;
+    implements BlockingQueue&lt;E&gt;, java.io.Serializable {
+    public E poll(long timeout, TimeUnit unit) throws InterruptedException {
+        E x = null;
+        int c = -1;
+        long nanos = unit.toNanos(timeout);
+        final AtomicInteger count = this.count;
+        final ReentrantLock takeLock = this.takeLock;
+
+        // 添加 takeLock 锁
+        takeLock.lockInterruptibly();
+        try {
+            while (count.get() == 0) {
+                if (nanos &lt;= 0)
+                    return null;
+                nanos = notEmpty.awaitNanos(nanos);
+            }
+
+            // 从队列头部获得数据
+            x = dequeue();
+            c = count.getAndDecrement();
+            if (c &gt; 1)
+                notEmpty.signal();
+        } finally {
+            takeLock.unlock();
+        }
+        if (c == capacity)
+            signalNotFull();
+        return x;
+    }
+}
+
+</pre>
+</div>
+<h5 id="shutdown"><a class="anchorlink" href="#shutdown">4.2.6 Shutdown</a></h5><p>线程池的关闭</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public void shutdown() {
+    final ReentrantLock mainLock = this.mainLock;
+    mainLock.lock();
+    try {
+        checkShutdownAccess();
+        advanceRunState(SHUTDOWN);
+        interruptIdleWorkers();
+        onShutdown(); // hook for ScheduledThreadPoolExecutor
+    } finally {
+        mainLock.unlock();
+    }
+    tryTerminate();
+}
+
+</pre>
+</div>
+<p>包括下面四部分:</p>
+<ul>
+<li>checkShutdownAccess, 检查是否有权限操作该线程</li>
+<li>advanceRunState(SHUTDOWN), 将线程池设置为SHUTDOWN状态, 使用CAS设置.</li>
+<li>
+<p>interruptIdleWorkers, 将每一个没有处理任务的worker都中断</p>
+<div class="note"><p>如何进行判断是否正在处理任务? 这里利用了 <code>tryLock</code> 方法</p></div>
+<div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+for (Worker w : workers) {
+    Thread t = w.thread;
+    // 如果没有中断, 而且可以获得锁 (如果获取不到锁, 则说明他正在处理任务)
+    if (!t.isInterrupted() &amp;&amp; w.tryLock()) {
+        try {
+            t.interrupt();
+        } catch (SecurityException ignore) {
+        } finally {
+            w.unlock();
+        }
+    }
+}
+
+</pre>
+</div>
+<div class="note"><p>线程池用到的 <code>Worker</code> 继承自 <code>AbstractQueuedSynchronizer</code>, 里面实现了相关的 <code>synchronizers</code>. <code>tryLock</code> 为 AbstractQueuedSynchronizer 提供的基础功能之一.</p></div>
+</li>
+<li><p>onShutdown, 给 <code>ScheduledThreadPoolExecutor</code> 添加的钩子方法.</p></li>
+</ul>
+<div class="note"><p>什么时候需要调用<code>shutdown</code>方法? 参考StackOverflow里的 <a href="https://stackoverflow.com/a/16742217/8186609">这篇回答</a>, 类似于 SIGINT 信号(如我们使用CTRL-C)停止使用, 或者直接发送一个信号给相应的进程等. 会用到 shutdown, 这里的 shutdown 是一种 <code>gracefully shutdown</code>, 首先停止接收新的请求, 然后关闭多余的worker, 再等待现有的任务执行完(可给一个处理超时时间). 这是一种非常经典的做法, <a href="https://github.com/dengqinghua/roses/blob/master/source/sidekiq_task_event.md#%E9%98%9F%E5%88%97%E9%87%8D%E5%90%AF%E6%97%B6job%E7%9A%84%E5%A4%84%E7%90%86">Sidekiq</a> 队列的重启也是这样处理的.</p></div><div class="info"><p>这里 <code>停止接收新的任务</code> 是通过设置状态为 <code>SHUTDOWN</code> 控制的, 作者还提供了 <code>shutdownNow</code>方法, 该方法清除还存留在队列里面的值.</p></div><h5 id="future"><a class="anchorlink" href="#future">4.2.7 Future</a></h5><p><code>ExecutorService</code>接口提供了 <code>submit</code> 方法, 她和 <code>execute</code> 的区别是 submit 返回 <code>Future</code> 对象, 我们可以通过 Future 对象来获得当前的任务的执行状态,
+或者是获得执行的结果</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+while (true) {
+    final Socket connection = socket.accept();
+    Future task = executorFuture.submit(() -&gt; handleConnection(connection));
+    System.out.println(task.get());    // 如果没有结果则堵塞
+    System.out.println(task.isDone()); // 返回true
+}
+
+</pre>
+</div>
+<h6 id="runnable-wrapper"><a class="anchorlink" href="#runnable-wrapper">4.2.7.1 Runnable Wrapper</a></h6><p>Future的实现仅仅是一个Wrapper.</p><p>在调用</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+Future task = executorFuture.submit(() -&gt; handleConnection(connection));
+
+</pre>
+</div>
+<p>的时候, submit 方法源码如下:</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+// java/util/concurrent/AbstractExecutorService.java:114
+public Future&lt;?&gt; submit(Runnable task) {
+    if (task == null) throw new NullPointerException();
+    RunnableFuture&lt;Void&gt; ftask = newTaskFor(task, null);
+    execute(ftask);
+    return ftask;
+}
+
+</pre>
+</div>
+<p>可以看到, 她其实是创建了一个 RunnableFuture 的对象, 这个对象实现了 <code>Runnable</code> 和 <code>Future</code></p><p>并且将传入的真正的任务变成了 RunnableFuture 的一个 field</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public FutureTask(Runnable runnable, V result) {
+    // 将需要执行的任务存储起来
+    this.callable = Executors.callable(runnable, result);
+    this.state = NEW;       // ensure visibility of callable
+}
+
+</pre>
+</div>
+<p>然后线程池执行的execute方法, 会调用 <code>FutureTask#run()</code></p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+public class FutureTask&lt;V&gt; implements RunnableFuture&lt;V&gt; {
+    public void run() {
+        if (state != NEW ||
+            !UNSAFE.compareAndSwapObject(this, runnerOffset,
+                                         null, Thread.currentThread()))
+            return;
+        try {
+            Callable&lt;V&gt; c = callable;
+            if (c != null &amp;&amp; state == NEW) {
+                V result;
+                boolean ran;
+                try {
+                    // 在这里调用真正的需要执行的任务
+                    result = c.call();
+                    // 到这儿就说明已经执行完了
+                    ran = true;
+                } catch (Throwable ex) {
+                    result = null;
+                    ran = false;
+                    setException(ex);
+                }
+                if (ran)
+                    set(result);
+            }
+        } finally {
+            ....
+        }
+    }
+}
+
+</pre>
+</div>
+<h6 id="future-get"><a class="anchorlink" href="#future-get">4.2.7.2 Future#get()</a></h6><p>FutureTask对象有一个状态字段:</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+/**
+ * The run state of this task, initially NEW.  The run state
+ * transitions to a terminal state only in methods set,
+ * setException, and cancel.  During completion, state may take on
+ * transient values of COMPLETING (while outcome is being set) or
+ * INTERRUPTING (only while interrupting the runner to satisfy a
+ * cancel(true)). Transitions from these intermediate to final
+ * states use cheaper ordered/lazy writes because values are unique
+ * and cannot be further modified.
+ *
+ * Possible state transitions:
+ * NEW -&gt; COMPLETING -&gt; NORMAL
+ * NEW -&gt; COMPLETING -&gt; EXCEPTIONAL
+ * NEW -&gt; CANCELLED
+ * NEW -&gt; INTERRUPTING -&gt; INTERRUPTED
+ */
+private volatile int state;
+private static final int NEW          = 0;
+private static final int COMPLETING   = 1;
+private static final int NORMAL       = 2;
+private static final int EXCEPTIONAL  = 3;
+private static final int CANCELLED    = 4;
+private static final int INTERRUPTING = 5;
+private static final int INTERRUPTED  = 6;
+
+</pre>
+</div>
+<p>可以看到, 状态的变化是非常复杂的. 我原本想的是 <code>Future#get()</code> 方法很简单, <del>不就是一个轮询吗? 完成了就返回结果即可</del></p><p>但是其实如果不停的自旋等待(spin-wait), 会占有CPU资源, 所以这里做了很多优化, 如 <code>Thread.yield()</code> 等.</p><div class="todo"><p>这块还用到了<code>SynchronousQueue Phaser LockSupport Treiber</code>等概念和相关知识, 需要恶补一下.</p></div><h3 id="references"><a class="anchorlink" href="#references">5 References</a></h3>
+<ul>
+<li><a href="https://stackoverflow.com/a/9749864/8186609">What is the difference between atomic/volatile/synchronized?</a></li>
+<li><a href="https://www.artima.com/insidejvm/ed2/threadsynch.html">Thread Synchronization, monitorenter, monitorexit</a></li>
+</ul>
+
+
+        <div id="comment"></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="hide" />
+  <div id="footer">
+    <div class="wrapper">
+      <p>版权声明：自由转载-非商用-非衍生-保持署名(<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享3.0许可证</a>)</p>
+<p>For Ruby Roses.</p>
+
+    </div>
+  </div>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/responsive-tables.js"></script>
+  <script type="text/javascript" src="javascripts/guides.js"></script>
+
+  <!-- ./node_modules/gulp/bin/gulp.js build -\-brushes=bash,cpp,css,javascript,java,plain,python,ruby,scala,sql,xml -->
+  <!-- uglifyjs syntaxhighlighter.js  -\-output syntaxhighlighter.min.js -->
+  <script type="text/javascript" src="javascripts/syntaxhighlighter.min.js"></script>
+  <script type="text/javascript" src="javascripts/tonal.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.0.1/Tone.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/tone/13.1.22/Tone.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.4/svg.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/svg.js/2.6.5/svg.js"></script>
+  <script type="text/javascript" src="javascripts/chordy-svg.min.js"></script>
+  <script type="text/javascript" src="javascripts/chord.js"></script>
+  <!-- <script type="text/javascript" src="javascripts/gitalk.min.js"></script> -->
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.2.2/gitalk.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/gitalk/1.2.2/gitalk.js"></script>
+  <script type="text/javascript" src="javascripts/load_docs.js"></script>
+  <!-- <script type="text/javascript" src="javascripts/Treant.js"></script> -->
+  <script src="https://cdn.bootcss.com/treant-js/1.0/Treant.min.js"></script>
+  <!-- <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.0/raphael&#45;min.js"></script> -->
+  <script src="https://cdn.bootcss.com/raphael/2.2.7/raphael.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.11.0/flowchart.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/flowchart/1.11.0/flowchart.min.js"></script>
+  <script type="text/javascript" src="javascripts/flowchart_generator.js"></script>
+  <script type="text/javascript" src="javascripts/tree_generator.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115746206-1"></script>
+
+  <script type="text/javascript" src="javascripts/abcjs_midi_5.1.2-min.js"></script>
+  <script type="text/javascript" src="javascripts/music_generator.js"></script>
+
+  <script type="text/javascript">
+    syntaxhighlighterConfig = {
+      autoLinks: false,
+    };
+
+    $(guidesIndex.bind);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115746206-1');
+  </script>
+
+  <script type="text/javascript">
+    var locationId = (location.pathname).split("/").pop().substring(0, 49);
+
+    if (locationId) {
+      var language = window.location.search.match("lang=en") ? "en" : "zh-CN"
+      var gitalk   = new Gitalk({
+        clientID: '0f5824fe1c09851e9781',
+        clientSecret: '61710a77ee98cddce06f408a398f05c8622e9575',
+        repo: 'blog_comments',
+        owner: 'dengqinghua',
+        admin: ['dengqinghua'],
+        id: locationId,
+        distractionFreeMode: true,
+        language: language
+      });
+
+      gitalk.render('comment');
+    }
+  </script>
+</body>
+</html>

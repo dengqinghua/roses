@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="baidu-site-verification" content="N1Q3HiESgp" />
+
+<title>JVM剖析 — dengqinghua&#39;s blog</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shCore.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shThemeRailsGuides.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/fixes.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/abcjs-midi.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/gitalk.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/Treant.css" />
+  <link href="images/favicon.jpeg" rel="shortcut icon" type="image/x-icon" />
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body class="guide">
+  <div id="topNav">
+    <div class="wrapper">
+
+      <strong class="more-info-label">More:</strong>
+
+      <span class="red-button more-info-button">More Dengqinghua</span>
+      <ul class="more-info-links s-hidden">
+        <li class="more-info"><a href="http://www.dengqinghua.net/">About me</a></li>
+        <li class="more-info"><a href="https://github.com/dengqinghua/">Github</a></li>
+        <li class="more-info"><a href="mailto:dengqinghua.42@gmail.com">Gmail</a></li>
+        <li class="more-info"><a href="https://twitter.com/dengqinghua_42">Twitter</a></li>
+      </ul>
+
+      <form action="http://google.com/search" method="get">
+          <input name="q" value="site:blog.dengqinghua.net" type="hidden">
+          <input class="search" name="q" placeholder="Search Blog" type="text">
+      </form>
+    </div>
+  </div>
+  <div id="header">
+    <div class="wrapper clearfix">
+      <h1><a href="http://blog.dengqinghua.net" title="Return to home page">http://blog.dengqinghua.net</a></h1>
+      <ul class="nav">
+        <li><a class="nav-item" href="http://blog.dengqinghua.net">Home</a></li>
+        <li class="guides-index guides-index-large">
+          <a href="index.html" id="guidesMenu" class="guides-index-item nav-item">
+            Index <span id="guidesArrow">▸</span>
+          </a>
+
+          <div id="guides" class="clearfix" style="display: none;">
+            <hr />
+              <dl class="L">
+                <dt>推荐</dt>
+                <dd><a href="badge_system.html">基于内存数据库的角标系统设计</a></dd>
+                <dd><a href="witness_flow.html">业务流引擎系统</a></dd>
+                <dt>Ruby</dt>
+                <dd><a href="ruby_knowledge_tree.html">Ruby知识树</a></dd>
+                <dd><a href="ruby_model.html">Ruby数据模型</a></dd>
+                <dd><a href="arel.html?lang=en">Arel源码分析</a></dd>
+                <dd><a href="sidekiq_task_event.html">基于Sidekiq的异步任务管理引擎</a></dd>
+                <dd><a href="racc.html">Racc</a></dd>
+                <dd><a href="witness_flow.html">业务流引擎系统</a></dd>
+                <dt>Java</dt>
+                <dd><a href="data_structures.html">数据结构</a></dd>
+                <dd><a href="learn_jvm.html">JVM剖析</a></dd>
+                <dd><a href="concurrency.html">Concurrency</a></dd>
+                <dd><a href="badge_system.html">基于内存数据库的角标系统设计</a></dd>
+                <dd><a href="maven_under_command_line.html">命令行下的Maven</a></dd>
+                <dt>MySQL</dt>
+                <dd><a href="mysql_knowledge_tree.html">MySQL知识树</a></dd>
+              </dl>
+              <dl class="R">
+                <dt>Go</dt>
+                <dd><a href="go_get_timeout_solution.html">GoInstallBinaries i/o timeout问题</a></dd>
+                <dd><a href="go_knowledge_tree.html">Go知识树</a></dd>
+                <dt>音乐</dt>
+                <dd><a href="music_index.html">音乐学习体系</a></dd>
+                <dd><a href="lalaland-city_of_stars.html">City Of Star</a></dd>
+                <dd><a href="あの日の帰り道.html">あの日の帰り道</a></dd>
+                <dd><a href="rain_wwh.html">雨の日はワルツを踊って</a></dd>
+                <dd><a href="it_could_have_been.html">Es Ware Schon Gewesen</a></dd>
+                <dt>杂记</dt>
+                <dd><a href="example_markdown.html">markdown格式实例</a></dd>
+                <dd><a href="comments.html">注释规范</a></dd>
+                <dd><a href="best_programming.html">零bug落地方案</a></dd>
+                <dd><a href="raft.html">Raft算法</a></dd>
+                <dd><a href="memorize_my_mentor.html">Memorize My Mentor</a></dd>
+              </dl>
+          </div>
+        </li>
+        <li class="guides-index guides-index-small">
+          <select class="guides-index-item nav-item">
+            <option value="index.html">Index</option>
+              <optgroup label="推荐">
+                  <option value="badge_system.html">基于内存数据库的角标系统设计</option>
+                  <option value="witness_flow.html">业务流引擎系统</option>
+              </optgroup>
+              <optgroup label="Ruby">
+                  <option value="ruby_knowledge_tree.html">Ruby知识树</option>
+                  <option value="ruby_model.html">Ruby数据模型</option>
+                  <option value="arel.html?lang=en">Arel源码分析</option>
+                  <option value="sidekiq_task_event.html">基于Sidekiq的异步任务管理引擎</option>
+                  <option value="racc.html">Racc</option>
+                  <option value="witness_flow.html">业务流引擎系统</option>
+              </optgroup>
+              <optgroup label="Java">
+                  <option value="data_structures.html">数据结构</option>
+                  <option value="learn_jvm.html">JVM剖析</option>
+                  <option value="concurrency.html">Concurrency</option>
+                  <option value="badge_system.html">基于内存数据库的角标系统设计</option>
+                  <option value="maven_under_command_line.html">命令行下的Maven</option>
+              </optgroup>
+              <optgroup label="MySQL">
+                  <option value="mysql_knowledge_tree.html">MySQL知识树</option>
+              </optgroup>
+              <optgroup label="Go">
+                  <option value="go_get_timeout_solution.html">GoInstallBinaries i/o timeout问题</option>
+                  <option value="go_knowledge_tree.html">Go知识树</option>
+              </optgroup>
+              <optgroup label="音乐">
+                  <option value="music_index.html">音乐学习体系</option>
+                  <option value="lalaland-city_of_stars.html">City Of Star</option>
+                  <option value="あの日の帰り道.html">あの日の帰り道</option>
+                  <option value="rain_wwh.html">雨の日はワルツを踊って</option>
+                  <option value="it_could_have_been.html">Es Ware Schon Gewesen</option>
+              </optgroup>
+              <optgroup label="杂记">
+                  <option value="example_markdown.html">markdown格式实例</option>
+                  <option value="comments.html">注释规范</option>
+                  <option value="best_programming.html">零bug落地方案</option>
+                  <option value="raft.html">Raft算法</option>
+                  <option value="memorize_my_mentor.html">Memorize My Mentor</option>
+              </optgroup>
+          </select>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr class="hide" />
+
+  <div id="feature">
+    <div class="wrapper">
+      <h2>JVM剖析</h2><div class="date"><p>2018-04-11</p></div><p>该文档涵盖了JVM的一些知识点和总结.</p><p>阅读完该文档后，您将会了解到:</p>
+<ul>
+<li>JVM的一些比较好的参考资料.</li>
+<li>通过一些例子来观察JVM的特性</li>
+</ul>
+
+
+                <div id="subCol">
+            <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Chapters</h3>
+            <ol class="chapters">
+<li>
+<a href="#jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F">JVM内存区域</a>
+
+<ul>
+<li><a href="#jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F-%E6%9E%B6%E6%9E%84%E5%9B%BE">架构图</a></li>
+</ul>
+</li>
+<li>
+<a href="#gc">GC</a>
+
+<ul>
+<li><a href="#%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E5%AD%98%E6%B4%BB">判断对象是否存活</a></li>
+<li><a href="#%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8%E6%A6%82%E5%BF%B5">对象引用概念</a></li>
+<li><a href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95">垃圾收集算法</a></li>
+<li><a href="#hotspot-gc%E7%AE%97%E6%B3%95">HotSpot GC算法</a></li>
+<li><a href="#%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%92%8C%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5-serial">内存分配和回收策略(Serial)</a></li>
+<li><a href="#gc%E8%A7%A6%E5%8F%91%E6%9D%A1%E4%BB%B6">GC触发条件</a></li>
+<li><a href="#garbage-collectors">Garbage Collectors</a></li>
+<li><a href="#gc%E6%97%A5%E5%BF%97">GC日志</a></li>
+<li><a href="#gc%E7%A0%94%E7%A9%B6%E5%B7%A5%E5%85%B7">GC研究工具</a></li>
+</ul>
+</li>
+<li>
+<a href="#class-file">class File</a>
+
+<ul>
+<li><a href="#class-file-%E6%9E%B6%E6%9E%84%E5%9B%BE">架构图</a></li>
+<li><a href="#javap%E5%88%86%E6%9E%90class%E6%96%87%E4%BB%B6">javap分析class文件</a></li>
+<li><a href="#constant-pool">Constant Pool</a></li>
+<li><a href="#access-flags">Access Flags</a></li>
+<li><a href="#fields">Fields</a></li>
+<li><a href="#attributes">Attributes</a></li>
+<li><a href="#methods">Methods</a></li>
+</ul>
+</li>
+<li><a href="#references">References</a></li>
+</ol>
+
+          </div>
+
+    </div>
+  </div>
+
+  <div id="container">
+    <div class="wrapper">
+      <div id="mainCol">
+        <h3 id="jvm内存区域"><a class="anchorlink" href="#jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F">1 JVM内存区域</a></h3><h4 id="jvm内存区域-架构图"><a class="anchorlink" href="#jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F-%E6%9E%B6%E6%9E%84%E5%9B%BE">1.1 架构图</a></h4><h5 id="jvm"><a class="anchorlink" href="#jvm">1.1.1 JVM</a></h5><p>HotSpotJVMArchitecture
+<img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/HotSpotJVMArchitecture.png" alt="HotSpotJVMArchitecture"></p><p>如果更细分地认识, 可以按照下面的方式划分:
+<img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/jvm_structure.png" alt="jvm_structure"></p><h5 id="heap"><a class="anchorlink" href="#heap">1.1.2 Heap</a></h5><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/HotSpotHeapStructure.png" alt="HotSpotHeapStructure"></p><h3 id="gc"><a class="anchorlink" href="#gc">2 GC</a></h3><h4 id="判断对象是否存活"><a class="anchorlink" href="#%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E5%AD%98%E6%B4%BB">2.1 判断对象是否存活</a></h4>
+<table>
+<thead>
+<tr>
+<th>算法</th>
+<th>描述</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reference Counting</td>
+<td>给对象添加引用计算器</td>
+<td>简单</td>
+<td>难以解决对象之间相互引用问题</td>
+</tr>
+<tr>
+<td>Reachability Analysis</td>
+<td>设置 GC root, 构造一颗树, 看一个对象是否和GC root相连</td>
+<td>复杂,需要遍历整棵树</td>
+<td>解决了相互引用问题</td>
+</tr>
+</tbody>
+</table>
+<h4 id="对象引用概念"><a class="anchorlink" href="#%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8%E6%A6%82%E5%BF%B5">2.2 对象引用概念</a></h4>
+<blockquote>
+<p>我们希望能描述这样一类对象: 当内存空间还足够时, 则能保留在内存之中; 如果内存空间在进行垃圾收集后还是非常紧张, 则可以抛弃这些对象. 所以对象的引用不仅仅只有一种, 衍生出来了 Soft, Weak, Phantom 等形式</p>
+</blockquote>
+
+<ul>
+<li>StrongReference, 即 Object</li>
+<li>SoftReference</li>
+<li>WeakReference</li>
+<li>PhantomReference</li>
+</ul>
+<h4 id="垃圾收集算法"><a class="anchorlink" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95">2.3 垃圾收集算法</a></h4>
+<ol>
+<li>Mark Sweep, 标记, 清除. 会产生大量的内存碎片, 可能会导致程序在分配内存时获取不到连续的内存空间, 而不得不进行第二次GC操作</li>
+<li>Copying, 复制算法. 将内存按容量划分为两块, 每次只用其中的一块. 用完了就将存活的对象拷贝到另外一块, 再将原来的清除</li>
+<li>Mark Compact. 标记, 整理. Compact的意思是, 让存活的对象往一端移动, 避免大量的内存碎片</li>
+<li>Generational Collection. 分代收集, 1,2,3的结合体, 在不同的情况采取不同的方式.</li>
+</ol>
+<div class="note"><p>推荐阅读这篇文章: <a href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html">Java Garbage Collection Basics</a>,
+她讲述了GC收集算法是如何从最初的 <strong>Mark Sweep</strong> 到最后的 <strong>Generational Collection</strong></p></div><div class="flowchart" style="display:none" id="ab3230272ccc34d8259d2c1192b3c7a0">
+  day1=&gt;operation: Mark Sweep
+导致内存碎片
+day2=&gt;operation: Mark Compact
+频繁地进行compacting
+但是很多对象的存活时间很短
+day3=&gt;parallel: Copying
+需要冗余内存
+day4=&gt;operation: Generational Collection
+根据存活时间分为不同年代
+不同年代的占比不同
+没有内存碎片,冗余内存少
+day1-&gt;day2-&gt;day3-&gt;day4
+</div>
+<h4 id="hotspot-gc算法"><a class="anchorlink" href="#hotspot-gc%E7%AE%97%E6%B3%95">2.4 HotSpot GC算法</a></h4><h5 id="结构"><a class="anchorlink" href="#%E7%BB%93%E6%9E%84">2.4.1 结构</a></h5><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/HotSpotHeapStructure.png" alt="HotSpotHeapStructure"></p>
+<ol>
+<li>
+<p>Young Generation</p>
+<ul>
+<li>新分配对象分配会存在这里</li>
+<li>该部分的GC收集为<code>Minor Garbage Collection</code>, 属于 <code>Stop the World Event</code>
+</li>
+</ul>
+</li>
+<li>
+<p>Old Generation</p>
+<ul>
+<li>存放长期存活的对象(是否长期存活, 有对应的配置值, 从Young Generation转移过来)</li>
+<li>该部分的GC收集为<code>Major Garbage Collection</code>, 也属于 <code>Stop the World Event</code>
+</li>
+</ul>
+</li>
+<li>
+<p>Permanent Generation</p>
+<ul>
+<li>存放Java的一些方法和Class, 可以认为是<code>Method Area</code>
+</li>
+<li>在<code>Full Garbage Collection</code>的时候, 会清理该部分</li>
+</ul>
+</li>
+</ol>
+<div class="note"><p>各个Generation的内存分配比例默认为: <strong>Young Generation</strong> 中, <strong>Eden</strong> 和 <strong>Survivor</strong> 的默认比例为8:1, 可以通过 -XX:SurvivorRatio=8 进行设置,
+而 <strong>Old Generation</strong> 和 <strong>Young Generation</strong> 比例为 2: 1, 可以通过 -XX:NewRatio=2 进行配置. 参考: <a href="http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html">Java HotSpot VM Options</a></p></div><h4 id="内存分配和回收策略-serial"><a class="anchorlink" href="#%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%92%8C%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5-serial">2.5 内存分配和回收策略(Serial)</a></h4><div class="flowchart" style="display:none" id="d5238e0e5c00b38f63a11ef49c892ece">
+  init=&gt;start: 创建新的对象
+toEden=&gt;operation: 将对象放到Eden
+checkFull=&gt;condition: Eden full?
+EdenGC=&gt;operation: Young Generation GC(Minor GC)
+包括Eden和Survivor区域
+mark=&gt;operation: 标记对象是否有引用
+remove=&gt;operation: 将还在引用的对象放入survivor区域:&gt;#survivor-choose
+survivorFull=&gt;condition: survivor(0/1) full?
+promotionCondition=&gt;condition: 对象存活时间超过threshold:&gt;#object-age
+promotion=&gt;operation: Promotion
+对象由Young Generation变成Old Generation
+被转移至Tenured区域
+majorGCcheck=&gt;condition: Tenured full?
+majorGC=&gt;operation: Old Generation GC(Major GC)
+end=&gt;end: 结束
+init-&gt;toEden-&gt;checkFull
+checkFull(yes)-&gt;EdenGC-&gt;mark-&gt;remove-&gt;survivorFull
+checkFull(no)-&gt;end
+survivorFull(yes)-&gt;promotion
+survivorFull(no)-&gt;promotionCondition
+promotionCondition(yes)-&gt;promotion
+</div>
+<p>如果 <code>Old Generation</code> 区域, 即 <code>Tenured</code> 区域满了之后, 会触发 <code>Major GC</code></p><h5 id="object-age"><a class="anchorlink" href="#object-age">2.5.1 object age</a></h5><p>JVM给了每一个对象一个Age计数器, 当对象在<code>survivor</code>经历一次<code>Minor GC</code>的时候, Age便加1
+当Age达到threshold(默认为15, 通过-XX:MaxTenuringThreshold=15进行设置), 则会进行
+<code>Promotion</code></p><h5 id="survivor-choose"><a class="anchorlink" href="#survivor-choose">2.5.2 survivor choose</a></h5><p>我们知道有两个survivor区</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/HotSpotHeapStructure.png" alt="HotSpotHeapStructure"></p><p>S0和S1有一个为冗余内存, 类似于 <code>Copying</code> 算法的冗余内存, S0和S1始终有一块为空</p><p>处理步骤为:</p><div class="flowchart" style="display:none" id="813dc5cf0a7f34c5f12a774bae837c88">
+  init=&gt;start: Minor GC
+S0=&gt;condition: S0为空
+S0Yes=&gt;operation: 将Eden和S1存活的对象放入S0中
+S1Yes=&gt;operation: 将Eden和S0存活的对象放入S1中
+init-&gt;S0
+S0(yes)-&gt;S0Yes
+S0(no)-&gt;S1Yes
+</div>
+<p><a href="#%E6%AD%A5%E9%AA%A4">Back</a></p><div class="note"><p>为什么需要有两个区域? 我的理解是为了避免内存碎片问题, 在StackOverflow的 <a href="https://stackoverflow.com/a/10695418/8186609">这篇回答</a>中有解释.
+另外, 拆分出两个区域可以使得算法变得更简单.</p></div><h4 id="gc触发条件"><a class="anchorlink" href="#gc%E8%A7%A6%E5%8F%91%E6%9D%A1%E4%BB%B6">2.6 GC触发条件</a></h4>
+<ul>
+<li>Eden full(Minor)</li>
+<li>Tenured full(Major)</li>
+<li>System.gc(Major)</li>
+</ul>
+<h4 id="garbage-collectors"><a class="anchorlink" href="#garbage-collectors">2.7 Garbage Collectors</a></h4>
+<ul>
+<li>Serial GC (Young: Copying, Old: Mark Compact)</li>
+<li>Paralle Scavange GC(Young(MultiThread): Copying, Old(SingleThread): Mark Compact)</li>
+<li>CMS, Concurrent Mark Sweep</li>
+<li>G1</li>
+</ul>
+<h5 id="cms"><a class="anchorlink" href="#cms">2.7.1 CMS</a></h5><div class="flowchart" style="display:none" id="75c91b98b4ffb3016650698c50e3221d">
+  Init=&gt;start: Init
+(Stop the World)寻找GC roots
+Concurrent-Mark=&gt;operation: Concurrent Mark
+标记对象的引用状态
+remark=&gt;operation: Remark
+(Stop the World)标记上一步引用状态变化的对象
+sweep=&gt;end: Sweep
+Init-&gt;Concurrent-Mark-&gt;remark-&gt;sweep
+</div>
+<p>参考: <a href="https://blog.takipi.com/garbage-collectors-serial-vs-parallel-vs-cms-vs-the-g1-and-whats-new-in-java-8/">Garbage Collectors - Serial vs. Parallel vs. CMS vs. G1 (and what’s new in Java 8)</a></p><div class="note"><p>吞吐量 Throughput 为 CPU用于运行用户代码的时间 / (运行用户代码的时间 + GC时间), 一般来说,
+当 Generation 的空间变小之后, 一次GC的时间更快, 但是GC会更频繁, 这样的话在相同的时间内, GC的总时间
+不一定会更快</p></div><h4 id="gc日志"><a class="anchorlink" href="#gc%E6%97%A5%E5%BF%97">2.8 GC日志</a></h4><p>参数设置</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+-XX:+DisableExplicitGC
+-XX:+PrintGCDetails
+-XX:+PrintGCApplicationStoppedTime
+-XX:+PrintGCApplicationConcurrentTime
+-XX:+PrintGCDateStamps
+-Xloggc:gclog.log
+-XX:+UseGCLogFileRotation
+-XX:NumberOfGCLogFiles=5
+-XX:GCLogFileSize=2000k
+
+</pre>
+</div>
+<div class="info"><p>如果是用 <strong>maven exec:java</strong> 来执行, 可以添加配置
+<code>
+export MAVEN_OPTS="-XX:+DisableExplicitGC -XX:+PrintGCDetails -XX:+PrintGCApplicationStoppedTime -XX:+PrintGCApplicationConcurrentTime -XX:+PrintGCDateStamps -Xloggc:gclog.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=2000k -Xmx30M"
+</code></p></div><p>参考: <a href="https://dzone.com/articles/enabling-and-analysing-the-garbage-collection-log">Enabling and Analyzing the Garbage Collection Log</a></p><h4 id="gc研究工具"><a class="anchorlink" href="#gc%E7%A0%94%E7%A9%B6%E5%B7%A5%E5%85%B7">2.9 GC研究工具</a></h4><h5 id="sdk自带工具"><a class="anchorlink" href="#sdk%E8%87%AA%E5%B8%A6%E5%B7%A5%E5%85%B7">2.9.1 SDK自带工具</a></h5>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>jps</td>
+<td>查看当前所有的java进程</td>
+</tr>
+<tr>
+<td>jstat -gc</td>
+<td>查看当前gc情况, 包括GC情况, 新生代/老生代的内存占用情况等, 参数含义见<a href="https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jstat.html">这里</a>
+</td>
+</tr>
+<tr>
+<td>jinfo</td>
+<td>查看JVM的启动参数</td>
+</tr>
+<tr>
+<td>jstack</td>
+<td>JVM的栈信息</td>
+</tr>
+<tr>
+<td>jconsole</td>
+<td>JVM的可视化工具</td>
+</tr>
+<tr>
+<td>jvisualvm</td>
+<td>多合一故障处理工具</td>
+</tr>
+<tr>
+<td>jmap</td>
+<td>内存映象工具, heapdump</td>
+</tr>
+</tbody>
+</table>
+<p>下面仅仅对图形化工具 <code>jconsole</code> 和 <code>jvisualvm</code> 进行介绍, 并写一些 内存泄漏
+和 线程死锁的例子.</p><h5 id="第三方工具"><a class="anchorlink" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%B7%A5%E5%85%B7">2.9.2 第三方工具</a></h5>
+<ul>
+<li><a href="https://github.com/oldmanpushcart/greys-anatomy">greys-anatomy</a></li>
+<li><a href="https://github.com/draios/sysdig/">sysdig</a></li>
+</ul>
+<h3 id="class-file"><a class="anchorlink" href="#class-file">3 class File</a></h3><div class="info"><p>参考自<a href="https://blog.lse.epita.fr/articles/69-0xcafebabe-java-class-file-format-an-overview.html">0xCAFEBABE ? - java class file format, an overview</a> , <a href="https://www.csie.ntu.edu.tw/~comp2/2001/byteCode/byteCode.html">JAVA BYTECODE STRUCTURE</a> 和 <a href="https://www.cubrid.org/blog/understanding-jvm-internals/">Understanding Jvm Internals</a></p></div><h4 id="class-file-架构图"><a class="anchorlink" href="#class-file-%E6%9E%B6%E6%9E%84%E5%9B%BE">3.1 架构图</a></h4><p>SE7的架构如下: <code>Major Version: 0x0033</code>, 即51</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/class_file_overview.png" alt="class_file_overview"></p><h4 id="javap分析class文件"><a class="anchorlink" href="#javap%E5%88%86%E6%9E%90class%E6%96%87%E4%BB%B6">3.2 javap分析class文件</a></h4><p>通过<code>javap</code>可以解析class文件</p><div class="code_container">
+<pre class="brush: shell; gutter: false; toolbar: true;">
+git clone https://github.com/dengqinghua/my_examples.git
+cd my_examples/java
+mvn compile
+javap -v target/classes/com/dengqinghua/calculate/Salary.class
+
+</pre>
+</div>
+<div class="info"><p>如果想直接查看16进制的存储, 可以用shell命令: <strong>xxd target/classes/com/dengqinghua/calculate/Salary.class</strong></p></div><p>如java源码为:</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+package com.dengqinghua.calculate;
+
+public class Salary {
+    private int monthSalary;
+    private int bonus;
+
+    /**
+     * 计算一年的总的薪水
+     *
+     * @return 返回总薪水值
+     */
+    public long calculateYearSalary() {
+        return this.monthSalary * 12 + bonus;
+    }
+
+    public Salary(int monthSalary, int bonus) {
+        this.monthSalary = monthSalary;
+        this.bonus = bonus;
+    }
+}
+
+</pre>
+</div>
+<p>解析后的class文件为</p><div class="code_container">
+<pre class="brush: shell; gutter: false; toolbar: true;">
+Classfile my_examples/java/target/classes/com/dengqinghua/calculate/Salary.class
+  Last modified Apr 25, 2018; size 505 bytes
+  MD5 checksum 57ea37e27fa44146cdcf54c9c532799d
+  Compiled from "Salary.java"
+public class com.dengqinghua.calculate.Salary
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Fieldref           #4.#20         // com/dengqinghua/calculate/Salary.monthSalary:I
+   #2 = Fieldref           #4.#21         // com/dengqinghua/calculate/Salary.bonus:I
+   #3 = Methodref          #5.#22         // java/lang/Object."&lt;init&gt;":()V
+   #4 = Class              #23            // com/dengqinghua/calculate/Salary
+   #5 = Class              #24            // java/lang/Object
+   #6 = Utf8               monthSalary
+   #7 = Utf8               I
+   #8 = Utf8               bonus
+   #9 = Utf8               calculateYearSalary
+  #10 = Utf8               ()J
+  #11 = Utf8               Code
+  #12 = Utf8               LineNumberTable
+  #13 = Utf8               LocalVariableTable
+  #14 = Utf8               this
+  #15 = Utf8               Lcom/dengqinghua/calculate/Salary;
+  #16 = Utf8               &lt;init&gt;
+  #17 = Utf8               (II)V
+  #18 = Utf8               SourceFile
+  #19 = Utf8               Salary.java
+  #20 = NameAndType        #6:#7          // monthSalary:I
+  #21 = NameAndType        #8:#7          // bonus:I
+  #22 = NameAndType        #16:#25        // "&lt;init&gt;":()V
+  #23 = Utf8               com/dengqinghua/calculate/Salary
+  #24 = Utf8               java/lang/Object
+  #25 = Utf8               ()V
+{
+  public long calculateYearSalary();
+    descriptor: ()J
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #1                  // Field monthSalary:I
+         4: bipush        12
+         6: imul
+         7: aload_0
+         8: getfield      #2                  // Field bonus:I
+        11: iadd
+        12: i2l
+        13: lreturn
+      LineNumberTable:
+        line 13: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      14     0  this   Lcom/dengqinghua/calculate/Salary;
+
+  public com.dengqinghua.calculate.Salary(int, int);
+    descriptor: (II)V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=3, args_size=3
+         0: aload_0
+         1: invokespecial #3                  // Method java/lang/Object."&lt;init&gt;":()V
+         4: aload_0
+         5: iload_1
+         6: putfield      #1                  // Field monthSalary:I
+         9: aload_0
+        10: iload_2
+        11: putfield      #2                  // Field bonus:I
+        14: return
+      LineNumberTable:
+        line 16: 0
+        line 17: 4
+        line 18: 9
+        line 19: 14
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      15     0  this   Lcom/dengqinghua/calculate/Salary;
+            0      15     1 monthSalary   I
+            0      15     2 bonus   I
+}
+SourceFile: "Salary.java"
+
+</pre>
+</div>
+<p>如何理解上面这个文件呢?</p><p>java原始代码的这一行</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+private int monthSalary;
+
+</pre>
+</div>
+<p>对应着 class 文件的这一行:</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+Constant pool:
+   #1 = Fieldref           #4.#20         // com/dengqinghua/calculate/Salary.monthSalary:I
+
+</pre>
+</div>
+<p>即字段 <code>monthSalary</code> 的定义.</p>
+<ul>
+<li>
+<code>#1</code> 代表索引, 通过该索引可以找到对应的数据</li>
+<li>
+<code>#4.#20</code> 代表 Fieldref 下对应的class和name_and_type的索引值, 即 class_index 和 name_and_type_index
+
+<ul>
+<li>
+<code>#4</code>为 <strong>class_index</strong>, 描述了她的class为 com/dengqinghua/calculate/Salary, 即 <code>com.dengqinghua.calculate.Salary</code>
+</li>
+<li>
+<code>#20</code>为 <strong>name_and_type_index</strong>, 描述了字段的名称为: <code>monthSalary</code>, 字段的类型为 I, 即 int</li>
+</ul>
+</li>
+<li>
+<code>com/dengqinghua/calculate/Salary.monthSalary:I</code> 为注释</li>
+</ul>
+<p>比较难理解的是 <code>#4.#20</code> 部分. <code>#4</code> 是 <code>CONSTANT_Class</code> 索引, <code>#20</code> 是 <code>CONSTANT_NameAndType</code> 索引.</p><p>我们找到 class 文件的 <code>#4</code> 和 <code>#20</code> 部分如下:</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+#4  = Class              #23            // com/dengqinghua/calculate/Salary
+#20 = NameAndType        #6:#7          // monthSalary:I
+
+</pre>
+</div>
+<p>Fieldref 和其相关的数据结构为:</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+// u1, u2 分别代表 1个字节, 2个字节
+
+// 字段
+CONSTANT_Fieldref_info {
+    u1 tag;                 // 标识她的身份属性
+    u2 class_index;         // 对应的 CONSTANT_Class 的索引
+    u2 name_and_type_index; // 对应的 CONSTANT_NameAndType 的索引
+}
+
+// class 或者 interface
+CONSTANT_Class_info {
+  u1 tag;
+  u2 name_index; // 对应的 字符串 CONSTANT_Utf8 的索引
+}
+
+// 字符串的表示
+CONSTANT_Utf8_info {
+  u1 tag;
+  u2 length;
+  u1 bytes[length];
+}
+
+// 标示一个字段或者一个方法
+CONSTANT_NameAndType_info {
+  u1 tag;
+  u2 name_index; // 对应的 字符串 CONSTANT_Utf8 的索引
+  u2 descriptor_index; // 对应的描述符标示, 对应的 字符串 CONSTANT_Utf8 的索引, 如 int 用 I 表示
+}
+
+</pre>
+</div>
+<p>在上面的 <code>CONSTANT_NameAndType_info</code> 中, descriptor_index 的值有下面这几种</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B</td>
+<td>Byte</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Char</td>
+</tr>
+<tr>
+<td>D</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>F</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>I</td>
+<td>int</td>
+</tr>
+<tr>
+<td>J</td>
+<td>long</td>
+</tr>
+<tr>
+<td>S</td>
+<td>short</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>V</td>
+<td>void</td>
+</tr>
+<tr>
+<td>L</td>
+<td>所有的Object, 如Ljava/lang/Object</td>
+</tr>
+<tr>
+<td>[</td>
+<td>Array,如果是int[], 则表示为 [I</td>
+</tr>
+<tr>
+<td>()</td>
+<td>方法描述, 如 Object method(int i, int[] j) 表示为 (I[I)Ljava/lang/Object</td>
+</tr>
+</tbody>
+</table>
+<h4 id="constant-pool"><a class="anchorlink" href="#constant-pool">3.3 Constant Pool</a></h4><p>Constant Pool(常量池), 定义了Java中用到的常量, 包括总的常量数, 常量类型, 常量索引值等</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/Constant_pool.png" alt="Constant_pool"></p><h4 id="access-flags"><a class="anchorlink" href="#access-flags">3.4 Access Flags</a></h4><p>描述了可见性等参数</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/Access_flag.png" alt="access_flags"></p><h4 id="fields"><a class="anchorlink" href="#fields">3.5 Fields</a></h4><p>Fields为字段内容, 如上面提到的 <code>monthSalary</code></p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+field_info {
+  u2 access_flags; // 可申明多个flags, 如 public static int oneField;
+  u2 name_index;
+  u2 descriptor_index;
+  u2 attributes_count; // attributes 的数目
+
+  // 如果是常量, 如 final, 会存储在 attribute_info 中
+  // 注意, 可变的初始化变量是不会存储在这儿的
+  attribute_info attributes[attributes_count];
+}
+
+</pre>
+</div>
+<p>常量的数据结构为:</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+ConstantValue_attribute {
+  u2 attribute_name_index;
+  u4 attribute_length;
+  u2 constantvalue_index;
+}
+
+</pre>
+</div>
+<h4 id="attributes"><a class="anchorlink" href="#attributes">3.6 Attributes</a></h4><p>属性表可以认为是认为是基本的util, Filed, Method, Class 都会根据自己需要存储 Attribute</p><h5 id="code-attribute"><a class="anchorlink" href="#code-attribute">3.6.1 Code Attribute</a></h5><p>下面是Code部分中的attribute</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/Code_attribute.png" alt="Code_attribute"></p><h4 id="methods"><a class="anchorlink" href="#methods">3.7 Methods</a></h4><h3 id="references"><a class="anchorlink" href="#references">4 References</a></h3>
+<ul>
+<li><a href="https://docs.oracle.com/javase/specs/jvms/se8/jvms8.pdf">The Java Virtual Machine Specification, Java SE 8 Edition</a></li>
+<li><a href="https://item.jd.com/11252778.html">深入理解Java虚拟机：JVM高级特性与最佳实践（第2版）</a></li>
+<li><a href="https://mp.weixin.qq.com/s/sFnMxEwJiYRjwTiBIjfcZg">JVM公众号总结</a></li>
+<li><a href="https://docs.oracle.com/javase/8/docs/technotes/guides/management/jconsole.html">JConsole</a></li>
+<li><a href="http://java8.in/java-virtual-machine-run-time-data-areas/">RunTime-DataArea</a></li>
+<li><a href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html">Java Garbage Collection Basics</a></li>
+<li><a href="http://blog.chriscs.com/2017/06/20/g1-vs-cms/">G1收集器与CMS收集器的对比与实战</a></li>
+<li><a href="https://www.journaldev.com/2856/java-jvm-memory-model-memory-management-in-java">Java (JVM) Memory Model – Memory Management in Java</a></li>
+<li><a href="http://blog.ragozin.info/2012/10/safepoints-in-hotspot-jvm.html">Safepoint in HotSpot</a></li>
+</ul>
+
+
+        <div id="comment"></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="hide" />
+  <div id="footer">
+    <div class="wrapper">
+      <p>版权声明：自由转载-非商用-非衍生-保持署名(<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享3.0许可证</a>)</p>
+<p>For Ruby Roses.</p>
+
+    </div>
+  </div>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/responsive-tables.js"></script>
+  <script type="text/javascript" src="javascripts/guides.js"></script>
+
+  <!-- ./node_modules/gulp/bin/gulp.js build -\-brushes=bash,cpp,css,javascript,java,plain,python,ruby,scala,sql,xml -->
+  <!-- uglifyjs syntaxhighlighter.js  -\-output syntaxhighlighter.min.js -->
+  <script type="text/javascript" src="javascripts/syntaxhighlighter.min.js"></script>
+  <script type="text/javascript" src="javascripts/tonal.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.0.1/Tone.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/tone/13.1.22/Tone.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.4/svg.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/svg.js/2.6.5/svg.js"></script>
+  <script type="text/javascript" src="javascripts/chordy-svg.min.js"></script>
+  <script type="text/javascript" src="javascripts/chord.js"></script>
+  <!-- <script type="text/javascript" src="javascripts/gitalk.min.js"></script> -->
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.2.2/gitalk.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/gitalk/1.2.2/gitalk.js"></script>
+  <script type="text/javascript" src="javascripts/load_docs.js"></script>
+  <!-- <script type="text/javascript" src="javascripts/Treant.js"></script> -->
+  <script src="https://cdn.bootcss.com/treant-js/1.0/Treant.min.js"></script>
+  <!-- <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.0/raphael&#45;min.js"></script> -->
+  <script src="https://cdn.bootcss.com/raphael/2.2.7/raphael.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.11.0/flowchart.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/flowchart/1.11.0/flowchart.min.js"></script>
+  <script type="text/javascript" src="javascripts/flowchart_generator.js"></script>
+  <script type="text/javascript" src="javascripts/tree_generator.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115746206-1"></script>
+
+  <script type="text/javascript" src="javascripts/abcjs_midi_5.1.2-min.js"></script>
+  <script type="text/javascript" src="javascripts/music_generator.js"></script>
+
+  <script type="text/javascript">
+    syntaxhighlighterConfig = {
+      autoLinks: false,
+    };
+
+    $(guidesIndex.bind);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-115746206-1');
+  </script>
+
+  <script type="text/javascript">
+    var locationId = (location.pathname).split("/").pop().substring(0, 49);
+
+    if (locationId) {
+      var language = window.location.search.match("lang=en") ? "en" : "zh-CN"
+      var gitalk   = new Gitalk({
+        clientID: '0f5824fe1c09851e9781',
+        clientSecret: '61710a77ee98cddce06f408a398f05c8622e9575',
+        repo: 'blog_comments',
+        owner: 'dengqinghua',
+        admin: ['dengqinghua'],
+        id: locationId,
+        distractionFreeMode: true,
+        language: language
+      });
+
+      gitalk.render('comment');
+    }
+  </script>
+</body>
+</html>
