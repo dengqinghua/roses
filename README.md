@@ -158,7 +158,7 @@ Rails Guides风格的markdown模板.
 
 #### [Raft算法](http://blog.dengqinghua.net/raft.html)
 
-分布式一致性算法Raft的论文阅读笔记
+分布式一致性算法Raft的论文阅读笔记.
 
 Issues
 ------
