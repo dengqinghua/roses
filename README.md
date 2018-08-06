@@ -124,8 +124,10 @@ Java Concurrency的基本概念, ThreadPool源码分析
 Go的学习计划和相关知识树.
 
 ### 音乐
-#### [City Of Star](http://blog.dengqinghua.net/lalaland-city_of_stars.html)
+#### [音乐体系学习](http://blog.dengqinghua.net/music_index.html)
+一些音乐系统学习资料汇总和索引
 
+#### [City Of Star](http://blog.dengqinghua.net/lalaland-city_of_stars.html)
 很喜欢 [爱乐之城] 这部电影, City of Stars为其中的原声音乐之一, 刚好在公众号看到了该曲子的吉他版本和Ukulele版本, 便参考和分析了一下歌曲的和弦走向, 和弦编配等.
 
 #### [あの日の帰り道](http://blog.dengqinghua.net/あの日の帰り道.html)
