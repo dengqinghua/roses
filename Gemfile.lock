@@ -71,7 +71,6 @@ GEM
       activesupport (= 4.1.1)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (12.3.0)
     redcarpet (3.4.0)
     slop (3.6.0)
     sprockets (3.7.1)

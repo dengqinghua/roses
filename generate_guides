@@ -7,7 +7,7 @@ if ARGV[0] == "r"
 end
 
 puts "bundle exec rake guides:generate"
-`rake guides:generate`
+`bundle exec rake guides:generate`
 
 puts "============"
 
