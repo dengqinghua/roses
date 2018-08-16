@@ -17,8 +17,8 @@ MUSIC:
 T:One
 M:4/4
 L:1/8
-Q:100
-K:G transpose=-8
+Q:120
+K:G transpose=-12
 |" C∆" [C2b] ge- eb-b2| " Cm13" !p!([C2_B_ea]  _B_e - _e2) zC | " Bm7" [B,2Ada] Ad- da- a2|
 | " Em7" [E2Bdg] Bd- d2 zE |  " Am9" [A,Bcg]B cg - gB cg | " D7" [D3Acf] g3 a2|
 | " G∆" [G,Bdf]B df - f2 a2| " Fdim7" [=FBd]B " Em7" [EGdg]2  " D9" [DcB=a]2  " C#m6(no5)" [^ce^a]2 :||
@@ -76,3 +76,69 @@ CHORD: xx0505
 C#m6: `#1 3 #6`
 
 CHORD: xxx656
+
+我在人民广场吃炸鸡
+------------------
+### ABC
+MUSIC:
+我在人民广场吃炸鸡
+M:4/4
+L:1/4
+Q:120
+K:D transpose=-12
+|" Em7" d2 d'2 |" A7" ^c'4 |" D∆" g ^f/=f/- =f ^f |" B7" ^d- d/e/-  e ^f|" Em7"  g4 |" A7" z/A/ ^c/A/ c/d/ A/c/ |" D∆" e/^f/ e/d/- d2 |
+
+D调音阶
+
+```
+2 3 #4 5 6 7 #1 2
+```
+
+MUSIC:
+我在人民广场吃炸鸡
+M:4/4
+L:1/4
+Q:120
+K:D transpose=-12
+|D E ^F G A B ^c d|
+
+### CHORDS
+NOTE: **Em7 -> A7 -> D∆ -> B7**
+
+#### Em7
+Em7: `3 7 2 5`
+
+CHORD: x7978x
+
+CHORD: x7578x
+
+Em7: `3 3 5 2 5`
+
+CHORD: 0x2033
+
+#### A7
+A7: `6 3 5 #1`
+
+CHORD: 5756xx
+
+A7: `6 3 5 #1 5`
+
+CHORD: x02023
+
+#### D∆
+D∆: `2 6 #1 #4`
+
+CHORD: x5767x
+
+D∆: `2 6 #1 #4`
+
+CHORD: xx0222
+
+#### B7
+B7: `7 #4 6 #2`
+
+CHORD: 7978xx
+
+B7: `7 6 #2 #4`
+
+CHORD: x2x242
