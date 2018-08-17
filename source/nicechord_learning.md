@@ -173,3 +173,16 @@ Ep34. 蓝调即兴
 
 MUSIC:
 C _E F _G =G _B c
+
+Ep.90 好和弦分析五月天《後來的我們》
+-----------------------------------
+![verse-chorus](images/verse-chorus.jpeg)
+
+```
+Intro: 前奏
+Verse: 主歌
+Chorus: 副歌, 高潮部分, 最重要的段落
+Re-intro/Interlude: 间奏
+Bridge/Middle Eight: 桥段
+Outro: 尾奏
+```
