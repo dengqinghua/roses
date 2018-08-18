@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="baidu-site-verification" content="N1Q3HiESgp" />
 
-<title><%= yield(:page_title) %></title>
+<title>GuitarPro CheatSheet — dengqinghua&#39;s blog</title>
   <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
   <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
   <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shCore.css" />
@@ -50,28 +50,88 @@
 
           <div id="guides" class="clearfix" style="display: none;">
             <hr />
-            <% ['L', 'R'].each do |position| %>
-              <dl class="<%= position %>">
-              <% docs_for_menu(position).each do |section| %>
-                <dt><%= section['name'] %></dt>
-                <% finished_documents(section['documents']).each do |document| %>
-                <dd><a href="<%= document['url'] %>"><%= document['name'] %></a></dd>
-                <% end %>
-              <% end %>
+              <dl class="L">
+                <dt>推荐</dt>
+                <dd><a href="badge_system.html">基于内存数据库的角标系统设计</a></dd>
+                <dd><a href="witness_flow.html">业务流引擎系统</a></dd>
+                <dt>Ruby</dt>
+                <dd><a href="ruby_knowledge_tree.html">Ruby知识树</a></dd>
+                <dd><a href="ruby_model.html">Ruby数据模型</a></dd>
+                <dd><a href="arel.html?lang=en">Arel源码分析</a></dd>
+                <dd><a href="sidekiq_task_event.html">基于Sidekiq的异步任务管理引擎</a></dd>
+                <dd><a href="racc.html">Racc</a></dd>
+                <dd><a href="witness_flow.html">业务流引擎系统</a></dd>
+                <dt>Java</dt>
+                <dd><a href="data_structures.html">数据结构</a></dd>
+                <dd><a href="learn_jvm.html">JVM剖析</a></dd>
+                <dd><a href="concurrency.html">Concurrency</a></dd>
+                <dd><a href="badge_system.html">基于内存数据库的角标系统设计</a></dd>
+                <dd><a href="maven_under_command_line.html">命令行下的Maven</a></dd>
+                <dt>MySQL</dt>
+                <dd><a href="mysql_knowledge_tree.html">MySQL知识树</a></dd>
               </dl>
-            <% end %>
+              <dl class="R">
+                <dt>Go</dt>
+                <dd><a href="go_get_timeout_solution.html">GoInstallBinaries i/o timeout问题</a></dd>
+                <dd><a href="go_knowledge_tree.html">Go知识树</a></dd>
+                <dt>音乐</dt>
+                <dd><a href="music_index.html">音乐学习体系</a></dd>
+                <dd><a href="lalaland-city_of_stars.html">City Of Star</a></dd>
+                <dd><a href="あの日の帰り道.html">あの日の帰り道</a></dd>
+                <dd><a href="rain_wwh.html">雨の日はワルツを踊って</a></dd>
+                <dd><a href="it_could_have_been.html">Es Ware Schon Gewesen</a></dd>
+                <dt>杂记</dt>
+                <dd><a href="example_markdown.html">markdown格式实例</a></dd>
+                <dd><a href="comments.html">注释规范</a></dd>
+                <dd><a href="best_programming.html">零bug落地方案</a></dd>
+                <dd><a href="raft.html">Raft算法</a></dd>
+                <dd><a href="memorize_my_mentor.html">Memorize My Mentor</a></dd>
+              </dl>
           </div>
         </li>
         <li class="guides-index guides-index-small">
           <select class="guides-index-item nav-item">
             <option value="index.html">Index</option>
-            <% docs_for_menu.each do |section| %>
-              <optgroup label="<%= section['name'] %>">
-                <% finished_documents(section['documents']).each do |document| %>
-                  <option value="<%= document['url'] %>"><%= document['name'] %></option>
-                <% end %>
+              <optgroup label="推荐">
+                  <option value="badge_system.html">基于内存数据库的角标系统设计</option>
+                  <option value="witness_flow.html">业务流引擎系统</option>
               </optgroup>
-            <% end %>
+              <optgroup label="Ruby">
+                  <option value="ruby_knowledge_tree.html">Ruby知识树</option>
+                  <option value="ruby_model.html">Ruby数据模型</option>
+                  <option value="arel.html?lang=en">Arel源码分析</option>
+                  <option value="sidekiq_task_event.html">基于Sidekiq的异步任务管理引擎</option>
+                  <option value="racc.html">Racc</option>
+                  <option value="witness_flow.html">业务流引擎系统</option>
+              </optgroup>
+              <optgroup label="Java">
+                  <option value="data_structures.html">数据结构</option>
+                  <option value="learn_jvm.html">JVM剖析</option>
+                  <option value="concurrency.html">Concurrency</option>
+                  <option value="badge_system.html">基于内存数据库的角标系统设计</option>
+                  <option value="maven_under_command_line.html">命令行下的Maven</option>
+              </optgroup>
+              <optgroup label="MySQL">
+                  <option value="mysql_knowledge_tree.html">MySQL知识树</option>
+              </optgroup>
+              <optgroup label="Go">
+                  <option value="go_get_timeout_solution.html">GoInstallBinaries i/o timeout问题</option>
+                  <option value="go_knowledge_tree.html">Go知识树</option>
+              </optgroup>
+              <optgroup label="音乐">
+                  <option value="music_index.html">音乐学习体系</option>
+                  <option value="lalaland-city_of_stars.html">City Of Star</option>
+                  <option value="あの日の帰り道.html">あの日の帰り道</option>
+                  <option value="rain_wwh.html">雨の日はワルツを踊って</option>
+                  <option value="it_could_have_been.html">Es Ware Schon Gewesen</option>
+              </optgroup>
+              <optgroup label="杂记">
+                  <option value="example_markdown.html">markdown格式实例</option>
+                  <option value="comments.html">注释规范</option>
+                  <option value="best_programming.html">零bug落地方案</option>
+                  <option value="raft.html">Raft算法</option>
+                  <option value="memorize_my_mentor.html">Memorize My Mentor</option>
+              </optgroup>
           </select>
         </li>
       </ul>
@@ -81,16 +141,87 @@
 
   <div id="feature">
     <div class="wrapper">
-      <%= yield :header_section %>
+      <h2>GuitarPro CheatSheet</h2><p>GuitarPro的快捷键使用</p><p>阅读完该文档后，您将会了解到:</p>
+<ul>
+<li>常用的GuitarPro快捷键</li>
+<li>参考文档</li>
+</ul>
 
-      <%= yield :index_section %>
+
+                <div id="subCol">
+            <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Chapters</h3>
+            <ol class="chapters">
+<li><a href="#shortcuts">ShortCuts</a></li>
+</ol>
+
+          </div>
+
     </div>
   </div>
 
   <div id="container">
     <div class="wrapper">
       <div id="mainCol">
-        <%= yield %>
+        <h3 id="shortcuts"><a class="anchorlink" href="#shortcuts">1 ShortCuts</a></h3><div class="note"><p>Command <code>⌘</code> Shift <code>⇧</code> Option <code>⌥</code> Control <code>⌃</code></p></div>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1/2/3</td>
+<td>品位数</td>
+</tr>
+<tr>
+<td>+</td>
+<td>音符长度减半</td>
+</tr>
+<tr>
+<td>-</td>
+<td>音符长度增倍</td>
+</tr>
+<tr>
+<td>k</td>
+<td>设置clef</td>
+</tr>
+<tr>
+<td>⌘k</td>
+<td>设置Key</td>
+</tr>
+<tr>
+<td>i</td>
+<td>let-it-ring</td>
+</tr>
+<tr>
+<td>%</td>
+<td>重复上一个小节</td>
+</tr>
+<tr>
+<td>r</td>
+<td>Rest,休止符</td>
+</tr>
+<tr>
+<td>⌘+</td>
+<td>插入一个音符</td>
+</tr>
+<tr>
+<td>⌘-</td>
+<td>删除一个音符</td>
+</tr>
+<tr>
+<td>⌃+</td>
+<td>插入一个小节</td>
+</tr>
+<tr>
+<td>⌃-</td>
+<td>删除一个小节</td>
+</tr>
+</tbody>
+</table>
+
 
         <div id="comment"></div>
       </div>
@@ -100,7 +231,9 @@
   <hr class="hide" />
   <div id="footer">
     <div class="wrapper">
-      <%= render "license" %>
+      <p>版权声明：自由转载-非商用-非衍生-保持署名(<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享3.0许可证</a>)</p>
+<p>For Ruby Roses.</p>
+
     </div>
   </div>
 
