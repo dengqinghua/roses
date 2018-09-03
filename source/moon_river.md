@@ -226,7 +226,7 @@ CHORD: 7x7887
 
 PartB
 -----
-### \G7
+### \#G7
 34小节有一个 #G7 的旋律音
 
 MUSIC:
@@ -242,6 +242,26 @@ G,=CDF G=cdf agfd
 \#Gm6(no5): `#5 #5 4 7`
 
 CHORD: 4x6x67
+
+### Gdim7
+Gdim7: `5 b2 3 b7 3`
+
+CHORD: xAB9BC
+
+CHORD: 3x232x
+
+### Am6
+Am6: `6 1 3 #4`
+
+### \#Am11no5
+\#Am11no5: `#6 #2 #5 #1`
+
+CHORD: x1112x
+
+### \#Fm2
+\#Fm2: `#4 6 #1 #5`
+
+CHORD: 2xx224
 
 
 曲谱
