@@ -224,6 +224,26 @@ B7add13: `7 6 #2 5 7`
 
 CHORD: 7x7887
 
+PartB
+-----
+### \G7
+34小节有一个 #G7 的旋律音
+
+MUSIC:
+K:E transpose=-12
+Q:120
+G,=CDF G=cdf agfd
+
+`#5 #7 #2 #4 #5 #7 #2 #4 6 #5 #4 #2`
+
+\#G7: `#5 #7 #2 #4`
+
+### \#Gm6(no5)
+\#Gm6(no5): `#5 #5 4 7`
+
+CHORD: 4x6x67
+
+
 曲谱
 ----
 完整曲谱下载: [这里](https://github.com/dengqinghua/roses/raw/master/assets/doc/MoonRiver-v2.pdf)
