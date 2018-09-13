@@ -121,7 +121,7 @@ CHORD: x0x9AB
 
 CHORD: 6xx770
 
-#Dm7addb5: `#2 6 #1 4 6`
+\#Dm7addb5: `#2 6 #1 4 6`
 
 CHORD: x67675
 
