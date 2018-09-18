@@ -76,7 +76,7 @@ Part A
 和弦走向
 
 ```
-E -> #Cm7 -> Aadd#4 -> E
+E -> #Cm11 #Cm7 -> Aadd#4 -> E
 Aadd#4 -> EMaj7 #G7add13 -> #Dm7addb5 -> #G7sus4 #Fdim7add9
 #Cm7 -> Bm7/A #A7add#5 -> Esus4/A -> D7
 #Cm7 -> #Am7b5 A13sus2(no5) -> #Gm7b5 #Fmaddb9 #Cm7sus4(no5) -> Aaddb9 -> B7add13
@@ -263,6 +263,130 @@ CHORD: x1112x
 
 CHORD: 2xx224
 
+Part D
+------
+E∆9: `3 #4 #5 7 3`
+
+CHORD: 0x4100
+
+E∆9/#G: `3 #4 #5 7 3`
+
+CHORD: 4x4100
+
+E∆11/A: `3 #4 #5 7 6`
+
+CHORD: x04100
+
+E∆9/B: `3 #4 #5 7 6`
+
+CHORD: x24100
+
+Part E
+------
+转C调
+
+### Am
+Am: `6 1 3`
+
+CHORD: x0x9A8
+
+### F∆9#11
+F∆9#11: `4 5 1 3 7`
+
+CHORD: x85557
+
+CHORD: x89555
+
+### C
+C: `1 5 5 3`
+
+CHORD: 8xx080
+
+C∆: `1 7 5 5 3`
+
+CHORD: 8x9080
+
+C13: `1 b7 3 6`
+
+CHORD: 8x89Ax
+
+### Bø
+Bø: `7 4 6 2`
+
+CHORD: x2323x
+
+CHORD: 7x776x
+
+### E7
+E7: `3 #5 2 3`
+
+CHORD: 0x675x
+
+Bm13/#F: `#4 7 2 #5`
+
+NOTE: `7 2 #5` 为 E7 中的音. B 的大六度 为 #G
+
+CHORD: xx4434
+
+Dm13/A: `6 2 4 7`
+
+NOTE: D 的大六度 为 B
+
+CHORD: xx7767
+
+### #A7#4
+\#A7#4: `#6 #5 2 3`
+
+CHORD: 6x675x
+
+NOTE: 这个和弦有一个 增四度的音: 3, 很有意思, 忽然想起老师说可以考虑将一个音的所有可能配置的和弦都找出来. 该和弦有两个音: 3 和 2
+
+### Fsus2 Fmsus2/Ab
+Fsus2: `4 4 5 1`
+
+CHORD: 1x301x
+
+Fmsus2/Ab: `4 b6 1 5`
+
+CHORD: 1xx113
+
+NOTE: Fsus2/Ab -> E -> E7 全程都有一个 `#5` 的音
+
+### Adim7
+Adim7: `6 b3 b5 1`
+
+CHORD: xx7878
+
+### Em7
+Em7: `3 2 5 7`
+
+CHORD: 0xx787
+
+### Dm11
+Dm11: `2 6 1 5`
+
+CHORD: xx0213
+
+Part F
+------
+### \#Cm7
+\#Cm7: `#1 7 #1 7 3`
+
+CHORD: 9x9800
+
+Ending
+------
+### Cdim9#11
+NOTE: 也可以看做是 D7/C
+
+Cdim9#11: `1 b5 bb7 2 #4`
+
+CHORD: x34232
+
+### E∆9
+E∆9: `3 #4 7 #2 #5`
+
+CHORD: x74444
 
 曲谱
 ----
