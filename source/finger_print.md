@@ -12,18 +12,10 @@ DATE: 2018-11-03
 
 --------------------------------------------------------------------------------
 
-I
--
-![I](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/I.v2.png)
+Duo
+---
+### i-m
+从食指(i, index)出发, 中指(m, middle)结束
 
-Duo指型: 从食指(i, index)出发, 中指(m, middle)结束
+![duo-i-m](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/duo-i-m.png)
 
-一共有四种形式, 三种指型
-
-II
---
-![I](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/I.v2.png)
-
-Duo指型: 从食指(i, index)出发, 中指(m, middle)结束
-
-一共有四种形式, 三种指型
