@@ -15,7 +15,12 @@ DATE: 2018-11-03
 Duo
 ---
 ### i-m
-从食指(i, index)出发, 中指(m, middle)结束
+从食指(i)出发, 中指(m)结束
 
 ![duo-i-m](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/duo-i-m.png)
 
+
+### m-ch
+从中指(m)出发, 小拇指(ch)结束
+
+![duo-i-m](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/duo-m-ch.png)
