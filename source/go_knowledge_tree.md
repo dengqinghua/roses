@@ -233,9 +233,7 @@ go help
 其他
 ----
 - [Go Books](https://github.com/dariubs/GoBooks)
-- [gRPC](https://github.com/grpc/grpc-go)
-- [Net Work Programming with Go](https://github.com/tumregels/Network-Programming-with-Go)
-- [Building Web Apps with Go](https://codegangsta.gitbooks.io/building-web-apps-with-go/content/)
+- [Practical Go: Real world advice for writing maintainable Go programs](https://dave.cheney.net/practical-go/presentations/qcon-china.html)
 - GC
 
 项目
