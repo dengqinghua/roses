@@ -186,3 +186,28 @@ Re-intro/Interlude: 间奏
 Bridge/Middle Eight: 桥段
 Outro: 尾奏
 ```
+
+其他
+----
+C Phrygian
+
+MUSIC:
+K:C transpose=-12
+C _D _E F G _A _B c
+
+C Phrygian Dominant
+
+MUSIC:
+K:C transpose=-12
+C _D E F G _A _B c
+
+即兴方式
+
+`C Db`
+
+MUSIC:
+L:1/8
+M:4/4
+Q:70
+K:C transpose=-12
+| " C" [CEG]4 | " Db" [_DF_A]4|

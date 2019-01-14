@@ -148,3 +148,37 @@ CAGED and 3 Note Per String
 <iframe class="youtube" src="https://www.youtube.com/embed/N_I4dW-nJ9E" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 [另外一种方式](https://www.youtube.com/watch?v=1dTZ9P9UrFk)
+
+扩展和弦
+--------
+### C∆
+CHORD: x3545x
+
+CHORD: 8x998x
+
+CHORD: xx5557 4
+
+CHORD: xxACCC
+
+### CM6
+CHORD: x3523x
+
+CHORD: 8x798x
+
+### CM9
+CHORD: x3243x
+
+CHORD: 8x978x
+
+### C69
+CHORD: x32233
+
+CHORD: 8x778x
+
+### CM13
+CHORD: x3x455
+
+CHORD: 8x99Ax
+
+### C6
+CHORD: x3221x
