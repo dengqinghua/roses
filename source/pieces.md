@@ -142,3 +142,8 @@ CHORD: 7978xx
 B7: `7 6 #2 #4`
 
 CHORD: x2x242
+
+
+Empty
+-----
+![Empty](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/Empty.png)

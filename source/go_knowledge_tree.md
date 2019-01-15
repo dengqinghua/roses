@@ -228,7 +228,36 @@ go help
 
 并发
 ----
-- [Mastering Concurrency in Go](https://www.packtpub.com/application-development/mastering-concurrency-go)
+- [Concurrency in Go Tools and Techniques for Developers](http://shop.oreilly.com/product/0636920046189.do)
+
+### sync Package
+TREE:
+{
+        text: { name: "sync" },
+        children: [
+            {
+                text: { name: "Map" },
+            },
+            {
+                text: { name: "WaitGroup" },
+            },
+            {
+                text: { name: "Once" },
+            },
+            {
+                text: { name: "Mutex, RWMutex" },
+            },
+            {
+                text: { name: "Pool" },
+            },
+            {
+                text: { name: "Cond" },
+            },
+            {
+                text: { name: "Atomic" },
+            }
+       ]
+}
 
 其他
 ----
