@@ -146,4 +146,4 @@ CHORD: x2x242
 
 Empty
 -----
-![Empty](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/Empty.png)
+![Empty](images/Empty.png)
