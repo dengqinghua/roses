@@ -170,6 +170,8 @@ CHORD: x3243x
 
 CHORD: 8x978x
 
+CHORD: 8797xx
+
 ### C69
 CHORD: x32233
 
@@ -182,3 +184,10 @@ CHORD: 8x99Ax
 
 ### C6
 CHORD: x3221x
+
+### Cm9
+CHORD: x3133x
+
+CHORD: xxA8BA
+
+CHORD: 8687xx

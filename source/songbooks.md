@@ -452,3 +452,96 @@ K:C transpose=-14
      C   E   Am
 你去 我等 不灭
 ```
+
+虚拟
+-----
+```
+作曲 : 陈粒
+作词 : 陈粒
+
+前奏
+D-9 C∆9 D-9 C∆9
+
+D-9            C∆9
+固执押韵的排比 固执幼稚的押韵
+Em             Am7
+零零散散凑齐了阵营
+D-9            C∆9
+固执美丽的意义 固执空洞的美丽
+Em             A7
+飘飘然然空中遇见你
+
+F
+你是我未曾拥有无法捕捉的亲昵
+G
+我却有你的吻你的魂你的心
+Em               Am
+载着我飞呀飞呀飞 越过了意义
+
+F
+你是我朝夕相伴触手可及的虚拟
+G
+陪着我像纸笔像自己像雨滴
+Em               Am      D-9  C∆9
+看着我坠啊坠啊坠落到云里
+
+鼓加入
+
+D-9            C∆9
+固执有趣的零星 固执无聊的有趣
+Em             Am7
+平平淡淡管住了情绪
+
+钢琴加入
+
+D-9            C∆9
+固执声音的意义 固执空洞的声音
+Em             Am7
+摇摇晃晃情绪却满溢
+
+Bass加入
+
+F
+你是我未曾拥有无法捕捉的亲昵
+G
+我却有你的吻你的魂你的心
+Em               Am
+载着我飞呀飞呀飞 越过了意义
+
+F
+你是我朝夕相伴触手可及的虚拟
+G
+陪着我像纸笔像自己像雨滴
+Em               Am      D-9  C∆9
+看着我坠啊坠啊坠落到云里
+
+Bass Solo
+
+F
+你是我未曾拥有无法捕捉的亲昵
+G
+我却有你的吻你的魂你的心
+Em               Am
+载着我飞呀飞呀飞 越过了意义
+
+F
+你是我朝夕相伴触手可及的虚拟
+G
+陪着我像纸笔像自己像雨滴
+Em               Am      D-9  C∆9
+看着我坠啊坠啊坠落到云里
+```
+
+MUSIC:
+L:1/16
+M:4/4
+Q:70
+K:C transpose=-12
+||: " D-9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  :||
+| " D-9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  |
+| " Em" E,EdB E,EdB E,EdB E,EdB | " A-7" A,EcG A,EcG A,EcG A,EcG |
+| " D-9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  |
+| " Em" E,EdB E,EdB E,EdB E,EdB | " A7" A,EcG A,EcG A,EcG A,EcG |
+| " Fsus2" F,FcG " F∆" F,Fec F,Fgc F,Fgc| " G" G,DbG G,DcG G,DBG G,DBG |
+| " Em" E,EBG E,EeG E,EBG E,EeG| " Am7" A,EcG A,EdG A,EeG A,EcG |
+
