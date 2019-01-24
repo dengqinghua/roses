@@ -545,3 +545,83 @@ K:C transpose=-12
 | " Fsus2" F,FcG " F∆" F,Fec F,Fgc F,Fgc| " G" G,DbG G,DcG G,DBG G,DBG |
 | " Em" E,EBG E,EeG E,EBG E,EeG| " Am7" A,EcG A,EdG A,EeG A,EcG |
 
+
+正趣果上果
+----------
+
+```
+变调夹一品
+前奏
+C   Am  F     G
+C   Am  F  G  C
+
+C  G  Am Em/B
+你佩桃木降妖剑
+F   G   C
+他会一招不要脸
+C   G Am Em/B
+哇呀呀呀 输在没有钱
+F   G   C
+输在没有钱
+
+C  G  Am Em/B
+你愿终老不羡仙
+F    F  G   G
+谁料温柔终老空了长生殿
+
+C   G Am Em/B
+哎唏唏唏 败给好容颜
+F   G   C
+败给好容颜
+
+F  F  G  G
+人生在世三万天
+Dm  G  C
+趣果有间孤独无解
+F  F  C  C
+苦练含笑半步癫
+F   G    C
+那我去给你煮碗面
+
+间奏
+C   Am  F     G
+C   Am  F  G  C
+
+C  G  Am Em/B
+心怀啮雪大志愿
+F   G   C
+被人称作小可怜
+C   G Am Em/B
+呜呼呼呼 突样未成年
+F   G   C
+突样未成年
+
+C  G  Am Em/B
+本欲歃血定风月
+F    F  G   G
+乌飞兔走光阴只负尾生约
+C   G Am Em/B
+噫嘘嘘嘘 真心怕火炼
+F   G   C
+真心也怕火炼
+
+F  F  G  G
+人生在世三万天
+Dm  G  C
+趣果有间孤独无解
+F  F  C  C
+苦练含笑半步癫
+F   G    C
+那我去给你煮碗面
+
+F  F  G  G
+是非对错二十念
+Dm  G  C
+十方观遍庸人恋阙
+F  F  C  C
+自学睡梦罗汉拳
+F   G    C
+吓冇知酱紫好危险
+F   G    C
+吓冇知酱紫好危险
+```
