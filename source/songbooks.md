@@ -548,80 +548,172 @@ K:C transpose=-12
 
 正趣果上果
 ----------
-
 ```
 变调夹一品
 前奏
 C   Am  F     G
 C   Am  F  G  C
 
-C  G  Am Em/B
-你佩桃木降妖剑
-F   G   C
-他会一招不要脸
-C   G Am Em/B
-哇呀呀呀 输在没有钱
-F   G   C
-输在没有钱
+C  G  Am Em/B  F   G   C
+你佩桃木降妖剑 他会一招不要脸
 
-C  G  Am Em/B
-你愿终老不羡仙
-F    F  G   G
-谁料温柔终老空了长生殿
+C   G Am Em/B      F   G   C
+哇呀呀呀 输在没有钱 输在没有钱
 
-C   G Am Em/B
-哎唏唏唏 败给好容颜
-F   G   C
-败给好容颜
+C  G  Am Em/B  F    F  G   G
+你愿终老不羡仙 谁料温柔终老空了长生殿
+C   G Am Em/B       F   G   C
+哎唏唏唏 败给好容颜 败给好容颜
 
-F  F  G  G
-人生在世三万天
-Dm  G  C
-趣果有间孤独无解
-F  F  C  C
-苦练含笑半步癫
-F   G    C
-那我去给你煮碗面
 
 间奏
 C   Am  F     G
 C   Am  F  G  C
 
-C  G  Am Em/B
-心怀啮雪大志愿
-F   G   C
-被人称作小可怜
-C   G Am Em/B
-呜呼呼呼 突样未成年
-F   G   C
-突样未成年
+C  G  Am Em/B  F   G   C
+心怀啮雪大志愿 被人称作小可怜
+C   G Am Em/B      F   G   C
+呜呼呼呼 突样未成年 突样未成年
 
-C  G  Am Em/B
-本欲歃血定风月
-F    F  G   G
-乌飞兔走光阴只负尾生约
-C   G Am Em/B
-噫嘘嘘嘘 真心怕火炼
-F   G   C
-真心也怕火炼
+C  G  Am Em/B  F    F  G   G
+本欲歃血定风月 乌飞兔走光阴只负尾生约
+C   G Am Em/B       F   G   C
+噫嘘嘘嘘 真心怕火炼 真心也怕火炼
 
-F  F  G  G
-人生在世三万天
-Dm  G  C
-趣果有间孤独无解
-F  F  C  C
-苦练含笑半步癫
-F   G    C
-那我去给你煮碗面
+F  F  G  G     Dm  G  C
+人生在世三万天 趣果有间孤独无解
+F  F  C  C     F   G    C
+苦练含笑半步癫 那我去给你煮碗面
 
-F  F  G  G
-是非对错二十念
-Dm  G  C
-十方观遍庸人恋阙
-F  F  C  C
-自学睡梦罗汉拳
-F   G    C
-吓冇知酱紫好危险
+F  F  G  G     Dm  G  C
+是非对错二十念 十方观遍庸人恋阙
+F  F  C  C     F   G    C
+自学睡梦罗汉拳 吓冇知酱紫好危险
 F   G    C
 吓冇知酱紫好危险
 ```
+
+PONY
+----
+
+```
+陈粒
+1=A
+
+变调夹2品, 使用G调
+
+前奏
+Em  G  C  G
+
+closing my eyes  I'm getting high
+闭上双眼         我心潮澎湃
+again and again step out the line
+一次又一次 超越界限
+
+float in the air I'm getting tired
+身心也已飘飘然   我渐觉疲惫
+to follow the world I've been tried
+去跟随世界          我已疲惫不堪
+
+like the stupid sun, I shine
+我如迟钝的太阳一样 闪闪发光
+like a foolish man, I write
+我如愚蠢的男人那样 记录生活
+like a human being, I lie
+我纯粹如一个人 仅仅是躺着
+like a placid lake, I'm dried
+又如平静的湖泊 渐渐干涸
+
+鼓进入 间奏
+
+Bass进入
+
+I've been in love I used to laugh
+我早已陷入爱里    过去我总是笑
+with the laughter now they're far
+伴随着爽朗的笑声 而今这些欢笑已远去
+I met a girl     I opend the jar
+我遇见了一个女孩 打开易拉罐
+I want to restart but it's so hard
+我想重新开始我的生活 但又谈何容易
+
+like a child to ask you why
+就像一个小孩无休止地问你为什么
+like a friend to say I'm fine
+就像一个朋友告诉你“我没事”
+like a cat I keep being quiet
+我像一只猫始终保持安静
+like a dream of yours I die.
+我与我们的梦一同死去
+
+钢琴进入 间奏
+
+closing my eyes I'm getting high
+闭上双眼        我心潮澎湃
+again and again step out the line
+一次又一次      超越界限
+float in the air I'm getting tired
+身心也已飘飘然   我渐觉疲惫
+to follow the world I've been tried
+去跟随世界 我已疲惫不堪
+
+like the stupid sun, I shine
+我如迟钝的太阳一样 闪闪发光
+like a foolish man, I write
+我如愚蠢的男人那样 记录生活
+like a human being, I lie
+我纯粹如一个人 仅仅是躺着
+like a placid lake, I'm dried
+又如平静的湖泊 渐渐干涸
+
+F                          D7/F
+Look back on all the way everything was a waste
+回首望走过的路           我所做的一切都是虚度光阴
+F                    C      G
+everyone was mistake
+所遇见的每一个人都是个错误
+
+F                          D7/F
+what if we skip the tale   what if we get there straight
+如果我们跳过这段故事会如何 如果我们直达终点又会如何
+F                    C     G
+that'll really make my day
+那会真正使我有所成就
+
+间奏(人生哼唱)
+
+(和声进入)
+
+I've been in love I used to laugh
+我早已陷入爱里 过去我总是笑
+with the laughter now they're far
+伴随着爽朗的笑声 而今这些欢笑已远去
+I met a girl  I opend the jar
+我遇见了一个女孩 我打开易拉罐
+I want to restart but it's so hard
+我想重新开始我的生活 但又谈何容易
+
+like a child to ask you why
+就像一个小孩无休止地问你为什么
+like a friend to say I'm fine
+就像一个朋友告诉你“我没事”
+like a cat I keep being quiet
+我像一只猫始终保持安静
+like a dream of yours I die.
+我与我们的梦一同死去
+like the stupid sun ,I shine
+我如迟钝的太阳一样 闪闪发光
+like a foolish man ,I write
+我如愚蠢的男人那样 记录生活
+like a human being ,I lie
+我纯粹如一个人 仅仅是躺着
+like a placid lake ,I'm dried
+又如平静的湖泊 渐渐干涸
+```
+
+MUSIC:
+L:1/8
+M:4/4
+Q:120
+K:A transpose=-12
+||: " #Fm" F,F c,A Fc AF  | " A" A,E CA Ec AE | " D" DA Fd Af dA | " A" A,E CA Ec AE  :||

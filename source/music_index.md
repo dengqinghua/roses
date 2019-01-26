@@ -98,13 +98,13 @@ NOTE: 下面的 `+` 代表 `|`
 | L     | unit note length | L: 1/4     |
 | Q     | tempo, 速度 | Q: 100     |
 | K     | Key | K: C#m    |
+| ,'     | 低音/高音 | E, e' |
 | ^,=,_     | Accidentals | \^E =E _E, 分别代表 E♯, ♮E 和 E♭ |
 | /     | lengths | a/ 代表a/2; a// 代表 a/4 |
 | +: :+ | 开始 结束重复 | +: a b c :+ |
 | +[1     | 第一遍重复 | +:  common body of tune  +1  first ending  :+2  second ending  +] |
 | (), -     | Ties and slurs | (a b) c4-c |
 | (3     | 三连音 | (3abc |
-| " D"     | 标记/和弦 | 添加空格代表为标记, 没有空格则可认为是和弦D |
 | " D"     | 标记/和弦 | 添加空格代表为标记, 没有空格则可认为是和弦D |
 
 ### 示例
