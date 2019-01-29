@@ -606,109 +606,65 @@ PONY
 Em  G  C  G
 
 closing my eyes  I'm getting high
-闭上双眼         我心潮澎湃
 again and again step out the line
-一次又一次 超越界限
-
 float in the air I'm getting tired
-身心也已飘飘然   我渐觉疲惫
 to follow the world I've been tried
-去跟随世界          我已疲惫不堪
 
 like the stupid sun, I shine
-我如迟钝的太阳一样 闪闪发光
 like a foolish man, I write
-我如愚蠢的男人那样 记录生活
 like a human being, I lie
-我纯粹如一个人 仅仅是躺着
 like a placid lake, I'm dried
-又如平静的湖泊 渐渐干涸
 
 鼓进入 间奏
-
 Bass进入
 
 I've been in love I used to laugh
-我早已陷入爱里    过去我总是笑
 with the laughter now they're far
-伴随着爽朗的笑声 而今这些欢笑已远去
 I met a girl     I opend the jar
-我遇见了一个女孩 打开易拉罐
 I want to restart but it's so hard
-我想重新开始我的生活 但又谈何容易
 
 like a child to ask you why
-就像一个小孩无休止地问你为什么
 like a friend to say I'm fine
-就像一个朋友告诉你“我没事”
 like a cat I keep being quiet
-我像一只猫始终保持安静
 like a dream of yours I die.
-我与我们的梦一同死去
 
 钢琴进入 间奏
 
 closing my eyes I'm getting high
-闭上双眼        我心潮澎湃
 again and again step out the line
-一次又一次      超越界限
 float in the air I'm getting tired
-身心也已飘飘然   我渐觉疲惫
 to follow the world I've been tried
-去跟随世界 我已疲惫不堪
 
 like the stupid sun, I shine
-我如迟钝的太阳一样 闪闪发光
 like a foolish man, I write
-我如愚蠢的男人那样 记录生活
 like a human being, I lie
-我纯粹如一个人 仅仅是躺着
 like a placid lake, I'm dried
-又如平静的湖泊 渐渐干涸
 
 F                          D7/F
 Look back on all the way everything was a waste
-回首望走过的路           我所做的一切都是虚度光阴
 F                    C      G
 everyone was mistake
-所遇见的每一个人都是个错误
 
 F                          D7/F
 what if we skip the tale   what if we get there straight
-如果我们跳过这段故事会如何 如果我们直达终点又会如何
 F                    C     G
 that'll really make my day
-那会真正使我有所成就
 
-间奏(人生哼唱)
-
-(和声进入)
+间奏(人声哼唱) (和声进入)
 
 I've been in love I used to laugh
-我早已陷入爱里 过去我总是笑
 with the laughter now they're far
-伴随着爽朗的笑声 而今这些欢笑已远去
 I met a girl  I opend the jar
-我遇见了一个女孩 我打开易拉罐
 I want to restart but it's so hard
-我想重新开始我的生活 但又谈何容易
 
 like a child to ask you why
-就像一个小孩无休止地问你为什么
 like a friend to say I'm fine
-就像一个朋友告诉你“我没事”
 like a cat I keep being quiet
-我像一只猫始终保持安静
 like a dream of yours I die.
-我与我们的梦一同死去
 like the stupid sun ,I shine
-我如迟钝的太阳一样 闪闪发光
 like a foolish man ,I write
-我如愚蠢的男人那样 记录生活
 like a human being ,I lie
-我纯粹如一个人 仅仅是躺着
 like a placid lake ,I'm dried
-又如平静的湖泊 渐渐干涸
 ```
 
 MUSIC:
