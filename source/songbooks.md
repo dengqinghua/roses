@@ -673,3 +673,56 @@ M:4/4
 Q:120
 K:A transpose=-12
 ||: " #Fm" F,F c,A Fc AF  | " A" A,E CA Ec AE | " D" DA Fd Af dA | " A" A,E CA Ec AE  :||
+
+Fly Me to the Moon
+------------------
+```
+1=C
+
+Fly me to the moon And let me play among the stars
+让我在群星之间嬉戏
+Let me see what spring is like
+感受春天的美丽
+On Jupiter and Mars
+在木星和土星之上的气息
+In other words, hold my hand
+换言之 请我紧握的手
+In other words, baby, kiss me
+换言之 亲爱的 让我们忘情拥吻
+Fill my life with song
+用歌声装点心灵
+And let me sing for ever more
+让歌声伴我生活
+You are all I long for
+你是我心心念念的渴望
+All I worship and adore
+我的敬仰和我的爱
+In other words, please be true
+换言之 让我们坦诚相待
+In other words, I love you
+让我告诉你 我爱你
+Fill my life with song
+用歌声装点心灵
+Let me sing for ever more
+让歌声伴我生活
+You are all I long for
+你是我心心念念的渴望
+All I worship and adore
+我的敬仰和我的爱
+In other words, please be true
+换言之 让我们坦诚相待
+In other words
+让我告诉你
+I love ... you
+我爱你
+```
+
+MUSIC:
+L:1/16
+M:4/4
+Q:70
+K:C transpose=-12
+||: " C" [Cc]2EG G,GE2 :|| " C"  [Cc]2EG G,GE2 " E7" [E,d]E^G[B,e]- [B,e]dG2 |
+| " Am" [A,c]2Ee zcA2  | "  Dm7" [Df]2Ac- cfA2 | " G7" G,Gcf- fcG2 | " C∆" [Ce]EGB- BGE2  |
+| " Bø" [B,d]2FA- AFA2  | " E7" [E,^G]2e2 B,dG2 | " A" [Cc]2G2 [C^c]2G2  |
+| " Dm7" [Df]2Ac -ccA2 | " G" [G,B]B,Gf- ffB2 | " C∆" [Ce]EGB- BGE2 | " A7" |
