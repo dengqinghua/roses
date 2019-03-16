@@ -170,6 +170,7 @@
 <a href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">基础知识</a>
 
 <ul>
+<li><a href="#spec%E9%83%A8%E5%88%86%E7%AC%94%E8%AE%B0">Spec部分笔记</a></li>
 <li><a href="#gopath">GoPath</a></li>
 <li><a href="#go-tags-in-structures">Go Tags in structures</a></li>
 </ul>
@@ -371,7 +372,12 @@ go test -run TestSum
 <li><a href="https://golang.org/doc/gdb">Gdb</a></li>
 <li><a href="https://github.com/sebdah/vim-delve">Vim Delve</a></li>
 </ul>
-<div class="note"><p>由于 <a href="https://github.com/jodosha/vim-godebug">Vim Godebug</a> 依赖 <a href="https://neovim.io/">Neovim</a>, 而我们一般使用的是vim, 故最终选择的调试工具为 <a href="https://github.com/sebdah/vim-delve">sebdah/vim-delve</a>, vim-delve 依赖 <a href="https://github.com/Shougo/vimshell.vim">Shougo/vimshell.vim</a>.</p></div><p><a href="https://github.com/sebdah/vim-delve"><img src="https://github.com/sebdah/vim-delve/raw/master/vim-delve-demo.gif" alt="delve-demo"></a></p><h3 id="基础知识"><a class="anchorlink" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">7 基础知识</a></h3><div class="code_container">
+<div class="note"><p>由于 <a href="https://github.com/jodosha/vim-godebug">Vim Godebug</a> 依赖 <a href="https://neovim.io/">Neovim</a>, 而我们一般使用的是vim, 故最终选择的调试工具为 <a href="https://github.com/sebdah/vim-delve">sebdah/vim-delve</a>, vim-delve 依赖 <a href="https://github.com/Shougo/vimshell.vim">Shougo/vimshell.vim</a>.</p></div><p><a href="https://github.com/sebdah/vim-delve"><img src="https://github.com/sebdah/vim-delve/raw/master/vim-delve-demo.gif" alt="delve-demo"></a></p><h3 id="基础知识"><a class="anchorlink" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">7 基础知识</a></h3>
+<ul>
+<li><a href="https://golang.org/ref/spec">spec</a></li>
+<li><a href="https://golang.org/ref/spec">中文版</a></li>
+</ul>
+<div class="code_container">
 <pre class="brush: java; gutter: false; toolbar: true;">
 package main
 import "fmt"
@@ -389,7 +395,78 @@ func main() {
 <li><a href="https://tour.golang.org/list">Go Tour</a></li>
 <li><a href="https://github.com/karlseguin/the-little-go-book">The Little Go Book</a></li>
 </ul>
-<h4 id="gopath"><a class="anchorlink" href="#gopath">7.1 GoPath</a></h4><p><a href="https://golang.org/doc/code.html">Code organization</a></p>
+<h4 id="spec部分笔记"><a class="anchorlink" href="#spec%E9%83%A8%E5%88%86%E7%AC%94%E8%AE%B0">7.1 Spec部分笔记</a></h4><h5 id="predeclared-identifiers-and-keywords"><a class="anchorlink" href="#predeclared-identifiers-and-keywords">7.1.1 Predeclared Identifiers and Keywords</a></h5><p>Predeclared Identifiers 是可以被使用的</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+Types:
+    bool byte complex64 complex128 error float32 float64
+    int int8 int16 int32 int64 rune string
+    uint uint8 uint16 uint32 uint64 uintptr
+
+Constants:
+    true false iota
+
+Zero value:
+    nil
+
+Functions:
+    append cap close complex copy delete imag len
+    make new panic print println real recover
+
+</pre>
+</div>
+<p>如下面的语法是Okay的</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+bool := 1
+fmt.Println(bool)
+
+</pre>
+</div>
+<p>Keywords 是不可以被重复使用的, 包括下面这些</p><div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+break        default      func         interface    select
+case         defer        go           map          struct
+chan         else         goto         package      switch
+const        fallthrough  if           range        type
+continue     for          import       return       var
+
+</pre>
+</div>
+<h5 id="slice"><a class="anchorlink" href="#slice">7.1.2 Slice</a></h5>
+<ul>
+<li><a href="https://blog.golang.org/slices">Arrays, slices (and strings): The mechanics of 'append'</a></li>
+<li><a href="https://blog.golang.org/go-slices-usage-and-internals">go-slices-usage-and-internals</a></li>
+<li><a href="https://github.com/golang/go/wiki/SliceTricks">slice-tricks</a></li>
+</ul>
+<p>A slice is</p>
+<ul>
+<li>a data structure describing a contiguous section of an array stored separately from the slice variable itself</li>
+<li>a data structure with two elements: a length and a pointer to an element of an array</li>
+</ul>
+<div class="code_container">
+<pre class="brush: java; gutter: false; toolbar: true;">
+type sliceHeader struct {
+    Length        int
+    Capacity      int
+    ZerothElement *byte
+}
+
+</pre>
+</div>
+
+<blockquote>
+<p>A slice cannot be grown beyond its capacity. Attempting to do so will cause a runtime panic.  Similarly,
+slices cannot be re­sliced below zero to access earlier elements in the array.</p>
+</blockquote>
+<h5 id="rune"><a class="anchorlink" href="#rune">7.1.3 Rune</a></h5>
+<blockquote>
+<p>A rune literal represents a rune constant, an integer value identifying a Unicode code point,
+or think of as a character constant is called a rune constant in Go.</p>
+</blockquote>
+<p>见 <a href="https://blog.golang.org/strings">Strings, bytes, runes and characters in Go</a></p>
+<ul>
+<li>A string is in effect a read-only slice of bytes</li>
+</ul>
+<p><a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html">ASCII, UNICODE 和 UTF-8</a></p><h4 id="gopath"><a class="anchorlink" href="#gopath">7.2 GoPath</a></h4><p><a href="https://golang.org/doc/code.html">Code organization</a></p>
 <iframe class="youtube" src="https://www.youtube.com/embed/XCsL89YtqCs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 <div class="code_container">
 <pre class="brush: shell; gutter: false; toolbar: true;">
@@ -397,7 +474,7 @@ go help
 
 </pre>
 </div>
-<h4 id="go-tags-in-structures"><a class="anchorlink" href="#go-tags-in-structures">7.2 Go Tags in structures</a></h4>
+<h4 id="go-tags-in-structures"><a class="anchorlink" href="#go-tags-in-structures">7.3 Go Tags in structures</a></h4>
 <ul>
 <li><a href="https://stackoverflow.com/a/30889373">What are the use(s) for tags in Go?</a></li>
 <li><a href="https://golang.org/ref/spec#Struct_types">Spec#Struct_types</a></li>

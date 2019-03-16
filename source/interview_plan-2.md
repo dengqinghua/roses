@@ -75,7 +75,6 @@ Maybe fun and once For ALL
 - Blogs 1 Page Per Day
 
 ### Blog
-Before 3.1
 
 ### Algorithms
 Find Problems online everyday

@@ -198,6 +198,9 @@ NOTE: 由于 [Vim Godebug](https://github.com/jodosha/vim-godebug) 依赖 [Neovi
 
 基础知识
 --------
++ [spec](https://golang.org/ref/spec)
++ [中文版](https://golang.org/ref/spec)
+
 ```go
 package main
 import "fmt"
@@ -211,6 +214,76 @@ func main() {
 
 - [Go Tour](https://tour.golang.org/list)
 - [The Little Go Book](https://github.com/karlseguin/the-little-go-book)
+
+### Spec部分笔记
+
+#### Predeclared Identifiers and Keywords
+Predeclared Identifiers 是可以被使用的
+
+```go
+Types:
+	bool byte complex64 complex128 error float32 float64
+	int int8 int16 int32 int64 rune string
+	uint uint8 uint16 uint32 uint64 uintptr
+
+Constants:
+	true false iota
+
+Zero value:
+	nil
+
+Functions:
+	append cap close complex copy delete imag len
+	make new panic print println real recover
+```
+
+如下面的语法是Okay的
+
+```
+bool := 1
+fmt.Println(bool)
+```
+
+Keywords 是不可以被重复使用的, 包括下面这些
+
+```go
+break        default      func         interface    select
+case         defer        go           map          struct
+chan         else         goto         package      switch
+const        fallthrough  if           range        type
+continue     for          import       return       var
+```
+
+#### Slice
+- [Arrays, slices (and strings): The mechanics of 'append'](https://blog.golang.org/slices)
+- [go-slices-usage-and-internals](https://blog.golang.org/go-slices-usage-and-internals)
+- [slice-tricks](https://github.com/golang/go/wiki/SliceTricks)
+
+A slice is
+
+- a data structure describing a contiguous section of an array stored separately from the slice variable itself
+- a data structure with two elements: a length and a pointer to an element of an array
+
+```go
+type sliceHeader struct {
+    Length        int
+    Capacity      int
+    ZerothElement *byte
+}
+```
+
+> A slice cannot be grown beyond its capacity. Attempting to do so will cause a runtime panic.  Similarly,
+slices cannot be re­sliced below zero to access earlier elements in the array.
+
+#### Rune
+> A rune literal represents a rune constant, an integer value identifying a Unicode code point,
+or think of as a character constant is called a rune constant in Go.
+
+见 [Strings, bytes, runes and characters in Go](https://blog.golang.org/strings)
+
+- A string is in effect a read-only slice of bytes
+
+[ASCII, UNICODE 和 UTF-8](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html)
 
 ### GoPath
 [Code organization](https://golang.org/doc/code.html)
