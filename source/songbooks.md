@@ -726,3 +726,90 @@ K:C transpose=-12
 | " Am" [A,c]2Ee zcA2  | "  Dm7" [Df]2Ac- cfA2 | " G7" G,Gcf- fcG2 | " C∆" [Ce]EGB- BGE2  |
 | " Bø" [B,d]2FA- AFA2  | " E7" [E,^G]2e2 B,dG2 | " A" [Cc]2G2 [C^c]2G2  |
 | " Dm7" [Df]2Ac -ccA2 | " G" [G,B]B,Gf- ffB2 | " C∆" [Ce]EGB- BGE2 | " A7" |
+
+The Long Way Round
+------------------
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=34578219&auto=1&height=32"></iframe>
+
+```
+1=F
+
+变调夹五品, 使用C调
+
+Am F C E (VIm IV I III)
+
+Am F C E
+tell me what is going on inside your mind
+Am F C E
+the more i know the less i understand these times
+Am F C E
+i saw a man in my troubled dreams
+Am F C E
+he told me things that i could not foresee
+
+Am F C E
+your road is a song so carry on and do right
+F           Gsus4
+i wonder why i still try
+
+鼓进入
+Am F C E
+oh oh i take the long way round and
+Am F C E   Am F G
+oh oh and it’s never straight or short in my life
+but you are still around
+
+Am F C E
+Am F C E
+
+小提琴进入
+Am F C E
+good to go but i have never left the ground
+Am F C E
+wanna lose some gravity to float just like a cloud
+Am F C E
+and all this time i just carry on
+Am F C E
+i keep the faith that my time will come
+Am F C E
+can’t fight the tide but i’m ready to jump in
+F F G G
+any time i’ll be all right
+
+Am F C E
+oh oh i take the long way round and
+Am F C E   Am F G
+oh oh and it’s never straight or short in my life
+but we are still around
+
+F G Am E7
+so don’t you feel like running down my skies
+F G Am E7
+it’s just no use
+F G Am E7
+I play this game it changes every time
+F G Am E7
+it’s all i know
+
+Am F C E
+Am F C E
+F F G G
+
+Am F C E
+oh oh i take the long way round and
+Am F C E
+oh oh i am still around and
+Am F C E
+oh oh running upside down and
+Am F C E  Am F G
+oh oh and it’s never straight or short in my life
+纵使人生从未有风平浪静之时
+F F G G
+but i am still around
+yeah i am still around
+
+Am F C E
+Am F C E
+```
+
+![racc_example](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/the_long_way_round.png)
