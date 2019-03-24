@@ -737,6 +737,7 @@ The Long Way Round
 变调夹五品, 使用C调
 
 Am F C E (VIm IV I III)
+Am F C E
 
 Am F C E
 tell me what is going on inside your mind
