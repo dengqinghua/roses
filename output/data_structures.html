@@ -203,6 +203,15 @@
 <li><a href="#concurrenthashmap">ConcurrentHashMap</a></li>
 </ul>
 </li>
+<li>
+<a href="#bloom-filter">Bloom Filter</a>
+
+<ul>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E5%85%83%E7%B4%A0">基本元素</a></li>
+<li><a href="#%E8%AF%AF%E5%88%A4%E9%97%AE%E9%A2%98">误判问题</a></li>
+<li><a href="#%E6%9C%80%E4%BC%98%E8%A7%A3">最优解</a></li>
+</ul>
+</li>
 <li><a href="#references">References</a></li>
 </ol>
 
@@ -950,7 +959,42 @@ public class ConcurrentHashMap {
 
 </pre>
 </div>
-<p>关于读写锁的问题, 参考<a href="https://stackoverflow.com/q/16105554/8186609">ConcurrentHashMap read and write locks</a></p><p>关于 HashMap, ConcurrentHashMap 和 Hashtable 的区别, 可参考这里 <a href="https://howtodoinjava.com/interview-questions/popular-hashmap-and-concurrenthashmap-interview-questions/">Popular HashMap and ConcurrentHashMap Interview Questions</a></p><h3 id="references"><a class="anchorlink" href="#references">7 References</a></h3>
+<p>关于读写锁的问题, 参考<a href="https://stackoverflow.com/q/16105554/8186609">ConcurrentHashMap read and write locks</a></p><p>关于 HashMap, ConcurrentHashMap 和 Hashtable 的区别, 可参考这里 <a href="https://howtodoinjava.com/interview-questions/popular-hashmap-and-concurrenthashmap-interview-questions/">Popular HashMap and ConcurrentHashMap Interview Questions</a></p><h3 id="bloom-filter"><a class="anchorlink" href="#bloom-filter">7 Bloom Filter</a></h3><p>布隆过滤器 经常使用与 黑名单过滤 的场景, 黑名单中的数据一定不会漏过, 但是有可能会误判. 属于 <code>宁可错杀, 不放过</code> 的过滤器.</p><p>题目如下:</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+现在有 100亿 个黑名单URL, 一个URL的长度为64B, 需要判断一个 URL 是否在黑名单中, 允许万分之一的误判率, 使用空间不超过30G
+
+</pre>
+</div>
+<p>如果直接使用Hash算法, Key 和 Value 大概占有 64B, 100亿则为 640GB, 不满足空间要求. 在一定的误判率下, 可以使用 <a href="https://en.wikipedia.org/wiki/Bloom_filter">Bloom Filter</a></p><p>她的思路如下:</p>
+<ol>
+<li>
+<p>数据准备</p>
+<ol>
+<li>将 10亿 个数据源, 通过 K 个 HashFunction 计算出结果</li>
+<li>设计一个长度为 M(M &gt; N) 的 Array, 数据里面的类型都是 bit, 只有0和1两个取值</li>
+<li>将 1 的计算结果对 M 取余(%M), 将获取到的值, 对应为数字的坐标, 设置对应的值为1</li>
+</ol>
+</li>
+</ol>
+<p><img src="images/bloom-filter.png" alt="bloom-filter"></p>
+<ol>
+<li>
+<p>判断是否是黑名单URL</p>
+<ol>
+<li>将待查的 URL, 通过 K 个 HashFunction 计算出结果</li>
+<li>将 1 的计算结果对 M 取余(%M), 将获取到的值, 去 Array 中按照坐标查询</li>
+<li>如果有一个值为0, 则说明不在黑名单中. 如果全部为1, 则认为在黑名单中</li>
+</ol>
+</li>
+</ol>
+<h4 id="基本元素"><a class="anchorlink" href="#%E5%9F%BA%E6%9C%AC%E5%85%83%E7%B4%A0">7.1 基本元素</a></h4>
+<ul>
+<li>Input n</li>
+<li>bitArray m</li>
+<li>HashFunction k</li>
+</ul>
+<h4 id="误判问题"><a class="anchorlink" href="#%E8%AF%AF%E5%88%A4%E9%97%AE%E9%A2%98">7.2 误判问题</a></h4><p>由于 HashFunction 算出来的值是有可能产生 collision 的, 所以可能存在有一个 URL 不在黑名单, 但是通过 K 和 HashFunction
+计算之后, 对应到 bitArray 中, 所有的值都为1</p><h4 id="最优解"><a class="anchorlink" href="#%E6%9C%80%E4%BC%98%E8%A7%A3">7.3 最优解</a></h4><p>可以通过 N 和 可容忍的误判率 P, 计算合理的 M 和 K 值, 详情见<a href="https://en.wikipedia.org/wiki/Bloom_filter">这里</a></p><h3 id="references"><a class="anchorlink" href="#references">8 References</a></h3>
 <ul>
 <li><a href="https://www.amazon.com/Grokking-Algorithms-illustrated-programmers-curious/dp/1617292230/ref=sr_1_1?ie=UTF8&amp;qid=1519440970&amp;sr=8-1&amp;keywords=Grokking+Algorithms">Grokking Algorithms: An illustrated guide for programmers and other curious people</a></li>
 <li><a href="https://www.amazon.com/Data-Structures-Algorithm-Analysis-Java/dp/0132576279/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1519441056&amp;sr=1-1&amp;keywords=Data+Structures+Algorithm+Analysis+java">Data Structures and Algorithm Analysis in Java</a></li>

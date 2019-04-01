@@ -786,6 +786,46 @@ public class ConcurrentHashMap {
 
 关于 HashMap, ConcurrentHashMap 和 Hashtable 的区别, 可参考这里 [Popular HashMap and ConcurrentHashMap Interview Questions](https://howtodoinjava.com/interview-questions/popular-hashmap-and-concurrenthashmap-interview-questions/)
 
+Bloom Filter
+------------
+布隆过滤器 经常使用与 黑名单过滤 的场景, 黑名单中的数据一定不会漏过, 但是有可能会误判. 属于 `宁可错杀, 不放过` 的过滤器.
+
+题目如下:
+
+```
+现在有 100亿 个黑名单URL, 一个URL的长度为64B, 需要判断一个 URL 是否在黑名单中, 允许万分之一的误判率, 使用空间不超过30G
+```
+
+如果直接使用Hash算法, Key 和 Value 大概占有 64B, 100亿则为 640GB, 不满足空间要求. 在一定的误判率下, 可以使用 [Bloom Filter](https://en.wikipedia.org/wiki/Bloom_filter)
+
+她的思路如下:
+
+1. 数据准备
+
+    1. 将 10亿 个数据源, 通过 K 个 HashFunction 计算出结果
+    2. 设计一个长度为 M(M > N) 的 Array, 数据里面的类型都是 bit, 只有0和1两个取值
+    3. 将 1 的计算结果对 M 取余(%M), 将获取到的值, 对应为数字的坐标, 设置对应的值为1
+
+![bloom-filter](images/bloom-filter.png)
+
+2. 判断是否是黑名单URL
+
+    1. 将待查的 URL, 通过 K 个 HashFunction 计算出结果
+    2. 将 1 的计算结果对 M 取余(%M), 将获取到的值, 去 Array 中按照坐标查询
+    3. 如果有一个值为0, 则说明不在黑名单中. 如果全部为1, 则认为在黑名单中
+
+### 基本元素
+- Input n
+- bitArray m
+- HashFunction k
+
+### 误判问题
+由于 HashFunction 算出来的值是有可能产生 collision 的, 所以可能存在有一个 URL 不在黑名单, 但是通过 K 和 HashFunction
+计算之后, 对应到 bitArray 中, 所有的值都为1
+
+### 最优解
+可以通过 N 和 可容忍的误判率 P, 计算合理的 M 和 K 值, 详情见[这里](https://en.wikipedia.org/wiki/Bloom_filter)
+
 References
 ----------
 - [Grokking Algorithms: An illustrated guide for programmers and other curious people](https://www.amazon.com/Grokking-Algorithms-illustrated-programmers-curious/dp/1617292230/ref=sr_1_1?ie=UTF8&qid=1519440970&sr=8-1&keywords=Grokking+Algorithms)
