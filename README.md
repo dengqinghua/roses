@@ -11,8 +11,6 @@ Hello, 这里是是邓擎铧的[技术blog](http://blog.dengqinghua.net/)源码.
 
 --------------------------------------------------------------------------------
 
-[![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
-
 Usage
 -----
 ### 安装环境
@@ -165,3 +163,8 @@ Rails Guides风格的markdown模板.
 Issues
 ------
 如果您觉得有文章对您有启发, 或者有任何问题, 可以通过邮箱联系我: dengqinghua.42@gmail.com.
+
+License
+-------
+- [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
+- 自由转载-非商用-非衍生-保持署名([创意共享3.0许可证](https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh))
