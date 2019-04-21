@@ -147,3 +147,34 @@ CHORD: x2x242
 Empty
 -----
 ![Empty](images/Empty.png)
+
+Practices
+---------
+### ∆7
+```
+C    1    3     5    7
+G    5    7     2    #4
+D    2    #4    6    #1
+A    6    #1    3    #5
+E    3    #5    7    #2
+B    7    #2    #4   #6
+
+Gb   b5   b7    b2   4
+F#   #4   #6    #1   #3
+
+Db   b2   4     b6   1
+C#   #1   #3    #5   #7
+
+Ab   b6   1     b3   5
+G#   #5   #7    #2   ##4
+
+bE   b3   5     b7   2
+D#   #2   ##4   #6   ##1
+
+bB   b7   2     4    6
+A#   #6   ##1   #3   ##5
+
+F    4    6     1    3
+```
+
+![maj7](images/Maj7-appr.png)
