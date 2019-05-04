@@ -135,3 +135,22 @@ Container  80
 而结合docker在本机的地址为 192.168.99.106:32777
 
 则在浏览器访问 192.168.99.106:32777, 则可以访问到 nginx 的静态index文件
+
+Docker需要解决的问题
+-------------------
+1. 隔离, 分配不同的用户权限
+2. 文件的共享, 一些数据是不能在 Dockerfile 里面的, 如数据, 代码等
+3. 环境变量, 参数设置(如 http_proxy)
+4. 基础组件的安装, 前置/后置命令的执行 (ON/BEFORE/AFTER BUILD)
+5. 和docker的通信(信号量等), 端口暴露和端口映射
+6. 自动化, AutoBuild/CI 等
+
+### CMD 和 ENTRYPOINT
+CMD: 为 container 启动之后, 执行的命令, 可以被命令行`docker run`覆盖, 在 Dockerfile 中仅能申明一个 CMD 指令
+ENTRYPOINT: The ENTRYPOINT instruction provides a command that isn’t as easily overridden.
+
+Network Interface
+-----------------
+我们使用 docker internal networking
+
+docker container生成的时候, 均会接口(interface0)分配对应的IP地址, 网段为 `172.17-172.30`
