@@ -136,6 +136,15 @@ Container  80
 
 则在浏览器访问 192.168.99.106:32777, 则可以访问到 nginx 的静态index文件
 
+### 进入某个docker
+```bash
+docker exec -it container_name bash
+
+-i, --interactive   Keep STDIN open even if not attached
+    --privileged    Give extended privileges to the command
+-t, --tty           Allocate a pseudo-TTY
+```
+
 Docker需要解决的问题
 -------------------
 1. 隔离, 分配不同的用户权限
@@ -144,6 +153,7 @@ Docker需要解决的问题
 4. 基础组件的安装, 前置/后置命令的执行 (ON/BEFORE/AFTER BUILD)
 5. 和docker的通信(信号量等), 端口暴露和端口映射
 6. 自动化, AutoBuild/CI 等
+7. 端口的映射
 
 ### CMD 和 ENTRYPOINT
 CMD: 为 container 启动之后, 执行的命令, 可以被命令行`docker run`覆盖, 在 Dockerfile 中仅能申明一个 CMD 指令
@@ -151,6 +161,14 @@ ENTRYPOINT: The ENTRYPOINT instruction provides a command that isn’t as easily
 
 Network Interface
 -----------------
-我们使用 docker internal networking
+### docker internal networking
 
 docker container生成的时候, 均会接口(interface0)分配对应的IP地址, 网段为 `172.17-172.30`
+
+
+
+
+
+
+
+
