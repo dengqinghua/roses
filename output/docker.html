@@ -33,16 +33,16 @@
       </ul>
 
       <form action="http://google.com/search" method="get">
-          <input name="q" value="site:blog.dengqinghua.net" type="hidden">
+          <input name="q" value="site:dengqinghua.github.io" type="hidden">
           <input class="search" name="q" placeholder="Search Blog" type="text">
       </form>
     </div>
   </div>
   <div id="header">
     <div class="wrapper clearfix">
-      <h1><a href="http://blog.dengqinghua.net" title="Return to home page">http://blog.dengqinghua.net</a></h1>
+      <h1><a href="http://dengqinghua.github.io" title="Return to home page">http://dengqinghua.github.io</a></h1>
       <ul class="nav">
-        <li><a class="nav-item" href="http://blog.dengqinghua.net">Home</a></li>
+        <li><a class="nav-item" href="http://dengqinghua.github.io">Home</a></li>
         <li class="guides-index guides-index-large">
           <a href="index.html" id="guidesMenu" class="guides-index-item nav-item">
             Index <span id="guidesArrow">▸</span>
@@ -185,6 +185,22 @@
 <li><a href="#docker-internal-networking">docker internal networking</a></li>
 </ul>
 </li>
+<li>
+<a href="#volume">Volume</a>
+
+<ul>
+<li><a href="#docker-volume">docker volume</a></li>
+</ul>
+</li>
+<li>
+<a href="#%E5%AE%B9%E5%99%A8%E7%BC%96%E6%8E%92-%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0%E5%92%8C%E9%9B%86%E7%BE%A4">容器编排,服务发现和集群</a>
+
+<ul>
+<li><a href="#%E5%AE%B9%E5%99%A8%E7%BC%96%E6%8E%92-dockercompose">容器编排 DockerCompose</a></li>
+<li><a href="#%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0-consul">服务发现 Consul</a></li>
+<li><a href="#%E9%9B%86%E7%BE%A4-swarm">集群 Swarm</a></li>
+</ul>
+</li>
 </ol>
 
           </div>
@@ -263,13 +279,7 @@ docker build -t="dengqinghua/static_web:v1" .
 
 </pre>
 </div>
-<div class="info"><p>-t tag</p></div><div class="note"><p>在mac上, docker 基于 virtualbox, 需要先生成一个本地的VM</p></div><div class="code_container">
-<pre class="brush: plain; gutter: false; toolbar: true;">
-docker-machine create --driver virtualbox default
-
-</pre>
-</div>
-<h5 id="ip和端口的映射关系"><a class="anchorlink" href="#ip%E5%92%8C%E7%AB%AF%E5%8F%A3%E7%9A%84%E6%98%A0%E5%B0%84%E5%85%B3%E7%B3%BB">2.2.2 IP和端口的映射关系</a></h5><div class="note"><p>通过 <code>docker-machine ls</code>, 可以看到绑定的地址</p></div><div class="code_container">
+<div class="info"><p>-t tag</p></div><div class="note"><p><del>在mac上, docker 基于 virtualbox, 需要先生成一个本地的VM</del></p></div><h5 id="ip和端口的映射关系"><a class="anchorlink" href="#ip%E5%92%8C%E7%AB%AF%E5%8F%A3%E7%9A%84%E6%98%A0%E5%B0%84%E5%85%B3%E7%B3%BB">2.2.2 IP和端口的映射关系</a></h5><div class="note"><p>如果使用的 <code>virtualbox</code> 作为 VM, 通过 <code>docker-machine ls</code>, 可以看到绑定的地址</p></div><div class="code_container">
 <pre class="brush: bash; gutter: false; toolbar: true;">
 docker-machine ls
 NAME      ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER     ERRORS
@@ -314,7 +324,48 @@ docker exec -it container_name bash
 <li>端口的映射</li>
 </ol>
 <h4 id="cmd-和-entrypoint"><a class="anchorlink" href="#cmd-%E5%92%8C-entrypoint">3.1 CMD 和 ENTRYPOINT</a></h4><p>CMD: 为 container 启动之后, 执行的命令, 可以被命令行<code>docker run</code>覆盖, 在 Dockerfile 中仅能申明一个 CMD 指令
-ENTRYPOINT: The ENTRYPOINT instruction provides a command that isn’t as easily overridden.</p><h3 id="network-interface"><a class="anchorlink" href="#network-interface">4 Network Interface</a></h3><h4 id="docker-internal-networking"><a class="anchorlink" href="#docker-internal-networking">4.1 docker internal networking</a></h4><p>docker container生成的时候, 均会接口(interface0)分配对应的IP地址, 网段为 <code>172.17-172.30</code></p>
+ENTRYPOINT: The ENTRYPOINT instruction provides a command that isn’t as easily overridden.</p><h3 id="network-interface"><a class="anchorlink" href="#network-interface">4 Network Interface</a></h3><h4 id="docker-internal-networking"><a class="anchorlink" href="#docker-internal-networking">4.1 docker internal networking</a></h4><p>docker container生成的时候, 均会接口(interface0)分配对应的IP地址, 网段为 <code>172.17-172.30</code></p><h3 id="volume"><a class="anchorlink" href="#volume">5 Volume</a></h3><h4 id="docker-volume"><a class="anchorlink" href="#docker-volume">5.1 docker volume</a></h4><p>volume 可以认为是docker的持久化文件机制</p><p>通过</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+docker volume ls
+
+</pre>
+</div>
+<p>可以看到当前的目录</p><div class="code_container">
+<pre class="brush: bash; gutter: false; toolbar: true;">
+docker volume ls
+
+DRIVER              VOLUME NAME
+local               4f80cc3ae270bf3c82abab71548bb1eaba8a0b2f7305e9ea862d5c96b1409009
+local               5f1f3a638561b6ade35715fb320ce32dd96e86326cf85fd93e1b452350ccafb6
+local               9d49d86bca227497d834a097dc08c972238ab4c8fc426f9889a03b500c3de470
+local               33c3f1acba2d22e340f8bc24913a8a4501b689ee4f800f93d1d1e4e155356f1f
+local               43b47ab7587f536bcc922eb5d8fa43d0075eb7d9e7e4648b395c89fd201f9d9c
+local               5829ba6a91108cddaddd821e72edd7f9f0dc131ce25eafa9ddb72cf790a279af
+local               6412489d1e1bff99a4b28f3c4fd6d7789724c5a0909a63ecc3d2fce51e9631f6
+local               eefedf7a7e4aa781344c5dc40625fc813883a1ea73936461c54a1f0f39f4980c
+local               f39f79523354563e72774100583c070a8077766b6ed4134995c7a468d77555a6
+
+</pre>
+</div>
+<p>我们可以看到每一个 VOLUME 对应的本机的文件目录地址</p><div class="code_container">
+<pre class="brush: bash; gutter: false; toolbar: true;">
+docker volume inspect 4f80cc3ae270bf3c82abab71548bb1eaba8a0b2f7305e9ea862d5c96b1409009
+
+[
+    {
+        "CreatedAt": "2019-05-12T08:16:36Z",
+        "Driver": "local",
+        "Labels": null,
+        "Mountpoint": "/var/lib/docker/volumes/4f80cc3ae270bf3c82abab71548bb1eaba8a0b2f7305e9ea862d5c96b1409009/_data",
+        "Name": "4f80cc3ae270bf3c82abab71548bb1eaba8a0b2f7305e9ea862d5c96b1409009",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+
+</pre>
+</div>
+<p>这里 <code>"Mountpoint": "/var/lib/docker/volumes/4f80cc3ae270bf3c82abab71548bb1eaba8a0b2f7305e9ea862d5c96b1409009/_data"</code> 为本机的目录</p><div class="note"><p>如果您用的是 MacOS, 上面的目录是无法打开的, 因为docker在mac中, 是通过 VM实现的. 需要先进入VM, 再进去上述的地址. 进入 VM 的方式跟您的 Mac 版本和 Docker 的版本相关. 我的方式为 <code>screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty</code>, 参考 StackOverflow 的这篇文章 <a href="https://stackoverflow.com/q/38532483">Where is /var/lib/docker on Mac/OS X</a></p></div><h3 id="容器编排-服务发现和集群"><a class="anchorlink" href="#%E5%AE%B9%E5%99%A8%E7%BC%96%E6%8E%92-%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0%E5%92%8C%E9%9B%86%E7%BE%A4">6 容器编排,服务发现和集群</a></h3><h4 id="容器编排-dockercompose"><a class="anchorlink" href="#%E5%AE%B9%E5%99%A8%E7%BC%96%E6%8E%92-dockercompose">6.1 容器编排 DockerCompose</a></h4><h4 id="服务发现-consul"><a class="anchorlink" href="#%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0-consul">6.2 服务发现 Consul</a></h4><h4 id="集群-swarm"><a class="anchorlink" href="#%E9%9B%86%E7%BE%A4-swarm">6.3 集群 Swarm</a></h4>
 
         <div id="comment"></div>
       </div>

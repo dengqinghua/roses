@@ -94,15 +94,10 @@ docker build -t="dengqinghua/static_web:v1" .
 
 INFO: -t tag
 
-NOTE: 在mac上, docker 基于 virtualbox, 需要先生成一个本地的VM
-
-```
-docker-machine create --driver virtualbox default
-```
+NOTE: ~~在mac上, docker 基于 virtualbox, 需要先生成一个本地的VM~~
 
 #### IP和端口的映射关系
-
-NOTE: 通过 `docker-machine ls`, 可以看到绑定的地址
+NOTE: 如果使用的 `virtualbox` 作为 VM, 通过 `docker-machine ls`, 可以看到绑定的地址
 
 ```bash
 docker-machine ls
@@ -166,9 +161,60 @@ Network Interface
 docker container生成的时候, 均会接口(interface0)分配对应的IP地址, 网段为 `172.17-172.30`
 
 
+Volume
+------
+### docker volume
+volume 可以认为是docker的持久化文件机制
 
+通过
 
+```
+docker volume ls
+```
 
+可以看到当前的目录
 
+```bash
+docker volume ls
 
+DRIVER              VOLUME NAME
+local               4f80cc3ae270bf3c82abab71548bb1eaba8a0b2f7305e9ea862d5c96b1409009
+local               5f1f3a638561b6ade35715fb320ce32dd96e86326cf85fd93e1b452350ccafb6
+local               9d49d86bca227497d834a097dc08c972238ab4c8fc426f9889a03b500c3de470
+local               33c3f1acba2d22e340f8bc24913a8a4501b689ee4f800f93d1d1e4e155356f1f
+local               43b47ab7587f536bcc922eb5d8fa43d0075eb7d9e7e4648b395c89fd201f9d9c
+local               5829ba6a91108cddaddd821e72edd7f9f0dc131ce25eafa9ddb72cf790a279af
+local               6412489d1e1bff99a4b28f3c4fd6d7789724c5a0909a63ecc3d2fce51e9631f6
+local               eefedf7a7e4aa781344c5dc40625fc813883a1ea73936461c54a1f0f39f4980c
+local               f39f79523354563e72774100583c070a8077766b6ed4134995c7a468d77555a6
+```
 
+我们可以看到每一个 VOLUME 对应的本机的文件目录地址
+
+```bash
+docker volume inspect 4f80cc3ae270bf3c82abab71548bb1eaba8a0b2f7305e9ea862d5c96b1409009
+
+[
+    {
+        "CreatedAt": "2019-05-12T08:16:36Z",
+        "Driver": "local",
+        "Labels": null,
+        "Mountpoint": "/var/lib/docker/volumes/4f80cc3ae270bf3c82abab71548bb1eaba8a0b2f7305e9ea862d5c96b1409009/_data",
+        "Name": "4f80cc3ae270bf3c82abab71548bb1eaba8a0b2f7305e9ea862d5c96b1409009",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+```
+
+这里 `"Mountpoint": "/var/lib/docker/volumes/4f80cc3ae270bf3c82abab71548bb1eaba8a0b2f7305e9ea862d5c96b1409009/_data"` 为本机的目录
+
+NOTE: 如果您用的是 MacOS, 上面的目录是无法打开的, 因为docker在mac中, 是通过 VM实现的. 需要先进入VM, 再进去上述的地址. 进入 VM 的方式跟您的 Mac 版本和 Docker 的版本相关. 我的方式为 `screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty`, 参考 StackOverflow 的这篇文章 [Where is /var/lib/docker on Mac/OS X](https://stackoverflow.com/q/38532483)
+
+容器编排,服务发现和集群
+----------------------
+### 容器编排 DockerCompose
+
+### 服务发现 Consul
+
+### 集群 Swarm
