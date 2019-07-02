@@ -1,5 +1,5 @@
 $(function(){
-  window.ABCJS.midi.setSoundFont("http://assets.skill-training.net/js/midi-js-soundfonts/FluidR3_GM/")
+  window.ABCJS.midi.setSoundFont('/javascripts/');
   window.onload = function() {
     $(".music").each(function(){
       var id = $(this).attr("id");
