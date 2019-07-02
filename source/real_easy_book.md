@@ -102,12 +102,12 @@ I  II III IV V  VI VII
 ```
 
 ### 和弦
-#### bBMi6
+#### BbMi6
 ```
 b7 b2 4 5 b6
 ```
 
-Cb7ORD: 6x5666
+CHORD: 6x5666
 
 #### F7 Ab7 Gb7
 F7: `4 6 1 b3`
@@ -133,3 +133,50 @@ Q: 80
 K: Bb
 L: 1/8
 | B_d e_f =f_a b2 |
+
+#### Bb Dorian Scale
+
+INFO: 推荐观看 [好和弦 Ionian/Dorian/Aeolian 調式](https://www.youtube.com/watch?v=WExmjdfPN64) 和 [Important Chords of the Dorian Mode](https://www.youtube.com/watch?v=2zvYb3TLVvk)
+
+> Dorian(b3 6 b7) 跟 Aeolian(b3 b6 b7) 很像, 由于 Dorian 为大六度, 不会像 Aeolian 那么悲伤, 会给人一种很神圣的感觉
+所以 Dorian 非常关键为这个 大六度 的音.
+
+首调
+
+```
+1 2 b3 4 5 6 b7 1
+```
+
+1 b3 b7 5
+
+MUSIC:
+Q: 80
+K: C
+L: 1/8
+|CD _EF GA _Bc|
+
+和弦
+
+- I   Cm7   1 b3 5 b7
+- IV  F7    4 6 1 b3
+- V   Gm7   5 b7 2 4
+
+- II  Dm7   2 4 6 1
+- III b3M7  b3 5 b7 2
+- VI  Adim7 6 1 b3 2 (这个和弦也非常有 Dorian 的味道, 可以改为 Am9 6 1 3 7)
+
+- VII BbM7 b7 2 4 6
+
+Bb
+
+```
+b7 1 b2 b3 4 5(这个是大六度音, 非常关键) b6 b7
+```
+
+MUSIC:
+Q: 80
+K: Bb
+L: 1/8
+|B,C _DE FG _AB|
+
+特征的和弦为 BbMi6
