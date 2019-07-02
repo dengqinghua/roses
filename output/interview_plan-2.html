@@ -26,7 +26,7 @@
 
       <span class="red-button more-info-button">More Dengqinghua</span>
       <ul class="more-info-links s-hidden">
-        <li class="more-info"><a href="http://www.dengqinghua.net/">About me</a></li>
+        <li class="more-info"><a href="https://dengqinghua.github.io/about_me.html">About me</a></li>
         <li class="more-info"><a href="https://github.com/dengqinghua/">Github</a></li>
         <li class="more-info"><a href="mailto:dengqinghua.42@gmail.com">Gmail</a></li>
         <li class="more-info"><a href="https://twitter.com/dengqinghua_42">Twitter</a></li>
@@ -324,16 +324,30 @@ Maybe still I will not read them at all
 
     if (locationId) {
       var language = window.location.search.match("lang=en") ? "en" : "zh-CN"
-      var gitalk   = new Gitalk({
-        clientID: '0f5824fe1c09851e9781',
-        clientSecret: '61710a77ee98cddce06f408a398f05c8622e9575',
-        repo: 'blog_comments',
-        owner: 'dengqinghua',
-        admin: ['dengqinghua'],
-        id: locationId,
-        distractionFreeMode: true,
-        language: language
-      });
+
+      if (window.location.href.match("github")) {
+        var gitalk = new Gitalk({
+          clientID: '85c5f833b04d6d470db9',
+          clientSecret: 'b41619fc891132558550103056197eb30baebab5',
+          repo: 'blog-github-page-comments',
+          owner: 'dengqinghua',
+          admin: ['dengqinghua'],
+          id: locationId,
+          distractionFreeMode: true,
+          language: language
+        });
+      } else {
+        var gitalk = new Gitalk({
+          clientID: '0f5824fe1c09851e9781',
+          clientSecret: '61710a77ee98cddce06f408a398f05c8622e9575',
+          repo: 'blog_comments',
+          owner: 'dengqinghua',
+          admin: ['dengqinghua'],
+          id: locationId,
+          distractionFreeMode: true,
+          language: language
+        });
+      }
 
       gitalk.render('comment');
     }
