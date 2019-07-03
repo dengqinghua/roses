@@ -179,4 +179,4 @@ K: Bb
 L: 1/8
 |B,C _DE FG _AB|
 
-特征的和弦为 BbMi6
+特征的和弦为 `BbMi6`
