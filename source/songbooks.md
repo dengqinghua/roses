@@ -872,3 +872,12 @@ Am7 D   Cadd2   G
 
 你满意吗我们都别说谎
 ```
+
+Leave me alone
+--------------
+
+1=D
+
+III I VI I
+
+

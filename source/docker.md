@@ -160,7 +160,6 @@ Network Interface
 
 docker container生成的时候, 均会接口(interface0)分配对应的IP地址, 网段为 `172.17-172.30`
 
-
 Volume
 ------
 ### docker volume
@@ -218,3 +217,54 @@ NOTE: 如果您用的是 MacOS, 上面的目录是无法打开的, 因为docker�
 ### 服务发现 Consul
 
 ### 集群 Swarm
+
+Storage Driver
+--------------
+INFO: 当前docker(19.03.1)默认的 `Storage Driver` 为 overlay2
+
+## aufs
+1. 指定 storage-driver
+
+    vim etc/docker/daemon.json
+    # 写入
+    { "storage-driver": "aufs" }'
+    # 重启 docker
+    sudo service docker restart
+    sudo docker info
+
+  可以看到配置
+
+  ```
+    Storage Driver: aufs
+     Root Dir: /var/lib/docker/aufs
+     Backing Filesystem: extfs
+     Dirs: 6
+     Dirperm1 Supported: true
+  ```
+
+2. 查看 diff, layer 等信息
+
+  在 Root Dir 查看即可
+
+```
+# 查看aufs信息
+$ sudo tree /var/lib/docker/image/aufs -L 2
+/var/lib/docker/image/aufs
+|-- distribution
+|   |-- diffid-by-digest
+|   `-- v2metadata-by-diffid
+|-- imagedb
+|   |-- content
+|   `-- metadata
+|-- layerdb
+|   |-- mounts
+|   |-- sha256
+|   `-- tmp
+`-- repositories.json
+```
+
+- diff
+- layers
+- mnt 
+
+### overlay2

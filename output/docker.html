@@ -201,6 +201,14 @@
 <li><a href="#%E9%9B%86%E7%BE%A4-swarm">集群 Swarm</a></li>
 </ul>
 </li>
+<li><a href="#storage-driver">Storage Driver</a></li>
+<li>
+<a href="#aufs">aufs</a>
+
+<ul>
+<li><a href="#overlay2">overlay2</a></li>
+</ul>
+</li>
 </ol>
 
           </div>
@@ -365,7 +373,58 @@ docker volume inspect 4f80cc3ae270bf3c82abab71548bb1eaba8a0b2f7305e9ea862d5c96b1
 
 </pre>
 </div>
-<p>这里 <code>"Mountpoint": "/var/lib/docker/volumes/4f80cc3ae270bf3c82abab71548bb1eaba8a0b2f7305e9ea862d5c96b1409009/_data"</code> 为本机的目录</p><div class="note"><p>如果您用的是 MacOS, 上面的目录是无法打开的, 因为docker在mac中, 是通过 VM实现的. 需要先进入VM, 再进去上述的地址. 进入 VM 的方式跟您的 Mac 版本和 Docker 的版本相关. 我的方式为 <code>screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty</code>, 参考 StackOverflow 的这篇文章 <a href="https://stackoverflow.com/q/38532483">Where is /var/lib/docker on Mac/OS X</a></p></div><h3 id="容器编排-服务发现和集群"><a class="anchorlink" href="#%E5%AE%B9%E5%99%A8%E7%BC%96%E6%8E%92-%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0%E5%92%8C%E9%9B%86%E7%BE%A4">6 容器编排,服务发现和集群</a></h3><h4 id="容器编排-dockercompose"><a class="anchorlink" href="#%E5%AE%B9%E5%99%A8%E7%BC%96%E6%8E%92-dockercompose">6.1 容器编排 DockerCompose</a></h4><h4 id="服务发现-consul"><a class="anchorlink" href="#%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0-consul">6.2 服务发现 Consul</a></h4><h4 id="集群-swarm"><a class="anchorlink" href="#%E9%9B%86%E7%BE%A4-swarm">6.3 集群 Swarm</a></h4>
+<p>这里 <code>"Mountpoint": "/var/lib/docker/volumes/4f80cc3ae270bf3c82abab71548bb1eaba8a0b2f7305e9ea862d5c96b1409009/_data"</code> 为本机的目录</p><div class="note"><p>如果您用的是 MacOS, 上面的目录是无法打开的, 因为docker在mac中, 是通过 VM实现的. 需要先进入VM, 再进去上述的地址. 进入 VM 的方式跟您的 Mac 版本和 Docker 的版本相关. 我的方式为 <code>screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty</code>, 参考 StackOverflow 的这篇文章 <a href="https://stackoverflow.com/q/38532483">Where is /var/lib/docker on Mac/OS X</a></p></div><h3 id="容器编排-服务发现和集群"><a class="anchorlink" href="#%E5%AE%B9%E5%99%A8%E7%BC%96%E6%8E%92-%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0%E5%92%8C%E9%9B%86%E7%BE%A4">6 容器编排,服务发现和集群</a></h3><h4 id="容器编排-dockercompose"><a class="anchorlink" href="#%E5%AE%B9%E5%99%A8%E7%BC%96%E6%8E%92-dockercompose">6.1 容器编排 DockerCompose</a></h4><h4 id="服务发现-consul"><a class="anchorlink" href="#%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0-consul">6.2 服务发现 Consul</a></h4><h4 id="集群-swarm"><a class="anchorlink" href="#%E9%9B%86%E7%BE%A4-swarm">6.3 集群 Swarm</a></h4><h3 id="storage-driver"><a class="anchorlink" href="#storage-driver">7 Storage Driver</a></h3><div class="info"><p>当前docker(19.03.1)默认的 <code>Storage Driver</code> 为 overlay2</p></div><h3 id="aufs"><a class="anchorlink" href="#aufs">8 aufs</a></h3>
+<ol>
+<li>
+<p>指定 storage-driver</p>
+<p>vim etc/docker/daemon.json</p>
+<h2>写入</h2>
+<p>{ "storage-driver": "aufs" }'</p>
+<h2>重启 docker</h2>
+<p>sudo service docker restart
+sudo docker info</p>
+</li>
+</ol>
+<p>  可以看到配置</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+    Storage Driver: aufs
+     Root Dir: /var/lib/docker/aufs
+     Backing Filesystem: extfs
+     Dirs: 6
+     Dirperm1 Supported: true
+
+</pre>
+</div>
+
+<ol>
+<li>查看 diff, layer 等信息</li>
+</ol>
+<p>  在 Root Dir 查看即可</p><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+# 查看aufs信息
+$ sudo tree /var/lib/docker/image/aufs -L 2
+/var/lib/docker/image/aufs
+|-- distribution
+|   |-- diffid-by-digest
+|   `-- v2metadata-by-diffid
+|-- imagedb
+|   |-- content
+|   `-- metadata
+|-- layerdb
+|   |-- mounts
+|   |-- sha256
+|   `-- tmp
+`-- repositories.json
+
+</pre>
+</div>
+
+<ul>
+<li>diff</li>
+<li>layers</li>
+<li>mnt </li>
+</ul>
+<h4 id="overlay2"><a class="anchorlink" href="#overlay2">8.1 overlay2</a></h4>
 
         <div id="comment"></div>
       </div>
