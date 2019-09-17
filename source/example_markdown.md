@@ -264,3 +264,21 @@ TREE:
        ]
 }
 ```
+
+### asciinema-player
+PLAYER: test.json
+
+```bash
+# 安装 asciinema
+brew install asciinema
+
+# 先录制视频, 并将录制结果保存至 assets/players/ 中
+asciinema rec assets/players/test.json
+
+# 在 markdown 中添加下面一行即可
+PLAYER: test.json
+```
+
+- [asciinema-player](https://github.com/asciinema/asciinema-player)
+- [asciinema-server](https://github.com/asciinema/asciinema-server/issues/256)
+- [asciinema/asciinema](https://github.com/asciinema/asciinema)

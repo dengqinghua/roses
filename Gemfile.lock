@@ -130,6 +130,3 @@ DEPENDENCIES
   rack (>= 1.6.11)
   rails (= 5.2.2.1)
   redcarpet (= 3.4.0)
-
-BUNDLED WITH
-   2.0.1

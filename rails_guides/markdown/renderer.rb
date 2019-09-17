@@ -58,6 +58,8 @@ HTML
         elsif text =~ /^TREE:/
           config = text.gsub("TREE:", "")
           tree_code(config)
+        elsif text =~ /^PLAYER:\s+(.+)$/
+          "<asciinema-player src='players/#{$1}'></asciinema-player>"
         else
           text = convert_footnotes(text)
           "<p>#{text}</p>"
@@ -199,7 +201,7 @@ HTML
           # if a bulleted list follows the first item is not rendered
           # as a list item, but as a paragraph starting with a plain
           # asterisk.
-          body.gsub(/^(TIP|IMPORTANT|CAUTION|WARNING|NOTE|INFO|TODO|DATE|PDF|CHORD|MUSIC|FLOW)[.:](.*?)(\n(?=\n)|\Z)/m) do
+          body.gsub(/^(TIP|IMPORTANT|CAUTION|WARNING|NOTE|INFO|TODO|DATE|PDF|CHORD|MUSIC|FLOW|PLAYER)[.:](.*?)(\n(?=\n)|\Z)/m) do
             css_class = \
               case $1
               when "CAUTION", "IMPORTANT"
