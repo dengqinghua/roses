@@ -71,7 +71,7 @@ module RailsGuides
         @source_dir  = "#{@guides_dir}/source"
         @source_dir += "/#{@language}" if @language
 
-        @output_dir  = "#{@guides_dir}/output"
+        @output_dir  = "#{@guides_dir}/docs"
         @output_dir += "/kindle"       if @kindle
         @output_dir += "/#{@language}" if @language
       end

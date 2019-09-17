@@ -33,7 +33,7 @@ bundle install
 ./generate_guides
 ```
 
-即可在`output`文件夹中生成对应的html代码, 其中output/index.html为入口文件.
+即可在`docs`文件夹中生成对应的html代码, 其中docs/index.html为入口文件.
 
 源码内容简介
 --------------

@@ -3,8 +3,8 @@
 puts Time.now.to_s
 
 if ARGV[0] == "r"
-  puts "rm -rf output/**"
-  `rm -rf output/**`
+  puts "rm -rf docs/**"
+  `rm -rf docs/**`
 end
 
 puts "bundle exec rake guides:generate"
