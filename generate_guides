@@ -12,6 +12,6 @@ puts "bundle exec rake guides:generate"
 
 puts "============"
 
-Dir["output/*.html"].each do |path|
+Dir["docs/*.html"].each do |path|
   puts File.expand_path(File.dirname(__FILE__)) + "/" + path
 end

@@ -880,4 +880,9 @@ Leave me alone
 
 III I VI I
 
+HDS
+---
+C Am Dm G
 
+C Csus2 Csus4 Csus2
+Am Asus2 Asus4 Asus2

@@ -282,3 +282,6 @@ PLAYER: test.json
 - [asciinema-player](https://github.com/asciinema/asciinema-player)
 - [asciinema-server](https://github.com/asciinema/asciinema-server/issues/256)
 - [asciinema/asciinema](https://github.com/asciinema/asciinema)
+
+#### rails_api 的录制例子
+PLAYER: rails_api.json
