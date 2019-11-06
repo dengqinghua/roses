@@ -157,6 +157,7 @@
             <ol class="chapters">
 <li><a href="#%E6%8F%90%E9%97%AE%E7%9A%84%E6%99%BA%E6%85%A7">提问的智慧</a></li>
 <li><a href="#go-proverbs">Go Proverbs</a></li>
+<li><a href="#5-things-of-go-s-success">5 things of Go's success</a></li>
 <li><a href="#vim-go">Vim-Go</a></li>
 <li><a href="#go-style">Go Style</a></li>
 <li>
@@ -239,7 +240,19 @@
 </ul>
 
 <iframe class="youtube" src="https://www.youtube.com/embed/PAAkCSZUG1c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<h3 id="vim-go"><a class="anchorlink" href="#vim-go">3 Vim-Go</a></h3>
+<h3 id="5-things-of-go-s-success"><a class="anchorlink" href="#5-things-of-go-s-success">3 5 things of Go's success</a></h3>
+<blockquote>
+<p>As the saying goes... history doesn’t repeat itself, but it often rhymes.</p>
+</blockquote>
+
+<ul>
+<li>Formal specification</li>
+<li>Attracted killer apps (Docker, k8s)</li>
+<li>the Open source community</li>
+<li>Made the language hard to change</li>
+<li>Stuck with features they believed in</li>
+</ul>
+<p><a href="https://changelog.com/posts/5-things-rob-pike-attributes-to-gos-success">5-things-rob-pike-attributes-to-gos-success</a></p><h3 id="vim-go"><a class="anchorlink" href="#vim-go">4 Vim-Go</a></h3>
 <blockquote>
 <p>Vim and ONLY Vim.</p>
 </blockquote>
@@ -251,7 +264,7 @@ plugin 'fatih/vim-go'
 
 </pre>
 </div>
-<div class="note"><p>如果执行 <code>:GoInstallBinaries</code> 报错, 请参考 <a href="http://blog.dengqinghua.net/go_get_timeout_solution.html">go_get_timeout_solution</a></p></div><h3 id="go-style"><a class="anchorlink" href="#go-style">4 Go Style</a></h3>
+<div class="note"><p>如果执行 <code>:GoInstallBinaries</code> 报错, 请参考 <a href="http://blog.dengqinghua.net/go_get_timeout_solution.html">go_get_timeout_solution</a></p></div><h3 id="go-style"><a class="anchorlink" href="#go-style">5 Go Style</a></h3>
 <blockquote>
 <p>规范, 约定大于配置, 好的习惯比什么都重要.</p>
 </blockquote>
@@ -261,7 +274,7 @@ plugin 'fatih/vim-go'
 <li><a href="https://github.com/golang/go/wiki/CodeReviewComments">Code Review Comments</a></li>
 <li><a href="https://golang.org/doc/effective_go.html">Effective Go</a></li>
 </ul>
-<h3 id="test"><a class="anchorlink" href="#test">5 Test</a></h3>
+<h3 id="test"><a class="anchorlink" href="#test">6 Test</a></h3>
 <blockquote>
 <p>TDD</p>
 </blockquote>
@@ -306,7 +319,7 @@ func TestBasicMap(t *testing.T) {
 
 </pre>
 </div>
-<h4 id="test-func"><a class="anchorlink" href="#test-func">5.1 Test Func</a></h4><p>测试单独的一个方法</p><p>hello_world.go</p><div class="code_container">
+<h4 id="test-func"><a class="anchorlink" href="#test-func">6.1 Test Func</a></h4><p>测试单独的一个方法</p><p>hello_world.go</p><div class="code_container">
 <pre class="brush: java; gutter: false; toolbar: true;">
 package main
 
@@ -363,7 +376,7 @@ go test -run TestSum
 
 </pre>
 </div>
-<div class="note"><p>test文件必须写成 <code>*_test</code> 的形式. 可以执行 <code>go help test</code> 查看更多信息.</p></div><div class="info"><p>参考自 <a href="https://stackoverflow.com/a/16936314/8186609">StackOverflow: How to run test cases in a specified file?</a> 和 <a href="https://golang.org/pkg/testing/#hdr-Subtests_and_Sub_benchmarks">这里</a>, 我的源码例子: <a href="https://github.com/dengqinghua/my_examples/blob/master/golang/hello_world_test.go">这里</a></p></div><h4 id="mock"><a class="anchorlink" href="#mock">5.2 Mock</a></h4><p>学会mock方法. 考察了很多 mock 的插件, 如 <a href="https://github.com/stretchr/testify#mock-package">testify/mock</a>, <a href="https://github.com/golang/mock">Gomock</a>, <a href="https://github.com/prashantv/gostub">Gostub</a> 等, 最终我们选择了 testify/mock</p><div class="note"><p>Golang 的 mock, 不像面向对象语言, 她只能对 interface 进行mock. 有人对此也提出了疑问, 详情请见 <a href="https://stackoverflow.com/q/41053280">How to write mock for structs in Go</a></p></div><p>代码请见我的<a href="https://github.com/dengqinghua/my_examples/blob/master/golang/mock_test.go">mock_test</a></p><h3 id="debugger"><a class="anchorlink" href="#debugger">6 Debugger</a></h3>
+<div class="note"><p>test文件必须写成 <code>*_test</code> 的形式. 可以执行 <code>go help test</code> 查看更多信息.</p></div><div class="info"><p>参考自 <a href="https://stackoverflow.com/a/16936314/8186609">StackOverflow: How to run test cases in a specified file?</a> 和 <a href="https://golang.org/pkg/testing/#hdr-Subtests_and_Sub_benchmarks">这里</a>, 我的源码例子: <a href="https://github.com/dengqinghua/my_examples/blob/master/golang/hello_world_test.go">这里</a></p></div><h4 id="mock"><a class="anchorlink" href="#mock">6.2 Mock</a></h4><p>学会mock方法. 考察了很多 mock 的插件, 如 <a href="https://github.com/stretchr/testify#mock-package">testify/mock</a>, <a href="https://github.com/golang/mock">Gomock</a>, <a href="https://github.com/prashantv/gostub">Gostub</a> 等, 最终我们选择了 testify/mock</p><div class="note"><p>Golang 的 mock, 不像面向对象语言, 她只能对 interface 进行mock. 有人对此也提出了疑问, 详情请见 <a href="https://stackoverflow.com/q/41053280">How to write mock for structs in Go</a></p></div><p>代码请见我的<a href="https://github.com/dengqinghua/my_examples/blob/master/golang/mock_test.go">mock_test</a></p><h3 id="debugger"><a class="anchorlink" href="#debugger">7 Debugger</a></h3>
 <blockquote>
 <p>学会调试, 查看源码, 阅读源码.</p>
 </blockquote>
@@ -374,7 +387,7 @@ go test -run TestSum
 <li><a href="https://golang.org/doc/gdb">Gdb</a></li>
 <li><a href="https://github.com/sebdah/vim-delve">Vim Delve</a></li>
 </ul>
-<div class="note"><p>由于 <a href="https://github.com/jodosha/vim-godebug">Vim Godebug</a> 依赖 <a href="https://neovim.io/">Neovim</a>, 而我们一般使用的是vim, 故最终选择的调试工具为 <a href="https://github.com/sebdah/vim-delve">sebdah/vim-delve</a>, vim-delve 依赖 <a href="https://github.com/Shougo/vimshell.vim">Shougo/vimshell.vim</a>.</p></div><p><a href="https://github.com/sebdah/vim-delve"><img src="https://github.com/sebdah/vim-delve/raw/master/vim-delve-demo.gif" alt="delve-demo"></a></p><h3 id="基础知识"><a class="anchorlink" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">7 基础知识</a></h3>
+<div class="note"><p>由于 <a href="https://github.com/jodosha/vim-godebug">Vim Godebug</a> 依赖 <a href="https://neovim.io/">Neovim</a>, 而我们一般使用的是vim, 故最终选择的调试工具为 <a href="https://github.com/sebdah/vim-delve">sebdah/vim-delve</a>, vim-delve 依赖 <a href="https://github.com/Shougo/vimshell.vim">Shougo/vimshell.vim</a>.</p></div><p><a href="https://github.com/sebdah/vim-delve"><img src="https://github.com/sebdah/vim-delve/raw/master/vim-delve-demo.gif" alt="delve-demo"></a></p><h3 id="基础知识"><a class="anchorlink" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">8 基础知识</a></h3>
 <ul>
 <li><a href="https://golang.org/ref/spec">spec</a></li>
 <li><a href="https://golang.org/ref/spec">中文版</a></li>
@@ -397,7 +410,7 @@ func main() {
 <li><a href="https://tour.golang.org/list">Go Tour</a></li>
 <li><a href="https://github.com/karlseguin/the-little-go-book">The Little Go Book</a></li>
 </ul>
-<h4 id="spec部分笔记"><a class="anchorlink" href="#spec%E9%83%A8%E5%88%86%E7%AC%94%E8%AE%B0">7.1 Spec部分笔记</a></h4><h5 id="predeclared-identifiers-and-keywords"><a class="anchorlink" href="#predeclared-identifiers-and-keywords">7.1.1 Predeclared Identifiers and Keywords</a></h5><p>Predeclared Identifiers 是可以被使用的</p><div class="code_container">
+<h4 id="spec部分笔记"><a class="anchorlink" href="#spec%E9%83%A8%E5%88%86%E7%AC%94%E8%AE%B0">8.1 Spec部分笔记</a></h4><h5 id="predeclared-identifiers-and-keywords"><a class="anchorlink" href="#predeclared-identifiers-and-keywords">8.1.1 Predeclared Identifiers and Keywords</a></h5><p>Predeclared Identifiers 是可以被使用的</p><div class="code_container">
 <pre class="brush: java; gutter: false; toolbar: true;">
 Types:
     bool byte complex64 complex128 error float32 float64
@@ -433,7 +446,7 @@ continue     for          import       return       var
 
 </pre>
 </div>
-<h5 id="slice"><a class="anchorlink" href="#slice">7.1.2 Slice</a></h5>
+<h5 id="slice"><a class="anchorlink" href="#slice">8.1.2 Slice</a></h5>
 <ul>
 <li><a href="https://blog.golang.org/slices">Arrays, slices (and strings): The mechanics of 'append'</a></li>
 <li><a href="https://blog.golang.org/go-slices-usage-and-internals">go-slices-usage-and-internals</a></li>
@@ -459,7 +472,7 @@ type sliceHeader struct {
 <p>A slice cannot be grown beyond its capacity. Attempting to do so will cause a runtime panic.  Similarly,
 slices cannot be re­sliced below zero to access earlier elements in the array.</p>
 </blockquote>
-<h5 id="rune"><a class="anchorlink" href="#rune">7.1.3 Rune</a></h5>
+<h5 id="rune"><a class="anchorlink" href="#rune">8.1.3 Rune</a></h5>
 <blockquote>
 <p>A rune literal represents a rune constant, an integer value identifying a Unicode code point,
 or think of as a character constant is called a rune constant in Go.</p>
@@ -468,7 +481,7 @@ or think of as a character constant is called a rune constant in Go.</p>
 <ul>
 <li>A string is in effect a read-only slice of bytes</li>
 </ul>
-<p><a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html">ASCII, UNICODE 和 UTF-8</a></p><h4 id="gopath"><a class="anchorlink" href="#gopath">7.2 GoPath</a></h4><p><a href="https://golang.org/doc/code.html">Code organization</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html">ASCII, UNICODE 和 UTF-8</a></p><h4 id="gopath"><a class="anchorlink" href="#gopath">8.2 GoPath</a></h4><p><a href="https://golang.org/doc/code.html">Code organization</a></p>
 <iframe class="youtube" src="https://www.youtube.com/embed/XCsL89YtqCs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 <div class="code_container">
 <pre class="brush: shell; gutter: false; toolbar: true;">
@@ -476,26 +489,26 @@ go help
 
 </pre>
 </div>
-<h4 id="go-tags-in-structures"><a class="anchorlink" href="#go-tags-in-structures">7.3 Go Tags in structures</a></h4>
+<h4 id="go-tags-in-structures"><a class="anchorlink" href="#go-tags-in-structures">8.3 Go Tags in structures</a></h4>
 <ul>
 <li><a href="https://stackoverflow.com/a/30889373">What are the use(s) for tags in Go?</a></li>
 <li><a href="https://golang.org/ref/spec#Struct_types">Spec#Struct_types</a></li>
 <li><a href="https://github.com/gophercon/2015-talks/blob/master/Sam%20Helman%20%26%20Kyle%20Erf%20-%20The%20Many%20Faces%20of%20Struct%20Tags/StructTags.pdf">Sam Helman &amp; Kyle Erf - The Many Faces of Struct Tags</a></li>
 </ul>
-<h3 id="并发"><a class="anchorlink" href="#%E5%B9%B6%E5%8F%91">8 并发</a></h3>
+<h3 id="并发"><a class="anchorlink" href="#%E5%B9%B6%E5%8F%91">9 并发</a></h3>
 <ul>
 <li><a href="http://shop.oreilly.com/product/0636920046189.do">Concurrency in Go Tools and Techniques for Developers</a></li>
 </ul>
-<h4 id="sync-package"><a class="anchorlink" href="#sync-package">8.1 sync Package</a></h4><div class="tree_chart" style="display:none" id="1f3b75a41cb671a3b08982ea1ac91e68">
+<h4 id="sync-package"><a class="anchorlink" href="#sync-package">9.1 sync Package</a></h4><div class="tree_chart" style="display:none" id="1f3b75a41cb671a3b08982ea1ac91e68">
   {"chart":{"container":"#1f3b75a41cb671a3b08982ea1ac91e68","rootOrientation":"WEST","siblingSeparation":40,"subTeeSeparation":30,"connectors":{"type":"step","style":{"stroke":"#bbb","arrow-end":"block-wide-long"}},"node":{"HTMLclass":"nodeChart"}},"nodeStructure":{"text":{"name":"sync"},"children":[{"text":{"name":"Map"}},{"text":{"name":"WaitGroup"}},{"text":{"name":"Once"}},{"text":{"name":"Mutex, RWMutex"}},{"text":{"name":"Pool"}},{"text":{"name":"Cond"}},{"text":{"name":"Atomic"}}]}}
 </div>
-<h3 id="其他"><a class="anchorlink" href="#%E5%85%B6%E4%BB%96">9 其他</a></h3>
+<h3 id="其他"><a class="anchorlink" href="#%E5%85%B6%E4%BB%96">10 其他</a></h3>
 <ul>
 <li><a href="https://github.com/dariubs/GoBooks">Go Books</a></li>
 <li><a href="https://dave.cheney.net/practical-go/presentations/qcon-china.html">Practical Go: Real world advice for writing maintainable Go programs</a></li>
 <li>GC</li>
 </ul>
-<h3 id="项目"><a class="anchorlink" href="#%E9%A1%B9%E7%9B%AE">10 项目</a></h3><h4 id="go-strings"><a class="anchorlink" href="#go-strings">10.1 Go Strings</a></h4><p>用Go语言做跟音乐相关的东西, 正在筹划中</p><h3 id="books"><a class="anchorlink" href="#books">11 Books</a></h3>
+<h3 id="项目"><a class="anchorlink" href="#%E9%A1%B9%E7%9B%AE">11 项目</a></h3><h4 id="go-strings"><a class="anchorlink" href="#go-strings">11.1 Go Strings</a></h4><p>用Go语言做跟音乐相关的东西, 正在筹划中</p><h3 id="books"><a class="anchorlink" href="#books">12 Books</a></h3>
 <ul>
 <li><a href="https://github.com/karlseguin/the-little-go-book">The Little Go Book</a></li>
 <li><a href="https://golang.org/doc/effective_go.html">Effective Go</a></li>

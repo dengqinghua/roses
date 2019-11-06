@@ -47,6 +47,18 @@ Go Proverbs
 
 <iframe class="youtube" src="https://www.youtube.com/embed/PAAkCSZUG1c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
+5 things of Go's success
+---------------------------------------------
+> As the saying goes... history doesn’t repeat itself, but it often rhymes.
+
+- Formal specification
+- Attracted killer apps (Docker, k8s)
+- the Open source community
+- Made the language hard to change
+- Stuck with features they believed in
+
+[5-things-rob-pike-attributes-to-gos-success](https://changelog.com/posts/5-things-rob-pike-attributes-to-gos-success)
+
 Vim-Go
 ------
 > Vim and ONLY Vim.

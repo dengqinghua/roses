@@ -194,22 +194,22 @@
   <div id="container">
     <div class="wrapper">
       <div id="mainCol">
-        <div class="note"><p>请到<a href="https://github.com/dengqinghua/my_examples/tree/master/java">这里</a>查看完整示例代码</p></div><h3 id="maven命令行执行main方法和test"><a class="anchorlink" href="#maven%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%89%A7%E8%A1%8Cmain%E6%96%B9%E6%B3%95%E5%92%8Ctest">1 maven命令行执行main方法和test</a></h3><p>在开发java的时候, 我们经常重度依赖IDE, 但是IDE的可编辑的区域很小</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badIde.png" alt="badIde"></p><div class="note"><p>写代码的区域很小, 建议关闭所有的窗口, 只留下写代码的区域.
+        <div class="note"><p>请到<a href="https://github.com/dengqinghua/my_examples/tree/master/java">这里</a>查看完整示例代码</p></div><h3 id="maven命令行执行main方法和test"><a class="anchorlink" href="#maven%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%89%A7%E8%A1%8Cmain%E6%96%B9%E6%B3%95%E5%92%8Ctest">1 maven命令行执行main方法和test</a></h3><p>在开发java的时候, 我们经常重度依赖IDE, 但是IDE的可编辑的区域很小</p><p><img src="images/badIde.png" alt="badIde"></p><div class="note"><p>写代码的区域很小, 建议关闭所有的窗口, 只留下写代码的区域.
 另外, 可通过ideaVim可以自定制vim的<a href="https://github.com/dengqinghua/dotfiles#ideavimrc">快捷键</a>
-来一键式关闭所有窗口, 也可以使用IDE的默认快捷键.</p></div><p>但是我们需要起main服务或者Run测试怎么办? 一般来说我们会在IDE下运行多个任务</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/runTestAndServerBoth.png" alt="runTestAndServerBoth"></p><p>这样写代码的区域会更少, 而且控制台会一直打开着, 占用写代码的区域.</p><p>为了解决上述问题, 我尝试用 Maven 原生的命令行来启动服务, 跑测试用例, 释放IDE.</p><h4 id="mvn-exec"><a class="anchorlink" href="#mvn-exec">1.1 mvn exec</a></h4><p>在上述的例子, 可以通过执行</p><div class="code_container">
+来一键式关闭所有窗口, 也可以使用IDE的默认快捷键.</p></div><p>但是我们需要起main服务或者Run测试怎么办? 一般来说我们会在IDE下运行多个任务</p><p><img src="images/runTestAndServerBoth.png" alt="runTestAndServerBoth"></p><p>这样写代码的区域会更少, 而且控制台会一直打开着, 占用写代码的区域.</p><p>为了解决上述问题, 我尝试用 Maven 原生的命令行来启动服务, 跑测试用例, 释放IDE.</p><h4 id="mvn-exec"><a class="anchorlink" href="#mvn-exec">1.1 mvn exec</a></h4><p>在上述的例子, 可以通过执行</p><div class="code_container">
 <pre class="brush: shell; gutter: false; toolbar: true;">
 mvn compile # 进行编译
 mvn exec:java -Dexec.mainClass=com.dengqinghua.example.App # Run main方法
 
 </pre>
 </div>
-<div class="note"><p>上述两个命令可以合并成一个 <code>mvn compile exec:java -Dexec.mainClass=com.dengqinghua.example.App</code></p></div><p>启动一个服务</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/incmdRun.png" alt="commandLine"></p><div class="info"><p>如果想指定不同的参数, 可以通过 -D 添加:</p></div><div class="code_container">
+<div class="note"><p>上述两个命令可以合并成一个 <code>mvn compile exec:java -Dexec.mainClass=com.dengqinghua.example.App</code></p></div><p>启动一个服务</p><p><img src="images/incmdRun.png" alt="commandLine"></p><div class="info"><p>如果想指定不同的参数, 可以通过 -D 添加:</p></div><div class="code_container">
 <pre class="brush: shell; gutter: false; toolbar: true;">
 mvn compile exec:java -Dexec.mainClass=com.dengqinghua.example.App -Ddsg=v587
 
 </pre>
 </div>
-<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/dsgv587Run.png" alt="commandLineWithArgus"></p><div class="note"><p>输入 mvn --help 可以看到: <code>-D,--define &lt;arg&gt;  Define a system property</code></p></div><div class="info"><p>在pom.xml文件中, 我们添加这个plugin, 可以实现增量编译和指定java编译的版本</p></div><div class="code_container">
+<p><img src="images/dsgv587Run.png" alt="commandLineWithArgus"></p><div class="note"><p>输入 mvn --help 可以看到: <code>-D,--define &lt;arg&gt;  Define a system property</code></p></div><div class="info"><p>在pom.xml文件中, 我们添加这个plugin, 可以实现增量编译和指定java编译的版本</p></div><div class="code_container">
 <pre class="brush: xml; gutter: false; toolbar: true;">
 &lt;plugin&gt;
   &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
@@ -238,7 +238,7 @@ mvn test
 
 </pre>
 </div>
-<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/mavenTest.png" alt="mavenTest"></p><h5 id="run指定的class的测试"><a class="anchorlink" href="#run%E6%8C%87%E5%AE%9A%E7%9A%84class%E7%9A%84%E6%B5%8B%E8%AF%95">1.2.2 Run指定的class的测试</a></h5><div class="code_container">
+<p><img src="images/mavenTest.png" alt="mavenTest"></p><h5 id="run指定的class的测试"><a class="anchorlink" href="#run%E6%8C%87%E5%AE%9A%E7%9A%84class%E7%9A%84%E6%B5%8B%E8%AF%95">1.2.2 Run指定的class的测试</a></h5><div class="code_container">
 <pre class="brush: shell; gutter: false; toolbar: true;">
 mvn test -Dtest=SalaryTest
 
@@ -289,7 +289,7 @@ public class ClientTest {
 
 </pre>
 </div>
-<p><code>maven test</code>除了上述功能外, 还支持输出测试覆盖率, 并发运行测试等, 更多内容请阅读官方文档.</p><h3 id="maven-debug"><a class="anchorlink" href="#maven-debug">2 Maven Debug</a></h3><p>有时候我们需要在程序进行调试, 如在 main 方法中添加断点</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/addBreakPoint.png" alt="addBreakPoint"></p><p>运行服务的时候此时需要以debug的方式启动.</p><div class="code_container">
+<p><code>maven test</code>除了上述功能外, 还支持输出测试覆盖率, 并发运行测试等, 更多内容请阅读官方文档.</p><h3 id="maven-debug"><a class="anchorlink" href="#maven-debug">2 Maven Debug</a></h3><p>有时候我们需要在程序进行调试, 如在 main 方法中添加断点</p><p><img src="images/addBreakPoint.png" alt="addBreakPoint"></p><p>运行服务的时候此时需要以debug的方式启动.</p><div class="code_container">
 <pre class="brush: shell; gutter: false; toolbar: true;">
 mvnDebug compile exec:java -Dexec.mainClass="com.dengqinghua.example.App" -Ddsg=v587
 
@@ -304,14 +304,14 @@ Listening for transport dt_socket at address: 8000
 
 </pre>
 </div>
-<div class="info"><p>Maven调用了原生的<a href="https://docs.oracle.com/javase/7/docs/technotes/tools/solaris/jdb.html">jdb</a></p></div><p>可以使用 IDE 创建一个 <a href="https://www.jetbrains.com/help/idea/run-debug-configuration-remote-debug.html">RemoteDebug</a></p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/addDebug.png" alt="addDebug"></p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/addRemoteDebug.png" alt="addRemoteDebug"></p><p>填写相应参数</p>
+<div class="info"><p>Maven调用了原生的<a href="https://docs.oracle.com/javase/7/docs/technotes/tools/solaris/jdb.html">jdb</a></p></div><p>可以使用 IDE 创建一个 <a href="https://www.jetbrains.com/help/idea/run-debug-configuration-remote-debug.html">RemoteDebug</a></p><p><img src="images/addDebug.png" alt="addDebug"></p><p><img src="images/addRemoteDebug.png" alt="addRemoteDebug"></p><p>填写相应参数</p>
 <ul>
 <li>Host: localhost</li>
 <li>Port: 8000</li>
 <li>Name: mvnDebug</li>
 <li>Module's classpath: my-example</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/createMVNDebug.png" alt="createMVNDebug"></p><div class="note"><p>线上的代码也可以用类似的方式进行debug, 只需要改变Host和Port, 并在启动的时候添加Debug参数即可</p></div><p>运行debug</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/runDebug.png" alt="runDebug"></p><p>最终可以在IDE中捕获到断点, 并进行调试</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/goIntoBreakpoint.png" alt="goIntoBreakpoint"></p><h3 id="maven-purpose"><a class="anchorlink" href="#maven-purpose">3 Maven Purpose</a></h3>
+<p><img src="images/createMVNDebug.png" alt="createMVNDebug"></p><div class="note"><p>线上的代码也可以用类似的方式进行debug, 只需要改变Host和Port, 并在启动的时候添加Debug参数即可</p></div><p>运行debug</p><p><img src="images/runDebug.png" alt="runDebug"></p><p>最终可以在IDE中捕获到断点, 并进行调试</p><p><img src="images/goIntoBreakpoint.png" alt="goIntoBreakpoint"></p><h3 id="maven-purpose"><a class="anchorlink" href="#maven-purpose">3 Maven Purpose</a></h3>
 <blockquote>
 Maven’s primary goal is to allow a developer to comprehend the complete state of a development effort in the shortest period of time
 <div class="info"><p>Maven的介绍请查看官网: <a href="https://maven.apache.org/what-is-maven.html">What is Maven?</a> 和 <a href="https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">Maven In 5 Minutes</a></p></div>
