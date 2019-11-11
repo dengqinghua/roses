@@ -220,7 +220,7 @@
 <li>ABA</li>
 <li>循环时间长</li>
 </ul>
-<p>参考: <a href="http://ifeve.com/atomic-operation/">聊聊并发（五）原子操作的实现原理</a></p><h3 id="locking"><a class="anchorlink" href="#locking">2 Locking</a></h3><h4 id="thread-state"><a class="anchorlink" href="#thread-state">2.1 Thread State</a></h4><p><a href="https://www.uml-diagrams.org/java-thread-uml-state-machine-diagram-example.html?context=stm-examples"><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/threadLifeCycle.jpeg" alt="threadLifeCycle"></a></p><p>6个状态, 下面是从JDK8.0中摘抄的注释部分:</p>
+<p>参考: <a href="http://ifeve.com/atomic-operation/">聊聊并发（五）原子操作的实现原理</a></p><h3 id="locking"><a class="anchorlink" href="#locking">2 Locking</a></h3><h4 id="thread-state"><a class="anchorlink" href="#thread-state">2.1 Thread State</a></h4><p><a href="https://www.uml-diagrams.org/java-thread-uml-state-machine-diagram-example.html?context=stm-examples"><img src="images/threadLifeCycle.jpeg" alt="threadLifeCycle"></a></p><p>6个状态, 下面是从JDK8.0中摘抄的注释部分:</p>
 <ul>
 <li>NEW not yet started</li>
 <li>RUNNABLE executing in the Java virtual machine</li>
@@ -257,7 +257,7 @@ synchronized { // monitor region begin, 即 monitorenter
 
 </pre>
 </div>
-<p>Monitor的模型如下图所示</p><p><a href="https://www.artima.com/insidejvm/ed2/threadsynch.html"><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/threadmonitor.png" alt="threadmonitor"></a></p>
+<p>Monitor的模型如下图所示</p><p><a href="https://www.artima.com/insidejvm/ed2/threadsynch.html"><img src="images/threadmonitor.png" alt="threadmonitor"></a></p>
 <ul>
 <li>Entry Set: 所有等待锁的线程集合</li>
 <li>The Owner: 获得到锁的线程</li>
@@ -715,7 +715,7 @@ end
 
 </pre>
 </div>
-<h5 id="linkedblockingqueue"><a class="anchorlink" href="#linkedblockingqueue">4.2.5 LinkedBlockingQueue</a></h5><p>Fixed Thread Pool, 使用的是 <code>LinkedBlockingQueue</code> 作为存储队列</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/linkedList.png" alt="linkedList"></p><p>队列的特性主要有下面几点</p>
+<h5 id="linkedblockingqueue"><a class="anchorlink" href="#linkedblockingqueue">4.2.5 LinkedBlockingQueue</a></h5><p>Fixed Thread Pool, 使用的是 <code>LinkedBlockingQueue</code> 作为存储队列</p><p><img src="images/linkedList.png" alt="linkedList"></p><p>队列的特性主要有下面几点</p>
 <ol>
 <li>
 <p>FIFO, <code>offer</code> 操作发生在headNode, <code>pool</code> 操作发生在lastNode</p>

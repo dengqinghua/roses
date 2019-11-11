@@ -261,15 +261,15 @@ return a
 
 </pre>
 </div>
-<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/AST.png" alt="AST"></p><h4 id="sql-design-pattern"><a class="anchorlink" href="#sql-design-pattern">3.2 SQL Design Pattern</a></h4><p>Take the <code>SELECT</code> part as an example:</p><div class="info"><p>The design comes from <a href="https://www.sqlite.org/lang_select.html">SQL As Understood By SQLite</a></p></div>
+<p><img src="images/AST.png" alt="AST"></p><h4 id="sql-design-pattern"><a class="anchorlink" href="#sql-design-pattern">3.2 SQL Design Pattern</a></h4><p>Take the <code>SELECT</code> part as an example:</p><div class="info"><p>The design comes from <a href="https://www.sqlite.org/lang_select.html">SQL As Understood By SQLite</a></p></div>
 <ul>
 <li>select_statement</li>
 </ul>
-<p>  <img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/factored-select-stmt.gif" alt="select-stmt"></p>
+<p>  <img src="images/factored-select-stmt.gif" alt="select-stmt"></p>
 <ul>
 <li>select_core</li>
 </ul>
-<p>  <img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/select-core.gif" alt="select-core"></p><p>The <code>SELECT</code> part can be seen as below:</p><div class="code_container">
+<p>  <img src="images/select-core.gif" alt="select-core"></p><p>The <code>SELECT</code> part can be seen as below:</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: true;">
 |-- SelectCore
 |   |-- Projections(id, user_name, ...)
@@ -311,7 +311,7 @@ system %x(dot arel.dot -T png -o arel.png)
 
 </pre>
 </div>
-<p>Then we get the map of Arel</p><p>  <img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/arel.png" alt="Arel-AST"></p><p>From the AST, we know
+<p>Then we get the map of Arel</p><p>  <img src="images/arel.png" alt="Arel-AST"></p><p>From the AST, we know
 * The concept of select_statement and select_core comes from
 <code>SQL Design Pattern</code>
 * The left, right branch concept comes from

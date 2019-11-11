@@ -24,7 +24,7 @@ Sidekiq基本框架
 ---------------
 Sidekiq基于Redis作为存储, 一个例子如下:
 
-![sidekiq_exmaple](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/sidekiq_exmaple.png)
+![sidekiq_exmaple](images/sidekiq_exmaple.png)
 
 Sidekiq Client
 --------------
@@ -76,7 +76,7 @@ Sidekiq4.0之前, 使用的是[Celluloid](https://github.com/celluloid/celluloid
 
 模型如下:
 
-![sidekiq_actor_architecture](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/sidekiq_actor_architecture.png)
+![sidekiq_actor_architecture](images/sidekiq_actor_architecture.png)
 
 源码分析请参考 [Working With Ruby Threads-Chapter 15](https://www.jstorimer.com/products/working-with-ruby-threads)
 
@@ -85,7 +85,7 @@ Sidekiq4.0之前, 使用的是[Celluloid](https://github.com/celluloid/celluloid
 
 模型如下:
 
-![sidekiq_new_framework](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/sidekiq_new_framework.png)
+![sidekiq_new_framework](images/sidekiq_new_framework.png)
 
 核心的组件包括
 
@@ -402,7 +402,7 @@ NOTE: [Sidekiq-Pro](https://sidekiq.org/products/pro.html) 支持batches功能, 
 ### AsyncTask
 任务处理引擎架构图
 
-![async_task](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/async_task.png)
+![async_task](images/async_task.png)
 
 它包含三部分
 

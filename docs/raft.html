@@ -215,7 +215,7 @@
 <li>维护了一个最终状态的状态机(State Machine).</li>
 </ul>
 <p>任何一台服务器挂掉或者无法进行通信时,
-新的服务器可通过日志进行数据的回溯和重算. 得到当前的最终的状态, 并代替原有服务器, 和client进行通信</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/replicated_state_machine_architecture.png" alt="replicated_state_machine_architecture"></p><p>Client 和 Server 通信的时候(上图中的步骤1), Server端会写log, 其中log记录的是 <strong>数据的变化过程</strong>, 并同步到多个机器中(步骤2),
+新的服务器可通过日志进行数据的回溯和重算. 得到当前的最终的状态, 并代替原有服务器, 和client进行通信</p><p><img src="images/replicated_state_machine_architecture.png" alt="replicated_state_machine_architecture"></p><p>Client 和 Server 通信的时候(上图中的步骤1), Server端会写log, 其中log记录的是 <strong>数据的变化过程</strong>, 并同步到多个机器中(步骤2),
 存在一个状态机, 状态机保存的是数据的<strong>最终结果</strong>(步骤3), 状态机计算完结果之后, 将结果返回给Client通信成功(步骤4)</p><p>论文原文摘录:</p>
 <blockquote>
 <p>Keeping the replicated log consistent is the job of the consensus algorithm. The consensus module on a server receives commands from clients and adds them to its log. It communicates with the consensus modules on other servers to <strong>ensure that every log eventually contains the same requests in the same order, even if some servers fail</strong>. Once <strong>commands</strong> are properly replicated, each server’s state machine processes them in log order, and the outputs are returned to clients. As a result, the servers appear to form a single, highly reliable state machine.</p>
@@ -260,7 +260,7 @@ candidate's latestLogIndex &gt;= voter's latestLogIndex
 <li>Candidate</li>
 <li>Leader</li>
 </ul>
-<div class="note"><p>所有的交互都是跟 Leader 进行, 变化会写入 Leader 的log, 再进行 Log Replication, 采用的方式为 Append Entries.</p></div><p>状态变化如下图:</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/raft_status_change.png" alt="raft_status_change"></p><p>大型的分布式系统都会有一个 <code>replicated state machine</code></p>
+<div class="note"><p>所有的交互都是跟 Leader 进行, 变化会写入 Leader 的log, 再进行 Log Replication, 采用的方式为 Append Entries.</p></div><p>状态变化如下图:</p><p><img src="images/raft_status_change.png" alt="raft_status_change"></p><p>大型的分布式系统都会有一个 <code>replicated state machine</code></p>
 <blockquote>
 <p>Large-scale systems that have a single cluster leader, such as GFS, HDFS, and RAMCloud, typically use a separate <strong>replicated state machine</strong> to manage leader election and store configuration information that must survive leader crashes. Examples of replicated state machines include Chubby and ZooKeeper.</p>
 </blockquote>
@@ -306,7 +306,7 @@ leader_commit # leader 提交(Committed)
 <blockquote>
 <p>If followers crash or run slowly, or if network packets are lost, the leader <strong>retries AppendEntries RPCs indefinitely</strong> (even after it has responded to the client) until all followers eventually store all log entries.</p>
 </blockquote>
-<h4 id="检测不一致的方式"><a class="anchorlink" href="#%E6%A3%80%E6%B5%8B%E4%B8%8D%E4%B8%80%E8%87%B4%E7%9A%84%E6%96%B9%E5%BC%8F">3.2 检测不一致的方式</a></h4><p>Leader写入的log形式如下:</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/raft_log_entries.png" alt="raft_log_entries"></p><p>其中不同的颜色, 代表不同的term.</p><p>通过term值和log的最大的index,
+<h4 id="检测不一致的方式"><a class="anchorlink" href="#%E6%A3%80%E6%B5%8B%E4%B8%8D%E4%B8%80%E8%87%B4%E7%9A%84%E6%96%B9%E5%BC%8F">3.2 检测不一致的方式</a></h4><p>Leader写入的log形式如下:</p><p><img src="images/raft_log_entries.png" alt="raft_log_entries"></p><p>其中不同的颜色, 代表不同的term.</p><p>通过term值和log的最大的index,
 Leader可以知道Follower的Log Entries是否已经追上或者是落后. 如果发现落后了,
 则在下次心跳的时候, 再将数据进行同步.</p><p>如果Follower超前了, Follower会将他的数据删除, 保持logEntries和Leader的一致.</p><h4 id="committed"><a class="anchorlink" href="#committed">3.3 Committed</a></h4><p>论文原文摘录:</p>
 <blockquote>

@@ -74,12 +74,12 @@ NOTE: ♩=120, 代表的是每分钟120个♩
 NOTE: 小节线 |; 如果要分段或者换调用, 则使用双小节线 ||; 反复记号 ||: :||
 
 ### 吉他和五线谱关系
-![stuff](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/guitar_tab.jpg)
-![stuff](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/guitar_tab_c_f.jpg)
-![stuff](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/music_mutations.jpg)
+![stuff](images/guitar_tab.jpg)
+![stuff](images/guitar_tab_c_f.jpg)
+![stuff](images/music_mutations.jpg)
 
 吉他演奏的音域
-![range](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/guitar_ranges.jpg)
+![range](images/guitar_ranges.jpg)
 
 NOTE: 图片来源于 [古典吉他弹奏怎样识记五线谱？ - woodoo001的回答](https://www.zhihu.com/question/26296830/answer/83856060)
 

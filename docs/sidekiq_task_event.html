@@ -188,7 +188,7 @@
   <div id="container">
     <div class="wrapper">
       <div id="mainCol">
-        <h3 id="sidekiq基本框架"><a class="anchorlink" href="#sidekiq%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6">1 Sidekiq基本框架</a></h3><p>Sidekiq基于Redis作为存储, 一个例子如下:</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/sidekiq_exmaple.png" alt="sidekiq_exmaple"></p><h3 id="sidekiq-client"><a class="anchorlink" href="#sidekiq-client">2 Sidekiq Client</a></h3><p>Sidekiq Client部分为队列数据的生产者, 在 Sidekiq 源码中可以看到</p><div class="code_container">
+        <h3 id="sidekiq基本框架"><a class="anchorlink" href="#sidekiq%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6">1 Sidekiq基本框架</a></h3><p>Sidekiq基于Redis作为存储, 一个例子如下:</p><p><img src="images/sidekiq_exmaple.png" alt="sidekiq_exmaple"></p><h3 id="sidekiq-client"><a class="anchorlink" href="#sidekiq-client">2 Sidekiq Client</a></h3><p>Sidekiq Client部分为队列数据的生产者, 在 Sidekiq 源码中可以看到</p><div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: true;">
 module Sidekiq
   class Client
@@ -227,7 +227,7 @@ end
 <li>jid   job_id</li>
 <li>enqueued_at 进入队列的时间</li>
 </ul>
-<p>并将这些信息通过<a href="https://redis.io/commands/lpush">lpush</a>存储在Redis的队列中.</p><h3 id="sidekiq-server"><a class="anchorlink" href="#sidekiq-server">3 Sidekiq Server</a></h3><h4 id="before-4-0"><a class="anchorlink" href="#before-4-0">3.1 Before 4.0</a></h4><p>Sidekiq4.0之前, 使用的是<a href="https://github.com/celluloid/celluloid">Celluloid</a>作为多线程的抽象层</p><p>模型如下:</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/sidekiq_actor_architecture.png" alt="sidekiq_actor_architecture"></p><p>源码分析请参考 <a href="https://www.jstorimer.com/products/working-with-ruby-threads">Working With Ruby Threads-Chapter 15</a></p><h4 id="after-4-0"><a class="anchorlink" href="#after-4-0">3.2 After 4.0</a></h4><p>在4.0版本之后, Sidekiq出于性能考虑, 使用原生的<code>Thread</code>实现了一个简易的Actor版本模型. 相关文章请见<a href="http://www.mikeperham.com/2015/10/14/should-you-use-celluloid/">这里</a> 和 <a href="https://github.com/mperham/sidekiq/issues/2583">这里</a></p><p>模型如下:</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/sidekiq_new_framework.png" alt="sidekiq_new_framework"></p><p>核心的组件包括</p>
+<p>并将这些信息通过<a href="https://redis.io/commands/lpush">lpush</a>存储在Redis的队列中.</p><h3 id="sidekiq-server"><a class="anchorlink" href="#sidekiq-server">3 Sidekiq Server</a></h3><h4 id="before-4-0"><a class="anchorlink" href="#before-4-0">3.1 Before 4.0</a></h4><p>Sidekiq4.0之前, 使用的是<a href="https://github.com/celluloid/celluloid">Celluloid</a>作为多线程的抽象层</p><p>模型如下:</p><p><img src="images/sidekiq_actor_architecture.png" alt="sidekiq_actor_architecture"></p><p>源码分析请参考 <a href="https://www.jstorimer.com/products/working-with-ruby-threads">Working With Ruby Threads-Chapter 15</a></p><h4 id="after-4-0"><a class="anchorlink" href="#after-4-0">3.2 After 4.0</a></h4><p>在4.0版本之后, Sidekiq出于性能考虑, 使用原生的<code>Thread</code>实现了一个简易的Actor版本模型. 相关文章请见<a href="http://www.mikeperham.com/2015/10/14/should-you-use-celluloid/">这里</a> 和 <a href="https://github.com/mperham/sidekiq/issues/2583">这里</a></p><p>模型如下:</p><p><img src="images/sidekiq_new_framework.png" alt="sidekiq_new_framework"></p><p>核心的组件包括</p>
 <ol>
 <li>
 <p>Manager</p>
@@ -539,7 +539,7 @@ job_id = ProductWorker.perform_async(params)
 <li>可以获得job的执行状态</li>
 <li>所有执行过程可视化</li>
 </ul>
-<h4 id="asynctask-asynctask"><a class="anchorlink" href="#asynctask-asynctask">5.2 AsyncTask</a></h4><p>任务处理引擎架构图</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/async_task.png" alt="async_task"></p><p>它包含三部分</p>
+<h4 id="asynctask-asynctask"><a class="anchorlink" href="#asynctask-asynctask">5.2 AsyncTask</a></h4><p>任务处理引擎架构图</p><p><img src="images/async_task.png" alt="async_task"></p><p>它包含三部分</p>
 <ol>
 <li>创建Task, 生成task_id, 将每一个任务都推入Redis, 并获取到对应的job_id</li>
 <li>生成Event记录, 该Event和job_id一一对应, 记录了整个job的生命周期</li>

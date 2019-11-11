@@ -17,13 +17,13 @@ JVM内存区域
 ### 架构图
 #### JVM
 HotSpotJVMArchitecture
-![HotSpotJVMArchitecture](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/HotSpotJVMArchitecture.png)
+![HotSpotJVMArchitecture](images/HotSpotJVMArchitecture.png)
 
 如果更细分地认识, 可以按照下面的方式划分:
-![jvm_structure](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/jvm_structure.png)
+![jvm_structure](images/jvm_structure.png)
 
 #### Heap
-![HotSpotHeapStructure](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/HotSpotHeapStructure.png)
+![HotSpotHeapStructure](images/HotSpotHeapStructure.png)
 
 GC
 --
@@ -67,7 +67,7 @@ day1->day2->day3->day4
 
 ### HotSpot GC算法
 #### 结构
-![HotSpotHeapStructure](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/HotSpotHeapStructure.png)
+![HotSpotHeapStructure](images/HotSpotHeapStructure.png)
 
 1. Young Generation
     - 新分配对象分配会存在这里
@@ -118,7 +118,7 @@ JVM给了每一个对象一个Age计数器, 当对象在`survivor`经历一次`M
 #### survivor choose
 我们知道有两个survivor区
 
-![HotSpotHeapStructure](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/HotSpotHeapStructure.png)
+![HotSpotHeapStructure](images/HotSpotHeapStructure.png)
 
 S0和S1有一个为冗余内存, 类似于 `Copying` 算法的冗余内存, S0和S1始终有一块为空
 
@@ -214,7 +214,7 @@ INFO: 参考自[0xCAFEBABE ? - java class file format, an overview](https://blog
 ### 架构图
 SE7的架构如下: `Major Version: 0x0033`, 即51
 
-![class_file_overview](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/class_file_overview.png)
+![class_file_overview](images/class_file_overview.png)
 
 ### javap分析class文件
 通过`javap`可以解析class文件
@@ -424,12 +424,12 @@ CONSTANT_NameAndType_info {
 ### Constant Pool
 Constant Pool(常量池), 定义了Java中用到的常量, 包括总的常量数, 常量类型, 常量索引值等
 
-![Constant_pool](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/Constant_pool.png)
+![Constant_pool](images/Constant_pool.png)
 
 ### Access Flags
 描述了可见性等参数
 
-![access_flags](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/Access_flag.png)
+![access_flags](images/Access_flag.png)
 
 ### Fields
 Fields为字段内容, 如上面提到的 `monthSalary`
@@ -463,7 +463,7 @@ ConstantValue_attribute {
 #### Code Attribute
 下面是Code部分中的attribute
 
-![Code_attribute](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/Code_attribute.png)
+![Code_attribute](images/Code_attribute.png)
 
 ### Methods
 

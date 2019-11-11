@@ -50,12 +50,12 @@ golang.org/x/tools (download)
 ### 获取代理的地址
 点击安装好的lantern, 并打开配置页面
 
-![lanten](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/lanten.png)
+![lanten](images/lanten.png)
 
 
 查看SOCKS代理服务器地址
 
-![lanten](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/lantern_config.png)
+![lanten](images/lantern_config.png)
 
 ### 设置http_proxy和https_proxy
 根据上图的SOCKS代理服务器的地址, 如: 127.0.0.1:63709

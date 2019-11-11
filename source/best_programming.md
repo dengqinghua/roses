@@ -23,7 +23,7 @@ INFO: 开发过程中，参与者应包括：架构师，开发者，reviewer. �
 
 WARNING: 需求分析，方案设计 也属于开发过程的一部分，而且是最重要的一部分
 
-![best_programming](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/best_programming.png)
+![best_programming](images/best_programming.png)
 
 ### 需求分析, 方案设计
 #### 需求分析

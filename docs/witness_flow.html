@@ -200,13 +200,13 @@
 <li>经常新增, 去除业务功能</li>
 <li>核心业务逻辑变动频繁, 最终逻辑无人知晓</li>
 </ol>
-<p>下面是一次产品业务逻辑的PRD文档</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/prd_complex_example.png" alt="complex_example"></p><p>上述逻辑非常复杂, 每一个分支又有自己独立的逻辑, 再经过几次需求的变动, 最终报名的逻辑无人知晓,
+<p>下面是一次产品业务逻辑的PRD文档</p><p><img src="images/prd_complex_example.png" alt="complex_example"></p><p>上述逻辑非常复杂, 每一个分支又有自己独立的逻辑, 再经过几次需求的变动, 最终报名的逻辑无人知晓,
 只能通过研发去从代码中找逻辑, 出现的bug也很难排查.</p><p>基于上述痛点, 我们研发了<code>业务流引擎</code>, 它主要解决下面几个问题</p>
 <ul>
 <li>流程配置可视化, 流程图即是代码</li>
 <li>每一个流程的执行过程可视化</li>
 </ul>
-<div class="info"><p>该引擎的设计参考了 Netflix的微服务编排工具<a href="https://netflix.github.io/conductor/">Conductor</a> 和 美团的<a href="https://tech.meituan.com/maze-framework.html">从0到1：构建强大且易用的规则引擎</a></p></div><h4 id="引擎配置"><a class="anchorlink" href="#%E5%BC%95%E6%93%8E%E9%85%8D%E7%BD%AE">1.2 引擎配置</a></h4><p>下面是我们业务流引擎系统的一个的配置图:</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/complex_example.png" alt="flow_exmaple"></p><p>每一个配置项都包括下面几个参数</p>
+<div class="info"><p>该引擎的设计参考了 Netflix的微服务编排工具<a href="https://netflix.github.io/conductor/">Conductor</a> 和 美团的<a href="https://tech.meituan.com/maze-framework.html">从0到1：构建强大且易用的规则引擎</a></p></div><h4 id="引擎配置"><a class="anchorlink" href="#%E5%BC%95%E6%93%8E%E9%85%8D%E7%BD%AE">1.2 引擎配置</a></h4><p>下面是我们业务流引擎系统的一个的配置图:</p><p><img src="images/complex_example.png" alt="flow_exmaple"></p><p>每一个配置项都包括下面几个参数</p>
 <table>
 <thead>
 <tr>
@@ -259,7 +259,7 @@
 <ol>
 <li>
 <p>配置流程图名称</p>
-<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/setting_flow_name.png" alt="setting_flow_name"></p>
+<p><img src="images/setting_flow_name.png" alt="setting_flow_name"></p>
 <p>如上图所示, 整个流程配置了两个字段</p>
 <div class="code_container">
 <pre class="brush: ruby; gutter: false; toolbar: true;">
@@ -293,7 +293,7 @@ end
 </div>
 </li>
 </ol>
-<h4 id="执行结果可视化"><a class="anchorlink" href="#%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C%E5%8F%AF%E8%A7%86%E5%8C%96">1.4 执行结果可视化</a></h4><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/running_result.png" alt="runners"></p><p>从上图可以看到, 每一个运行步骤都是可视化的, 包括下面这些参数</p>
+<h4 id="执行结果可视化"><a class="anchorlink" href="#%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C%E5%8F%AF%E8%A7%86%E5%8C%96">1.4 执行结果可视化</a></h4><p><img src="images/running_result.png" alt="runners"></p><p>从上图可以看到, 每一个运行步骤都是可视化的, 包括下面这些参数</p>
 <ul>
 <li>开始执行时间</li>
 <li>结束执行时间</li>
@@ -312,7 +312,7 @@ end
 <p>由于记录了每一次运行的结果, 为了更好地扩展参数, 我们将整个上下文都存储到了<code>ES</code>, 会占用非常大的存储空间, 经过估算后, 我们仅保留一周的数据. 1周之前的数据将进行定时删除.</p>
 </li>
 </ol>
-<h3 id="架构设计"><a class="anchorlink" href="#%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1">2 架构设计</a></h3><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/witness_structure.png" alt="架构图"></p><h4 id="runner"><a class="anchorlink" href="#runner">2.1 Runner</a></h4><p>执行引擎, 该部分接收流程图配置信息和对应的参数, 负责执行业务流程图的代码.</p><div class="code_container">
+<h3 id="架构设计"><a class="anchorlink" href="#%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1">2 架构设计</a></h3><p><img src="images/witness_structure.png" alt="架构图"></p><h4 id="runner"><a class="anchorlink" href="#runner">2.1 Runner</a></h4><p>执行引擎, 该部分接收流程图配置信息和对应的参数, 负责执行业务流程图的代码.</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: true;">
 runner = Witness::Ast::Runner.new(witness: Witness::Zhaoshang::Example, params: {})
 runner.run

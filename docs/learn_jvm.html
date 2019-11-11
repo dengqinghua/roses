@@ -202,8 +202,8 @@
     <div class="wrapper">
       <div id="mainCol">
         <h3 id="jvm内存区域"><a class="anchorlink" href="#jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F">1 JVM内存区域</a></h3><h4 id="jvm内存区域-架构图"><a class="anchorlink" href="#jvm%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F-%E6%9E%B6%E6%9E%84%E5%9B%BE">1.1 架构图</a></h4><h5 id="jvm"><a class="anchorlink" href="#jvm">1.1.1 JVM</a></h5><p>HotSpotJVMArchitecture
-<img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/HotSpotJVMArchitecture.png" alt="HotSpotJVMArchitecture"></p><p>如果更细分地认识, 可以按照下面的方式划分:
-<img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/jvm_structure.png" alt="jvm_structure"></p><h5 id="heap"><a class="anchorlink" href="#heap">1.1.2 Heap</a></h5><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/HotSpotHeapStructure.png" alt="HotSpotHeapStructure"></p><h3 id="gc"><a class="anchorlink" href="#gc">2 GC</a></h3><h4 id="判断对象是否存活"><a class="anchorlink" href="#%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E5%AD%98%E6%B4%BB">2.1 判断对象是否存活</a></h4>
+<img src="images/HotSpotJVMArchitecture.png" alt="HotSpotJVMArchitecture"></p><p>如果更细分地认识, 可以按照下面的方式划分:
+<img src="images/jvm_structure.png" alt="jvm_structure"></p><h5 id="heap"><a class="anchorlink" href="#heap">1.1.2 Heap</a></h5><p><img src="images/HotSpotHeapStructure.png" alt="HotSpotHeapStructure"></p><h3 id="gc"><a class="anchorlink" href="#gc">2 GC</a></h3><h4 id="判断对象是否存活"><a class="anchorlink" href="#%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E5%AD%98%E6%B4%BB">2.1 判断对象是否存活</a></h4>
 <table>
 <thead>
 <tr>
@@ -261,7 +261,7 @@ day4=&gt;operation: Generational Collection
 没有内存碎片,冗余内存少
 day1-&gt;day2-&gt;day3-&gt;day4
 </div>
-<h4 id="hotspot-gc算法"><a class="anchorlink" href="#hotspot-gc%E7%AE%97%E6%B3%95">2.4 HotSpot GC算法</a></h4><h5 id="结构"><a class="anchorlink" href="#%E7%BB%93%E6%9E%84">2.4.1 结构</a></h5><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/HotSpotHeapStructure.png" alt="HotSpotHeapStructure"></p>
+<h4 id="hotspot-gc算法"><a class="anchorlink" href="#hotspot-gc%E7%AE%97%E6%B3%95">2.4 HotSpot GC算法</a></h4><h5 id="结构"><a class="anchorlink" href="#%E7%BB%93%E6%9E%84">2.4.1 结构</a></h5><p><img src="images/HotSpotHeapStructure.png" alt="HotSpotHeapStructure"></p>
 <ol>
 <li>
 <p>Young Generation</p>
@@ -314,7 +314,7 @@ promotionCondition(yes)-&gt;promotion
 </div>
 <p>如果 <code>Old Generation</code> 区域, 即 <code>Tenured</code> 区域满了之后, 会触发 <code>Major GC</code></p><h5 id="object-age"><a class="anchorlink" href="#object-age">2.5.1 object age</a></h5><p>JVM给了每一个对象一个Age计数器, 当对象在<code>survivor</code>经历一次<code>Minor GC</code>的时候, Age便加1
 当Age达到threshold(默认为15, 通过-XX:MaxTenuringThreshold=15进行设置), 则会进行
-<code>Promotion</code></p><h5 id="survivor-choose"><a class="anchorlink" href="#survivor-choose">2.5.2 survivor choose</a></h5><p>我们知道有两个survivor区</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/HotSpotHeapStructure.png" alt="HotSpotHeapStructure"></p><p>S0和S1有一个为冗余内存, 类似于 <code>Copying</code> 算法的冗余内存, S0和S1始终有一块为空</p><p>处理步骤为:</p><div class="flowchart" style="display:none" id="813dc5cf0a7f34c5f12a774bae837c88">
+<code>Promotion</code></p><h5 id="survivor-choose"><a class="anchorlink" href="#survivor-choose">2.5.2 survivor choose</a></h5><p>我们知道有两个survivor区</p><p><img src="images/HotSpotHeapStructure.png" alt="HotSpotHeapStructure"></p><p>S0和S1有一个为冗余内存, 类似于 <code>Copying</code> 算法的冗余内存, S0和S1始终有一块为空</p><p>处理步骤为:</p><div class="flowchart" style="display:none" id="813dc5cf0a7f34c5f12a774bae837c88">
   init=&gt;start: Minor GC
 S0=&gt;condition: S0为空
 S0Yes=&gt;operation: 将Eden和S1存活的对象放入S0中
@@ -412,7 +412,7 @@ export MAVEN_OPTS="-XX:+DisableExplicitGC -XX:+PrintGCDetails -XX:+PrintGCApplic
 <li><a href="https://github.com/oldmanpushcart/greys-anatomy">greys-anatomy</a></li>
 <li><a href="https://github.com/draios/sysdig/">sysdig</a></li>
 </ul>
-<h3 id="class-file"><a class="anchorlink" href="#class-file">3 class File</a></h3><div class="info"><p>参考自<a href="https://blog.lse.epita.fr/articles/69-0xcafebabe-java-class-file-format-an-overview.html">0xCAFEBABE ? - java class file format, an overview</a> , <a href="https://www.csie.ntu.edu.tw/~comp2/2001/byteCode/byteCode.html">JAVA BYTECODE STRUCTURE</a> 和 <a href="https://www.cubrid.org/blog/understanding-jvm-internals/">Understanding Jvm Internals</a></p></div><h4 id="class-file-架构图"><a class="anchorlink" href="#class-file-%E6%9E%B6%E6%9E%84%E5%9B%BE">3.1 架构图</a></h4><p>SE7的架构如下: <code>Major Version: 0x0033</code>, 即51</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/class_file_overview.png" alt="class_file_overview"></p><h4 id="javap分析class文件"><a class="anchorlink" href="#javap%E5%88%86%E6%9E%90class%E6%96%87%E4%BB%B6">3.2 javap分析class文件</a></h4><p>通过<code>javap</code>可以解析class文件</p><div class="code_container">
+<h3 id="class-file"><a class="anchorlink" href="#class-file">3 class File</a></h3><div class="info"><p>参考自<a href="https://blog.lse.epita.fr/articles/69-0xcafebabe-java-class-file-format-an-overview.html">0xCAFEBABE ? - java class file format, an overview</a> , <a href="https://www.csie.ntu.edu.tw/~comp2/2001/byteCode/byteCode.html">JAVA BYTECODE STRUCTURE</a> 和 <a href="https://www.cubrid.org/blog/understanding-jvm-internals/">Understanding Jvm Internals</a></p></div><h4 id="class-file-架构图"><a class="anchorlink" href="#class-file-%E6%9E%B6%E6%9E%84%E5%9B%BE">3.1 架构图</a></h4><p>SE7的架构如下: <code>Major Version: 0x0033</code>, 即51</p><p><img src="images/class_file_overview.png" alt="class_file_overview"></p><h4 id="javap分析class文件"><a class="anchorlink" href="#javap%E5%88%86%E6%9E%90class%E6%96%87%E4%BB%B6">3.2 javap分析class文件</a></h4><p>通过<code>javap</code>可以解析class文件</p><div class="code_container">
 <pre class="brush: shell; gutter: false; toolbar: true;">
 git clone https://github.com/dengqinghua/my_examples.git
 cd my_examples/java
@@ -662,7 +662,7 @@ CONSTANT_NameAndType_info {
 </tr>
 </tbody>
 </table>
-<h4 id="constant-pool"><a class="anchorlink" href="#constant-pool">3.3 Constant Pool</a></h4><p>Constant Pool(常量池), 定义了Java中用到的常量, 包括总的常量数, 常量类型, 常量索引值等</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/Constant_pool.png" alt="Constant_pool"></p><h4 id="access-flags"><a class="anchorlink" href="#access-flags">3.4 Access Flags</a></h4><p>描述了可见性等参数</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/Access_flag.png" alt="access_flags"></p><h4 id="fields"><a class="anchorlink" href="#fields">3.5 Fields</a></h4><p>Fields为字段内容, 如上面提到的 <code>monthSalary</code></p><div class="code_container">
+<h4 id="constant-pool"><a class="anchorlink" href="#constant-pool">3.3 Constant Pool</a></h4><p>Constant Pool(常量池), 定义了Java中用到的常量, 包括总的常量数, 常量类型, 常量索引值等</p><p><img src="images/Constant_pool.png" alt="Constant_pool"></p><h4 id="access-flags"><a class="anchorlink" href="#access-flags">3.4 Access Flags</a></h4><p>描述了可见性等参数</p><p><img src="images/Access_flag.png" alt="access_flags"></p><h4 id="fields"><a class="anchorlink" href="#fields">3.5 Fields</a></h4><p>Fields为字段内容, 如上面提到的 <code>monthSalary</code></p><div class="code_container">
 <pre class="brush: java; gutter: false; toolbar: true;">
 field_info {
   u2 access_flags; // 可申明多个flags, 如 public static int oneField;
@@ -687,7 +687,7 @@ ConstantValue_attribute {
 
 </pre>
 </div>
-<h4 id="attributes"><a class="anchorlink" href="#attributes">3.6 Attributes</a></h4><p>属性表可以认为是认为是基本的util, Filed, Method, Class 都会根据自己需要存储 Attribute</p><h5 id="code-attribute"><a class="anchorlink" href="#code-attribute">3.6.1 Code Attribute</a></h5><p>下面是Code部分中的attribute</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/Code_attribute.png" alt="Code_attribute"></p><h4 id="methods"><a class="anchorlink" href="#methods">3.7 Methods</a></h4><h3 id="references"><a class="anchorlink" href="#references">4 References</a></h3>
+<h4 id="attributes"><a class="anchorlink" href="#attributes">3.6 Attributes</a></h4><p>属性表可以认为是认为是基本的util, Filed, Method, Class 都会根据自己需要存储 Attribute</p><h5 id="code-attribute"><a class="anchorlink" href="#code-attribute">3.6.1 Code Attribute</a></h5><p>下面是Code部分中的attribute</p><p><img src="images/Code_attribute.png" alt="Code_attribute"></p><h4 id="methods"><a class="anchorlink" href="#methods">3.7 Methods</a></h4><h3 id="references"><a class="anchorlink" href="#references">4 References</a></h3>
 <ul>
 <li><a href="https://docs.oracle.com/javase/specs/jvms/se8/jvms8.pdf">The Java Virtual Machine Specification, Java SE 8 Edition</a></li>
 <li><a href="https://item.jd.com/11252778.html">深入理解Java虚拟机：JVM高级特性与最佳实践（第2版）</a></li>

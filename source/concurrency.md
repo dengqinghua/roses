@@ -48,7 +48,7 @@ NOTE: Atomic类实现了原子化操作, 可以避免 Race Condition 她是无�
 Locking
 -------
 ### Thread State
-[![threadLifeCycle](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/threadLifeCycle.jpeg)](https://www.uml-diagrams.org/java-thread-uml-state-machine-diagram-example.html?context=stm-examples)
+[![threadLifeCycle](images/threadLifeCycle.jpeg)](https://www.uml-diagrams.org/java-thread-uml-state-machine-diagram-example.html?context=stm-examples)
 
 6个状态, 下面是从JDK8.0中摘抄的注释部分:
 
@@ -105,7 +105,7 @@ synchronized { // monitor region begin, 即 monitorenter
 
 Monitor的模型如下图所示
 
-[![threadmonitor](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/threadmonitor.png)](https://www.artima.com/insidejvm/ed2/threadsynch.html)
+[![threadmonitor](images/threadmonitor.png)](https://www.artima.com/insidejvm/ed2/threadsynch.html)
 
 - Entry Set: 所有等待锁的线程集合
 - The Owner: 获得到锁的线程
@@ -635,7 +635,7 @@ end
 #### LinkedBlockingQueue
 Fixed Thread Pool, 使用的是 `LinkedBlockingQueue` 作为存储队列
 
-![linkedList](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/linkedList.png)
+![linkedList](images/linkedList.png)
 
 队列的特性主要有下面几点
 

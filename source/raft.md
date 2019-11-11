@@ -31,7 +31,7 @@ NOTE: 推荐这篇Paper: [In Search of an Understandable Consensus Algorithm](ht
 任何一台服务器挂掉或者无法进行通信时,
 新的服务器可通过日志进行数据的回溯和重算. 得到当前的最终的状态, 并代替原有服务器, 和client进行通信
 
-![replicated_state_machine_architecture](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/replicated_state_machine_architecture.png)
+![replicated_state_machine_architecture](images/replicated_state_machine_architecture.png)
 
 Client 和 Server 通信的时候(上图中的步骤1), Server端会写log, 其中log记录的是 **数据的变化过程**, 并同步到多个机器中(步骤2),
 存在一个状态机, 状态机保存的是数据的**最终结果**(步骤3), 状态机计算完结果之后, 将结果返回给Client通信成功(步骤4)
@@ -104,7 +104,7 @@ NOTE: 所有的交互都是跟 Leader 进行, 变化会写入 Leader 的log, 再
 
 状态变化如下图:
 
-![raft_status_change](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/raft_status_change.png)
+![raft_status_change](images/raft_status_change.png)
 
 大型的分布式系统都会有一个 `replicated state machine`
 
@@ -165,7 +165,7 @@ leader_commit # leader 提交(Committed)
 ### 检测不一致的方式
 Leader写入的log形式如下:
 
-![raft_log_entries](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/raft_log_entries.png)
+![raft_log_entries](images/raft_log_entries.png)
 
 其中不同的颜色, 代表不同的term.
 

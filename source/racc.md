@@ -93,7 +93,7 @@ Racc和Rex分别来源于单词 [Yacc](https://en.wikipedia.org/wiki/Yacc) 和 `
 
 下面是一个语法解析的过程示例:
 
-![racc_example](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/racc_example.png)
+![racc_example](images/racc_example.png)
 
 图片和对应的文档来源于[这里](http://epaperpress.com/lexandyacc/intro.html)
 
