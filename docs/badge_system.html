@@ -228,7 +228,7 @@ WHERE
 
 </pre>
 </div>
-<p>计算引擎将上述SQL进行了分析, 分析过程为:</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/sql_tree_example.png" alt="sql_tree"></p><p>通过一层一层的视图建立和计算, 我们将复杂的问题变成了 <code>视图数据准备</code> + <code>SQL表达逻辑</code> 这两个部分,
+<p>计算引擎将上述SQL进行了分析, 分析过程为:</p><p><img src="images/sql_tree_example.png" alt="sql_tree"></p><p>通过一层一层的视图建立和计算, 我们将复杂的问题变成了 <code>视图数据准备</code> + <code>SQL表达逻辑</code> 这两个部分,
 将逻辑表达和数据准备进行<strong>解耦</strong>, 从而可以通过简单的配置和组合, 实现复杂的业务逻辑.</p><div class="note"><p>该思路理论上可以用于任何复杂的业务系统, 实现前端数据层和后端数据层的解耦, 表示层和数据层解耦</p></div><h3 id="角标的整体设计"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E7%9A%84%E6%95%B4%E4%BD%93%E8%AE%BE%E8%AE%A1">2 角标的整体设计</a></h3><h4 id="角标基本属性"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E5%9F%BA%E6%9C%AC%E5%B1%9E%E6%80%A7">2.1 角标基本属性</a></h4>
 <blockquote>
 <p>角标作用于一个展示的坑位, 在坑位的不同位置展示角标的文字或者图片信息</p>
@@ -240,13 +240,13 @@ WHERE
 <li>角标文案信息(如示例中的 "即将恢复至49.9")</li>
 <li>角标图片信息(如示例中左上角的图标 "限时特价")</li>
 </ul>
-<p>如下图所示, 页面中 <code>限时特价</code> 和 <code>即将恢复至49.9元</code> 即为一个完整的角标</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_example.png" alt="example"></p><h4 id="角标作用实体"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E4%BD%9C%E7%94%A8%E5%AE%9E%E4%BD%93">2.2 角标作用实体</a></h4><p>角标的作用实体为一个坑位, 这个坑位里面可以是</p>
+<p>如下图所示, 页面中 <code>限时特价</code> 和 <code>即将恢复至49.9元</code> 即为一个完整的角标</p><p><img src="images/badge_example.png" alt="example"></p><h4 id="角标作用实体"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E4%BD%9C%E7%94%A8%E5%AE%9E%E4%BD%93">2.2 角标作用实体</a></h4><p>角标的作用实体为一个坑位, 这个坑位里面可以是</p>
 <ul>
 <li>商品</li>
 <li>一张图片</li>
 <li>一个聚合形式的商品(如特卖活动等)</li>
 </ul>
-<h4 id="角标基础模型"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B">2.3 角标基础模型</a></h4><p>什么样的坑位能命中角标? 可以考虑用id来配置角标, 即建立<code>坑位id</code> 和<code>角标</code>的关联关系</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_model_origin.png" alt="origin_model"></p><h4 id="角标需求范围扩展"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E9%9C%80%E6%B1%82%E8%8C%83%E5%9B%B4%E6%89%A9%E5%B1%95">2.4 角标需求范围扩展</a></h4><p>上述设计为最初的角标设计模型, 只是一个简单的 坑位id 和 角标id的对应关系, 通过该关系来进行配置.</p><p>慢慢随着业务地增长, 角标变得复杂起来. 主要包括下面的需求:</p>
+<h4 id="角标基础模型"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B">2.3 角标基础模型</a></h4><p>什么样的坑位能命中角标? 可以考虑用id来配置角标, 即建立<code>坑位id</code> 和<code>角标</code>的关联关系</p><p><img src="images/badge_model_origin.png" alt="origin_model"></p><h4 id="角标需求范围扩展"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E9%9C%80%E6%B1%82%E8%8C%83%E5%9B%B4%E6%89%A9%E5%B1%95">2.4 角标需求范围扩展</a></h4><p>上述设计为最初的角标设计模型, 只是一个简单的 坑位id 和 角标id的对应关系, 通过该关系来进行配置.</p><p>慢慢随着业务地增长, 角标变得复杂起来. 主要包括下面的需求:</p>
 <ol>
 <li>
 <p>要求在某个特定client展示</p>
@@ -256,7 +256,7 @@ WHERE
 
 </pre>
 </div>
-<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_with_client.png" alt="badge_with_client"></p>
+<p><img src="images/badge_with_client.png" alt="badge_with_client"></p>
 </li>
 <li>
 <p>要求在某个页面中展示</p>
@@ -266,7 +266,7 @@ WHERE
 
 </pre>
 </div>
-<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_with_pages.png" alt="badge_with_pages"></p>
+<p><img src="images/badge_with_pages.png" alt="badge_with_pages"></p>
 </li>
 <li>
 <p>要求不同用户身份打不同的标</p>
@@ -276,7 +276,7 @@ WHERE
 
 </pre>
 </div>
-<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_with_user_type.png" alt="badge_with_user_type"></p>
+<p><img src="images/badge_with_user_type.png" alt="badge_with_user_type"></p>
 </li>
 <li>
 <p>要求不同用户角色打不同的标</p>
@@ -286,7 +286,7 @@ WHERE
 
 </pre>
 </div>
-<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_with_user_role.png" alt="badge_with_user_role"></p>
+<p><img src="images/badge_with_user_role.png" alt="badge_with_user_role"></p>
 </li>
 <li>
 <p>要求通过店铺id进行批量打标</p>
@@ -296,7 +296,7 @@ WHERE
 
 </pre>
 </div>
-<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_with_user_association.png" alt="badge_with_user_association"></p>
+<p><img src="images/badge_with_user_association.png" alt="badge_with_user_association"></p>
 </li>
 <li>
 <p>特殊规则打标</p>
@@ -308,7 +308,7 @@ WHERE
 
 </pre>
 </div>
-<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_with_special_rule.png" alt="badge_with_special_rule"></p>
+<p><img src="images/badge_with_special_rule.png" alt="badge_with_special_rule"></p>
 </li>
 </ol>
 <h5 id="黑暗时代"><a class="anchorlink" href="#%E9%BB%91%E6%9A%97%E6%97%B6%E4%BB%A3">2.4.1 黑暗时代</a></h5><p>虽然出现了上述需求, 当时角标系统还是坚持着简单的 <code>坑位id 和 角标id的对应关系</code> 的方式, 仅保存角标的基本属性, 所以出现了下面的情况</p>
@@ -333,7 +333,7 @@ WHERE
 <p>给角标的规则设置上权重, 当一个商品命中多个角标的时候, 可以选择权重最高的角标</p>
 </li>
 </ol>
-<p>最终的角标设计如下:</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_add_rule.png" alt="badge_add_rule"></p><h3 id="角标特殊规则设计"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E7%89%B9%E6%AE%8A%E8%A7%84%E5%88%99%E8%AE%BE%E8%AE%A1">3 角标特殊规则设计</a></h3><p>角标的基础规则包括:</p>
+<p>最终的角标设计如下:</p><p><img src="images/badge_add_rule.png" alt="badge_add_rule"></p><h3 id="角标特殊规则设计"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E7%89%B9%E6%AE%8A%E8%A7%84%E5%88%99%E8%AE%BE%E8%AE%A1">3 角标特殊规则设计</a></h3><p>角标的基础规则包括:</p>
 <ol>
 <li>客户端类型 client_type, 如 PC, APP</li>
 <li>命中的页面 page_lists, 如 "秒杀页面, 男装分类页面"</li>
@@ -367,7 +367,7 @@ WHERE
 
 </pre>
 </div>
-<p>可以设计为下面的形式:</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/special_rule.png" alt="special_rule"></p><h4 id="角标条件"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E6%9D%A1%E4%BB%B6">3.2 角标条件</a></h4><p>从上面的设计形式, 可以看到, 最原子化的数据为 <strong>条件</strong>, 条件和条件之间, 由条件组进行关系组装</p><h5 id="条件"><a class="anchorlink" href="#%E6%9D%A1%E4%BB%B6">3.2.1 条件</a></h5><p>她的属性包括:</p>
+<p>可以设计为下面的形式:</p><p><img src="images/special_rule.png" alt="special_rule"></p><h4 id="角标条件"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E6%9D%A1%E4%BB%B6">3.2 角标条件</a></h4><p>从上面的设计形式, 可以看到, 最原子化的数据为 <strong>条件</strong>, 条件和条件之间, 由条件组进行关系组装</p><h5 id="条件"><a class="anchorlink" href="#%E6%9D%A1%E4%BB%B6">3.2.1 条件</a></h5><p>她的属性包括:</p>
 <ul>
 <li>type: 是否/输入/区间</li>
 <li>DSL:  对于程序段可以识别的字符串, 如 isMiaosha, 在程序段将有一个映射表, 后续会讲到该字段</li>
@@ -380,7 +380,7 @@ WHERE
 <li>条件包含三个类型: 是否/输入/区间</li>
 <li>条件DSL为一个算法约定, 在之后计算角标时使用, 该算法可以重用</li>
 </ul>
-<p>添加了特殊角标规则之后的设计图如下:</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_add_rule_complete.png" alt="badge_add_rule_complete"></p><h3 id="角标计算"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E8%AE%A1%E7%AE%97">4 角标计算</a></h3>
+<p>添加了特殊角标规则之后的设计图如下:</p><p><img src="images/badge_add_rule_complete.png" alt="badge_add_rule_complete"></p><h3 id="角标计算"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E8%AE%A1%E7%AE%97">4 角标计算</a></h3>
 <blockquote>
 <p>数据结构 + 算法 = 程序。结构是本质，故数据结构决定算法。如果一个语言即能无缝的表示数据，又能表示算法，该多棒! LISP 和 SQL就是, LISP是因为其高度自由的表达，即：语法 和语义解耦; SQL即表示数据计算、数据本身、又表示数据的迁移、存储、数据的访问, 是高度的抽象，是命令式的语言。                  ---- 亚历山大 K Liu</p>
 </blockquote>
@@ -489,7 +489,7 @@ public class SqlRunnerTest {
 
 </pre>
 </div>
-<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/special_rule.png" alt="special_rule"></p><p>如果我们以角标来看所有数据, 假设有一张角标视图表(badge_views), 她存储了所有的数据, 那么结合上述的DSL设计, 我们可以将上述需求转化为一条SQL:</p><div class="code_container">
+<p><img src="images/special_rule.png" alt="special_rule"></p><p>如果我们以角标来看所有数据, 假设有一张角标视图表(badge_views), 她存储了所有的数据, 那么结合上述的DSL设计, 我们可以将上述需求转化为一条SQL:</p><div class="code_container">
 <pre class="brush: sql; gutter: false; toolbar: true;">
 SELECT
   *
@@ -513,7 +513,7 @@ WHERE
 <li>内存数据库速度很快(响应时间在0.01ms左右), 适合前端请求的实时查询</li>
 <li>内存数据库可以执行SQL</li>
 </ol>
-<h4 id="角标计算设计"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E8%AE%A1%E7%AE%97%E8%AE%BE%E8%AE%A1">4.2 角标计算设计</a></h4><p>下面描述一个请求过来, 角标的匹配过程</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_procedure.png" alt="badge_procedure"></p><p>下面通过这个例子, 描述一下角标匹配的完整过程</p><div class="code_container">
+<h4 id="角标计算设计"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E8%AE%A1%E7%AE%97%E8%AE%BE%E8%AE%A1">4.2 角标计算设计</a></h4><p>下面描述一个请求过来, 角标的匹配过程</p><p><img src="images/badge_procedure.png" alt="badge_procedure"></p><p>下面通过这个例子, 描述一下角标匹配的完整过程</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: true;">
 我想要打一个超级男装单件优惠标, 标的定义如下:
 
@@ -564,7 +564,7 @@ WHERE
 
 </pre>
 </div>
-<p>其中 角标1 被过滤调了, 只剩下角标2, 3</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_procedure1.png" alt="badge_procedure1"></p><h5 id="角标匹配数据准备"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E5%8C%B9%E9%85%8D%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87">4.2.2 角标匹配数据准备</a></h5><div class="info"><p>角标匹配数据是指 查看一个商品是否命中角标需要的数据, 如 一个角标的规则为: 商品库存 &gt; 10. 那么 角标匹配数据则为: 商品库存</p></div><p>分析角标的特殊规则</p><div class="code_container">
+<p>其中 角标1 被过滤调了, 只剩下角标2, 3</p><p><img src="images/badge_procedure1.png" alt="badge_procedure1"></p><h5 id="角标匹配数据准备"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E5%8C%B9%E9%85%8D%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87">4.2.2 角标匹配数据准备</a></h5><div class="info"><p>角标匹配数据是指 查看一个商品是否命中角标需要的数据, 如 一个角标的规则为: 商品库存 &gt; 10. 那么 角标匹配数据则为: 商品库存</p></div><p>分析角标的特殊规则</p><div class="code_container">
 <pre class="brush: sql; gutter: false; toolbar: true;">
 SELECT
   *
@@ -673,7 +673,7 @@ count: 15
 
 </pre>
 </div>
-<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_procedure2.png" alt="badge_procedure2"></p><h5 id="角标视图数据准备"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E8%A7%86%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87">4.2.3 角标视图数据准备</a></h5><p>角标匹配数据准备好之后, 便可以开始计算了</p><p>我们最终是希望执行这一条SQL</p><div class="code_container">
+<p><img src="images/badge_procedure2.png" alt="badge_procedure2"></p><h5 id="角标视图数据准备"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E8%A7%86%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87">4.2.3 角标视图数据准备</a></h5><p>角标匹配数据准备好之后, 便可以开始计算了</p><p>我们最终是希望执行这一条SQL</p><div class="code_container">
 <pre class="brush: sql; gutter: false; toolbar: true;">
 SELECT
   *
@@ -741,7 +741,7 @@ badgeView.inputTag = "男装"
 
 </pre>
 </div>
-<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_procedure3.png" alt="badge_procedure3"></p><h5 id="执行角标视图sql"><a class="anchorlink" href="#%E6%89%A7%E8%A1%8C%E8%A7%92%E6%A0%87%E8%A7%86%E5%9B%BEsql">4.2.4 执行角标视图SQL</a></h5><p>执行SQL</p><div class="code_container">
+<p><img src="images/badge_procedure3.png" alt="badge_procedure3"></p><h5 id="执行角标视图sql"><a class="anchorlink" href="#%E6%89%A7%E8%A1%8C%E8%A7%92%E6%A0%87%E8%A7%86%E5%9B%BEsql">4.2.4 执行角标视图SQL</a></h5><p>执行SQL</p><div class="code_container">
 <pre class="brush: sql; gutter: false; toolbar: true;">
 SELECT
   *
@@ -754,7 +754,7 @@ WHERE
 
 </pre>
 </div>
-<p>可以发现, 执行出来是有结果的, 所以命中角标</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_procedure4.png" alt="badge_procedure4"></p><p>整个过程如下:</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/badge_procedure_all.png" alt="badge_procedure_all"></p><h3 id="角标查询优化"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96">5 角标查询优化</a></h3><div class="info"><p>角标查询由原来前端计算 迁移 到了一个统一的服务, 供前端来调用. 所以各方对响应时间有着非常高的要求.
+<p>可以发现, 执行出来是有结果的, 所以命中角标</p><p><img src="images/badge_procedure4.png" alt="badge_procedure4"></p><p>整个过程如下:</p><p><img src="images/badge_procedure_all.png" alt="badge_procedure_all"></p><h3 id="角标查询优化"><a class="anchorlink" href="#%E8%A7%92%E6%A0%87%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96">5 角标查询优化</a></h3><div class="info"><p>角标查询由原来前端计算 迁移 到了一个统一的服务, 供前端来调用. 所以各方对响应时间有着非常高的要求.
 在不做优化的时候, 一个商品的角标匹配需要200ms左右, 这个是远远达不到响应时间要求的(5ms以内),
 最终经过了优化之后, 角标匹配的时间稳定在1ms左右.</p></div><h4 id="算法复杂度分析"><a class="anchorlink" href="#%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90">5.1 算法复杂度分析</a></h4><p>假设 条件集合的总数为 N, 过滤后的角标数为 M, 单条SQL的执行时间为 S</p><p>则最坏情况下的时间复杂度为 O(M * N * S)</p><p>我们的时间优化主要放在</p><div class="code_container">
 <pre class="brush: plain; gutter: false; toolbar: true;">
