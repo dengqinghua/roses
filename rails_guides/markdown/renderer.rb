@@ -58,8 +58,12 @@ HTML
         elsif text =~ /^TREE:/
           config = text.gsub("TREE:", "")
           tree_code(config)
-        elsif text =~ /^PLAYER:\s+(.+)$/
-          "<asciinema-player src='players/#{$1}'></asciinema-player>"
+        elsif text =~ /^CHART:/
+          config = text.gsub("CHART:", "")
+          chart_code(config)
+        elsif text =~ /^PLAYER:/
+          config = text.gsub("PLAYER:", "").strip
+          "<asciinema-player src='players/#{config}'></asciinema-player>"
         else
           text = convert_footnotes(text)
           "<p>#{text}</p>"
@@ -83,6 +87,73 @@ HTML
 </textarea>
 <hr>
 </div>
+HTML
+      end
+
+      def chart_code(config)
+        hex_id = Digest::MD5.hexdigest(config)
+        config = CGI.unescapeHTML(config.strip)
+
+        hash = begin
+                 eval(config)
+               rescue Exception => ex
+                 raise "#{config}不对 不能解析为hash. #{ex.message}"
+               end
+
+        label = hash.keys[0]
+        data = hash[label]
+
+        horizen = data.keys
+        values  = data.values
+
+        base_colors = [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ]
+        colors = (base_colors * (horizen.size / base_colors.size + 1)) [0...horizen.size].shuffle
+
+        base_border_color = [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ]
+        border_colors = (base_border_color * (horizen.size / base_border_color.size + 1)) [0...horizen.size].shuffle
+
+        json = {
+            type: 'bar',
+            data: {
+              labels: horizen,
+              datasets: [{
+                label: label,
+                data: values,
+                backgroundColor: colors,
+                borderColor: border_colors,
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true
+                  }
+                }]
+              }
+            }
+        }.to_json
+
+        <<-HTML
+<div class="charts" style="display:none" hex_id="#{hex_id}">
+  #{json}
+</div>
+<canvas id="#{hex_id}" width="400" height="400"></canvas>
 HTML
       end
 

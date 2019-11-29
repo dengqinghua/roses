@@ -181,6 +181,7 @@
 <li><a href="#%E6%B5%81%E7%A8%8B%E5%9B%BE">流程图</a></li>
 <li><a href="#%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84">树形结构</a></li>
 <li><a href="#asciinema-player">asciinema-player</a></li>
+<li><a href="#chart">chart</a></li>
 </ul>
 </li>
 </ol>
@@ -415,7 +416,31 @@ PLAYER: test.json
 <li><a href="https://github.com/asciinema/asciinema-server/issues/256">asciinema-server</a></li>
 <li><a href="https://github.com/asciinema/asciinema">asciinema/asciinema</a></li>
 </ul>
-<h5 id="rails-api-的录制例子"><a class="anchorlink" href="#rails-api-%E7%9A%84%E5%BD%95%E5%88%B6%E4%BE%8B%E5%AD%90">3.5.1 rails_api 的录制例子</a></h5><asciinema-player src="players/rails_api.json"></asciinema-player>
+<h5 id="rails-api-的录制例子"><a class="anchorlink" href="#rails-api-%E7%9A%84%E5%BD%95%E5%88%B6%E4%BE%8B%E5%AD%90">3.5.1 rails_api 的录制例子</a></h5><asciinema-player src="players/rails_api.json"></asciinema-player><h4 id="chart"><a class="anchorlink" href="#chart">3.6 chart</a></h4><div class="code_container">
+<pre class="brush: plain; gutter: false; toolbar: true;">
+CHART:
+{
+  "名称": {
+  1 =&gt; 120,
+  2 =&gt; 100,
+  3 =&gt; 122,
+  4 =&gt; 139,
+  5 =&gt; 124,
+  6 =&gt; 100,
+  8 =&gt; 124,
+  9 =&gt; 124,
+  10 =&gt; 160,
+  11 =&gt; 168
+  }
+}
+
+</pre>
+</div>
+<div class="charts" style="display:none" hex_id="804bc5123f9f04f9c5d93f5ca11edfd0">
+  {"type":"bar","data":{"labels":[1,2,3,4,5,6,8,9,10,11],"datasets":[{"label":"名称","data":[120,100,122,139,124,100,124,124,160,168],"backgroundColor":["rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(255, 206, 86, 0.2)","rgba(255, 206, 86, 0.2)","rgba(153, 102, 255, 0.2)","rgba(75, 192, 192, 0.2)","rgba(255, 99, 132, 0.2)","rgba(255, 99, 132, 0.2)","rgba(54, 162, 235, 0.2)","rgba(255, 159, 64, 0.2)"],"borderColor":["rgba(54, 162, 235, 1)","rgba(255, 159, 64, 1)","rgba(75, 192, 192, 1)","rgba(75, 192, 192, 1)","rgba(255, 206, 86, 1)","rgba(255, 206, 86, 1)","rgba(54, 162, 235, 1)","rgba(153, 102, 255, 1)","rgba(255, 99, 132, 1)","rgba(255, 99, 132, 1)"],"borderWidth":1}]},"options":{"scales":{"yAxes":[{"ticks":{"beginAtZero":true}}]}}}
+</div>
+<canvas id="804bc5123f9f04f9c5d93f5ca11edfd0" width="400" height="400"></canvas>
+
 
         <div id="comment"></div>
       </div>
@@ -461,6 +486,8 @@ PLAYER: test.json
   <script type="text/javascript" src="javascripts/zoom.min.js"></script>
   <script type="text/javascript" src="javascripts/zoom_init.js"></script>
   <script type="text/javascript" src="javascripts/transition.js"></script>
+  <script type="text/javascript" src="javascripts/chart.js"></script>
+  <script type="text/javascript" src="javascripts/chart_generator.js"></script>
 
   <script type="text/javascript">
     syntaxhighlighterConfig = {

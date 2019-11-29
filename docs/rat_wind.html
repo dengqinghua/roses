@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="baidu-site-verification" content="N1Q3HiESgp" />
 
-<title>二维码支付系统 — dengqinghua&#39;s blog</title>
+<title>极客时间笔记 — dengqinghua&#39;s blog</title>
   <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
   <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
   <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shCore.css" />
@@ -145,31 +145,39 @@
 
   <div id="feature">
     <div class="wrapper">
-      <h2>二维码支付系统</h2><div class="date"><p>2019-03-16</p></div><p>公交二维码支付系统包括 用户体系, 二维码支付 和 营销系统 三部分. 用户可进入app的公交模块, 通过扫二维码进行乘车. 围绕着用户拉新和留存, 我们推出了首次乘车支付返现, 红包抽奖 和 优惠券系统, 优惠月卡等营销活动, 完成了单个城市日单量过万的目标.</p><p>阅读完该文档后，您将会了解到:</p>
+      <h2>极客时间笔记</h2><p>本文档总结了极客时间的一些有意思的笔记.</p><p>阅读完该文档后，您将会了解到极客时间推荐的</p>
 <ul>
-<li>支付系统的模块设计.</li>
-<li>营销活动设计.</li>
-<li>风控和安全.</li>
+<li>经典的技术栈</li>
+<li>技术书籍笔记</li>
+<li>技术文章</li>
 </ul>
 
 
                 <div id="subCol">
             <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Chapters</h3>
             <ol class="chapters">
-<li><a href="#tl-dr">TL;DR</a></li>
 <li>
-<a href="#%E7%94%A8%E6%88%B7%E4%BD%93%E7%B3%BB">用户体系</a>
+<a href="#%E6%8A%80%E6%9C%AF%E6%A0%88">技术栈</a>
 
 <ul>
-<li><a href="#%E9%92%B1%E5%8C%85">钱包</a></li>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E8%AE%A4%E7%9F%A5">基本认知</a></li>
 </ul>
 </li>
 <li>
-<a href="#%E8%90%A5%E9%94%80%E6%B4%BB%E5%8A%A8">营销活动</a>
+<a href="#%E4%B9%A6%E7%B1%8D">书籍</a>
 
 <ul>
-<li><a href="#%E6%B4%BB%E5%8A%A8%E8%A7%84%E5%88%99">活动规则</a></li>
-<li><a href="#%E9%A3%8E%E6%8E%A7%E5%92%8C%E5%AE%89%E5%85%A8">风控和安全</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8">代码大全</a></li>
+</ul>
+</li>
+<li><a href="#%E5%90%8D%E8%AF%8D">名词</a></li>
+<li>
+<a href="#%E5%A5%BD%E5%A5%87%E5%BF%83%E7%9A%84%E9%97%AE%E9%A2%98">好奇心的问题</a>
+
+<ul>
+<li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93">浏览器渲染</a></li>
+<li><a href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF">设计模式的使用场景</a></li>
+<li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AF%B7%E6%B1%82%E6%95%B4%E4%B8%AA%E8%BF%87%E7%A8%8B">浏览器请求整个过程</a></li>
 </ul>
 </li>
 </ol>
@@ -182,92 +190,15 @@
   <div id="container">
     <div class="wrapper">
       <div id="mainCol">
-        <h3 id="tl-dr"><a class="anchorlink" href="#tl-dr">1 TL;DR</a></h3><p><img src="images/pay_system.png" alt="pay-system"></p><h3 id="用户体系"><a class="anchorlink" href="#%E7%94%A8%E6%88%B7%E4%BD%93%E7%B3%BB">2 用户体系</a></h3><h4 id="钱包"><a class="anchorlink" href="#%E9%92%B1%E5%8C%85">2.1 钱包</a></h4><p>我们对每一个进入公交模块的人, 都会创建一个账户. 该账户成为用户的唯一标识.</p><p>在用户进行参加活动, 提现时, 会在钱包维度添加写锁, 再判断用户是否可以参加活动</p><p>如下面的参加活动的部分伪代码如下</p><div class="code_container">
-<pre class="brush: java; gutter: false; toolbar: true;">
-func (account *Account) participateActivity(db *gorm.DB, activityID int) error {
-    // 判断用户是否达到参加活动的上限
-    if account.ReachedActivityLimitCount(db, activityID) {
-        return ActivityError(AlreadyParticipated)
-    }
-
-    // 开始一个事务
-    return transaction(db, func(db *gorm.DB) error {
-        // SELECT * FROM accounts WHERE id = 1 FOR UPDATE
-        err := db.Set("gorm:query_option", "FOR UPDATE").
-            Where(Account{ID: account.ID}).Find(&amp;account).Error
-
-        if err != nil {
-            log.Debugf(fmt.Sprintf("ID: %v, msg: %v", account.ID, err.Error())
-            return ActivityError(UnknownError)
-        }
-
-        // 再次判断用户是否达到参加活动的上限
-        if account.ReachedActivityLimitCount(db, activityID, userRealID) {
-            return ActivityError(AlreadyParticipated)
-        }
-
-        // 给用户添加金额
-        account.Amount += activity.GivenAmount
-
-        if err := db.Save(&amp;account).Error; err != nil {
-            log.Debugf(fmt.Sprintf("ID: %v, msg: %v", account.ID, err.Error())
-            return ActivityError(UnknownError)
-        }
-
-        // 创建流水
-        if err := CreatePayDetail(account, activity); err != nil {
-            log.Debugf(fmt.Sprintf("ID: %v, msg: %v", account.ID, err.Error())
-            return ActivityError(UnknownError)
-        }
-
-        return nil
-    })
-}
-
-</pre>
-</div>
-<h3 id="营销活动"><a class="anchorlink" href="#%E8%90%A5%E9%94%80%E6%B4%BB%E5%8A%A8">3 营销活动</a></h3><h4 id="活动规则"><a class="anchorlink" href="#%E6%B4%BB%E5%8A%A8%E8%A7%84%E5%88%99">3.1 活动规则</a></h4><p>活动规则可以抽象为</p>
+        <h3 id="技术栈"><a class="anchorlink" href="#%E6%8A%80%E6%9C%AF%E6%A0%88">1 技术栈</a></h3><h4 id="基本认知"><a class="anchorlink" href="#%E5%9F%BA%E6%9C%AC%E8%AE%A4%E7%9F%A5">1.1 基本认知</a></h4>
 <ul>
-<li>订单维度</li>
-<li>用户维度</li>
-<li>活动维度</li>
+<li><a href="https://norvig.com/21-days.html">Teach Youself Programming in Ten Years</a></li>
+<li><a href="https://coolshell.cn/articles/4235.html">The Greatest Developer Fallacy Or The Wisest Words You’ll Ever Hear?</a></li>
+<li><a href="https://www.quora.com/What-are-some-of-the-most-basic-things-every-programmer-should-know">What are some of the most basic things every programmer should know</a></li>
+<li><a href="https://github.com/97-things/97-things-every-programmer-should-know">97 things every programmer should know</a></li>
 </ul>
-<p>我们通过建立了活动规则表, 将一些常用的配置项做成后台可以配置, 存储为 JSON 形式, 并在代码中进行解析和运算</p><h4 id="风控和安全"><a class="anchorlink" href="#%E9%A3%8E%E6%8E%A7%E5%92%8C%E5%AE%89%E5%85%A8">3.2 风控和安全</a></h4><h5 id="用户真身"><a class="anchorlink" href="#%E7%94%A8%E6%88%B7%E7%9C%9F%E8%BA%AB">3.2.1 用户真身</a></h5><p>什么是"真身"? 我们可以认为是这个用户的身份证的信息.</p><p>一个人可以拥有很多手机号, 也可以通过注销账号, 重新注册得到不同的 账号ID</p><p>我们的一些营销活动, 如: 首次乘车返5元现金. 这个 <code>5元现金</code> 是返给这个用户的真身, 也就是说, 我们存储 营销活动 和 用户的关系时, 需要存储用户的真身信息</p>
-<table>
-<thead>
-<tr>
-<th>用户ID</th>
-<th>真身ID</th>
-<th>活动ID</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1234</td>
-<td>abc</td>
-<td>1</td>
-</tr>
-<tr>
-<td>1235</td>
-<td>abc</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<p>如上所示, 虽然用户ID 为 1234 和 1235 是两个用户, 但是他们拥有相同的真身ID, 假如活动限制了一个用户只能抽2次红包, 那么</p><div class="code_container">
-<pre class="brush: sql; gutter: false; toolbar: true;">
-SELECT COUNT(*) FROM accounts_activities WHERE real_id = abc
-
-</pre>
-</div>
-<p>可以得知, 真身ID为 <code>abc</code> 的用户已经参加了2次活动, 不再具备抽奖的资格</p><h5 id="风控维度"><a class="anchorlink" href="#%E9%A3%8E%E6%8E%A7%E7%BB%B4%E5%BA%A6">3.2.2 风控维度</a></h5><p>对于一些核心的接口, 如发红包, 提现等, 需要有风控限制, 简单的风控包括下面几个维度:</p>
-<ol>
-<li>IP访问限制</li>
-<li>用户ID访问频次限制: 1s内接口只能访问一次</li>
-<li>限制每个真身参与抽奖/抽优惠券的次数</li>
-<li>设置活动维度的每天的总库存/总金额</li>
-</ol>
-
+<h3 id="书籍"><a class="anchorlink" href="#%E4%B9%A6%E7%B1%8D">2 书籍</a></h3><h4 id="代码大全"><a class="anchorlink" href="#%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8">2.1 代码大全</a></h4><h3 id="名词"><a class="anchorlink" href="#%E5%90%8D%E8%AF%8D">3 名词</a></h3><p><a href="http://darrennegraeff.com/the-importance-of-t-shaped-individuals/">T-shape</a>
+<img src="images/T-shaped.jpg" alt="image"></p><h3 id="好奇心的问题"><a class="anchorlink" href="#%E5%A5%BD%E5%A5%87%E5%BF%83%E7%9A%84%E9%97%AE%E9%A2%98">4 好奇心的问题</a></h3><h4 id="浏览器渲染"><a class="anchorlink" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93">4.1 浏览器渲染</a></h4><p>RT</p><h4 id="设计模式的使用场景"><a class="anchorlink" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF">4.2 设计模式的使用场景</a></h4><p>RT</p><h4 id="浏览器请求整个过程"><a class="anchorlink" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AF%B7%E6%B1%82%E6%95%B4%E4%B8%AA%E8%BF%87%E7%A8%8B">4.3 浏览器请求整个过程</a></h4><p>RT</p>
 
         <div id="comment"></div>
       </div>
