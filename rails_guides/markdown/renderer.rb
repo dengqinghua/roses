@@ -64,10 +64,21 @@ HTML
         elsif text =~ /^PLAYER:/
           config = text.gsub("PLAYER:", "").strip
           "<asciinema-player src='players/#{config}'></asciinema-player>"
+        elsif text =~ /^DIAGRAM:/
+          config = text.gsub("DIAGRAM:", "")
+          diagram_code(config)
         else
           text = convert_footnotes(text)
           "<p>#{text}</p>"
         end
+      end
+
+      def diagram_code(config)
+        <<-HTML
+<div class="diagrams" style="display:none" id="#{Digest::MD5.hexdigest(config)}">
+  #{config.strip}
+</div>
+HTML
       end
 
       def music_code(config)
