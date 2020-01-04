@@ -225,7 +225,7 @@
   <div id="container">
     <div class="wrapper">
       <div id="mainCol">
-        <h3 id="tl-dr"><a class="anchorlink" href="#tl-dr">1 TL;DR</a></h3><h4 id="java-collections"><a class="anchorlink" href="#java-collections">1.1 Java Collections</a></h4><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/Collection_interfaces.png" alt="Collection_interfaces"></p><div class="info"><p>推荐阅读<a href="https://www.ntu.edu.sg/home/ehchua/programming/java/J5c_Collection.html">这篇文章</a>, 了解Java(1.7)的Collections框架</p></div><div class="warning"><p>源码基于 <strong>1.8.0_144</strong></p></div><div class="code_container">
+        <h3 id="tl-dr"><a class="anchorlink" href="#tl-dr">1 TL;DR</a></h3><h4 id="java-collections"><a class="anchorlink" href="#java-collections">1.1 Java Collections</a></h4><p><img src="images/Collection_interfaces.png" alt="Collection_interfaces"></p><div class="info"><p>推荐阅读<a href="https://www.ntu.edu.sg/home/ehchua/programming/java/J5c_Collection.html">这篇文章</a>, 了解Java(1.7)的Collections框架</p></div><div class="warning"><p>源码基于 <strong>1.8.0_144</strong></p></div><div class="code_container">
 <pre class="brush: shell; gutter: false; toolbar: true;">
 ➜ java -version
 java version "1.8.0_144"
@@ -273,7 +273,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.144-b01, mixed mode)
 <ol>
 <li>
 <p>Java中List的接口关系图</p>
-<p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/Collection_ListImplementation.png" alt="Collection_interfacesList"></p>
+<p><img src="images/Collection_ListImplementation.png" alt="Collection_interfacesList"></p>
 </li>
 </ol>
 <div class="note"><p>为什么接口中要提供一个<code>iterator</code>? 我的理解包括下面几点: iterator 要求在获取数据的时候, List没有被修改, 否则就报错(<code>ConcurrentModificationException</code>), 这样相对更安全, 更多讨论请查看StackOverflow上的<a href="https://stackoverflow.com/a/27984817/8186609">讨论</a></p></div><h4 id="arraylist"><a class="anchorlink" href="#arraylist">2.1 ArrayList</a></h4><h5 id="arraylist-implements-iterable"><a class="anchorlink" href="#arraylist-implements-iterable">2.1.1 ArrayList implements Iterable</a></h5><p>在 ArrayList 里面, 需要有一个 <code>iterator</code> 方法, 这里用到了 inner class</p><div class="code_container">
@@ -380,7 +380,7 @@ final void checkForComodification() {
 
 </pre>
 </div>
-<h5 id="支持randomaccess"><a class="anchorlink" href="#%E6%94%AF%E6%8C%81randomaccess">2.1.4 支持RandomAccess</a></h5><p>她支持<code>RandomAccess</code>, 在 <a href="https://github.com/dengqinghua/my_examples/blob/master/java/src/main/java/com/dengqinghua/algorithms/BinarySearch.java#L30">二分法查找</a> 的时候比 LinkedList 更加有优势</p><h4 id="linkedlist"><a class="anchorlink" href="#linkedlist">2.2 LinkedList</a></h4><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/linkedList.png" alt="linkedList"></p><h5 id="doubly-linked"><a class="anchorlink" href="#doubly-linked">2.2.1 Doubly Linked</a></h5><p>在Java中, LinkedList是双向的, 他还实现了 <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Deque.html">Deque</a>, double ended queue</p><p>在 数据结构中, 有一个 inner class: <code>Node</code></p><div class="code_container">
+<h5 id="支持randomaccess"><a class="anchorlink" href="#%E6%94%AF%E6%8C%81randomaccess">2.1.4 支持RandomAccess</a></h5><p>她支持<code>RandomAccess</code>, 在 <a href="https://github.com/dengqinghua/my_examples/blob/master/java/src/main/java/com/dengqinghua/algorithms/BinarySearch.java#L30">二分法查找</a> 的时候比 LinkedList 更加有优势</p><h4 id="linkedlist"><a class="anchorlink" href="#linkedlist">2.2 LinkedList</a></h4><p><img src="images/linkedList.png" alt="linkedList"></p><h5 id="doubly-linked"><a class="anchorlink" href="#doubly-linked">2.2.1 Doubly Linked</a></h5><p>在Java中, LinkedList是双向的, 他还实现了 <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Deque.html">Deque</a>, double ended queue</p><p>在 数据结构中, 有一个 inner class: <code>Node</code></p><div class="code_container">
 <pre class="brush: java; gutter: false; toolbar: true;">
 public class LinkedList&lt;E&gt; {
     private static class Node&lt;E&gt; {
@@ -460,7 +460,7 @@ public class Collections {
 
 </pre>
 </div>
-<h4 id="linkedlist和arraylist的使用场景"><a class="anchorlink" href="#linkedlist%E5%92%8Carraylist%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF">2.3 LinkedList和ArrayList的使用场景</a></h4><p>见 StackOverflow: <a href="https://stackoverflow.com/a/322742/8186609">When to use LinkedList over ArrayList?</a></p><div class="info"><p>所经历的项目中没有使用过LinkedList.</p></div><h3 id="stack"><a class="anchorlink" href="#stack">3 Stack</a></h3><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/stack.png" alt="stack"></p><p>Java8中用<code>Vector</code>来实现栈的数据结构</p><div class="code_container">
+<h4 id="linkedlist和arraylist的使用场景"><a class="anchorlink" href="#linkedlist%E5%92%8Carraylist%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF">2.3 LinkedList和ArrayList的使用场景</a></h4><p>见 StackOverflow: <a href="https://stackoverflow.com/a/322742/8186609">When to use LinkedList over ArrayList?</a></p><div class="info"><p>所经历的项目中没有使用过LinkedList.</p></div><h3 id="stack"><a class="anchorlink" href="#stack">3 Stack</a></h3><p><img src="images/stack.png" alt="stack"></p><p>Java8中用<code>Vector</code>来实现栈的数据结构</p><div class="code_container">
 <pre class="brush: java; gutter: false; toolbar: true;">
 class Stack extends Vector {}
 class Vector extends AbstractList implements List, RandomAccess {}
@@ -546,7 +546,7 @@ in place of Vector.</p>
 
 </pre>
 </div>
-<h3 id="queue"><a class="anchorlink" href="#queue">4 Queue</a></h3><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/queue.png" alt="queue"></p>
+<h3 id="queue"><a class="anchorlink" href="#queue">4 Queue</a></h3><p><img src="images/queue.png" alt="queue"></p>
 <table>
 <thead>
 <tr>
@@ -594,7 +594,7 @@ both ends.  The name <i>deque</i> is short for "double ended queue"
 and is usually pronounced "deck".  Most {@code Deque}
 implementations place no fixed limits on the number of elements
 they may contain, but this interface supports capacity-restricted
-deques as well as those with no fixed size limit.</p></div><h3 id="tree"><a class="anchorlink" href="#tree">5 Tree</a></h3><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/tree.png" alt="tree"></p>
+deques as well as those with no fixed size limit.</p></div><h3 id="tree"><a class="anchorlink" href="#tree">5 Tree</a></h3><p><img src="images/tree.png" alt="tree"></p>
 <ol>
 <li>
 <p>基础概念</p>
@@ -648,24 +648,24 @@ deques as well as those with no fixed size limit.</p></div><h3 id="tree"><a clas
 </tr>
 <tr>
 <td>preorderTraversal</td>
-<td>前序遍历 <img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/preorder_traversal.jpeg" alt="pre_order_traversal">
+<td>前序遍历 <img src="images/preorder_traversal.jpeg" alt="pre_order_traversal">
 </td>
 </tr>
 <tr>
 <td>inorderTraversal</td>
-<td>中序遍历 <img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/inorder_traversal.jpeg" alt="in_order_traversal">
+<td>中序遍历 <img src="images/inorder_traversal.jpeg" alt="in_order_traversal">
 </td>
 </tr>
 <tr>
 <td>postorderTraversal</td>
-<td>后序遍历 <img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/postorder_traversal.jpeg" alt="post_order_traversal">
+<td>后序遍历 <img src="images/postorder_traversal.jpeg" alt="post_order_traversal">
 </td>
 </tr>
 </tbody>
 </table>
 </li>
 </ol>
-<h4 id="binary-tree"><a class="anchorlink" href="#binary-tree">5.1 Binary Tree</a></h4><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/binary_tree.png" alt="binary_tree"></p><h5 id="基本结构"><a class="anchorlink" href="#%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84">5.1.1 基本结构</a></h5>
+<h4 id="binary-tree"><a class="anchorlink" href="#binary-tree">5.1 Binary Tree</a></h4><p><img src="images/binary_tree.png" alt="binary_tree"></p><h5 id="基本结构"><a class="anchorlink" href="#%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84">5.1.1 基本结构</a></h5>
 <ul>
 <li>element</li>
 <li>leftNode</li>
@@ -683,7 +683,7 @@ a b + c d e + * *
 
 </pre>
 </div>
-<p>利用栈, 转化为树.</p><div class="note"><p><code>a b + c d e + * *</code> 依次入栈, 遇到 a, b 创建树, 分别入栈, 遇到 <code>+</code> 将 <code>a, b</code> 出栈, <code>a, b, +</code> 组成一个新的树, 最终的树为下图所示. 最终可以通过中序遍历进行运算. 另外, 可以后序遍历恢复为 <code>a b + c d e + * *</code>`</p></div><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/tree_example.png" alt="tree_example"></p><div class="info"><p><code>Operand</code> 操作数, 如 a, b, c, d, e; <code>Operator</code> 操作符, 如 <code>+ *</code></p></div><h6 id="bst-binarysearchtree"><a class="anchorlink" href="#bst-binarysearchtree">5.1.2.2 BST BinarySearchTree</a></h6>
+<p>利用栈, 转化为树.</p><div class="note"><p><code>a b + c d e + * *</code> 依次入栈, 遇到 a, b 创建树, 分别入栈, 遇到 <code>+</code> 将 <code>a, b</code> 出栈, <code>a, b, +</code> 组成一个新的树, 最终的树为下图所示. 最终可以通过中序遍历进行运算. 另外, 可以后序遍历恢复为 <code>a b + c d e + * *</code>`</p></div><p><img src="images/tree_example.png" alt="tree_example"></p><div class="info"><p><code>Operand</code> 操作数, 如 a, b, c, d, e; <code>Operator</code> 操作符, 如 <code>+ *</code></p></div><h6 id="bst-binarysearchtree"><a class="anchorlink" href="#bst-binarysearchtree">5.1.2.2 BST BinarySearchTree</a></h6>
 <ul>
 <li>leftNode &lt;= parentNode &lt;= rightNode</li>
 </ul>
@@ -704,7 +704,7 @@ a b + c d e + * *
 <li>Binary Tree</li>
 <li>任何一个节点的左右子树的高度差的绝对值 &lt;= 1</li>
 </ul>
-<div class="note"><p>depth: 深度,是指从root节点到该节点经过某一个path的length, height: 高度, 是指节点到最远的一个leaf的length</p></div><p>如下图所示, 只有 左边是 AVL Tree, 右边不是, 右边的 2 的高度为2, 8 的高度为0, 不满足 左右子树的高度差的绝对值 &lt;= 1 的条件</p><p><img src="https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/avl_tree.png" alt="avl_tree"></p><p>平衡的情况包括四种</p>
+<div class="note"><p>depth: 深度,是指从root节点到该节点经过某一个path的length, height: 高度, 是指节点到最远的一个leaf的length</p></div><p>如下图所示, 只有 左边是 AVL Tree, 右边不是, 右边的 2 的高度为2, 8 的高度为0, 不满足 左右子树的高度差的绝对值 &lt;= 1 的条件</p><p><img src="images/avl_tree.png" alt="avl_tree"></p><p>平衡的情况包括四种</p>
 <ol>
 <li>
 <p>左子树 的 左子树 插入 一个节点</p>
