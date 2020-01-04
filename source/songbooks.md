@@ -107,8 +107,8 @@ L: 1/4
 B c d e f g a b
 
 ### 曲谱
-![yushu-1](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/鱼书-part1.png)
-![yushu-2](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/鱼书-part2.png)
+![yushu-1](images/鱼书-part1.png)
+![yushu-2](images/鱼书-part2.png)
 
 我在人民广场吃炸鸡
 -----------------
@@ -251,7 +251,7 @@ Cm7       Bb2              Gm7             Cm7             Fsus4
                                   小小诗不敢递给她
 ```
 
-![childhood](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/childhood.png)
+![childhood](images/childhood.png)
 
 bB调音阶
 
@@ -813,7 +813,7 @@ Am F C E
 Am F C E
 ```
 
-![racc_example](https://raw.githubusercontent.com/dengqinghua/roses/master/assets/images/the_long_way_round.png)
+![racc_example](images/the_long_way_round.png)
 
 人质
 ----
