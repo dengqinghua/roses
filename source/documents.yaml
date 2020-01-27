@@ -75,10 +75,6 @@
   name: Go
   documents:
     -
-      name: GoInstallBinaries i/o timeout问题
-      url: go_get_timeout_solution.html
-      description: 解决golang.org无法访问问题.
-    -
       name: Go知识树
       url: go_knowledge_tree.html
       description: Go的学习计划和相关知识树.
