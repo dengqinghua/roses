@@ -20,16 +20,6 @@ Guitar Lessons
 3. [和弦](./chords.html)
 4. [好和弦视频笔记](./nicechord_learning.html)
 
-### Pieces
-一些音乐片段收集
-
-[pieces](./pieces.html)
-
-### Song Books
-一些弹唱或者指弹的曲目等
-
-[songbooks](./songbooks.html)
-
 五线谱(Five-line Staff)
 -----------------------
 ### 教学视频
@@ -40,7 +30,6 @@ Guitar Lessons
 一些五线谱的英文对照表
 
 音符 musical note
-
 
 | 名称              | 翻译                      |
 | --------          | ------                    |
@@ -192,5 +181,5 @@ g2g2 g4 | g2fe dBGB | c2ec B2dB | A2A2 G4 :|
 [examples](http://abcnotation.com/examples)
 
 ### References
-[abc_notation](http://www.lesession.co.uk/abc/abc_notation.htm)
-[abc:standard:v2.1](http://abcnotation.com/wiki/abc:standard:v2.1)
+- [abc_notation](http://www.lesession.co.uk/abc/abc_notation.htm)
+- [abc:standard:v2.1](http://abcnotation.com/wiki/abc:standard:v2.1)

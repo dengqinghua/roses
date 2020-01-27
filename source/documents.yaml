@@ -90,32 +90,20 @@
       url: music_index.html
       description: 一些音乐系统学习资料汇总和索引
     -
-      name: City Of Star
-      url: lalaland-city_of_stars.html
-      description: 很喜欢 [爱乐之城] 这部电影, City of Stars为其中的原声音乐之一, 刚好在公众号看到了该曲子的吉他版本和Ukulele版本, 便参考和分析了一下歌曲的和弦走向, 和弦编配等.
+      name: 曲谱集
+      url: songbooks.html
+      description: 自己喜欢的一些音乐的笔记和汇总
     -
-      name: あの日の帰り道
-      url: あの日の帰り道.html
-      description: 伍伍慧的一首指弹曲.
-    -
-      name: 雨の日はワルツを踊って
-      url: rain_wwh.html
-      description: 伍伍慧的一首指弹曲.
-    -
-      name: Moon River
-      url: moon_river.html
-      description: 伍伍慧的一首指弹曲.
-    -
-      name: Es Ware Schon Gewesen
-      url: it_could_have_been.html
-      description: Ulli Bögershausen的一首指弹曲.
+      name: 作品集
+      url: my_creatives.html
+      description: 我的一些作品集.
 -
   name: 杂记
   documents:
     -
       name: markdown格式实例
       url: example_markdown.html
-      description: Rails Guides风格的markdown模板.
+      description: Rails Guides风格的 markdown 模板.
     -
       name: 注释规范
       url: comments.html
