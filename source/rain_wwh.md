@@ -228,6 +228,4 @@ CHORD: 4x65x8
 
 曲谱
 ----
-完整曲谱下载: [这里](https://github.com/dengqinghua/roses/raw/master/assets/doc/wwh_rain.pdf)
-
 PDF: wwh_rain

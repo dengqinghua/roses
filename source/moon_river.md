@@ -390,8 +390,6 @@ CHORD: x74444
 
 曲谱
 ----
-完整曲谱下载: [这里](https://github.com/dengqinghua/roses/raw/master/assets/doc/MoonRiver-v2.pdf)
-
 PDF: MoonRiver-v2
 
 INFO: Thanks To [Chord Designer](http://www.chorderator.com/designer/)

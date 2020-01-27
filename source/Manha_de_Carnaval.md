@@ -147,6 +147,4 @@ CHORD: x2xx42
 
 曲谱
 ----
-完整曲谱下载: [这里](https://github.com/dengqinghua/roses/raw/master/assets/doc/it_could_have_been.pdf)
-
 PDF: it_could_have_been
