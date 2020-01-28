@@ -12,13 +12,24 @@ DATE: 2018-07-07
 
 --------------------------------------------------------
 
-Guitar Lessons
---------------
-### 音乐理论基础
-1. [音阶](./scales.html)
-2. [音程](./intervals.html)
-3. [和弦](./chords.html)
-4. [好和弦视频笔记](./nicechord_learning.html)
+理论基础
+--------
+### 音阶和调式
+NOTE: 记住吉他的每一个[音](scales.html)
+
+### 音程
+](./intervals.html)
+
+### 和弦
+[基础](./chords.html)
+
+#### jianqihexian
+
+### 节奏
+
+### 风格
+
+### 好和弦视频笔记
 
 五线谱(Five-line Staff)
 -----------------------
