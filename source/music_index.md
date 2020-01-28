@@ -26,7 +26,7 @@ NOTE: 记住吉他的每一个[音](scales.html)
 ### 节奏
 
 ### 风格
-#aaaaa### Blues
+#### Blues
 - [Introduction to Blues 学习笔记](introduction_to_blues_record.html)
 
 ### 好和弦视频笔记
