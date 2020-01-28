@@ -125,7 +125,7 @@ HTML
           'rgba(153, 102, 255, 0.2)',
           'rgba(255, 159, 64, 0.2)'
         ]
-        colors = (base_colors * (horizen.size / base_colors.size + 1)) [0...horizen.size].shuffle
+        colors = (base_colors * hash.hash * (horizen.size / base_colors.size + 1)) [0...horizen.size]
 
         base_border_color = [
           'rgba(255, 99, 132, 1)',

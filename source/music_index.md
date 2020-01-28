@@ -18,18 +18,19 @@ DATE: 2018-07-07
 NOTE: 记住吉他的每一个[音](scales.html)
 
 ### 音程
-](./intervals.html)
+- [基础](./intervals.html)
 
 ### 和弦
-[基础](./chords.html)
-
-#### jianqihexian
+- [基础](./chords.html)
 
 ### 节奏
 
 ### 风格
+#aaaaa### Blues
+- [Introduction to Blues 学习笔记](introduction_to_blues_record.html)
 
 ### 好和弦视频笔记
+[笔记](nicechord_learning.html)
 
 五线谱(Five-line Staff)
 -----------------------
@@ -107,89 +108,36 @@ NOTE: 下面的 `+` 代表 `|`
 | (3     | 三连音 | (3abc |
 | " D"     | 标记/和弦 | 添加空格代表为标记, 没有空格则可认为是和弦D |
 
-### 示例
-#### 多声部
-```
-MUSIC:
-X:1
-T:Zocharti Loch
-C:Louis Lewandowski (1821-1894)
-M:C
-Q:1/4=76
-%%score (T1 T2) (B1 B2)
-V:T1           clef=treble-8  name="Tenore I"   snm="T.I"
-V:T2           clef=treble-8  name="Tenore II"  snm="T.II"
-V:B1  middle=d clef=bass      name="Basso I"    snm="B.I"  transpose=-24
-V:B2  middle=d clef=bass      name="Basso II"   snm="B.II" transpose=-24
-K:Gm
-%            End of header, start of tune body:
-% 1
-[V:T1]  (B2c2 d2g2)  | f6e2      | (d2c2 d2)e2 | d4 c2z2 |
-[V:T2]  (G2A2 B2e2)  | d6c2      | (B2A2 B2)c2 | B4 A2z2 |
-[V:B1]       z8      | z2f2 g2a2 | b2z2 z2 e2  | f4 f2z2 |
-[V:B2]       x8      |     x8    |      x8     |    x8   |
-% 5
-[V:T1]  (B2c2 d2g2)  | f8        | d3c (d2fe)  | H d6    ||
-[V:T2]       z8      |     z8    | B3A (B2c2)  | H A6    ||
-[V:B1]  (d2f2 b2e'2) | d'8       | g3g  g4     | H^f6    ||
-[V:B2]       x8      | z2B2 c2d2 | e3e (d2c2)  | H d6    ||
-```
+#### 例子
+[虚拟](songbooks.html#虚拟)
 
-MUSIC:
-X:1
-T:Zocharti Loch
-C:Louis Lewandowski (1821-1894)
-M:C
-Q:1/4=76
-%%score (T1 T2) (B1 B2)
-V:T1           clef=treble-8  name="Tenore I"   snm="T.I"
-V:T2           clef=treble-8  name="Tenore II"  snm="T.II"
-V:B1  middle=d clef=bass      name="Basso I"    snm="B.I"  transpose=-24
-V:B2  middle=d clef=bass      name="Basso II"   snm="B.II" transpose=-24
-K:Gm
-%            End of header, start of tune body:
-% 1
-[V:T1]  (B2c2 d2g2)  | f6e2      | (d2c2 d2)e2 | d4 c2z2 |
-[V:T2]  (G2A2 B2e2)  | d6c2      | (B2A2 B2)c2 | B4 A2z2 |
-[V:B1]       z8      | z2f2 g2a2 | b2z2 z2 e2  | f4 f2z2 |
-[V:B2]       x8      |     x8    |      x8     |    x8   |
-% 5
-[V:T1]  (B2c2 d2g2)  | f8        | d3c (d2fe)  | H d6    ||
-[V:T2]       z8      |     z8    | B3A (B2c2)  | H A6    ||
-[V:B1]  (d2f2 b2e'2) | d'8       | g3g  g4     | H^f6    ||
-[V:B2]       x8      | z2B2 c2d2 | e3e (d2c2)  | H d6    ||
-
-#### 简易版本
 ```
 MUSIC:
-X:1
-T:Speed The Plough
+L:1/16
 M:4/4
-L:1/8
-N:Simple version
-Z:Steve Mansfield 1/2/2000
-K:G
-GABc dedB | dedB dedB | c2ec B2dB | A2A2 A2 BA|
-GABc dedB | dedB dedB | c2ec B2dB | A2A2 G4 ::
-g2g2 g4 | g2fe dBGB | c2ec B2dB | A2A2 A4 |
-g2g2 g4 | g2fe dBGB | c2ec B2dB | A2A2 G4 :|
+Q:70
+K:C transpose=-12
+||: " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  :||
+| " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  |
+| " Em7" E,EdB E,EdB E,EdB E,EdB | " Am7" A,EcG A,EcG A,EcG A,EcG |
+| " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  |
+| " Em7" E,EdB E,EdB E,EdB E,EdB | " A7" A,E^cG A,E^cG A,E^cG A,E^cG |
+| " Fsus2" F,FcG " F∆" F,Fec F,Fgc F,Fgc| " G" G,DbG G,DcG G,DBG G,DBG |
+| " Em" E,EBG E,EeG E,EBG E,EeG| " Am7" A,EcG A,EdG A,EeG A,EcG |
 ```
 
 MUSIC:
-X:1
-T:Speed The Plough
+L:1/16
 M:4/4
-L:1/8
-N:Simple version
-Z:Steve Mansfield 1/2/2000
-K:G
-GABc dedB | dedB dedB | c2ec B2dB | A2A2 A2 BA|
-GABc dedB | dedB dedB | c2ec B2dB | A2A2 G4 ::
-g2g2 g4 | g2fe dBGB | c2ec B2dB | A2A2 A4 |
-g2g2 g4 | g2fe dBGB | c2ec B2dB | A2A2 G4 :|
-
-### 例子
-[examples](http://abcnotation.com/examples)
+Q:70
+K:C transpose=-12
+||: " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  :||
+| " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  |
+| " Em7" E,EdB E,EdB E,EdB E,EdB | " Am7" A,EcG A,EcG A,EcG A,EcG |
+| " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  |
+| " Em7" E,EdB E,EdB E,EdB E,EdB | " A7" A,E^cG A,E^cG A,E^cG A,E^cG |
+| " Fsus2" F,FcG " F∆" F,Fec F,Fgc F,Fgc| " G" G,DbG G,DcG G,DBG G,DBG |
+| " Em" E,EBG E,EeG E,EBG E,EeG| " Am7" A,EcG A,EdG A,EeG A,EcG |
 
 ### References
 - [abc_notation](http://www.lesession.co.uk/abc/abc_notation.htm)
