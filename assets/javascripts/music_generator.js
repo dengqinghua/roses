@@ -8,12 +8,15 @@ $(function(){
         canvas_id: "canvas-" + id,
         generate_midi: true,
         midi_id: "midi-" + id ,
+        paper_id: "paper",
+        warnings_id: "warnings-id",
         abcjsParams: {
           generateInline: true,
           responsive: "resize",
           generateDownload: false,
           inlineControls: {
             tempo: true,
+            loopToggle: true
           },
         }
       });
