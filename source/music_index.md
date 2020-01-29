@@ -142,3 +142,27 @@ K:C transpose=-12
 ### References
 - [abc_notation](http://www.lesession.co.uk/abc/abc_notation.htm)
 - [abc:standard:v2.1](http://abcnotation.com/wiki/abc:standard:v2.1)
+
+GuitarPro
+--------
+### ShortCuts
+
+NOTE: Command `⌘` Shift `⇧` Option `⌥` Control `⌃`
+
+| 快捷键   | 释义           |
+| -------- | -----          |
+| 1/2/3    | 品位数         |
+| +        | 音符长度减半   |
+| -        | 音符长度增倍   |
+| k        | 设置clef       |
+| ⌘k       | 设置Key        |
+| i        | let-it-ring    |
+| %        | 重复上一个小节 |
+| r        | Rest,休止符    |
+| ⌘+       | 插入一个音符   |
+| ⌘-       | 删除一个音符   |
+| ⌃+       | 插入一个小节   |
+| ⌃-       | 删除一个小节   |
+| a        | 添加和弦       |
+| t        | 添加文案       |
+| ]        | 反复记号       |

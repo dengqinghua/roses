@@ -645,3 +645,14 @@ Blues
 Jazz
 ----
 ...
+
+其他
+-----
+### Empty by David
+MUSIC:
+L:1/8
+M:4/4
+Q:110
+K:D
+||: " Bmadd11"   B,d B,B B,d B,e | " Dadd9" Df De Da DB| " G" G,B G,B G,B G,B | " G" G,B G,B G,B G,B :||
+| " Aadd9" A,c A,B A,e A,c | " E" E,G E,e E,B E,B | " D/F#" F,A F,d F,e F,d | " G" G,B G,B G,B G,B |
