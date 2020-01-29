@@ -640,7 +640,21 @@ PDF: OmensofLove
 
 Blues
 -----
-...
+### IntroductionBlues-Example8
+MUSIC:
+L:1/8
+M:4/4
+Q:110
+K: F
+||: " F7"   z2  F_A (3B=B_B F  c_A- | " Bb7" _A2 (3fff =b/_b>- b2 | z2 _AF- F4 :||
+
+### IntroductionBlues-Example10
+MUSIC:
+L:1/8
+M:4/4
+Q:110
+K: C transpose=-12
+||: " D7"  z4> z2 f/a/ |  d'c' d'd' z4 | f'/d'/c'/a/  g/f/d z2 :||
 
 Jazz
 ----
