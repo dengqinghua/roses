@@ -125,7 +125,7 @@ HTML
           'rgba(153, 102, 255, 0.2)',
           'rgba(255, 159, 64, 0.2)'
         ]
-        colors = (base_colors * hex_id.hash.to_s[0..2].to_i.abs * (horizen.size / base_colors.size + 1)) [0...horizen.size]
+        colors = (base_colors * (horizen.size / base_colors.size + 1)) [0...horizen.size]
 
         base_border_color = [
           'rgba(255, 99, 132, 1)',
@@ -213,8 +213,11 @@ HTML
       end
 
       def doc_code(doc_type, name)
+        show = !name.end_with?(" sf")
+        name = name.split(" sf")[0].strip
+
         <<-HTML
-<div class="pdf_doc" style="display:none" docName=#{name}.#{doc_type}>
+<div class="pdf_doc" style="display:none" docName=#{name}.#{doc_type} show=#{show}>
 </div>
 HTML
       end

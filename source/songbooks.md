@@ -601,7 +601,7 @@ K:C transpose=-12
 | " Dm7" [Df]2Ac -ccA2 | " G" [G,B]B,Gf- ffB2 | " C∆" [Ce]EGB- BGE2 | " A7" |
 
 ### SweetHeart
-PDF: sweetheart
+PDF: sweetheart sf
 
 指弹
 ----
@@ -627,16 +627,16 @@ PDF: ManhadoCarnaval
 PDF: TwistedinMySobriety
 
 ### Life For Once
-PDF: life_for_once
+PDF: life_for_once sf
 
 ### Feeling
-PDF: feeling
+PDF: feeling sf
 
 ### Kiss
-PDF: kiss
+PDF: kiss sf
 
 ### Omens of Love
-PDF: OmensofLove
+PDF: OmensofLove sf
 
 Blues
 -----
