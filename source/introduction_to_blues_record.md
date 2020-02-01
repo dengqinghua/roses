@@ -84,6 +84,8 @@ F minor blues
 
 NOTE: 上面的好难; 基本上都记得什么时候该 change chord, 而且如果要有一些 blussy 的味道, 还需要一些 licks 的积累吧
 
+一些小的技巧
+
 Guitarist
 ---------
 - Freddie Green
