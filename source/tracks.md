@@ -10,7 +10,7 @@ Jam Track
 
 --------------------------------------------------------------------------------
 
-Dorian
+F Blues
 ------
-### C
-<iframe width="600" height="400" src="https://www.youtube-nocookie.com/embed/jcVFJjLLIOU" frameborder="0" allowfullscreen></iframe>
+### 慢速
+AUDIO: F-Blues-Slow.mp3

@@ -1,8 +1,6 @@
 Music Index
 ============
 
-DATE: 2018-07-07
-
 本文档对自己的音乐材料做了汇总和整理.
 
 阅读完该文档之后, 您将了解到这些内容:
@@ -31,6 +29,9 @@ NOTE: 记住吉他的每一个[音](scales.html)
 
 ### 好和弦视频笔记
 [笔记](nicechord_learning.html)
+
+### Tracks
+一些 Jam 使用的 [tracks](tracks.html)
 
 五线谱(Five-line Staff)
 -----------------------
@@ -120,10 +121,6 @@ K:C transpose=-12
 ||: " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  :||
 | " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  |
 | " Em7" E,EdB E,EdB E,EdB E,EdB | " Am7" A,EcG A,EcG A,EcG A,EcG |
-| " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  |
-| " Em7" E,EdB E,EdB E,EdB E,EdB | " A7" A,E^cG A,E^cG A,E^cG A,E^cG |
-| " Fsus2" F,FcG " F∆" F,Fec F,Fgc F,Fgc| " G" G,DbG G,DcG G,DBG G,DBG |
-| " Em" E,EBG E,EeG E,EBG E,EeG| " Am7" A,EcG A,EdG A,EeG A,EcG |
 ```
 
 MUSIC:
@@ -134,10 +131,6 @@ K:C transpose=-12
 ||: " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  :||
 | " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  |
 | " Em7" E,EdB E,EdB E,EdB E,EdB | " Am7" A,EcG A,EcG A,EcG A,EcG |
-| " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  |
-| " Em7" E,EdB E,EdB E,EdB E,EdB | " A7" A,E^cG A,E^cG A,E^cG A,E^cG |
-| " Fsus2" F,FcG " F∆" F,Fec F,Fgc F,Fgc| " G" G,DbG G,DcG G,DBG G,DBG |
-| " Em" E,EBG E,EeG E,EBG E,EeG| " Am7" A,EcG A,EdG A,EeG A,EcG |
 
 ### References
 - [abc_notation](http://www.lesession.co.uk/abc/abc_notation.htm)

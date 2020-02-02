@@ -13,4 +13,4 @@ My Creatives
 翻弹
 ----
 ### Omens of Love
-<iframe src="//player.bilibili.com/player.html?aid=86105224&cid=147179011&page=1" scrolling="no" border="0" frameborder="no" style='width:100%; height:500px;' framespacing="0" allowfullscreen="true"> </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=86105224&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>

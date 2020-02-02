@@ -782,6 +782,19 @@ div.important p, div.caution p, div.warning p, div.note p, div.info p {
 table th { font-weight: bold; }
 table td, table th { padding: 9px 10px; text-align: left; }
 
+audio {
+  width: 100%; 
+  margin: 1em;
+  box-shadow: 5px 5px 20px rgba(0,0, 0, 0.4);
+  border-radius: 90px;
+  transform: scale(1.05);
+}
+
+iframe {
+width: 100%;
+height: 500px;
+}
+
 /* Mobile */
 @media only screen and (max-width: 767px) {
   table.responsive { margin-bottom: 0; }
@@ -802,6 +815,11 @@ table td, table th { padding: 9px 10px; text-align: left; }
     position: relative;
     height: 149px;
     width: 100%;
+  }
+
+  iframe {
+    width: 100%;
+    height: 210px;
   }
 }
 

@@ -52,6 +52,9 @@ HTML
           music_code(config)
         elsif text =~ /^PDF:\s+(.+)$/
           doc_code(:pdf, $1)
+        elsif text =~ /^AUDIO:\s+(.+)$/
+          filename = text.gsub("AUDIO:", "").strip
+          audio_code(filename)
         elsif text =~ /^FLOW:/
           text = text.gsub("FLOW:", "")
           flowchart_code(text)
@@ -202,6 +205,16 @@ HTML
   #{json}
 </div>
 HTML
+      end
+
+      def audio_code(filename)
+        <<-HTML
+<audio controls="controls" loop>
+  <source src="audios/#{filename}" type="audio/mp3" preload="auto"/>
+  Your browser does not support the audio element.
+</audio>
+HTML
+
       end
 
       def flowchart_code(code)

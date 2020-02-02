@@ -26,6 +26,10 @@ CHORD: 6x67xx
 
 Blues 进行
 ----------
+INFO: F Blues Jam Track
+
+AUDIO: F-Blues-Slow.mp3
+
 > I7 IV7 V7, F7 B7 C7
 
 MUSIC:
@@ -84,7 +88,28 @@ F minor blues
 
 NOTE: 上面的好难; 基本上都记得什么时候该 change chord, 而且如果要有一些 blussy 的味道, 还需要一些 licks 的积累吧
 
-一些小的技巧
+一些小的技巧:
+
+1. 和弦开始，如下图
+
+    MUSIC:
+    L:1/8
+    M:4/4
+    Q:110
+    K: C transpose=-12
+    ||: " D7"  z4> z2 f/a/ |  d'c' d'd' z4 | f'/d'/c'/a/  g/f/d z2 :||
+
+2. 添加滑弦和击弦
+
+3. 需要清楚当前已经走到哪个和弦
+
+Major Scales
+------------
+F major blues
+
+| F  | G  | Ab | A  | C  | D  |
+| -- | -- | -- | -- | -- | -- |
+| 1  | 2  | b3 | 3  | 5  | 6  |
 
 Guitarist
 ---------
