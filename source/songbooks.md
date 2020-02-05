@@ -626,7 +626,7 @@ PDF: ManhadoCarnaval
 ### Twisted in My Sobriety
 PDF: TwistedinMySobriety
 
-### Life For Once
+### 一生所爱
 PDF: life_for_once sf
 
 ### Feeling
@@ -637,6 +637,16 @@ PDF: kiss sf
 
 ### Omens of Love
 PDF: OmensofLove sf
+
+### 一诺抖音(1625)
+L:1/8
+M:4/4
+Q: 160
+K: C transpose=-12
+%||:  z  G cd ec' | " C" c,2 eb zc ge  c2 [ge][fe]  z e fa |
+%|  " Am" A2 c[ec']- [ec']/z/ [Aeg]2  [cea] |  A2 ce z A ef |
+| " F"  F2 ca zF fc  |  F2 ce zF c2 | " G" G2 [F-_B][F=B] z2 [gc]2  _B=Bg2 [ca][_d_b][=d=b]2 |
+| " C" [C_Bdg]4 |
 
 Blues
 -----
