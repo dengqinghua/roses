@@ -644,7 +644,7 @@ L:1/8
 M:4/4
 Q: 160
 K: C transpose=-12
-||:  z  G cd ec' | " C" c,2 eb zc ge  c2 [ge][fe]  z e fa |
+||:  z  G cd ec' | " C" c,2 eb zc ge  C2 z {ge}[fe]2 e fa |
 |  " Am" A2 c[ec']- [ec']/z/ [Aeg]2  [cea] |  A2 ce z A ef |
 | " F"  F2 ca zF fc  |  F2 ce zF c2 | " G" G2 [F-_B][F=B] z [gc]2 z  _B=Bg2 [ca][_d_b][=d=b]2 |
 | " C" C2 [Adg]6 |
