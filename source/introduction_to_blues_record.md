@@ -163,6 +163,21 @@ Q:110
 K: C transpose=-12
 | " C7"  aedg   ecAd | cGEA GDCE | C8  |
 
+即兴 F Blues track(慢速和快速)
+
+AUDIO: F-Blues-Slow-BackTrack.mp3
+
+AUDIO: F-Blues-Fast-BackTrack.mp3
+
+MUSIC:
+L:1/4
+M:4/4
+Q:110
+K:F
+| " F7" [FA_e]4  |  [FA_e]4 |  [FA_e]4 | [FA_e]4 |
+| " Bb7" [B,_Ad]4  |  [B,_Ad]4 | " F7" [FA_e]4 |  [FA_e]4 |
+| " C7" [C_Be]4  | [C_Be]4 | " F7" [FA_e]4 |  [FA_e]4 ||
+
 Guitarist
 ---------
 - Freddie Green
