@@ -111,6 +111,58 @@ F major blues
 | -- | -- | -- | -- | -- | -- |
 | 1  | 2  | b3 | 3  | 5  | 6  |
 
+使用 Major Scales 的三种方式
+
+1. 在各自的和弦，弹各自的音阶, 如果进行到 F7 的时候, 只使用 F Major Blues, 和弦换的时候，音阶也跟着换
+2. 可以考虑混合着大小音阶一起弹。比如 C
+
+    ```
+    C Major Blues: C E G
+    C Minor Blues: Eb F F#
+    ```
+
+    这样就可以组合成 C E Eb F F# G 的进行, 也就是小二度行进的例子，可以见 example16
+
+    混合之后的音阶, 以 C 调为例子, 除了 Db Ab 和 B, 其他都是可以用的
+
+    | C  | D  | Eb | E  | F  | Gb | G | A | Bb |
+    | -- | -- | -- | -- | -- | -- | - | - | -- |
+    | 1  | x  | b3 | x  | 4  | b5 | 5 | x | b7 |
+    | 1  | 2  | b3 | 3  | x  | x  | 5 | 6 | x  |
+
+    不过虽然是这么分析，但是在具体弹琴的时候，并不能去反应 **哪个音符不能去弹** 的问题吧
+
+3. repeat, 比如重复 b3 3 5 的重复
+
+4. 相同的旋律降低 8度
+
+Pattern 练习
+
+这里可以练习不同的重音(accent), 比如分别在 1拍, 2拍 等加上重音, 感觉会不一样
+
+MUSIC:
+L:1/8
+M:4/4
+Q:110
+K: C transpose=-12
+| " F7"  FG_AG _A=A_A=A |  cAcd cdfd |
+|  fgfg _ag_a=a | _a=ac'a c'd' z2 |
+
+MUSIC:
+L:1/8
+M:4/4
+Q:110
+K: C transpose=-12
+| " Bb7"  c'_bgb gfgf  |  dfd_d =d_dcd |
+| c_Bc_B G_BGF | GFDF D_D=D_D | C_DC_B, |
+
+MUSIC:
+L:1/8
+M:4/4
+Q:110
+K: C transpose=-12
+| " C7"  aedg   ecAd | cGEA GDCE | C8  |
+
 Guitarist
 ---------
 - Freddie Green

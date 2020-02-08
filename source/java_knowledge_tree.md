@@ -160,10 +160,36 @@ Java语言
 - [Maven Tutorial](https://www.tutorialspoint.com/maven/)
 - [Maven Under Command Line](./maven_under_command_line.html)
 
-### Junit测试
-- [Junit Tutorial](https://www.tutorialspoint.com/junit/index.htm)
+### JUnit测试
+- [JUnit Tutorial](https://www.tutorialspoint.com/junit/index.htm)
 - [assertThat using Hamcrest Matcher](http://www.vogella.com/tutorials/Hamcrest/article.html)
 - [Mockito](https://static.javadoc.io/org.mockito/mockito-core/2.16.0/org/mockito/Mockito.html)
+
+#### JUnit5
+TREE:
+{
+  text: { name: "JUnit5" },
+          children: [
+          { text: { name: "Platform" } },
+          { text: { name: "Jupiter" } },
+          { text: { name: "Vintage" } }
+          ]
+}
+
+NOTE: 官方推荐第三方的 Assertion: `AssertJ`, `Hamcrest` 和 `Truth`, 在 spring-boot-starter-test 中, 引用了前两者
+
+```bash
++- org.springframework.boot:spring-boot-starter-test:jar:2.2.1.RELEASE:test
+|  +- org.junit.jupiter:junit-jupiter:jar:5.5.2:test
+|  |  \- org.junit.jupiter:junit-jupiter-params:jar:5.3.2:test
+|  +- org.mockito:mockito-junit-jupiter:jar:3.1.0:test
+|  +- org.assertj:assertj-core:jar:3.13.2:test
+|  +- org.hamcrest:hamcrest:jar:2.1:test
+|  +- org.mockito:mockito-core:jar:3.1.0:test
+|  |  +- net.bytebuddy:byte-buddy:jar:1.10.2:test
+|  |  +- net.bytebuddy:byte-buddy-agent:jar:1.10.2:test
+|  |  \- org.objenesis:objenesis:jar:2.6:test
+```
 
 ### 类库
 #### The Collection Framework
