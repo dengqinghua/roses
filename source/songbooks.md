@@ -649,6 +649,16 @@ K: C transpose=-12
 | " F"  F2 ca zF fc  |  F2 ce zF c2 | " G" G2 [F-_B][F=B] z [gc]2 z  _B=Bg2 [ca][_d_b][=d=b]2 |
 | " C" C2 [Adg]6 |
 
+### 一诺抖音(6251)
+MUSIC:
+L:1/8
+M:4/4
+Q: 100
+K: C transpose=-12
+| z2 (3e/f/e/ _e=e | " Am" A,2 zA Bc eg | " Dm" D (3e/f/e/ ef- fc- |
+| " G" c d G,2 zG B d-  | d " C" {e}[CGBf]2 G[Be] d2 Ce  |
+| " A" [A,cec']2 eb A,2 ef | " D" Dc fc'- c'b- b2| " G" [Gcfb]c fa Gc f{g}a | C,c eg g4 |
+
 Blues
 -----
 ### IntroductionBlues-Example8
