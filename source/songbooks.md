@@ -657,7 +657,7 @@ Q: 100
 K: C transpose=-12
 | z2 (3e/f/e/ _e=e | " Am" A,2 zA Bc eg | " Dm" D (3e/f/e/ ef- fc- |
 | " G" c d G,2 zG B d-  | d " C" {e}[CGBf]2 G[Be] d2 Ce  |
-| " A" [A,cec']2 eb A,2 ef | " D" Dc fc'- c'b- b2| " G" [Gcfb]c fa Gc f{g}a | C,c eg g4 |
+| " A" [A,cec']2 eb A,2 ef | " D" Dc fc'- c'b- b2| " G" [Gcfb]c fa Gc f{g}a | C,c eg- g4 |
 
 Blues
 -----

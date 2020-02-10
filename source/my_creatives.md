@@ -19,4 +19,4 @@ My Creatives
 <iframe src="//player.bilibili.com/player.html?aid=87417840&cid=149370354&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ### Omens of Love
-<iframe src="//player.bilibili.com/player.html?aid=86105224&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=88021832&cid=150342600&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
