@@ -37,6 +37,7 @@ L:1/4
 M:4/4
 Q:100
 K:F
+I:MIDI=program1
 | " F7" [FA_e]4  |  [FA_e]4 |  [FA_e]4 | [FA_e]4 |
 | " Bb7" [B,_Ad]4  |  [B,_Ad]4 | " F7" [FA_e]4 |  [FA_e]4 |
 | " C7" [C_Be]4  | [C_Be]4 | " F7" [FA_e]4 |  [FA_e]4 ||
@@ -50,7 +51,7 @@ Q:100
 K:F
 | " F7" [FA_e]4  |  " Bb7" [B,_Ad]2  " Bº7" [=B,_Ad]2  |  " F7/C" [CA_e]4 |  " F7" [FA_e]4 |
 | " Bb7" [B,_Ad]4  |   " Bº7" [=B,_Ad]4 | " F7/C" [CA_e]4 |  " D7" [Dc^f]4 |
-| " Gm7" [GBf]4 | " C7" [CBe]4  | " F7" [FA_e]2  " D7" [Dc^f]2 | " Gm7" [GBf]2  " C7" [CBe]2  ||
+| " Gm7" [GBf]4 | " C7" [CBe]4  | " F7" [FA_e]2  " D7b9" [Dc^f]2 | " Gm7" [GBf]2  " C7" [CBe]2  ||
 
 经过添加了 II-V-I (C7 前面添加 Gm7) 和 经过音 B (Bb -> C 的经过音 B) 和 Bb 的 剩下的音组成了
 
@@ -72,6 +73,7 @@ PDF: charleston-exercises
 
 Minor Scales
 ------------
+### 音阶
 NOTE: 小调 blues 音阶可以用在对应的 Key 的所有的和弦中, 都不会难听.
 
 F minor blues
@@ -88,8 +90,7 @@ F minor blues
 
 NOTE: 上面的好难; 基本上都记得什么时候该 change chord, 而且如果要有一些 blussy 的味道, 还需要一些 licks 的积累吧
 
-一些小的技巧:
-
+### 技巧
 1. 和弦开始，如下图
 
     MUSIC:
@@ -105,12 +106,15 @@ NOTE: 上面的好难; 基本上都记得什么时候该 change chord, 而且如
 
 Major Scales
 ------------
+### 音阶
 F major blues
 
 | F  | G  | Ab | A  | C  | D  |
 | -- | -- | -- | -- | -- | -- |
 | 1  | 2  | b3 | 3  | 5  | 6  |
 
+
+### 技巧
 使用 Major Scales 的三种方式
 
 1. 在各自的和弦，弹各自的音阶, 如果进行到 F7 的时候, 只使用 F Major Blues, 和弦换的时候，音阶也跟着换
@@ -136,8 +140,7 @@ F major blues
 
 4. 相同的旋律降低 8度
 
-Pattern 练习
-
+### Pattern
 这里可以练习不同的重音(accent), 比如分别在 1拍, 2拍 等加上重音, 感觉会不一样
 
 MUSIC:
@@ -163,7 +166,8 @@ Q:110
 K: C transpose=-12
 | " C7"  aedg   ecAd | cGEA GDCE | C8  |
 
-即兴 F Blues track(慢速和快速)
+### 即兴
+F Blues track(慢速和快速)
 
 AUDIO: F-Blues-Slow-BackTrack.mp3
 
@@ -178,7 +182,81 @@ K:F
 | " Bb7" [B,_Ad]4  |  [B,_Ad]4 | " F7" [FA_e]4 |  [FA_e]4 |
 | " C7" [C_Be]4  | [C_Be]4 | " F7" [FA_e]4 |  [FA_e]4 ||
 
-Guitarist
----------
+D7b9 Pentatonic Scale
+---------------------
+### 音阶
+这里是以 F 为例子，D7b9 接在 Gm7 的前面, 变成一个 II V I 的进行(D7b9 -> Gm7 -> C)
+
+MUSIC:
+T: D7(b9) in Blues
+L:1/4
+M:4/4
+Q:100
+K:F
+| " F7" [FA_e]4  |  " Bb7" [B,_Ad]2  " Bº7" [=B,_Ad]2  |  " F7/C" [CA_e]4 |  " F7" [FA_e]4 |
+| " Bb7" [B,_Ad]4  |   " Bº7" [=B,_Ad]4 | " F7/C" [CA_e]4 |  " D7" [Dc^f]4 |
+| " Gm7" [GBf]4 | " C7" [CBe]4  | " F7" [FA_e]2  " D7b9" [Dc^f]2 | " Gm7" [GBf]2  " C7" [CBe]2  ||
+
+D7b9 的音阶, D7 arpeggio `D F# A C` 加上一个 `Eb`
+
+| D  | Eb  | F# | A  | C  |
+| -- | -- | -- | -- | -- |
+| 1  | b2  | #4 | 6  | b7  |
+
+### 技巧
+NOTE: 下面为一个 `8分休止符+ 8分音符 + 三连音 + 4个8分音符` 的节奏, 可以尝试在其他的 licks 中
+
+MUSIC:
+L:1/8
+M:4/4
+Q:90
+|  z D (3_E^FB c^f _ed |
+
+和之前提到的 `Charleston rhythm` 类似，建议使用 [Anticipation](https://www.youtube.com/watch?v=VxM5N0cVNHU) 的形式, 将原有的开始的音符提前半小节进入
+打乱节奏的顺序, [这个视频](https://www.youtube.com/watch?v=0FS8ASRtJwo) 比较了使用 Anticipation 之后的感觉
+
+### Pattern
+MUSIC:
+T: D7(b9) ASC
+L:1/8
+M:4/4
+Q:90
+| D_E^F_E FAFA  | cAcd cd_ed | _e^fef afac' | ac'd'c' d'_e' z2 |
+
+MUSIC:
+T: D7(b9) DESC
+L:1/8
+M:4/4
+Q:90
+| c'a^fa f_efe  | d_edc dcAc | A^FAF _EFED |
+
+### 即兴
+NOTE: 并不是所有的和弦变换的地方都需要 **同步** 变换你的音阶, 那样的话你会比较紧张, 反应不过来。
+建议可以部分 **留白** 比如在第 11小节 的时候, 可以部分留白 给 D7b9
+
+NOTE: 可以思考之前联系的 licks 和 pattern, 将其中一部分引用进来, 并选择一些合适的节奏，如 Charleston 和 Anticipation 等
+
+AUDIO: F-Blues-D7b9-Slow-BackTrack.mp3
+
+AUDIO: F-Blues-D7b9-Fast-BackTrack.mp3
+
+MUSIC:
+T: F Blues (D7b9) Track
+L:1/4
+M:4/4
+Q:110
+K:F
+| " F7" [FA_e]4  |  " Bb7" [B,_Ad]4 | " F7" [FA_e]4 | " F7" [FA_e]4 |
+w: FMajorBlues BbMajorBlues FMajorBlues ...
+| " Bb7" [B,_Ad]4  |  [B,_Ad]4 | " F7" [FA_e]4 | " D7(b9)" [Dc^f]4 |
+w: BbMajorBlues ... FMajorBlues D7b9PentatonicScale
+| " Gm7" [GBf]4 | " C7" [CBe]4  | " F7" [FA_e]2  " D7b9" [Dc^f]2 | " Gm7" [GBf]2  " C7" [CBe]2  ||
+w: CMajorBlues ... FMajor  D7b9Pent CMajorBlues ...
+
+推荐
+----
+### Blues Player
 - Freddie Green
 - Kenny Burrell, famous for his **Minor Blues Scales**, 推荐专辑 [Midnight Blue](https://music.163.com/#/album?id=164930)
+
+### Songs
