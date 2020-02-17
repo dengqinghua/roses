@@ -120,7 +120,6 @@ Q:70
 K:C transpose=-12
 ||: " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  :||
 | " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  |
-| " Em7" E,EdB E,EdB E,EdB E,EdB | " Am7" A,EcG A,EcG A,EcG A,EcG |
 ```
 
 MUSIC:
@@ -130,11 +129,12 @@ Q:70
 K:C transpose=-12
 ||: " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  :||
 | " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  |
-| " Em7" E,EdB E,EdB E,EdB E,EdB | " Am7" A,EcG A,EcG A,EcG A,EcG |
 
 ### References
 - [abc_notation](http://www.lesession.co.uk/abc/abc_notation.htm)
 - [abc:standard:v2.1](http://abcnotation.com/wiki/abc:standard:v2.1)
+
+PDF: ABC-Quick-Reference
 
 GuitarPro
 --------

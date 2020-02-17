@@ -246,12 +246,13 @@ L:1/4
 M:4/4
 Q:110
 K:F
+%%barnumbers 4
 | " F7" [FA_e]4  |  " Bb7" [B,_Ad]4 | " F7" [FA_e]4 | " F7" [FA_e]4 |
-w: FMajorBlues BbMajorBlues FMajorBlues ...
+w: F~Maj~Blues Bb~Maj~Blues F~Major~Blues ...
 | " Bb7" [B,_Ad]4  |  [B,_Ad]4 | " F7" [FA_e]4 | " D7(b9)" [Dc^f]4 |
-w: BbMajorBlues ... FMajorBlues D7b9PentatonicScale
+w: Bb~Maj~Blues ... F~Maj~Blues D7b9~Pentatonic~Scale
 | " Gm7" [GBf]4 | " C7" [CBe]4  | " F7" [FA_e]2  " D7b9" [Dc^f]2 | " Gm7" [GBf]2  " C7" [CBe]2  ||
-w: CMajorBlues ... FMajor  D7b9Pent CMajorBlues ...
+w: C~Maj~Blues ... F~Maj  D7b9~Pent C~Maj~Blues ...
 
 推荐
 ----

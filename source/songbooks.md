@@ -640,6 +640,7 @@ PDF: OmensofLove sf
 
 ### 一诺抖音(1625)
 MUSIC:
+T: 1625
 L:1/8
 M:4/4
 Q: 160
@@ -651,6 +652,7 @@ K: C transpose=-12
 
 ### 一诺抖音(6251)
 MUSIC:
+T: 6251
 L:1/8
 M:4/4
 Q: 100
@@ -658,6 +660,22 @@ K: C transpose=-12
 | z2 (3e/f/e/ _e=e | " Am" A,2 zA Bc eg | " Dm" D (3e/f/e/ ef- fc- |
 | " G" c d G,2 zG B d-  | d " C" {e}[CGBf]2 G[Be] d2 Ce  |
 | " A" [A,cec']c eb A,2 ef | " D" Dc fc' Dc b2| " G" [Gcfb]c fa Gc f{g}a | C,c eg- g4 |
+
+### 一诺抖音(蒲公英的约定)
+NOTE: 变调夹4品 的 C 调
+
+MUSIC:
+T: 蒲公英的约定前奏
+L:1/8
+M:4/4
+Q: 70
+K: C transpose=-8
+%%barnumbers 1
+| z2 EG ce | " FM9" [F,e]F Gf  " G" [G,d]D G2  |
+| " Em7"  [E,Bd]E gB/c/ " Am7" A,E G2 | " F" [F,Ace]f gc " G" [G,c]D d2  |
+| " C" [C,e]E GE _B,E Gc | " FM9" [F,e]F Gf |
+| " G" [G,d]D G2  | " Em7"  [E,Bd]E gB/c/  " Am7" A,E G2|
+| " F" [F,Ace]f gc " G" [G,c]D d2  | " Fm13" [F,_Ac]D Ac " C" [CEGc]2 |
 
 Blues
 -----
