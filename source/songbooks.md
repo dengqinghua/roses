@@ -673,7 +673,7 @@ K: C transpose=-8
 %%barnumbers 1
 | z2 EG ce | " FM9" [F,e]F Gf  " G" [G,d]D G2  |
 | " Em7"  [E,Bd]E gB/c/ " Am7" A,E G2 | " F" [F,Ace]f gc " G" [G,c]D d2  |
-| " C" [C,e]E GE _B,E Gc | " FM9" [F,e]F Gf |
+| " C" [C,e]E GE " Bdim9" _B,E Gc | " FM9" [F,e]F Gf |
 | " G" [G,d]D G2  | " Em7"  [E,Bd]E gB/c/  " Am7" A,E G2|
 | " F" [F,Ace]f gc " G" [G,c]D d2  | " Fm13" [F,_Ac]D Ac " C" [CEGc]2 |
 
