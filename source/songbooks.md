@@ -645,6 +645,7 @@ L:1/8
 M:4/4
 Q: 160
 K: C transpose=-12
+%%barnumbers 1
 ||:  z  G cd ec' | " C" c,2 eb zc ge  C2 z {ge}[fe]2 e fa |
 |  " Am" A2 c[ec']- [ec']/z/ [Aeg]2  [cea] |  A2 ce z A ef |
 | " F"  F2 ca zF fc  |  F2 ce zF c2 | " G" G2 [F-_B][F=B] z [gc]2 z  _B=Bg2 [ca][_d_b][=d=b]2 |
@@ -656,6 +657,7 @@ T: 6251
 L:1/8
 M:4/4
 Q: 100
+%%barnumbers 1
 K: C transpose=-12
 | z2 (3e/f/e/ _e=e | " Am" A,2 zA Bc eg | " Dm" D (3e/f/e/ ef- fc- |
 | " G" c d G,2 zG B d-  | d " C" {e}[CGBf]2 G[Be] d2 Ce  |
@@ -676,6 +678,21 @@ K: C transpose=-8
 | " C" [C,e]E GE " Bbdim9" _B,E Gc | " FM9" [F,e]F Gf |
 | " G" [G,d]D G2  | " Em7"  [E,Bd]E gB/c/  " Am7" A,E G2|
 | " F" [F,Ace]f gc " G" [G,c]D d2  | " Fm13" [F,_Ac]D Ac " C" [CEGc]2 |
+
+### 一诺抖音(爱在西元前)
+NOTE: 变调夹2品 的 G 调
+
+MUSIC:
+T: 爱在西元前(1645)
+L:1/16
+M:4/4
+Q: 60
+K: G transpose=-10
+%%barnumbers 1
+| " G" G,DGD dDGA G,DGD dDGA |  " Em" E,{D}EGE dEGA  E,EGE dEGA |
+| " C" C{D}EGE dEGA CEGE dEGA | " D" DFGF dGFa DFGd zDdF |
+| " G" G,DGd- d[G,B] dg gffe- eG,dd |
+
 
 Blues
 -----
