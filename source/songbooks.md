@@ -689,10 +689,13 @@ M:4/4
 Q: 60
 K: G transpose=-10
 %%barnumbers 1
-| " G" G,DGD dDGA G,DGD dDGA |  " Em" E,{D}EGE dEGA  E,EGE dEGA |
-| " C" C{D}EGE dEGA CEGE dEGA | " D" DFGF dGFa DFGd zDdF |
-| " G" G,DGd- d[G,B] dg gffe- eG,dd |
-
+| " G" G,DGD dDGA G,DGD dDGA |  " Em" E,D/E/GE dEGA  E,EGE dEGA |
+| " C" CD/E/GE dEGA CEGE dEGA | " D" DFGF dGFa DFGd zDdF |
+|: " G" G,DGd- d[G,B] dg gffe- eG,dd | " Em" E,FGd zE,Bd | [E,d]zGB- BE,{B}AG|
+|1[ " C" CEGd zCdg [Cg]ffe zCde | " D" [De]ddd zDde [Be]2[Ad]2 ABdB :|
+|2[ " C" CEGd zCdg [Cg]aag zCef |[Dge]2[fd]2 z [ce]2[d] edd2 B2A2 |].
+| " G" G,DGD dDGA G,DGD dDGA |  " Em" E,D/E/GE dEGA  E,EGE dEGA |
+| " C" CD/E/GE dEGA CEGE dEGA | " D" DFGF dGFa DFGd- d4 |
 
 Blues
 -----
