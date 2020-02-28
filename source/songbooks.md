@@ -697,6 +697,25 @@ K: G transpose=-10
 | " G" G,DGD dDGA G,DGD dDGA |  " Em" E,D/E/GE dEGA  E,EGE dEGA |
 | " C" CD/E/GE dEGA CEGE dEGA | " D" DFGF dGFa DFGd- d4 |
 
+### 一诺抖音(红色高跟鞋)
+NOTE: 变调夹2品 的 C 调
+
+NOTE: 注意里面一些滑弦的音和每次拍弦(一般都是在第二拍)的音
+
+MUSIC:
+T: 红色高跟鞋(Am F G Am)
+L:1/8
+M:4/4
+Q: 90
+K: C transpose=-10
+%%barnumbers 1
+| " Am" [dg]e cA | " F" F,F gd | " G" G,[GB] zB | " Am" A,c eA, |
+| " Am" [dg]e c{g}a | " F" Fc z{g}a | " G" G,g ze  | " Am" A,{e}d z{c}c |
+| " Am"  [dg]e ec |  " F" F,F gd | " G" G,[GB] zB | " Am" A,c eA, |
+|  " Am" [dg]e/e/ z{d}c | " F" F,F z{e}c| Fc {d}[Be][d] 
+| " G" G,D z{d}G | Bc GB | " F" F,F cA| " G" G,D c/B/G/B/ |
+| " A" A,G/c/ z/A,/ [dg]/[ea]/ |
+
 Blues
 -----
 ### IntroductionBlues-Example8
