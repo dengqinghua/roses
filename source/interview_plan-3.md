@@ -1,7 +1,5 @@
-Interview Plan 2
+Interview Plan 3
 ================
-
-DATE: 2019-02-27
 
 Prepare for my next job interview as a programmer dog the second time.
 
@@ -16,6 +14,11 @@ After reading this guide, you will know:
 
 Books
 -----
+### Design Patterns
+
+- [Design Patterns: Elements of Reusable Object-Oriented Software](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612)
+- 左耳听风-编程范式游记
+
 ### Data Structures and Algorithm Analysis
 
     Hope I had time to rewrite the algoritms in golang

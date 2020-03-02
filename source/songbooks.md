@@ -716,6 +716,24 @@ K: C transpose=-10
 | " G" G,D z{d}G | Bc GB | " F" F,F cA| " G" G,D c/B/G/B/ |
 | " A" A,G/c/ z/A,/ [dg]/[ea]/ |
 
+### 一诺抖音(第一集)
+NOTE: 注意律动
+
+MUSIC:
+T: 一诺抖音(第一集)
+L:1/8
+M:4/4
+Q: 90
+K: C transpose=-10
+%%barnumbers 1
+| " Am" [dg]e cA | " F" F,F gd | " G" G,[GB] zB | " Am" A,c eA, |
+| " Am" [dg]e c{g}a | " F" Fc z{g}a | " G" G,g ze  | " Am" A,{e}d z{c}c |
+| " Am"  [dg]e ec |  " F" F,F gd | " G" G,[GB] zB | " Am" A,c eA, |
+|  " Am" [dg]e/e/ z{d}c | " F" F,F z{e}F,| Fc {d}[Be][d] 
+| " G" G,D z{d}G | Bc GB | " F" F,F cA| " G" G,D c/B/G/B/ |
+| " A" A,G/c/ z/A,/ [dg]/[ea]/ |
+
+
 Blues
 -----
 ### IntroductionBlues-Example8
