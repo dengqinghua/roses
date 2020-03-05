@@ -635,8 +635,71 @@ PDF: feeling sf
 ### Kiss
 PDF: kiss sf
 
+### Manha do Carnaval
+PDF: ManhadoCarnaval
+
+### Twisted in My Sobriety
+PDF: TwistedinMySobriety
+
+### 一生所爱
+PDF: life_for_once sf
+
+### Feeling
+PDF: feeling sf
+
+### Kiss
+PDF: kiss sf
+
 ### Omens of Love
 PDF: OmensofLove sf
+
+### 如果我不是我
+NOTE: 变调夹 3品 C调
+
+```
+前奏
+F24(F A D G) Em7 Dm7 Cmaj7
+F24(F C D A) Em7 Dm7 C69
+
+          C             G
+如果我不是我 如果鱼儿也能歌唱
+      F      G       C
+我一定会陪在你身旁 不让你忧伤
+          C             G
+如果我不是我 如果树木也能飞翔
+      F      G       C   C7
+我一定会陪在你身旁 不让你受伤
+
+# 这里就是 4536251 的套路了
+      F     G         Em         Am
+别难过我亲爱的姑娘 别让我的世界黯淡无光
+     Dm7      G        C C7
+我多想让你靠在我的肩膀 可是我不能这样
+      F     G         Em         Am
+因为我还是我 就像石头无法绽放
+     Dm7      G        C4 C
+所以我只能远远望着你 同你一起悲伤
+
+      F     G         Em         Am
+别难过我亲爱的姑娘 别让我的世界黯淡无光
+     Dm7      G        C C7
+我多想让你靠在我的肩膀 可是我不能这样
+      F     G         Em         Am
+我多想吻去你脸上的泪水 替你抚平你所受的创伤
+     Dm7      G        C4 C
+可是我不能这样 不能这样
+
+          C             G
+如果我不是我 如果鱼儿也能歌唱
+      F      G       C
+我一定会陪在你身旁 不让你忧伤
+          C             G
+如果我不是我 如果树木也能飞翔
+      F      G       C
+我一定会陪在你身旁 不让你受伤
+     Dm7   G   Fm C
+如果我不是我 又会怎样
+```
 
 ### 一诺抖音(1625)
 MUSIC:
@@ -724,15 +787,14 @@ T: 一诺抖音(第一集)
 L:1/8
 M:4/4
 Q: 90
-K: C transpose=-10
-%%barnumbers 1
-| " Am" [dg]e cA | " F" F,F gd | " G" G,[GB] zB | " Am" A,c eA, |
-| " Am" [dg]e c{g}a | " F" Fc z{g}a | " G" G,g ze  | " Am" A,{e}d z{c}c |
-| " Am"  [dg]e ec |  " F" F,F gd | " G" G,[GB] zB | " Am" A,c eA, |
-|  " Am" [dg]e/e/ z{d}c | " F" F,F z{e}F,| Fc {d}[Be][d] 
-| " G" G,D z{d}G | Bc GB | " F" F,F cA| " G" G,D c/B/G/B/ |
-| " A" A,G/c/ z/A,/ [dg]/[ea]/ |
-
+K: C transpose=-12
+%%barnumbers=1
+| E,>E z/B,/_D/>=D/ z/B/[G_D]/>[^G=D]/ z/[G_D]/- [G_D]/B/ |
+| E,>E z/B,/D/>E/ z/E/A/>B/ z/B/d/>e/ | 
+| E,>E z/B,/_D/>=D/  zD D/>_D/=D |
+| E,>E z/B,/D/>E/ z/E/A/>B/ z/B/d/>e/ | 
+| z{a}b ga/g/ e>>B d/>B/d/>e/-  |
+| e/>d/B/>G/ E/G>E/ G/>E/D/>B,/ D/_E=E/ |
 
 Blues
 -----
