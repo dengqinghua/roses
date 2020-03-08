@@ -733,6 +733,30 @@ K: C transpose=-10
 | " G" G,D z{d}G | Bc GB | " F" F,F cA| " G" G,D c/B/G/B/ |
 | " A" A,G/c/ z/A,/ [dg]/[ea]/ |
 
+### 易燃易爆炸
+MUSIC:
+T: 前奏(Am G E F)
+L:1/8
+M:4/4
+Q: 100
+K: C transpose=1
+%%barnumbers 1
+| " Am" [A,c]E Ac- cA E2 | " G" [G,B]D GB- BG D2 |
+| " F" [F,A]F AB- BF A2 | " E" [E,^G]E Ge- eG BG |
+| " Am" A,E AB/c/- ce- cA | " G" [G,B]D GB- BG D2 
+|" F" [F,A]F AB- BF A2 | " E" [E,^G]E Ge- eG BG |
+
+MUSIC:
+T: P1
+L:1/8
+M:4/4
+Q: 100
+K: C transpose=1
+%%barnumbers 1
+||: " Am" A,E AB/c/- ce- cA | " E/G#" ^G,E Bd- dB E2
+| " Dm7" DA cf- fA cA | " Am" A, EB ce- e2 :||
+||: " Am" A,E AB/c/- ce- cA | " E/G#" ^G,E Bd- dB E2
+| " F" F,F A[Be] zA cA | " Am" A, EB ce- e2 :||
 
 Blues
 -----
