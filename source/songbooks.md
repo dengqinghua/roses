@@ -629,22 +629,7 @@ PDF: TwistedinMySobriety
 ### 一生所爱
 PDF: life_for_once sf
 
-### Feeling
-PDF: feeling sf
-
-### Kiss
-PDF: kiss sf
-
-### Manha do Carnaval
-PDF: ManhadoCarnaval
-
-### Twisted in My Sobriety
-PDF: TwistedinMySobriety
-
-### 一生所爱
-PDF: life_for_once sf
-
-### Feeling
+### 感
 PDF: feeling sf
 
 ### Kiss
@@ -779,7 +764,7 @@ K: C transpose=-10
 | " G" G,D z{d}G | Bc GB | " F" F,F cA| " G" G,D c/B/G/B/ |
 | " A" A,G/c/ z/A,/ [dg]/[ea]/ |
 
-### 易燃易爆炸
+### 一诺B站(易燃易爆炸)
 MUSIC:
 T: 前奏(Am G E F)
 L:1/8
