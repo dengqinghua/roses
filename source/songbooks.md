@@ -764,19 +764,6 @@ K: C transpose=-10
 | " G" G,D z{d}G | Bc GB | " F" F,F cA| " G" G,D c/B/G/B/ |
 | " A" A,G/c/ z/A,/ [dg]/[ea]/ |
 
-### 一诺B站(易燃易爆炸)
-MUSIC:
-T: 前奏(Am G E F)
-L:1/8
-M:4/4
-Q: 100
-K: C transpose=1
-%%barnumbers 1
-| " Am" [A,c]E Ac- cA E2 | " G" [G,B]D GB- BG D2 |
-| " F" [F,A]F AB- BF A2 | " E" [E,^G]E Ge- eG BG |
-| " Am" A,E AB/c/- ce- cA | " G" [G,B]D GB- BG D2 
-|" F" [F,A]F AB- BF A2 | " E" [E,^G]E Ge- eG BG |
-
 MUSIC:
 T: P1
 L:1/8
@@ -807,6 +794,33 @@ Q: 100
 |G,/ z//G,// (3A/z/B/z/A/z/ D/ z//A// " 泛音" (3g/z/^f/z/d/z/ |
 |E,^F/[Gd]/ z/[Ge]/- [Ge]/z/ C D/[dg]/ z/[dg]/ -[dg]/z/ |
 | B,/^D/^F/A/ B/d/f/a/ b/{a}b/- b/a/g/e/- e |
+
+### 一诺抖音(blues)
+NOTE: 注意律动, 并在第三拍需要拍弦
+
+MUSIC:
+T: 一诺抖音(blues)
+K: C transpose=-12
+Q: 130
+K: A
+%%barnumbers 1
+(3EFA | [ce]>[=c_e]- [=c_e]<[Bd] [A^c]z zD |
+{^f=b}[g=c']>[^f=b]- [^f=b]<[ea] [Dea]z ze } |
+{_A}[E,A]>e ^F,>[Ad] G,>A A,>G| (3=c^ce a6| 
+
+### 一诺B站(易燃易爆炸)
+MUSIC:
+T: 前奏(Am G E F)
+L:1/8
+M:4/4
+Q: 100
+K: C transpose=1
+%%barnumbers 1
+| " Am" [A,c]E Ac- cA E2 | " G" [G,B]D GB- BG D2 |
+| " F" [F,A]F AB- BF A2 | " E" [E,^G]E Ge- eG BG |
+| " Am" A,E AB/c/- ce- cA | " G" [G,B]D GB- BG D2 
+|" F" [F,A]F AB- BF A2 | " E" [E,^G]E Ge- eG BG |
+
 
 Blues
 -----
