@@ -731,19 +731,17 @@ K: C transpose=-8
 NOTE: 变调夹2品 的 G 调
 
 MUSIC:
-T: 爱在西元前(1645)
-L:1/16
+T: 稻香
+L:1/8
 M:4/4
-Q: 60
-K: G transpose=-10
+Q: 80
+K: A transpose=-9
 %%barnumbers 1
-| " G" G,DGD dDGA G,DGD dDGA |  " Em" E,D/E/GE dEGA  E,EGE dEGA |
-| " C" CD/E/GE dEGA CEGE dEGA | " D" DFGF dGFa DFGd zDdF |
-|: " G" G,DGd- d[G,B] dg gffe- eG,dd | " Em" E,FGd zE,Bd | [E,d]zGB- BE,{B}AG|
-|1[ " C" CEGd zCdg [Cg]ffe zCde | " D" [De]ddd zDde [Be]2[Ad]2 ABdB :|
-|2[ " C" CEGd zCdg [Cg]aag zCef |[Dge]2[fd]2 z [ce]2[d] edd2 B2A2 |].
-| " G" G,DGD dDGA G,DGD dDGA |  " Em" E,D/E/GE dEGA  E,EGE dEGA |
-| " C" CD/E/GE dEGA CEGE dEGA | " D" DFGF dGFa DFGd- d4 |
+| " A" A,E B/c/A/E/ " E" E,E [GB]2 | " #Fm" F,E [AB]2 " #Cm" CG eB/G/
+| " Bm" B,F c/d/A/F/ " E" E,E [GB]>E | " A" A,E [Ad]>[Ac]- [Ac]>A, c{Ad}[Be]
+||: " A" [A,ce]e/e/ z/A,/[ce]/[ce]/ " E" E,/[ce]/z/E,/ [E,Ac]B  | "  #Fm"  F,[Ac]/[Ac]/ z/F,/[Ac]/[Ac]/  " #Cm" Cc/c/ z/C/A/F/ 
+|" D"DF/A/ z/D/F/A/ [1 " E" {A}[BE,]B/A/ z/E,/c/c/ |" A" A,E/[Ad]/ z/A,/E, [A,Ac]2 c{[Ad]}[Be] :|
+ [2 " E" {A}[BE,]B/A/ z/E,/A/A/ | " A" A,E [Ad]>[Ac]- [Ac]4 |
 
 ### 一诺抖音(红色高跟鞋)
 NOTE: 变调夹2品 的 C 调
@@ -796,6 +794,24 @@ K: A
 {^f=b}[g=c']>[^f=b]- [^f=b]<[ea] [Dea]z ze } |
 {_A}[E,A]>e ^F,>[Ad] G,>A A,>G| (3=c^ce a6| 
 
+### 一诺抖音(稻香)
+NOTE: 变调夹三品, A调, 类似于 卡农 的那个套路 1563251
+
+MUSIC:
+T: 稻香
+L:1/8
+M:4/4
+Q: 80
+K: A transpose=-9
+%%barnumbers 1
+| " A" A,E B/c/A/E/ " E" E,E [GB]2 | " #Fm" F,E [AB]2 " #Cm" CG eB/G/ 
+| " Bm" B,F c/d/A/F/ " E" E,E [GB]>E | " A" A,E [Ad]>[Ac]- [Ac]>A, c{Ad}[Be]
+| " A" [A,ce]e/e/ z/A,/[ce]/[ce]/ " E" E,/[ce]/z/E,/ [E,Ac]B  | "  #Fm"  F,[Ac]/[Ac]/ z/F,/[Ac]/[Ac]/  " #Cm" Cc/c/ z/C/A/F/ 
+|" D"DF/A/ z/D/F/A/  " E" {A}[BE,]B/A/ z/E,/c/c/ |" A" A,E/[Ad]/ z/A,/E, [A,Ac]2 c{[Ad]}[Be] |
+| " A" [A,ce]e/e/ z/A,/[ce]/[ce]/ " E" E,/[ce]/z/E,/ [E,Ac]B  | "  #Fm"  F,[Ac]/[Ac]/ z/F,/[Ac]/[Ac]/  " #Cm" Cc/c/ z/C/A/F/ 
+| " D" DF/A/ z/D/F/A/ | " E" {A}[BE,]B/A/ z/E,/A/A/ |
+| " A" A,E [Ad]>[Ac]- [Ac]4 |
+
 ### 一诺B站(易燃易爆炸)
 MUSIC:
 T: 前奏(Am G E F)
@@ -821,7 +837,6 @@ K: C transpose=1
 ||: " Am" A,E AB/c/- ce- cA | " E/G#" ^G,E Bd- dB E2
 | " F" F,F A[Be] zA cA | " Am" A, EB ce- e2 :||
 
-Blues
 -----
 ### IntroductionBlues-Example8
 MUSIC:
