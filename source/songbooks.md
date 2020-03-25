@@ -837,8 +837,6 @@ K: C transpose=1
 ||: " Am" A,E AB/c/- ce- cA | " E/G#" ^G,E Bd- dB E2
 | " F" F,F A[Be] zA cA | " Am" A, EB ce- e2 :||
 
-
-
 Blues
 -----
 ### IntroductionBlues-Example8
@@ -857,6 +855,50 @@ Q:110
 K: C transpose=-12
 ||: " D7"  z4> z2 f/a/ |  d'c' d'd' z4 | f'/d'/c'/a/  g/f/d z2 :||
 
+### Chitlins con Carne
+C7#9: `1 3 b7 3 5`
+
+CHORD: 87888x
+
+F9: `4 6 b3 5 1`
+
+CHORD: x87888
+
+G9: `5 7 4 6 2`
+
+CHORD: xA9AAA
+
+MUSIC:
+L:1/8
+M:4/4
+Q:110
+K: C transpose=-12
+T: Rythem
+|  " C" z2 [CE_B_eg]!>![CE_B_eg] z[CE_B_eg]!>![CE_B_eg]z |  " C" z2 [CE_B_eg]!>![CE_B_eg] z[CE_B_eg]!>![CE_B_eg]z |
+|" F" z2 [FA_Egc]!>![FA_Egc] z[FA_Egc]!>![FA_Egc] z |  " C" z2 [CE_B_eg]!>![CE_B_eg] z[CE_B_eg]!>![CE_B_eg]z |
+| " G" z2 [GBfad']!>![GBfad'] " F" z2 [FA_Egc]!>![FA_Egc] | " C" z2 [CE_B_eg]!>![CE_B_eg] z[CE_B_eg]!>![CE_B_eg]z  | 
+
+MUSIC:
+L:1/8
+M:4/4
+Q:110
+K: C transpose=-12
+T: PartA
+||:  " C" z2 CC _EC FC | {F}G2 C_E- _E z [CE_B_eg]!>![CE_B_eg] | z2 CC _EC FC-  | Cz [CE_B_eg]!>![CE_B_eg]z2  [CE_B_eg]!>![CE_B_eg]|
+|  " F" z2 CC _EC FC | {F}G2 C_E- _E z [FA_Egc]!>![FA_Egc] | z2 CC _EC FC-  | Cz [CE_B_eg]!>![CE_B_eg]z2  [CE_B_eg]!>![CE_B_eg]|
+|  " G" z2 CC _EC FC | {F}G _B- _B3 z^F =F- | Fz CC _EC FC | z2  [CE_B_eg]!>![CE_B_eg] z2 [CE_B_eg]!>![CE_B_eg] :||
+
+L:1/8
+M:4/4
+Q:110
+K: C transpose=-12
+T: PartB
+%||:  " C" z2 CC _EC FC | {F}G2 C_E- _E z [CE_B_eg]!>![CE_B_eg] | z2 CC _EC FC-  | Cz [CE_B_eg]!>![CE_B_eg]z2  %[CE_B_eg]!>![CE_B_eg]|
+%|  " F" z2 CC _EC FC | {F}G2 C_E- _E z [FA_Egc]!>![FA_Egc] | z2 CC _EC FC-  | Cz [CE_B_eg]!>![CE_B_eg]z2  [CE_B_eg]!>!%[CE_B_eg]|
+%|  " G" z2 CC _EC FC | {F}G _B- _B3 z^F =F- | Fz CC _EC FC | z2  [CE_B_eg]!>![CE_B_eg] z2 [CE_B_eg]!>![CE_B_eg] :||
+| z2 z _e/g/ c'_b c'c' | z8 | |
+
+
 Jazz
 ----
 ...
@@ -869,5 +911,4 @@ L:1/8
 M:4/4
 Q:110
 K:D
-||: " Bmadd11"   B,d B,B B,d B,e | " Dadd9" Df De Da DB| " G" G,B G,B G,B G,B | " G" G,B G,B G,B G,B :||
-| " Aadd9" A,c A,B A,e A,c | " E" E,G E,e E,B E,B | " D/F#" F,A F,d F,e F,d | " G" G,B G,B G,B G,B |
+||: " C" z2 [CE_B] |
