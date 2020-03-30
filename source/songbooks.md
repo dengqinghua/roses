@@ -812,6 +812,21 @@ K: A transpose=-9
 |" D"DF/A/ z/D/F/A/ [1 " E" {A}[BE,]B/A/ z/E,/c/c/ |" A" A,E/[Ad]/ z/A,/E, [A,Ac]2 c{[Ad]}[Be] :|
 | [2 " E" {A}[BE,]B/A/ z/E,/A/A/ | " A" A,E [Ad]>[Ac]- [Ac]4 |
 
+### 一诺抖音(花海)
+NOTE: 变调夹二品, D调
+
+MUSIC:
+T: 花海
+L:1/8
+M:4/4
+Q: 70
+K: D transpose=-10
+%%barnumbers 1
+| " D"  AB ce/e/ DA/e/ z/D/e/A/ | " E" cB/A/ z/E/B/c/  A,E/A/ z/E/A/z/ | 
+| " D" AB/c/ z/D/g/a/  DA/[da]/ z/D/ [Aa]/z/| [Bg][ca]/[Bg]/ z/E,/e/{e/}f/  A,E/e/ z/A,/A/z/ |
+| [A,A]B [Cc]e/e/ DA/e/ z/D/e/c/ | " C#7" [C^EBc]B [F,^EA]B/A/ F,F/A/ z/F,/A/F/ 
+| [E,A]B c{d}e/A/ B,F/A/ z/B,/A/z/ | [E,FA]G FG/A/ A,E [A,Ad] >[A,Ac]|
+
 ### 一诺B站(易燃易爆炸)
 MUSIC:
 T: 前奏(Am G E F)
@@ -888,6 +903,7 @@ T: PartA
 |  " F" z2 CC _EC FC | {F}G2 C_E- _E z [FA_Egc]!>![FA_Egc] | z2 CC _EC FC-  | Cz [CE_B_eg]!>![CE_B_eg]z2  [CE_B_eg]!>![CE_B_eg]|
 |  " G" z2 CC _EC FC | {F}G _B- _B3 z^F =F- | Fz CC _EC FC | z2  [CE_B_eg]!>![CE_B_eg] z2 [CE_B_eg]!>![CE_B_eg] :||
 
+MUSIC:
 L:1/8
 M:4/4
 Q:110
