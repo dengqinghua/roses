@@ -820,10 +820,10 @@ T: 花海
 L:1/8
 M:4/4
 Q: 70
-K: D transpose=-10
+K: A transpose=-10
 %%barnumbers 1
 | " D"  AB ce/e/ DA/e/ z/D/e/A/ | " E" cB/A/ z/E/B/c/  A,E/A/ z/E/A/z/ | 
-| " D" AB/c/ z/D/g/a/  DA/[da]/ z/D/ [Aa]/z/| [Bg][ca]/[Bg]/ z/E,/e/{e/}f/  A,E/e/ z/A,/A/z/ |
+| " D" [C,A]B/c/ z/D/g/a/  DA/[da]/ z/D/ [Aa]/z/| [Bg][ca]/[Bg]/ z/E,/e/{e/}f/  A,E/e/ z/A,/A/z/ |
 | [A,A]B [Cc]e/e/ DA/e/ z/D/e/c/ | " C#7" [C^EBc]B [F,^EA]B/A/ F,F/A/ z/F,/A/F/ 
 | [E,A]B c{d}e/A/ B,F/A/ z/B,/A/z/ | [E,FA]G FG/A/ A,E [A,Ad] >[A,Ac]|
 
