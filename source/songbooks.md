@@ -822,10 +822,11 @@ M:4/4
 Q: 70
 K: A transpose=-10
 %%barnumbers 1
-| " D"  AB ce/e/ DA/e/ z/D/e/A/ | " E" cB/A/ z/E/B/c/  A,E/A/ z/E/A/z/ | 
-| " D" [C,A]B/c/ z/D/g/a/  DA/[da]/ z/D/ [Aa]/z/| [Bg][ca]/[Bg]/ z/E,/e/{e/}f/  A,E/e/ z/A,/A/z/ |
-| [A,A]B [Cc]e/e/ DA/e/ z/D/e/c/ | " C#7" [C^EBc]B [F,^EA]B/A/ F,F/A/ z/F,/A/F/ 
-| [E,A]B c{d}e/A/ B,F/A/ z/B,/A/z/ | [E,FA]G FG/A/ A,E [A,Ad] >[A,Ac]|
+| " A" z2 z2 AB ce/e/  | " D" DA/e/ z/D/e/A/  " E" [E,Ac]B/A/ z/E/B/c/ 
+| " A" A,E/A/ z/E/A/z/ " Cm#" [CA]B/c/ z/D/g/a/ | " D" DA/[da]/ z/D/ [Aa]/z/ " E" [E,Bg][ca]/[Bg]/ z/E,/e/{e/}f/
+| " A" A,E/e/ z/A,/A/z/  [A,A]B [Cc]e/e/ | " D" DA/e/ z/D/e/c/  " C#7" [C^EBc]B [F,^EA]B/A/ 
+| " F#m" F,F/A/ z/F,/A/F/  [E,A]B c{d}e/A/ | " Bm7" B,F/A/ z/B,/A/z/  " E24" [E,FA]G FG/A/ 
+| " A" A,E [A,Ad]3/2 [A,Ac]3/2 |
 
 ### 一诺B站(易燃易爆炸)
 MUSIC:
