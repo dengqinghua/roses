@@ -853,7 +853,7 @@ K: C transpose=-9
 | " C" [C,Gce]2[Gce]2  [B,Gd]2 [Gdf]2 | " Am" [Aace][Ac] [Ac]A G,E [Gc]G|
 | " F" [F,Ac]F [cg]2 [F,cg]2[cf]2 | " G" G,D [Gd]G, Gd [Gd]G |
 | " C" [C,Gce]2[Gce]2  [B,Gd]2 [Gdf]2 | " Am" [Aace][Ac] z[G,Gc]2 G [Gc]G|
-| " F" [F,A]F [Ac]2 [G,Gc]2[Gd][Gc] | " C" CE Gc e3
+| " F" [F,A]F [Ac]2 [G,Gc]2[Gd][Gc] | " C" CE Gc e4
 
 ### 一诺B站(易燃易爆炸)
 MUSIC:
