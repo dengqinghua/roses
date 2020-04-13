@@ -835,24 +835,24 @@ MUSIC:
 T: 听妈妈的话(G)
 L:1/8
 M:4/4
-Q: 120
+Q: 110
 K: G transpose=-9
 %%barnumbers 1
 | " G" [G,GB]2 zG, [FA]2[Ac]2 | " E" [E,GB]E z[G,DG]2 zG,2 |
 | " C" [C,G]2[Gd]2 [C,Gd]2[C,Gc] | " D" DA [gd]D Af [df]D |
-| " G" [G,GB]2 zG, [FA]2[Ac]2 | " E" [E,GB]E z[DG]2 F [GB]2 |
+| " G" [G,GB]2 zG, [B,A]2[Ac]2 | " E" [E,GB]E z[DG]2 F [GB]2 |
 | " C" [C,E]2[EG]2 " D" [DG]G AG | " G" G,D [GB]G FG [GB]G |
 
 MUSIC:
 T: 听妈妈的话(C)
 L:1/8
 M:4/4
-Q: 120
+Q: 110
 K: C transpose=-9
 %%barnumbers 1
 | " C" [C,Gce]2[Gce]2  [B,Gd]2 [Gdf]2 | " Am" [Aace][Ac] [Ac]A G,E [Gc]G|
 | " F" [F,Ac]F [cg]2 [F,cg]2[cf]2 | " G" G,D [Gd]G, Gd [Gd]G |
-| " C" [C,Gce]2[Gce]2  [B,Gd]2 [Gdf]2 | " Am" [Aace][Ac] z[G,Gc]2 G [Gc]G|
+| " C" [C,Gce]2[Gce]2  [E,Gd]2 [Gdf]2 | " Am" [Aace][Ac] z[G,Gc]2 G [Gc]G|
 | " F" [F,A]F [Ac]2 [G,Gc]2[Gd][Gc] | " C" CE Gc e4
 
 ### 一诺B站(易燃易爆炸)
