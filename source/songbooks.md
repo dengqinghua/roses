@@ -868,12 +868,6 @@ M:4/4
 Q: 90
 K: C transpose=-10
 %%barnumbers 1
-T: 回到过去
-L:1/8
-M:4/4
-Q: 90
-K: C transpose=-10
-%%barnumbers 1
 | z2 z G cd ee |: " C" CG [ce]C  ed e [DAc]- |  " Dm7"[DAc][ce] e[DAd]- [DAd]d [Ad]c |
 | " E7" [E,^GBe]e [GBe]d [^G,d]c [DB]{B}[^G,c] | " Am9" A,G [Bc]A,- A,[Gc] [Gd]c |
 | " F" [F,e]e [FAc]F,- F,c [Ac]g | " Em7" [Eg]e [Be][Ee]- [Ee]c cd |
