@@ -855,6 +855,32 @@ K: C transpose=-9
 | " C" [C,Gce]2[Gce]2  [E,Gd]2 [Gdf]2 | " Am" [Aace][Ac] z[G,Gc]2 G [Gc]G|
 | " F" [F,A]F [Ac]2 [G,Gc]2[Gd][Gc] | " C" CE Gc e4
 
+### 一诺抖音(回到过去)
+NOTE: 变调夹一品, C调 注意低音的流动, 第7小节末尾的击弦
+和 第8小节的末尾的滑音.
+
+INFO: 有一个拍弦的声音非常好: 第5小节 的 Am9 的第二拍
+
+MUSIC:
+T: 回到过去
+L:1/8
+M:4/4
+Q: 90
+K: C transpose=-10
+%%barnumbers 1
+T: 回到过去
+L:1/8
+M:4/4
+Q: 90
+K: C transpose=-10
+%%barnumbers 1
+| z2 z G cd ee |: " C" CG [ce]C  ed e [DAc]- |  " Dm7"[DAc][ce] e[DAd]- [DAd]d [Ad]c |
+| " E7" [E,^GBe]e [GBe]d [^G,d]c [DB]{B}[^G,c] | " Am9" A,G [Bc]A,- A,[Gc] [Gd]c |
+| " F" [F,e]e [FAc]F,- F,c [Ac]g | " Em7" [Eg]e [Be][Ee]- [Ee]c cd |
+| " Dm" D[Ac]- [Ac]c/A/ cA [Ac][Bd] |[1 " G" G,D [Bd] G cd ee :|
+| [2 " G" G,D [Bd]G cd Bc | " C" CG ce- e4 |
+
+
 ### 一诺B站(易燃易爆炸)
 MUSIC:
 T: 前奏(Am G E F)
