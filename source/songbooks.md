@@ -856,7 +856,7 @@ K: C transpose=-9
 | " F" [F,A]F [Ac]2 [G,Gc]2[Gd][Gc] | " C" CE Gc e4
 
 ### 一诺抖音(回到过去)
-NOTE: 变调夹一品, C调 注意低音的流动, 第7小节末尾的击弦
+NOTE: 变调夹二品, C调 注意低音的流动, 第7小节末尾的击弦
 和 第8小节的末尾的滑音.
 
 INFO: 有一个拍弦的声音非常好: 第5小节 的 Am9 的第二拍
@@ -874,6 +874,42 @@ K: C transpose=-10
 | " Dm" D[Ac]- [Ac]c/A/ cA [Ac][Bd] |[1 " G" G,D [Bd] G cd ee :|
 | [2 " G" G,D [Bd]G cd Bc | " C" CG ce- e4 |
 
+### 一诺抖音(告白气球)
+NOTE: 变调夹二品, C调
+
+MUSIC:
+T: 告白气球
+L:1/8
+M:4/4
+Q: 90
+K: C transpose=-10
+%%barnumbers 1
+| z2 z G cd ee |: " C" CG [ce]C  ed e [DAc]- |  " Dm7"[DAc][ce] e[DAd]- [DAd]d [Ad]c |
+| " E7" [E,^GBe]e [GBe]d [^G,d]c [DB]{B}[^G,c] | " Am9" A,G [Bc]A,- A,[Gc] [Gd]c |
+| " F" [F,e]e [FAc]F,- F,c [Ac]g | " Em7" [Eg]e [Be][Ee]- [Ee]c cd |
+| " Dm" D[Ac]- [Ac]c/A/ cA [Ac][Bd] |[1 " G" G,D [Bd] G cd ee :|
+| [2 " G" G,D [Bd]G cd Bc | " C" CG ce- e4 |
+
+### 一诺抖音(心墙)
+NOTE: 变调夹二品, C调
+
+NOTE: 第2和10小节 `c->d` 需要击弦;
+第4小节 的 `Bd->ce` 需要击弦;
+第12小节的 `g->a` 需要击弦, `e->d` 需要滑弦
+
+MUSIC:
+T: 心墙
+L:1/8
+M:4/4
+Q: 120
+K: C transpose=-10
+%%barnumbers 1
+| z4 [GBe]f gc | " F" F,2FG -Gc dd| " G" G,2 DG ef gc |
+| " Em7" [E,d]2 EG-  G[Bd] [ce][Gc] | " Am7" A,2 Gc- ce- e2 |
+| " F" [F,FA]2 Bc- ce- ee | " G" G,2 Dg- gd- dd | " C" C2 G[ce]- [ce]G ec |
+| C,E _Bd ef gc |  " F" [F,Gc]d FG- Ge- ed | " G" G,D GB- Bc dB|
+| " Em7" [E,dg]a gg- ge- e{e}d | " Am7" A,2Ec- ce ef  |
+| " F" [Fe]2 cc- cd- de | " G" G,D dc- cB- Bc| " C" C2 -CG cG C2|
 
 ### 一诺B站(易燃易爆炸)
 MUSIC:
