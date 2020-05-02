@@ -921,7 +921,7 @@ M:4/4
 Q: 100
 K: C transpose=-12
 %%barnumbers 1
-| z2 zG cd ee | " C" CG cC  ef gg |  " G"  E,B, EG ga bc'| 
+| z2 zG cd ee | " C" CG cC  ef gg |  " Em"  E,B, EG ga bc'| 
 |" Am" A,c ec' A,b a{g}a | " Em7" E,B dg E,B d{g}a | " FM7" Fc ea Fg fe |
 |  " C" CG eC gf c'f | " Dm7" DA c{ef}e DA cd | " G" G,D [GB]2  cd ee | 
 | " C" CG cC ef {[df]}[eg][eg] | " Em" E,B eg E,a bc' | " Am" A,c ec' A,b a{g}a |
