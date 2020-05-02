@@ -911,6 +911,23 @@ K: C transpose=-10
 | " Em7" [E,dg]a gg- ge- e{e}d | " Am7" A,2Ec- ce ef  |
 | " F" [Fe]2 cc- cd- de | " G" G,D dc- cB- Bc| " C" C2 -CG cG C2|
 
+### 一诺B站(远)
+NOTE: 注意一些滑弦(第4, 5, 10, 12小节), 击弦(第14, 17小节), 第8小节的击勾弦
+
+T: 远
+L:1/8
+M:4/4
+Q: 100
+K: C transpose=-12
+%%barnumbers 1
+| z2 zG cd ee | " C" CG cC  ef gg |  " G"  E,B, EG ga bc'| 
+|" Am" A,c ec' A,b a{g}a | " Em7" E,B dg E,B d{g}a | " FM7" Fc ea Fg fe |
+|  " C" CG eC gf c'f | " Dm7" DA c{ef}e DA cd | " G" G,D [GB]2  cd ee | 
+| " C" CG cC ef {[df]}[eg][eg] | " Em" E,B eg E,a bc' | " Am" A,c ec' A,b a{g}a |
+| " Em7" E,B dg E,B- Bc |  " F" FG cg FG c/d/e | " C" CG cC de cd|
+| " Dm7" DA [cf]D Ae- ed | " G" G,D Gd cB cc | " C" CE Gc ec G2 |
+| " C" [CEGc]4 |
+
 ### 一诺B站(易燃易爆炸)
 MUSIC:
 T: 前奏(Am G E F)
