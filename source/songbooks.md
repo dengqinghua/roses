@@ -929,6 +929,18 @@ K: C transpose=-12
 | " Dm7" DA [cf]D Ae- ed | " G" G,D Gd cB cc | " C" CE Gc ec G2 |
 | " C" [CEGc]4 |
 
+### 一诺B站(前世今生)
+T: 前世今生(新白娘子传奇插曲)
+L:1/8
+M:4/4
+Q: 140
+K: A transpose=-10
+%%barnumbers 1
+| " A" A,2 [ea]b- b2 [cf]a- a2 [Be][cf]- [cf]2 ce |
+| " D" D2 Bc- c2 AB D2 FA- Az EF |
+| " E" E,2- E,E =cG Ee- [Ee]4 |
+| " A" [A,cea]2 Ac f2a2 |
+
 ### 一诺B站(易燃易爆炸)
 MUSIC:
 T: 前奏(Am G E F)
