@@ -930,17 +930,92 @@ K: C transpose=-12
 | " C" [CEGc]4 |
 
 ### 一诺B站(前世今生)
+NOTE: 有一个很好听的转位和弦 Vsus2/VII, C调的话，为 `7 2 5 6`, 听起来像是这样子
+
+CHORD: 7xx785 5
+
 MUSIC:
-T: 前世今生(新白娘子传奇插曲)
-L:1/8
+T: 前奏/尾奏
+L:1/16
 M:4/4
-Q: 140
+Q: 70
 K: A transpose=-10
 %%barnumbers 1
-| " A" A,2 [ea]b- b2 [cf]a- a2 [Be][cf]- [cf]2 ce |
-| " D" D2 Bc- c2 AB D2 FA- Az EF |
-| " E" E,2- E,E =cG Ee- [Ee]4 |
-| " A" [A,cea]2 Ac f2a2 |
+| " A" A,2[ea]b- b2[cf]a- a2[Be][cf]- [cf]2ce |
+| " D" D2Bc- c2AB D2FA- Az EF |
+| " E" E,2-E,E =cGEe- [Ee]8 |
+| " Asus2" [A,A^cBa]16 |
+
+MUSIC:
+T: Part1
+L:1/16
+M:4/4
+Q: 70
+K: A transpose=-10
+%%barnumbers 1
+| " A" [A,cea]2Ac f2a2 " E/G#" [G,Be]e-ef [eB]2f2 |
+| " F#" [F,Ac]2ec B2ce  " E" E,2EA e2Az |
+| " D" [Ddf]2-[Ddf]a  baf2  " A" [A,Ae]2fe " F#" [F,Ac]2E2 |
+| " Bm" [B,B]2A2 [F,F]2A2 " E" [E,B,E]2B,2 E2B,2 |
+
+MUSIC:
+T: Part2
+L:1/16
+M:4/4
+Q: 70
+K: A transpose=-10
+%%barnumbers 1
+| " F#"  [F,F]2A2 B2c2  " C#"  [Cce]2G2 c2G2 |
+| " D" [Dda]2f/a/f e2ce " E" E,2EA e2Az |
+| " A" [A,cea]2 Ac f2a2 " E/G#" [G,Be]e-ef [eB]2f2 |
+| " F#" [F,Ac]2ec B2ce | " E" E,2EA e2Az |
+| " D" [Ddf]2-[Ddf]a  baf2 | " A" [A,Ae]2fe " F#" [F,Ac]2E2 |
+| " Bm" [B,B]2A2 [F,F]2A2 " A" [A,EA]2E2 A2E2  |
+
+MUSIC:
+T: Part3
+L:1/16
+M:4/4
+Q: 70
+K: A transpose=-10
+%%barnumbers 1
+| " Bm" [B,FB]2-[B,FB]c c2c2 " E" [E,FB]2Bf ecB2 |
+| " A" [A,EAe]2-[A,EAe]f f2f2  " E" [E,Ae]2E2 A2e2|
+| " D" [Ddf]2-[Ddf]a  baf2  " A" [A,Ae]2fe " F#" [F,Ac]2E2 |
+| " Bm" [B,B]2A2 [F,F]2A2 " A" [A,EA]2E2 A2E2 |
+| " Aadd#5" [A,=FA]2F2 A2F2  " Aadd6" [A,^FA]2F2 A2F2 |
+| " A" A,8 z8 |
+
+MUSIC:
+T: 前世今生
+L:1/16
+M:4/4
+Q: 70
+K: A transpose=-10
+%%barnumbers 1
+| " A" A,2[ea]b- b2[cf]a- a2[Be][cf]- [cf]2ce |
+| " D" D2Bc- c2AB D2FA- Az EF |
+| " E" E,2-E,E =cGEe- [Ee]8 |
+| " A" [A,cea]2Ac f2a2 " E/G#" [G,Be]e-ef [eB]2f2 |
+| " F#" [F,Ac]2ec B2ce  " E" E,2EA e2Az |
+| " D" [Ddf]2-[Ddf]a  baf2  " A" [A,Ae]2fe " F#" [F,Ac]2E2 |
+| " Bm" [B,B]2A2 [F,F]2A2 " E" [E,B,E]2B,2 E2B,2 |
+| " F#"  [F,F]2A2 B2c2  " C#"  [Cce]2G2 c2G2 |
+| " D" [Dda]2f/a/f e2ce " E" E,2EA e2Az |
+| " A" [A,cea]2 Ac f2a2 " E/G#" [G,Be]e-ef [eB]2f2 |
+| " F#" [F,Ac]2ec B2ce | " E" E,2EA e2Az |
+| " D" [Ddf]2-[Ddf]a  baf2 | " A" [A,Ae]2fe " F#" [F,Ac]2E2 |
+| " Bm" [B,B]2A2 [F,F]2A2 " A" [A,EA]2E2 A2E2  |
+| " Bm" [B,FB]2-[B,FB]c c2c2 " E" [E,FB]2Bf ecB2 |
+| " A" [A,EAe]2-[A,EAe]f f2f2  " E" [E,Ae]2E2 A2e2|
+| " D" [Ddf]2-[Ddf]a  baf2  " A" [A,Ae]2fe " F#" [F,Ac]2E2 |
+| " Bm" [B,B]2A2 [F,F]2A2 " A" [A,EA]2E2 A2E2 |
+| " Aadd#5" [A,=FA]2F2 A2F2  " Aadd6" [A,^FA]2F2 A2F2 |
+| " A" A,8 z8 |
+| " A" A,2[ea]b- b2[cf]a- a2[Be][cf]- [cf]2ce |
+| " D" D2Bc- c2AB D2FA- Az EF |
+| " E" E,2-E,E =cGEe- [Ee]8 |
+| " Asus2" [A,AcBa]16 |
 
 ### 一诺B站(易燃易爆炸)
 MUSIC:
