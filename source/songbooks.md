@@ -1042,6 +1042,16 @@ K: C transpose=1
 ||: " Am" A,E AB/c/- ce- cA | " E/G#" ^G,E Bd- dB E2
 | " F" F,F A[Be] zA cA | " Am" A, EB ce- e2 :||
 
+### 一诺B站(下个路口见)
+MUSIC:
+T: 下个路口见
+L:1/8
+M:4/4
+Q: 100
+K: Bm transpose=-11
+%%barnumbers 1
+||: [G,f]d fd [A,f]/f/z/e/- ez | [F,e]A eA [B,e]/e/z/d/ -dz |
+
 ### 一诺B站(小半)
 1645 6(7)245
 
