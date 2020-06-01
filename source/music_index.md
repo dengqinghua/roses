@@ -147,6 +147,7 @@ NOTE: Command `⌘` Shift `⇧` Option `⌥` Control `⌃`
 | 1/2/3    | 品位数         |
 | +        | 音符长度减半   |
 | -        | 音符长度增倍   |
+| l        | 延音  |
 | k        | 设置clef       |
 | ⌘k       | 设置Key        |
 | i        | let-it-ring    |
