@@ -33,12 +33,39 @@ NOTE: 记住吉他的每一个[音](scales.html)
 ### Tracks
 一些 Jam 使用的 [tracks](tracks.html)
 
+GuitarPro
+--------
+### ShortCuts
+
+NOTE: Command `⌘` Shift `⇧` Option `⌥` Control `⌃`
+
+| 快捷键   | 释义           |
+| -------- | -----          |
+| 1/2/3    | 品位数         |
+| +        | 音符长度减半   |
+| -        | 音符长度增倍   |
+| l        | 延音  |
+| k        | 设置clef       |
+| ⌘k       | 设置Key        |
+| i        | let-it-ring    |
+| %        | 重复上一个小节 |
+| r        | Rest,休止符    |
+| ⌘+       | 插入一个音符   |
+| ⌘-       | 删除一个音符   |
+| ⌃+       | 插入一个小节   |
+| ⌃-       | 删除一个小节   |
+| a        | 添加和弦       |
+| t        | 添加文案       |
+| ]        | 反复记号       |
+| ⌘⌃f      | 全屏           |
+| F2      | 打开/隐藏左边的 Edition palettel |
+
+PDF: GuitarPro7-user-guide
+
 五线谱(Five-line Staff)
 -----------------------
 ### 教学视频
-推荐: [好和弦](http://nicechord.com/)的五线谱教程
-
-<iframe class="youtube" src="https://www.youtube.com/embed/qkt5X_4FJBY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+推荐: [好和弦](http://nicechord.com/)的[五线谱教程](https://www.youtube.com/embed/qkt5X_4FJBY)
 
 一些五线谱的英文对照表
 
@@ -76,17 +103,7 @@ NOTE: ♩=120, 代表的是每分钟120个♩
 NOTE: 小节线 |; 如果要分段或者换调用, 则使用双小节线 ||; 反复记号 ||: :||
 
 ### 吉他和五线谱关系
-![stuff](images/guitar_tab.jpg)
-![stuff](images/guitar_tab_c_f.jpg)
-![stuff](images/music_mutations.jpg)
-
-吉他演奏的音域
-![range](images/guitar_ranges.jpg)
-
-NOTE: 图片来源于 [古典吉他弹奏怎样识记五线谱？ - woodoo001的回答](https://www.zhihu.com/question/26296830/answer/83856060)
-
-### 五线谱上的谱号
-![music_intervals](images/music_intervals.png)
+NOTE: 见 [古典吉他弹奏怎样识记五线谱？ - woodoo001的回答](https://www.zhihu.com/question/26296830/answer/83856060) 和 [这里](images/music_intervals.png)
 
 ABC Notation
 ------------
@@ -122,41 +139,8 @@ K:C transpose=-12
 | " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  |
 ```
 
-MUSIC:
-L:1/16
-M:4/4
-Q:70
-K:C transpose=-12
-||: " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  :||
-| " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  |
-
 ### References
 - [abc_notation](http://www.lesession.co.uk/abc/abc_notation.htm)
 - [abc:standard:v2.1](http://abcnotation.com/wiki/abc:standard:v2.1)
 
 PDF: ABC-Quick-Reference
-
-GuitarPro
---------
-### ShortCuts
-
-NOTE: Command `⌘` Shift `⇧` Option `⌥` Control `⌃`
-
-| 快捷键   | 释义           |
-| -------- | -----          |
-| 1/2/3    | 品位数         |
-| +        | 音符长度减半   |
-| -        | 音符长度增倍   |
-| l        | 延音  |
-| k        | 设置clef       |
-| ⌘k       | 设置Key        |
-| i        | let-it-ring    |
-| %        | 重复上一个小节 |
-| r        | Rest,休止符    |
-| ⌘+       | 插入一个音符   |
-| ⌘-       | 删除一个音符   |
-| ⌃+       | 插入一个小节   |
-| ⌃-       | 删除一个小节   |
-| a        | 添加和弦       |
-| t        | 添加文案       |
-| ]        | 反复记号       |

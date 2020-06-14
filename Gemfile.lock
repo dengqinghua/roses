@@ -118,7 +118,7 @@ GEM
       thread_safe (~> 0.1)
     websocket-driver (0.7.2)
       websocket-extensions (>= 0.1.0)
-    websocket-extensions (0.1.4)
+    websocket-extensions (0.1.5)
 
 PLATFORMS
   ruby
@@ -130,6 +130,7 @@ DEPENDENCIES
   rack (>= 2.0.8)
   rails (= 5.2.4.3)
   redcarpet (= 3.4.0)
+  websocket-extensions (>= 0.1.5)
 
 BUNDLED WITH
    1.17.2
