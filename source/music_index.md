@@ -59,6 +59,10 @@ NOTE: Command `⌘` Shift `⇧` Option `⌥` Control `⌃`
 | ]        | 反复记号       |
 | ⌘⌃f      | 全屏           |
 | F2      | 打开/隐藏左边的 Edition palettel |
+| ⌘9      | Sharp |
+| ⌘7      | Flat |
+| /      | triplet |
+| ⌘/      | triplet feel |
 
 PDF: GuitarPro7-user-guide
 
