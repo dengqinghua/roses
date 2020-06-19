@@ -142,6 +142,35 @@
 | B   | 7-#2-#4 | 7-#1-#4 | 7-#3-#4  |
 |     | B-#D-#F | B-#C-#F | B-#E-#F  |
 
+### 小七和弦
+
+#### 组成
+
+```
+根音 小三度 纯五度 小七度
+```
+
+根音在6弦
+
+![Cm7-6R](./images/Cm7-6R.png)
+
+![Cm7-6R-1](./images/Cm7-6R-1.png)
+
+根音在5弦，形状同6弦
+
+根音在4弦
+
+![Cm7-4R](./images/Cm7-4R.png)
+
+![Cm7-4R-1](./images/Cm7-4R-1.png)
+
+根音在3弦
+
+![Cm7-3R](./images/Cm7-3R.png)
+
+![Cm7-3R-1](./images/Cm7-3R-1.png)
+
+
 ### 属七和弦
 
 > 属七和弦（dominant seventh chord），又称：大小七和弦（major minor seventh chord）是一组由根音，大三度，纯五度，和小七度构成的和弦
@@ -173,17 +202,21 @@
 
 ![C7-6R](./images/C7-6R.png)
 
-根音在5弦
+![C7-6R-1](./images/C7-6R-1.png)
 
-![C7-5R](./images/C7-5R.png)
+根音在5弦，形状同6弦
 
 根音在4弦
 
 ![C7-4R](./images/C7-4R.png)
 
+![C7-4R-1](./images/C7-4R-1.png)
+
 根音在3弦
 
 ![C7-3R](./images/C7-3R.png)
+
+![C7-3R-1](./images/C7-3R-1.png)
 
 #### 排列
 ##### C调
