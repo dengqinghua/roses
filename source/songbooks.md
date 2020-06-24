@@ -1052,14 +1052,12 @@ K: Bm transpose=-11
 %%barnumbers 1
 ||: [G,f]d fd [A,f]/f/z/e/- ez | [F,e]A eA [B,e]/e/z/d/ -dz |
 
+### 一诺抖音(以父之名)
+PDF: 以父之名
+
 ### 一诺B站(小半)
 1645 6(7)245
 
-### 以父之名
-PDF: 以父之名
-
-### Speak Softly Love
-PDF: 教父
 
 ```
 不敢回看
@@ -1111,6 +1109,11 @@ PDF: 教父
 谁古板 谁极端 无辜不知所以然
 不管
 ```
+
+### Speak Softly Love
+原视频: [这里](https://www.bilibili.com/video/BV1cE411G7sP)
+
+PDF: 教父
 
 Blues
 -----
