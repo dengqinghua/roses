@@ -23,7 +23,6 @@ Songbooks
 作词 : 陈粒
 
 前奏
-D-9 C∆9 D-9 C∆9
 
 D-9            C∆9
 固执押韵的排比 固执幼稚的押韵
@@ -95,26 +94,7 @@ Em               Am      D-9  C∆9
 看着我坠啊坠啊坠落到云里
 ```
 
-`D-9 2 4 1 3`
-
-CHORD: x5355
-
-`C∆9 1 3 7 2`
-
-CHORD: x3243
-
-MUSIC:
-L:1/16
-M:4/4
-Q:70
-K:C transpose=-12
-||: " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  :||
-| " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  |
-| " Em7" E,EdB E,EdB E,EdB E,EdB | " Am7" A,EcG A,EcG A,EcG A,EcG |
-| " Dm9" DFec DFec DFec DFec  | " C∆9" CEdB CEdB CEdB CEdB  |
-| " Em7" E,EdB E,EdB E,EdB E,EdB | " A7" A,E^cG A,E^cG A,E^cG A,E^cG |
-| " Fsus2" F,FcG " F∆" F,Fec F,Fgc F,Fgc| " G" G,DbG G,DcG G,DBG G,DBG |
-| " Em" E,EBG E,EeG E,EBG E,EeG| " Am7" A,EcG A,EdG A,EeG A,EcG |
+PDF: 虚拟
 
 ### 我在人民广场吃炸鸡
 ```
