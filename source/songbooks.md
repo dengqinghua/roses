@@ -180,17 +180,9 @@ Bm7       A2              #Fm7             Bm7             Esus4
                                   小小诗不敢递给她
 ```
 
-MUSIC:
-M:4/4
-L:1/8
-Q:110
-K:A transpose=-12
-| " A2" Ae be' ba e'b | " A2" Ae be' ba e'b |  " #F7" Fe ae' ea f'e' | " #F7" Fe ae' ea e'b |
-| " Bm7" Bf ad'- d' ad' a | " Bm7" Bf ad'- d' ad' a | " E4" Ee ab e'ab e' | " E" [Eegb]4 |
+PDF: 儿时
 
 ### 七楼
-[试听](https://music.163.com/#/song?id=30431373)
-
 原调Gm, 降低 1Key, 使用Am调
 
 ```
@@ -242,19 +234,7 @@ Dadd2      .          C∆  .  Dadd2         .        C∆ .
 被享受会好受
 ```
 
-节奏
-
-MUSIC:
-L:1/8
-M:3/4
-Q:70
-K:C transpose=-12
-| " Dadd2" D [de]/2A/2 [de]/2A/2 | " Dadd2" D [de]/2A/2 [de]/2A/2 | " C∆" C [BG]/2E/2 [BG]/2E/2 | " C∆" C [BG]/2E/2 [BG]/2E/2 |
-| " Dadd2" D [de]/2A/2 [de]/2A/2 | " Dadd2" D [de]/2A/2 [de]/2A/2 | " C∆" C [BG]/2E/2 [BG]/2E/2 | " C∆" C4 |
-
-`D2: 2 3 6`
-
-CHORD: xx0230
+PDF: 七楼
 
 ### 不灭
 ```
