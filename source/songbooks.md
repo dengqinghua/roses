@@ -12,11 +12,6 @@ Songbooks
 
 弹唱
 ----
-### 他来听我的演唱会
-![she-comes-1](images/ta-comes-1.gif)
-![she-comes-2](images/ta-comes-2.gif)
-![she-comes-3](images/ta-comes-3.gif)
-
 ### 虚拟
 ```
 作曲 : 陈粒
@@ -141,6 +136,54 @@ Em7 A7   D∆      B7
 而此时此刻你在... 而此时此刻你在...
             Em7 A7   D∆      B7
 我在人民广场吃着炸鸡 而此时此刻你在...
+```
+
+### 如果我不是我
+NOTE: 变调夹 3品 C调
+
+```
+前奏
+F24(F A D G) Em7 Dm7 Cmaj7
+F24(F C D A) Em7 Dm7 C69
+
+          C             G
+如果我不是我 如果鱼儿也能歌唱
+      F      G       C
+我一定会陪在你身旁 不让你忧伤
+          C             G
+如果我不是我 如果树木也能飞翔
+      F      G       C   C7
+我一定会陪在你身旁 不让你受伤
+
+# 这里就是 4536251 的套路了
+      F     G         Em         Am
+别难过我亲爱的姑娘 别让我的世界黯淡无光
+     Dm7      G        C C7
+我多想让你靠在我的肩膀 可是我不能这样
+      F     G         Em         Am
+因为我还是我 就像石头无法绽放
+     Dm7      G        C4 C
+所以我只能远远望着你 同你一起悲伤
+
+      F     G         Em         Am
+别难过我亲爱的姑娘 别让我的世界黯淡无光
+     Dm7      G        C C7
+我多想让你靠在我的肩膀 可是我不能这样
+      F     G         Em         Am
+我多想吻去你脸上的泪水 替你抚平你所受的创伤
+     Dm7      G        C4 C
+可是我不能这样 不能这样
+
+          C             G
+如果我不是我 如果鱼儿也能歌唱
+      F      G       C
+我一定会陪在你身旁 不让你忧伤
+          C             G
+如果我不是我 如果树木也能飞翔
+      F      G       C
+我一定会陪在你身旁 不让你受伤
+     Dm7   G   Fm C
+如果我不是我 又会怎样
 ```
 
 ### 儿时
@@ -285,12 +328,7 @@ PDF: 七楼
 你去 我等 不灭
 ```
 
-MUSIC:
-L:1/8
-M:4/4
-Q:80
-K:C transpose=-12
-| " Am" Aa [c'e']a/c'/ " Am" Aa [c'e']a/c'/ | " E" E^g [be']g/b/ " E" E^g [be']g/b/ :|
+PDF: 不灭
 
 ### The Long Way Round
 ```
@@ -374,12 +412,7 @@ Am F C E
 Am F C E
 ```
 
-MUSIC:
-L:1/8
-M:4/4
-Q:180
-K:Bb
-|" Dm" D2 d2 Df dc | " Bb∆7"  B,2d2 B,a dc | " F" F2c2 Ff  Fc | " A" A2^c2 Aa A=c :|
+PDF: TheLongWayRound
 
 ### 正趣果上果
 ```
@@ -426,7 +459,6 @@ F  F  C  C     F   G    C
 F   G    C
 吓冇知酱紫好危险
 ```
-
 
 ### PONY
 ```
@@ -500,68 +532,10 @@ like a human being ,I lie
 like a placid lake ,I'm dried
 ```
 
-MUSIC:
-L:1/8
-M:4/4
-Q:120
-K:A transpose=-12
-||: " #Fm" F,F c,A Fc AF  | " A" A,E CA Ec AE | " D" DA Fd Af dA | " A" A,E CA Ec AE  :||
+PDF: PONY
 
-
-### Fly Me to the Moon
-```
-1=C
-
-Fly me to the moon And let me play among the stars
-让我在群星之间嬉戏
-Let me see what spring is like
-感受春天的美丽
-On Jupiter and Mars
-在木星和土星之上的气息
-In other words, hold my hand
-换言之 请我紧握的手
-In other words, baby, kiss me
-换言之 亲爱的 让我们忘情拥吻
-Fill my life with song
-用歌声装点心灵
-And let me sing for ever more
-让歌声伴我生活
-You are all I long for
-你是我心心念念的渴望
-All I worship and adore
-我的敬仰和我的爱
-In other words, please be true
-换言之 让我们坦诚相待
-In other words, I love you
-让我告诉你 我爱你
-Fill my life with song
-用歌声装点心灵
-Let me sing for ever more
-让歌声伴我生活
-You are all I long for
-你是我心心念念的渴望
-All I worship and adore
-我的敬仰和我的爱
-In other words, please be true
-换言之 让我们坦诚相待
-In other words
-让我告诉你
-I love ... you
-我爱你
-```
-
-MUSIC:
-L:1/16
-M:4/4
-Q:70
-K:C transpose=-12
-||: " C" [Cc]2EG G,GE2 :|| " C"  [Cc]2EG G,GE2 " E7" [E,d]E^G[B,e]- [B,e]dG2 |
-| " Am" [A,c]2Ee zcA2  | "  Dm7" [Df]2Ac- cfA2 | " G7" G,Gcf- fcG2 | " C∆" [Ce]EGB- BGE2  |
-| " Bø" [B,d]2FA- AFA2  | " E7" [E,^G]2e2 B,dG2 | " A" [Cc]2G2 [C^c]2G2  |
-| " Dm7" [Df]2Ac -ccA2 | " G" [G,B]B,Gf- ffB2 | " C∆" [Ce]EGB- BGE2 | " A7" |
-
-### SweetHeart
-PDF: sweetheart sf
+### 亲密爱人
+PDF: sweetheart
 
 指弹
 ----
@@ -587,64 +561,16 @@ PDF: ManhadoCarnaval
 PDF: TwistedinMySobriety
 
 ### 一生所爱
-PDF: life_for_once sf
+PDF: life_for_once
 
 ### 感
-PDF: feeling sf
+PDF: feeling
 
 ### Kiss
-PDF: kiss sf
+PDF: kiss
 
 ### Omens of Love
-PDF: OmensofLove sf
-
-### 如果我不是我
-NOTE: 变调夹 3品 C调
-
-```
-前奏
-F24(F A D G) Em7 Dm7 Cmaj7
-F24(F C D A) Em7 Dm7 C69
-
-          C             G
-如果我不是我 如果鱼儿也能歌唱
-      F      G       C
-我一定会陪在你身旁 不让你忧伤
-          C             G
-如果我不是我 如果树木也能飞翔
-      F      G       C   C7
-我一定会陪在你身旁 不让你受伤
-
-# 这里就是 4536251 的套路了
-      F     G         Em         Am
-别难过我亲爱的姑娘 别让我的世界黯淡无光
-     Dm7      G        C C7
-我多想让你靠在我的肩膀 可是我不能这样
-      F     G         Em         Am
-因为我还是我 就像石头无法绽放
-     Dm7      G        C4 C
-所以我只能远远望着你 同你一起悲伤
-
-      F     G         Em         Am
-别难过我亲爱的姑娘 别让我的世界黯淡无光
-     Dm7      G        C C7
-我多想让你靠在我的肩膀 可是我不能这样
-      F     G         Em         Am
-我多想吻去你脸上的泪水 替你抚平你所受的创伤
-     Dm7      G        C4 C
-可是我不能这样 不能这样
-
-          C             G
-如果我不是我 如果鱼儿也能歌唱
-      F      G       C
-我一定会陪在你身旁 不让你忧伤
-          C             G
-如果我不是我 如果树木也能飞翔
-      F      G       C
-我一定会陪在你身旁 不让你受伤
-     Dm7   G   Fm C
-如果我不是我 又会怎样
-```
+PDF: OmensofLove
 
 ### 一诺抖音(1625)
 MUSIC:
@@ -1002,22 +928,11 @@ K: C transpose=1
 ||: " Am" A,E AB/c/- ce- cA | " E/G#" ^G,E Bd- dB E2
 | " F" F,F A[Be] zA cA | " Am" A, EB ce- e2 :||
 
-### 一诺B站(下个路口见)
-MUSIC:
-T: 下个路口见
-L:1/8
-M:4/4
-Q: 100
-K: Bm transpose=-11
-%%barnumbers 1
-||: [G,f]d fd [A,f]/f/z/e/- ez | [F,e]A eA [B,e]/e/z/d/ -dz |
-
 ### 一诺抖音(以父之名)
 PDF: 以父之名
 
 ### 一诺B站(小半)
 1645 6(7)245
-
 
 ```
 不敢回看
@@ -1080,6 +995,9 @@ PDF: empty-1
 
 ### Remember You
 PDF: remember-you
+
+### 旅途
+PDF: 旅途-张一诺
 
 Blues
 -----
