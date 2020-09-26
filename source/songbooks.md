@@ -1005,6 +1005,9 @@ PDF: 橄榄树
 ### 送别
 PDF: 送别
 
+### 夜空中最亮的星
+PDF: 夜空中最亮的星
+
 Blues
 -----
 ### IntroductionBlues-Example8
