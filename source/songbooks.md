@@ -1008,6 +1008,12 @@ PDF: 送别
 ### 夜空中最亮的星
 PDF: 夜空中最亮的星
 
+### 晴天
+PDF: 晴天
+
+### 红玫瑰
+PDF: 红玫瑰
+
 Blues
 -----
 ### IntroductionBlues-Example8
