@@ -25,8 +25,28 @@ NOTE: **IOC 和 Factory**:
 IOC 为 push 机制，依赖于 配置，在一个地方配置所有的组件。Factory 为 pull, 类之间的依赖需要依赖 Factory Method，实现需要各种类.
 使用 Factory 模式，则主要责任是在于 类 本身，而 IOC 则是将 责任外包出去，由框架去组装对象的生成
 
+### AOP
+AOP, `Aspect oriented programming`, DI 解决的是依赖之间的解耦, 而 AOP 是行为之间的解耦. 在 Spring 中, 是以拦截器(interceptors)的方式
+来做对应的 AOP. 经常使用的 interceptors 有 Loggers, Transactions, security, cache 等等
+
+NOTE: 在 Ruby on Rails 中, AOP 的实现是以 Callback 的形式呈现的
+
+> DI helps you decouple your application objects from it’s dependencies,
+while AOP helps you decouple cross-cutting concerns from the objects.
+
+### Container
+- BeanFactory Container
+- ApplicationContext Container
+
+NOTE: 元数据 + Beans -> 容器 = 一个启动的应用程序 
+
 Bean
 ----
+### Scope
+- singletion 默认
+- prototype 每次都创建新的 bean
+- request, session 和 global-session 和网络请求相关的 bean 的作用域
+
 ### 三级缓存
 
 Name | 作用
@@ -60,3 +80,11 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
   return singletonObject;
 }
 ```
+
+Event
+-----
+ApplicationContext 管理着 Bean 的生命周期, 当一些 bean 发生变化的时候，会通过 Event 的形式发布消息
+
+> By default spring events are synchronous,
+the `doStuffAndPublishAnEvent()` method blocks
+until all listeners finish processing the event.
