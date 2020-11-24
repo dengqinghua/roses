@@ -137,7 +137,7 @@
 
   <div id="feature">
     <div class="wrapper">
-      <h2>Spring</h2><div class="date"><p>2018-03-19</p></div><p>该文档涵盖了Java从初级程序员至高级程序员, 最终成为系统架构师需要掌握的知识点.</p><p>阅读完该文档后，您将会了解到:</p>
+      <h2>Spring</h2><div class="date"><p>2020-03-19</p></div><p>该文档涵盖了 Spring 的基本概念 和 核心代码 分析</p><p>阅读完该文档后，您将会了解到:</p>
 <ul>
 <li>Spring 的核心概念</li>
 <li>Bean 的生命周期</li>
@@ -154,15 +154,19 @@
 <ul>
 <li><a href="#ioc">IoC</a></li>
 <li><a href="#di">DI</a></li>
+<li><a href="#aop">AOP</a></li>
+<li><a href="#container">Container</a></li>
 </ul>
 </li>
 <li>
 <a href="#bean">Bean</a>
 
 <ul>
+<li><a href="#scope">Scope</a></li>
 <li><a href="#%E4%B8%89%E7%BA%A7%E7%BC%93%E5%AD%98">三级缓存</a></li>
 </ul>
 </li>
+<li><a href="#event">Event</a></li>
 </ol>
 
           </div>
@@ -175,7 +179,24 @@
       <div id="mainCol">
         <h3 id="重要概念"><a class="anchorlink" href="#%E9%87%8D%E8%A6%81%E6%A6%82%E5%BF%B5">1 重要概念</a></h3><h4 id="ioc"><a class="anchorlink" href="#ioc">1.1 IoC</a></h4><p>Ioc, <code>Inversion of Control</code>, 控制权反转，即： 将 对象的控制权，交由给第三方处理。在 Spring 上下文中，这个第三方就是 容器【Container】。控制权反转之后，创建对象将由容器来完成</p><h4 id="di"><a class="anchorlink" href="#di">1.2 DI</a></h4><p>DI, <code>Dependency Injection</code>, 依赖注入, 即: 在进行 IOC 之后，需要管理对象之前的依赖关系。一般来说，对象之间的依赖关系是在 RUNTIME 决定的，依赖注入做的事情就是管理和校验依赖关系，提高组件的效率</p><div class="note"><p><strong>IOC 和 Factory</strong>:
 IOC 为 push 机制，依赖于 配置，在一个地方配置所有的组件。Factory 为 pull, 类之间的依赖需要依赖 Factory Method，实现需要各种类.
-使用 Factory 模式，则主要责任是在于 类 本身，而 IOC 则是将 责任外包出去，由框架去组装对象的生成</p></div><h3 id="bean"><a class="anchorlink" href="#bean">2 Bean</a></h3><h4 id="三级缓存"><a class="anchorlink" href="#%E4%B8%89%E7%BA%A7%E7%BC%93%E5%AD%98">2.1 三级缓存</a></h4>
+使用 Factory 模式，则主要责任是在于 类 本身，而 IOC 则是将 责任外包出去，由框架去组装对象的生成</p></div><h4 id="aop"><a class="anchorlink" href="#aop">1.3 AOP</a></h4><p>AOP, <code>Aspect oriented programming</code>, DI 解决的是依赖之间的解耦, 而 AOP 是行为之间的解耦. 在 Spring 中, 是以拦截器(interceptors)的方式
+来做对应的 AOP. 经常使用的 interceptors 有 Loggers, Transactions, security, cache 等等</p><div class="note"><p>在 Ruby on Rails 中, AOP 的实现是以 Callback 的形式呈现的</p></div>
+<blockquote>
+<p>DI helps you decouple your application objects from it’s dependencies,
+while AOP helps you decouple cross-cutting concerns from the objects.</p>
+</blockquote>
+<h4 id="container"><a class="anchorlink" href="#container">1.4 Container</a></h4>
+<ul>
+<li>BeanFactory Container</li>
+<li>ApplicationContext Container</li>
+</ul>
+<div class="note"><p>元数据 + Beans -&gt; 容器 = 一个启动的应用程序</p></div><h3 id="bean"><a class="anchorlink" href="#bean">2 Bean</a></h3><h4 id="scope"><a class="anchorlink" href="#scope">2.1 Scope</a></h4>
+<ul>
+<li>singletion 默认</li>
+<li>prototype 每次都创建新的 bean</li>
+<li>request, session 和 global-session 和网络请求相关的 bean 的作用域</li>
+</ul>
+<h4 id="三级缓存"><a class="anchorlink" href="#%E4%B8%89%E7%BA%A7%E7%BC%93%E5%AD%98">2.2 三级缓存</a></h4>
 <table>
 <thead>
 <tr>
@@ -185,20 +206,20 @@ IOC 为 push 机制，依赖于 配置，在一个地方配置所有的组件。
 </thead>
 <tbody>
 <tr>
-<td>singletonObjects</td>
+<td>singletonObjects【一级缓存】</td>
 <td>已经初始化完成的 Bean 对象</td>
 </tr>
 <tr>
-<td>earlySingletonObjects</td>
+<td>earlySingletonObjects【二级缓存】</td>
 <td>已经初始化但是未初始化好的 Bean 对象</td>
 </tr>
 <tr>
-<td>singletonFactories</td>
+<td>singletonFactories【三级缓存】</td>
 <td>存放工厂对象</td>
 </tr>
 </tbody>
 </table>
-<p>见 <a href="https://github.com/spring-projects/spring-framework/blob/8f369ffed55dad6021624105b961884c2e42d605/spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultSingletonBeanRegistry.java#L180">源码</a></p><p>查询方式: 先在 singletonObjects 找, 再去 earlySingletonObjects 找, 最后去 singletonFactories 找</p><div class="code_container">
+<p>见 <a href="https://github.com/spring-projects/spring-framework/blob/8f369ffed55dad6021624105b961884c2e42d605/spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultSingletonBeanRegistry.java#L180">源码</a></p><p>查询方式: 先在 singletonObjects 找, 再去 earlySingletonObjects 找, 最后去 singletonFactories 找, 通过这种方式解决了 <strong>循环依赖</strong> 的问题</p><div class="info"><p>理论上是不应该支持 <code>循环依赖</code> 的功能的, 如果是直接得循环依赖，而且实时创建依赖的 Bean, 则会[报错], 但是 Spring 支持了其他方式，所以才出现了这样的设计</p></div><div class="code_container">
 <pre class="brush: java; gutter: false; toolbar: true;">
 protected Object getSingleton(String beanName, boolean allowEarlyReference) {
   Object singletonObject = this.singletonObjects.get(beanName);
@@ -220,6 +241,12 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
 
 </pre>
 </div>
+<h3 id="event"><a class="anchorlink" href="#event">3 Event</a></h3><p>ApplicationContext 管理着 Bean 的生命周期, 当一些 bean 发生变化的时候，会通过 Event 的形式发布消息</p>
+<blockquote>
+<p>By default spring events are synchronous,
+the <code>doStuffAndPublishAnEvent()</code> method blocks
+until all listeners finish processing the event.</p>
+</blockquote>
 
 
         <div id="comment"></div>
