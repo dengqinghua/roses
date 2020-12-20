@@ -10,8 +10,486 @@ Songbooks
 
 --------------------------------------------------------
 
+指弹
+----
+### 潇洒走一回
+PDF: 潇洒走一回2
+
+### 红玫瑰
+PDF: 红玫瑰
+
+### 晴天
+PDF: 晴天
+
+### 夜空中最亮的星
+PDF: 夜空中最亮的星
+
+### 送别
+PDF: 送别
+
+### 橄榄树
+PDF: 橄榄树
+
+### Speak Softly Love
+PDF: 教父
+
+### 一诺即兴
+PDF: empty-1
+
+### Remember You
+PDF: remember-you
+
+### 旅途
+PDF: 旅途-张一诺
+
+### 雨の日はワルツを踊って
+PDF: wwh_rain
+
+### あの日の帰り道
+PDF: wwh-road
+
+### It Could Have Been
+PDF: it_could_have_been
+
+### Moon River
+PDF: MoonRiver-v2
+
+### 一诺抖音(以父之名)
+PDF: 以父之名
+
+### 夜香花
+PDF: 夜香花
+
+### Manha do Carnaval
+PDF: ManhadoCarnaval
+
+### Twisted in My Sobriety
+PDF: TwistedinMySobriety
+
+### 一生所爱
+PDF: life_for_once
+
+### 感
+PDF: feeling
+
+### Kiss
+PDF: kiss
+
+### Omens of Love
+PDF: OmensofLove
+
+### 一诺抖音(1625)
+MUSIC:
+T: 1625
+L:1/8
+M:4/4
+Q: 160
+K: C transpose=-12
+%%barnumbers 1
+||:  z  G cd ec' | " C" c,2 eb zc ge  C2 z {ge}[fe]2 e fa |
+|  " Am" A2 c[ec']- [ec']/z/ [Aeg]2  [cea] |  A2 ce z A ef |
+| " F"  F2 ca zF fc  |  F2 ce zF c2 | " G" G2 [F-_B][F=B] z [gc]2 z  _B=Bg2 [ca][_d_b][=d=b]2 |
+| " C" C2 [Adg]6 |
+
+### 一诺抖音(6251)
+MUSIC:
+T: 6251
+L:1/8
+M:4/4
+Q: 100
+%%barnumbers 1
+K: C transpose=-12
+| z2 (3e/f/e/ _e=e | " Am" A,2 zA Bc eg | " Dm" D (3e/f/e/ ef- fc- |
+| " G" c d G,2 zG B d-  | d " C" {e}[CGBf]2 G[Be] d2 Ce  |
+| " A" [A,cec']c eb A,2 ef | " D" Dc fc' Dc b2| " G" [Gcfb]c fa Gc f{g}a | C,c eg- g4 |
+
+### 一诺抖音(蒲公英的约定)
+NOTE: 变调夹4品 的 C 调
+
+MUSIC:
+T: 蒲公英的约定前奏
+L:1/8
+M:4/4
+Q: 70
+K: C transpose=-8
+%%barnumbers 1
+| z2 EG ce | " FM9" [F,e]F Gf  " G" [G,d]D G2  |
+| " Em7"  [E,Bd]E gB/c/ " Am7" A,E G2 | " F" [F,Ace]f gc " G" [G,c]D d2  |
+| " C" [C,e]E GE " Bbdim9" _B,E Gc | " FM9" [F,e]F Gf |
+| " G" [G,d]D G2  | " Em7"  [E,Bd]E gB/c/  " Am7" A,E G2|
+| " F" [F,Ace]f gc " G" [G,c]D d2  | " Fm13" [F,_Ac]D Ac " C" [CEGc]2 |
+
+### 一诺抖音(爱在西元前)
+NOTE: 变调夹2品 的 G 调
+
+MUSIC:
+T: 爱在西元前(1645)
+L:1/16
+M:4/4
+Q: 60
+K: G transpose=-10
+%%barnumbers 1
+| " G" G,DGD dDGA G,DGD dDGA |  " Em" E,D/E/GE dEGA  E,EGE dEGA |
+| " C" CD/E/GE dEGA CEGE dEGA | " D" DFGF dGFa DFGd zDdF |
+|: " G" G,DGd- d[G,B] dg gffe- eG,dd | " Em" E,FGd zE,Bd | [E,d]zGB- BE,{B}AG|
+|1[ " C" CEGd zCdg [Cg]ffe zCde | " D" [De]ddd zDde [Be]2[Ad]2 ABdB :|
+|2[ " C" CEGd zCdg [Cg]aag zCef |[Dge]2[fd]2 z [ce]2[d] edd2 B2A2 |].
+| " G" G,DGD dDGA G,DGD dDGA |  " Em" E,D/E/GE dEGA  E,EGE dEGA |
+| " C" CD/E/GE dEGA CEGE dEGA | " D" DFGF dGFa DFGd- d4 |
+
+### 一诺抖音(红色高跟鞋)
+NOTE: 变调夹2品 的 C 调
+
+NOTE: 注意里面一些滑弦的音和每次拍弦(一般都是在第二拍)的音
+
+MUSIC:
+T: 红色高跟鞋(Am F G Am)
+L:1/8
+M:4/4
+Q: 90
+K: C transpose=-10
+%%barnumbers 1
+| " Am" [dg]e cA | " F" F,F gd | " G" G,[GB] zB | " Am" A,c eA, |
+| " Am" [dg]e c{g}a | " F" Fc z{g}a | " G" G,g ze  | " Am" A,{e}d z{c}c |
+| " Am"  [dg]e ec |  " F" F,F gd | " G" G,[GB] zB | " Am" A,c eA, |
+|  " Am" [dg]e/e/ z{d}c | " F" F,F z{e}F,| Fc {d}[Be][d] 
+| " G" G,D z{d}G | Bc GB | " F" F,F cA| " G" G,D c/B/G/B/ |
+| " A" A,G/c/ z/A,/ [dg]/[ea]/ |
+
+### 一诺抖音(第一集)
+NOTE: 注意律动
+
+MUSIC:
+T: 一诺抖音(第一集)
+K: C transpose=-12
+Q: 100
+%%barnumbers 1
+| E,>E z/B,/_D/>=D/ z/B/[G_D]/>[^G=D]/ z/[G_D]/- [G_D]/B/ |
+| E,>E z/B,/D/>E/ z/E/A/>B/ z/B/d/>e/ |
+| E,>E z/B,/_D/>=D/ zD D/>_D/=D |
+| E,>E z/B,/D/>E/ z/E/A/>B/ z/B/d/>e/ |
+| z{a}b ga/g/ e>>B d/>B/d/>e/- |
+| e/>d/B/>G/ E/G>E/ G/>E/D/>B,/ D/_E=E/ |
+|E,/ z//E,// (3B/z/A/z/G/z/  C/ z//C// (3g/C/^f/z/d/z/ |
+|G,/ z//G,// (3A/z/B/z/A/z/ D/ z//A// " 泛音" (3g/z/^f/z/d/z/ |
+|E,^F/[Gd]/ z/[Ge]/- [Ge]/z/ C D/[dg]/ z/[dg]/ -[dg]/z/ |
+| B,/^D/^F/A/ B/d/f/a/ b/{a}b/- b/a/g/e/- e |
+
+### 一诺抖音(blues)
+NOTE: 注意律动, 并在第三拍需要拍弦
+
+MUSIC:
+T: 一诺抖音(blues)
+K: C transpose=-12
+Q: 130
+K: A
+%%barnumbers 1
+(3EFA | [ce]>[=c_e]- [=c_e]<[Bd] [A^c]z zD |
+{^f=b}[g=c']>[^f=b]- [^f=b]<[ea] [Dea]z ze } |
+{_A}[E,A]>e ^F,>[Ad] G,>A A,>G| (3=c^ce a6| 
+
+### 一诺抖音(稻香)
+NOTE: 变调夹三品, A调, 类似于 卡农 的那个套路 1563251
+
+MUSIC:
+T: 稻香
+L:1/8
+M:4/4
+Q: 80
+K: A transpose=-9
+%%barnumbers 1
+| " A" A,E B/c/A/E/ " E" E,E [GB]2 | " #Fm" F,E [AB]2 " #Cm" CG eB/G/ 
+| " Bm" B,F c/d/A/F/ " E" E,E [GB]>E | " A" A,E [Ad]>[Ac]- [Ac]>A, c{Ad}[Be]
+||: " A" [A,ce]e/e/ z/A,/[ce]/[ce]/ " E" E,/[ce]/z/E,/ [E,Ac]B  | "  #Fm"  F,[Ac]/[Ac]/ z/F,/[Ac]/[Ac]/  " #Cm" Cc/c/ z/C/A/F/ 
+|" D"DF/A/ z/D/F/A/ [1 " E" {A}[BE,]B/A/ z/E,/c/c/ |" A" A,E/[Ad]/ z/A,/E, [A,Ac]2 c{[Ad]}[Be] :|
+| [2 " E" {A}[BE,]B/A/ z/E,/A/A/ | " A" A,E [Ad]>[Ac]- [Ac]4 |
+
+### 一诺抖音(花海)
+NOTE: 变调夹二品, D调
+
+MUSIC:
+T: 花海
+L:1/8
+M:4/4
+Q: 70
+K: A transpose=-10
+%%barnumbers 1
+| " A" z2 z2 AB ce/e/  | " D" DA/e/ z/D/e/A/  " E" [E,Ac]B/A/ z/E/B/c/ 
+| " A" A,E/A/ z/E/A/z/ " Cm#" [CA]B/c/ z/D/g/a/ | " D" DA/[da]/ z/D/ [Aa]/z/ " E" [E,Bg][ca]/[Bg]/ z/E,/e/{e/}f/
+| " A" A,E/e/ z/A,/A/z/  [A,A]B [Cc]e/e/ | " D" DA/e/ z/D/e/c/  " C#7" [C^EBc]B [F,^EA]B/A/ 
+| " F#m" F,F/A/ z/F,/A/F/  [E,A]B c{d}e/A/ | " Bm7" B,F/A/ z/B,/A/z/  " E24" [E,FA]G FG/A/ 
+| " A" A,E [A,Ad]3/2 [A,Ac]3/2 |
+
+### 一诺抖音(听妈妈的话)
+NOTE: 变调夹三品, G调转C调
+
+MUSIC:
+T: 听妈妈的话(G)
+L:1/8
+M:4/4
+Q: 110
+K: G transpose=-9
+%%barnumbers 1
+| " G" [G,GB]2 zG, [FA]2[Ac]2 | " E" [E,GB]E z[G,DG]2 zG,2 |
+| " C" [C,G]2[Gd]2 [C,Gd]2[C,Gc] | " D" DA [gd]D Af [df]D |
+| " G" [G,GB]2 zG, [B,A]2[Ac]2 | " E" [E,GB]E z[DG]2 F [GB]2 |
+| " C" [C,E]2[EG]2 " D" [DG]G AG | " G" G,D [GB]G FG [GB]G |
+
+MUSIC:
+T: 听妈妈的话(C)
+L:1/8
+M:4/4
+Q: 110
+K: C transpose=-9
+%%barnumbers 1
+| " C" [C,Gce]2[Gce]2  [B,Gd]2 [Gdf]2 | " Am" [Aace][Ac] [Ac]A G,E [Gc]G|
+| " F" [F,Ac]F [cg]2 [F,cg]2[cf]2 | " G" G,D [Gd]G, Gd [Gd]G |
+| " C" [C,Gce]2[Gce]2  [E,Gd]2 [Gdf]2 | " Am" [Aace][Ac] z[G,Gc]2 G [Gc]G|
+| " F" [F,A]F [Ac]2 [G,Gc]2[Gd][Gc] | " C" CE Gc e4
+
+### 一诺抖音(回到过去)
+NOTE: 变调夹二品, C调 注意低音的流动, 第7小节末尾的击弦
+和 第8小节的末尾的滑音.
+
+INFO: 有一个拍弦的声音非常好: 第5小节 的 Am9 的第二拍
+
+MUSIC:
+T: 回到过去
+L:1/8
+M:4/4
+Q: 90
+K: C transpose=-10
+%%barnumbers 1
+| z2 z G cd ee |: " C" CG [ce]C  ed e [DAc]- |  " Dm7"[DAc][ce] e[DAd]- [DAd]d [Ad]c |
+| " E7" [E,^GBe]e [GBe]d [^G,d]c [DB]{B}[^G,c] | " Am9" A,G [Bc]A,- A,[Gc] [Gd]c |
+| " F" [F,e]e [FAc]F,- F,c [Ac]g | " Em7" [Eg]e [Be][Ee]- [Ee]c cd |
+| " Dm" D[Ac]- [Ac]c/A/ cA [Ac][Bd] |[1 " G" G,D [Bd] G cd ee :|
+| [2 " G" G,D [Bd]G cd Bc | " C" CG ce- e4 |
+
+### 一诺抖音(告白气球)
+NOTE: 变调夹二品, C调
+
+MUSIC:
+T: 告白气球
+L:1/8
+M:4/4
+Q: 90
+K: C transpose=-10
+%%barnumbers 1
+| z2 z G cd ee |: " C" CG [ce]C  ed e [DAc]- |  " Dm7"[DAc][ce] e[DAd]- [DAd]d [Ad]c |
+| " E7" [E,^GBe]e [GBe]d [^G,d]c [DB]{B}[^G,c] | " Am9" A,G [Bc]A,- A,[Gc] [Gd]c |
+| " F" [F,e]e [FAc]F,- F,c [Ac]g | " Em7" [Eg]e [Be][Ee]- [Ee]c cd |
+| " Dm" D[Ac]- [Ac]c/A/ cA [Ac][Bd] |[1 " G" G,D [Bd] G cd ee :|
+| [2 " G" G,D [Bd]G cd Bc | " C" CG ce- e4 |
+
+### 一诺抖音(心墙)
+NOTE: 变调夹二品, C调
+
+NOTE: 第2和10小节 `c->d` 需要击弦;
+第4小节 的 `Bd->ce` 需要击弦;
+第12小节的 `g->a` 需要击弦, `e->d` 需要滑弦
+
+MUSIC:
+T: 心墙
+L:1/8
+M:4/4
+Q: 120
+K: C transpose=-10
+%%barnumbers 1
+| z4 [GBe]f gc | " F" F,2FG -Gc dd| " G" G,2 DG ef gc |
+| " Em7" [E,d]2 EG-  G[Bd] [ce][Gc] | " Am7" A,2 Gc- ce- e2 |
+| " F" [F,FA]2 Bc- ce- ee | " G" G,2 Dg- gd- dd | " C" C2 G[ce]- [ce]G ec |
+| C,E _Bd ef gc |  " F" [F,Gc]d FG- Ge- ed | " G" G,D GB- Bc dB|
+| " Em7" [E,dg]a gg- ge- e{e}d | " Am7" A,2Ec- ce ef  |
+| " F" [Fe]2 cc- cd- de | " G" G,D dc- cB- Bc| " C" C2 -CG cG C2|
+
+### 一诺B站(远)
+NOTE: 注意一些滑弦(第4, 5, 10, 12小节), 击弦(第14, 17小节), 第8小节的击勾弦
+
+MUSIC:
+T: 远
+L:1/8
+M:4/4
+Q: 100
+K: C transpose=-12
+%%barnumbers 1
+| z2 zG cd ee | " C" CG cC  ef gg |  " Em"  E,B, EG ga bc'| 
+|" Am" A,c ec' A,b a{g}a | " Em7" E,B dg E,B d{g}a | " FM7" Fc ea Fg fe |
+|  " C" CG eC gf c'f | " Dm7" DA c{ef}e DA cd | " G" G,D [GB]2  cd ee | 
+| " C" CG cC ef {[df]}[eg][eg] | " Em" E,B eg E,a bc' | " Am" A,c ec' A,b a{g}a |
+| " Em7" E,B dg E,B- Bc |  " F" FG cg FG c/d/e | " C" CG cC de cd|
+| " Dm7" DA [cf]D Ae- ed | " G" G,D Gd cB cc | " C" CE Gc ec G2 |
+| " C" [CEGc]4 |
+
+### 一诺B站(前世今生)
+NOTE: 有一个很好听的转位和弦 Vsus2/VII, C调的话，为 `7 2 5 6`, 听起来像是这样子
+
+CHORD: 7xx785 5
+
+MUSIC:
+T: 前奏/尾奏
+L:1/16
+M:4/4
+Q: 70
+K: A transpose=-10
+%%barnumbers 1
+| " A" A,2[ea]b- b2[cf]a- a2[Be][cf]- [cf]2ce |
+| " D" D2Bc- c2AB D2FA- Az EF |
+| " E" E,2-E,E =cGEe- [Ee]8 |
+| " Asus2" [A,A^cBa]16 |
+
+MUSIC:
+T: Part1
+L:1/16
+M:4/4
+Q: 70
+K: A transpose=-10
+%%barnumbers 1
+| " A" [A,cea]2Ac f2a2 " E/G#" [G,Be]e-ef [eB]2f2 |
+| " F#" [F,Ac]2ec B2ce  " E" E,2EA e2Az |
+| " D" [Ddf]2-[Ddf]a  baf2  " A" [A,Ae]2fe " F#" [F,Ac]2E2 |
+| " Bm" [B,B]2A2 [F,F]2A2 " E" [E,B,E]2B,2 E2B,2 |
+
+MUSIC:
+T: Part2
+L:1/16
+M:4/4
+Q: 70
+K: A transpose=-10
+%%barnumbers 1
+| " F#"  [F,F]2A2 B2c2  " C#"  [Cce]2G2 c2G2 |
+| " D" [Dda]2f/a/f e2ce " E" E,2EA e2Az |
+| " A" [A,cea]2 Ac f2a2 " E/G#" [G,Be]e-ef [eB]2f2 |
+| " F#" [F,Ac]2ec B2ce | " E" E,2EA e2Az |
+| " D" [Ddf]2-[Ddf]a  baf2 | " A" [A,Ae]2fe " F#" [F,Ac]2E2 |
+| " Bm" [B,B]2A2 [F,F]2A2 " A" [A,EA]2E2 A2E2  |
+
+MUSIC:
+T: Part3
+L:1/16
+M:4/4
+Q: 70
+K: A transpose=-10
+%%barnumbers 1
+| " Bm" [B,FB]2-[B,FB]c c2c2 " E" [E,FB]2Bf ecB2 |
+| " A" [A,EAe]2-[A,EAe]f f2f2  " E" [E,Ae]2E2 A2e2|
+| " D" [Ddf]2-[Ddf]a  baf2  " A" [A,Ae]2fe " F#" [F,Ac]2E2 |
+| " Bm" [B,B]2A2 [F,F]2A2 " A" [A,EA]2E2 A2E2 |
+| " Aadd#5" [A,=FA]2F2 A2F2  " Aadd6" [A,^FA]2F2 A2F2 |
+| " A" A,8 z8 |
+
+MUSIC:
+T: 前世今生
+L:1/16
+M:4/4
+Q: 70
+K: A transpose=-10
+%%barnumbers 1
+| " A" A,2[ea]b- b2[cf]a- a2[Be][cf]- [cf]2ce |
+| " D" D2Bc- c2AB D2FA- Az EF |
+| " E" E,2-E,E =cGEe- [Ee]8 |
+| " A" [A,cea]2Ac f2a2 " E/G#" [G,Be]e-ef [eB]2f2 |
+| " F#" [F,Ac]2ec B2ce  " E" E,2EA e2Az |
+| " D" [Ddf]2-[Ddf]a  baf2  " A" [A,Ae]2fe " F#" [F,Ac]2E2 |
+| " Bm" [B,B]2A2 [F,F]2A2 " E" [E,B,E]2B,2 E2B,2 |
+| " F#"  [F,F]2A2 B2c2  " C#"  [Cce]2G2 c2G2 |
+| " D" [Dda]2f/a/f e2ce " E" E,2EA e2Az |
+| " A" [A,cea]2 Ac f2a2 " E/G#" [G,Be]e-ef [eB]2f2 |
+| " F#" [F,Ac]2ec B2ce | " E" E,2EA e2Az |
+| " D" [Ddf]2-[Ddf]a  baf2 | " A" [A,Ae]2fe " F#" [F,Ac]2E2 |
+| " Bm" [B,B]2A2 [F,F]2A2 " A" [A,EA]2E2 A2E2  |
+| " Bm" [B,FB]2-[B,FB]c c2c2 " E" [E,FB]2Bf ecB2 |
+| " A" [A,EAe]2-[A,EAe]f f2f2  " E" [E,Ae]2E2 A2e2|
+| " D" [Ddf]2-[Ddf]a  baf2  " A" [A,Ae]2fe " F#" [F,Ac]2E2 |
+| " Bm" [B,B]2A2 [F,F]2A2 " A" [A,EA]2E2 A2E2 |
+| " Aadd#5" [A,=FA]2F2 A2F2  " Aadd6" [A,^FA]2F2 A2F2 |
+| " A" A,8 z8 |
+| " A" A,2[ea]b- b2[cf]a- a2[Be][cf]- [cf]2ce |
+| " D" D2Bc- c2AB D2FA- Az EF |
+| " E" E,2-E,E =cGEe- [Ee]8 |
+| " Asus2" [A,AcBa]16 |
+
+### 一诺B站(易燃易爆炸)
+MUSIC:
+T: 前奏(Am G E F)
+L:1/8
+M:4/4
+Q: 100
+K: C transpose=1
+%%barnumbers 1
+| " Am" [A,c]E Ac- cA E2 | " G" [G,B]D GB- BG D2 |
+| " F" [F,A]F AB- BF A2 | " E" [E,^G]E Ge- eG BG |
+| " Am" A,E AB/c/- ce- cA | " G" [G,B]D GB- BG D2 
+|" F" [F,A]F AB- BF A2 | " E" [E,^G]E Ge- eG BG |
+
+MUSIC:
+T: P1
+L:1/8
+M:4/4
+Q: 100
+K: C transpose=1
+%%barnumbers 1
+||: " Am" A,E AB/c/- ce- cA | " E/G#" ^G,E Bd- dB E2
+| " Dm7" DA cf- fA cA | " Am" A, EB ce- e2 :||
+||: " Am" A,E AB/c/- ce- cA | " E/G#" ^G,E Bd- dB E2
+| " F" F,F A[Be] zA cA | " Am" A, EB ce- e2 :||
+
 弹唱
 ----
+### 一诺B站(小半)
+1645 6(7)245
+
+```
+不敢回看
+左顾右盼不自然的暗自喜欢
+偷偷搭讪总没完地坐立难安
+试探说晚安 多空泛又心酸
+低头呢喃
+对你的偏爱太过于明目张胆
+在原地打转的小丑伤心不断
+空空留遗憾 多难堪又为难
+释然 慵懒 尽欢
+时间风干后你与我再无关
+没答案 怎么办 看不惯我自我欺瞒
+纵容着 喜欢的 讨厌的
+宠溺的 厌倦的 一个个慢慢黯淡
+纵容着 任性的 随意的
+放肆的 轻易的 将所有欢脱倾翻
+不应该 太心软 不大胆
+太死板 不果断 玩弄着肆无忌惮
+不应该 舍弃了 死心了
+放手了 断念了 无可奈何不耐烦
+不算
+灯火阑珊
+我的心借了你的光是明是暗
+笑自己情绪太泛滥形只影单
+自嘲成习惯 多敏感又难缠
+低头呢喃
+对你的偏爱太过于明目张胆
+在原地打转的小丑伤心不断
+空空留遗憾 多难堪又为难
+释然 慵懒 尽欢
+时间风干后你与我再无关
+没答案 怎么办 看不惯我自我欺瞒
+纵容着 喜欢的 讨厌的
+宠溺的 厌倦的 一个个慢慢黯淡
+纵容着 任性的 随意的
+放肆的 轻易的 将所有欢脱倾翻
+不应该 太心软 不大胆
+太死板 不果断 玩弄着肆无忌惮
+不应该 舍弃了 死心了
+放手了 断念了 无可奈何不耐烦
+任由着 你躲闪 我追赶
+你走散 我呼喊 是谁在泛泛而谈
+任由着 你来了 你笑了
+你走了 不看我 与理所当然分摊
+不明白 残存的 没用的
+多余的 不必的 破烂也在手紧攥
+不明白 谁赧然 谁无端
+谁古板 谁极端 无辜不知所以然
+不管
+```
+
 ### 虚拟
 ```
 作曲 : 陈粒
@@ -536,483 +1014,6 @@ PDF: PONY
 
 ### 亲密爱人
 PDF: sweetheart
-
-指弹
-----
-### 雨の日はワルツを踊って
-PDF: wwh_rain
-
-### あの日の帰り道
-PDF: wwh-road
-
-### It Could Have Been
-PDF: it_could_have_been
-
-### Moon River
-PDF: MoonRiver-v2
-
-### 夜香花
-PDF: 夜香花
-
-### Manha do Carnaval
-PDF: ManhadoCarnaval
-
-### Twisted in My Sobriety
-PDF: TwistedinMySobriety
-
-### 一生所爱
-PDF: life_for_once
-
-### 感
-PDF: feeling
-
-### Kiss
-PDF: kiss
-
-### Omens of Love
-PDF: OmensofLove
-
-### 一诺抖音(1625)
-MUSIC:
-T: 1625
-L:1/8
-M:4/4
-Q: 160
-K: C transpose=-12
-%%barnumbers 1
-||:  z  G cd ec' | " C" c,2 eb zc ge  C2 z {ge}[fe]2 e fa |
-|  " Am" A2 c[ec']- [ec']/z/ [Aeg]2  [cea] |  A2 ce z A ef |
-| " F"  F2 ca zF fc  |  F2 ce zF c2 | " G" G2 [F-_B][F=B] z [gc]2 z  _B=Bg2 [ca][_d_b][=d=b]2 |
-| " C" C2 [Adg]6 |
-
-### 一诺抖音(6251)
-MUSIC:
-T: 6251
-L:1/8
-M:4/4
-Q: 100
-%%barnumbers 1
-K: C transpose=-12
-| z2 (3e/f/e/ _e=e | " Am" A,2 zA Bc eg | " Dm" D (3e/f/e/ ef- fc- |
-| " G" c d G,2 zG B d-  | d " C" {e}[CGBf]2 G[Be] d2 Ce  |
-| " A" [A,cec']c eb A,2 ef | " D" Dc fc' Dc b2| " G" [Gcfb]c fa Gc f{g}a | C,c eg- g4 |
-
-### 一诺抖音(蒲公英的约定)
-NOTE: 变调夹4品 的 C 调
-
-MUSIC:
-T: 蒲公英的约定前奏
-L:1/8
-M:4/4
-Q: 70
-K: C transpose=-8
-%%barnumbers 1
-| z2 EG ce | " FM9" [F,e]F Gf  " G" [G,d]D G2  |
-| " Em7"  [E,Bd]E gB/c/ " Am7" A,E G2 | " F" [F,Ace]f gc " G" [G,c]D d2  |
-| " C" [C,e]E GE " Bbdim9" _B,E Gc | " FM9" [F,e]F Gf |
-| " G" [G,d]D G2  | " Em7"  [E,Bd]E gB/c/  " Am7" A,E G2|
-| " F" [F,Ace]f gc " G" [G,c]D d2  | " Fm13" [F,_Ac]D Ac " C" [CEGc]2 |
-
-### 一诺抖音(爱在西元前)
-NOTE: 变调夹2品 的 G 调
-
-MUSIC:
-T: 爱在西元前(1645)
-L:1/16
-M:4/4
-Q: 60
-K: G transpose=-10
-%%barnumbers 1
-| " G" G,DGD dDGA G,DGD dDGA |  " Em" E,D/E/GE dEGA  E,EGE dEGA |
-| " C" CD/E/GE dEGA CEGE dEGA | " D" DFGF dGFa DFGd zDdF |
-|: " G" G,DGd- d[G,B] dg gffe- eG,dd | " Em" E,FGd zE,Bd | [E,d]zGB- BE,{B}AG|
-|1[ " C" CEGd zCdg [Cg]ffe zCde | " D" [De]ddd zDde [Be]2[Ad]2 ABdB :|
-|2[ " C" CEGd zCdg [Cg]aag zCef |[Dge]2[fd]2 z [ce]2[d] edd2 B2A2 |].
-| " G" G,DGD dDGA G,DGD dDGA |  " Em" E,D/E/GE dEGA  E,EGE dEGA |
-| " C" CD/E/GE dEGA CEGE dEGA | " D" DFGF dGFa DFGd- d4 |
-
-### 一诺抖音(红色高跟鞋)
-NOTE: 变调夹2品 的 C 调
-
-NOTE: 注意里面一些滑弦的音和每次拍弦(一般都是在第二拍)的音
-
-MUSIC:
-T: 红色高跟鞋(Am F G Am)
-L:1/8
-M:4/4
-Q: 90
-K: C transpose=-10
-%%barnumbers 1
-| " Am" [dg]e cA | " F" F,F gd | " G" G,[GB] zB | " Am" A,c eA, |
-| " Am" [dg]e c{g}a | " F" Fc z{g}a | " G" G,g ze  | " Am" A,{e}d z{c}c |
-| " Am"  [dg]e ec |  " F" F,F gd | " G" G,[GB] zB | " Am" A,c eA, |
-|  " Am" [dg]e/e/ z{d}c | " F" F,F z{e}F,| Fc {d}[Be][d] 
-| " G" G,D z{d}G | Bc GB | " F" F,F cA| " G" G,D c/B/G/B/ |
-| " A" A,G/c/ z/A,/ [dg]/[ea]/ |
-
-### 一诺抖音(第一集)
-NOTE: 注意律动
-
-MUSIC:
-T: 一诺抖音(第一集)
-K: C transpose=-12
-Q: 100
-%%barnumbers 1
-| E,>E z/B,/_D/>=D/ z/B/[G_D]/>[^G=D]/ z/[G_D]/- [G_D]/B/ |
-| E,>E z/B,/D/>E/ z/E/A/>B/ z/B/d/>e/ |
-| E,>E z/B,/_D/>=D/ zD D/>_D/=D |
-| E,>E z/B,/D/>E/ z/E/A/>B/ z/B/d/>e/ |
-| z{a}b ga/g/ e>>B d/>B/d/>e/- |
-| e/>d/B/>G/ E/G>E/ G/>E/D/>B,/ D/_E=E/ |
-|E,/ z//E,// (3B/z/A/z/G/z/  C/ z//C// (3g/C/^f/z/d/z/ |
-|G,/ z//G,// (3A/z/B/z/A/z/ D/ z//A// " 泛音" (3g/z/^f/z/d/z/ |
-|E,^F/[Gd]/ z/[Ge]/- [Ge]/z/ C D/[dg]/ z/[dg]/ -[dg]/z/ |
-| B,/^D/^F/A/ B/d/f/a/ b/{a}b/- b/a/g/e/- e |
-
-### 一诺抖音(blues)
-NOTE: 注意律动, 并在第三拍需要拍弦
-
-MUSIC:
-T: 一诺抖音(blues)
-K: C transpose=-12
-Q: 130
-K: A
-%%barnumbers 1
-(3EFA | [ce]>[=c_e]- [=c_e]<[Bd] [A^c]z zD |
-{^f=b}[g=c']>[^f=b]- [^f=b]<[ea] [Dea]z ze } |
-{_A}[E,A]>e ^F,>[Ad] G,>A A,>G| (3=c^ce a6| 
-
-### 一诺抖音(稻香)
-NOTE: 变调夹三品, A调, 类似于 卡农 的那个套路 1563251
-
-MUSIC:
-T: 稻香
-L:1/8
-M:4/4
-Q: 80
-K: A transpose=-9
-%%barnumbers 1
-| " A" A,E B/c/A/E/ " E" E,E [GB]2 | " #Fm" F,E [AB]2 " #Cm" CG eB/G/ 
-| " Bm" B,F c/d/A/F/ " E" E,E [GB]>E | " A" A,E [Ad]>[Ac]- [Ac]>A, c{Ad}[Be]
-||: " A" [A,ce]e/e/ z/A,/[ce]/[ce]/ " E" E,/[ce]/z/E,/ [E,Ac]B  | "  #Fm"  F,[Ac]/[Ac]/ z/F,/[Ac]/[Ac]/  " #Cm" Cc/c/ z/C/A/F/ 
-|" D"DF/A/ z/D/F/A/ [1 " E" {A}[BE,]B/A/ z/E,/c/c/ |" A" A,E/[Ad]/ z/A,/E, [A,Ac]2 c{[Ad]}[Be] :|
-| [2 " E" {A}[BE,]B/A/ z/E,/A/A/ | " A" A,E [Ad]>[Ac]- [Ac]4 |
-
-### 一诺抖音(花海)
-NOTE: 变调夹二品, D调
-
-MUSIC:
-T: 花海
-L:1/8
-M:4/4
-Q: 70
-K: A transpose=-10
-%%barnumbers 1
-| " A" z2 z2 AB ce/e/  | " D" DA/e/ z/D/e/A/  " E" [E,Ac]B/A/ z/E/B/c/ 
-| " A" A,E/A/ z/E/A/z/ " Cm#" [CA]B/c/ z/D/g/a/ | " D" DA/[da]/ z/D/ [Aa]/z/ " E" [E,Bg][ca]/[Bg]/ z/E,/e/{e/}f/
-| " A" A,E/e/ z/A,/A/z/  [A,A]B [Cc]e/e/ | " D" DA/e/ z/D/e/c/  " C#7" [C^EBc]B [F,^EA]B/A/ 
-| " F#m" F,F/A/ z/F,/A/F/  [E,A]B c{d}e/A/ | " Bm7" B,F/A/ z/B,/A/z/  " E24" [E,FA]G FG/A/ 
-| " A" A,E [A,Ad]3/2 [A,Ac]3/2 |
-
-### 一诺抖音(听妈妈的话)
-NOTE: 变调夹三品, G调转C调
-
-MUSIC:
-T: 听妈妈的话(G)
-L:1/8
-M:4/4
-Q: 110
-K: G transpose=-9
-%%barnumbers 1
-| " G" [G,GB]2 zG, [FA]2[Ac]2 | " E" [E,GB]E z[G,DG]2 zG,2 |
-| " C" [C,G]2[Gd]2 [C,Gd]2[C,Gc] | " D" DA [gd]D Af [df]D |
-| " G" [G,GB]2 zG, [B,A]2[Ac]2 | " E" [E,GB]E z[DG]2 F [GB]2 |
-| " C" [C,E]2[EG]2 " D" [DG]G AG | " G" G,D [GB]G FG [GB]G |
-
-MUSIC:
-T: 听妈妈的话(C)
-L:1/8
-M:4/4
-Q: 110
-K: C transpose=-9
-%%barnumbers 1
-| " C" [C,Gce]2[Gce]2  [B,Gd]2 [Gdf]2 | " Am" [Aace][Ac] [Ac]A G,E [Gc]G|
-| " F" [F,Ac]F [cg]2 [F,cg]2[cf]2 | " G" G,D [Gd]G, Gd [Gd]G |
-| " C" [C,Gce]2[Gce]2  [E,Gd]2 [Gdf]2 | " Am" [Aace][Ac] z[G,Gc]2 G [Gc]G|
-| " F" [F,A]F [Ac]2 [G,Gc]2[Gd][Gc] | " C" CE Gc e4
-
-### 一诺抖音(回到过去)
-NOTE: 变调夹二品, C调 注意低音的流动, 第7小节末尾的击弦
-和 第8小节的末尾的滑音.
-
-INFO: 有一个拍弦的声音非常好: 第5小节 的 Am9 的第二拍
-
-MUSIC:
-T: 回到过去
-L:1/8
-M:4/4
-Q: 90
-K: C transpose=-10
-%%barnumbers 1
-| z2 z G cd ee |: " C" CG [ce]C  ed e [DAc]- |  " Dm7"[DAc][ce] e[DAd]- [DAd]d [Ad]c |
-| " E7" [E,^GBe]e [GBe]d [^G,d]c [DB]{B}[^G,c] | " Am9" A,G [Bc]A,- A,[Gc] [Gd]c |
-| " F" [F,e]e [FAc]F,- F,c [Ac]g | " Em7" [Eg]e [Be][Ee]- [Ee]c cd |
-| " Dm" D[Ac]- [Ac]c/A/ cA [Ac][Bd] |[1 " G" G,D [Bd] G cd ee :|
-| [2 " G" G,D [Bd]G cd Bc | " C" CG ce- e4 |
-
-### 一诺抖音(告白气球)
-NOTE: 变调夹二品, C调
-
-MUSIC:
-T: 告白气球
-L:1/8
-M:4/4
-Q: 90
-K: C transpose=-10
-%%barnumbers 1
-| z2 z G cd ee |: " C" CG [ce]C  ed e [DAc]- |  " Dm7"[DAc][ce] e[DAd]- [DAd]d [Ad]c |
-| " E7" [E,^GBe]e [GBe]d [^G,d]c [DB]{B}[^G,c] | " Am9" A,G [Bc]A,- A,[Gc] [Gd]c |
-| " F" [F,e]e [FAc]F,- F,c [Ac]g | " Em7" [Eg]e [Be][Ee]- [Ee]c cd |
-| " Dm" D[Ac]- [Ac]c/A/ cA [Ac][Bd] |[1 " G" G,D [Bd] G cd ee :|
-| [2 " G" G,D [Bd]G cd Bc | " C" CG ce- e4 |
-
-### 一诺抖音(心墙)
-NOTE: 变调夹二品, C调
-
-NOTE: 第2和10小节 `c->d` 需要击弦;
-第4小节 的 `Bd->ce` 需要击弦;
-第12小节的 `g->a` 需要击弦, `e->d` 需要滑弦
-
-MUSIC:
-T: 心墙
-L:1/8
-M:4/4
-Q: 120
-K: C transpose=-10
-%%barnumbers 1
-| z4 [GBe]f gc | " F" F,2FG -Gc dd| " G" G,2 DG ef gc |
-| " Em7" [E,d]2 EG-  G[Bd] [ce][Gc] | " Am7" A,2 Gc- ce- e2 |
-| " F" [F,FA]2 Bc- ce- ee | " G" G,2 Dg- gd- dd | " C" C2 G[ce]- [ce]G ec |
-| C,E _Bd ef gc |  " F" [F,Gc]d FG- Ge- ed | " G" G,D GB- Bc dB|
-| " Em7" [E,dg]a gg- ge- e{e}d | " Am7" A,2Ec- ce ef  |
-| " F" [Fe]2 cc- cd- de | " G" G,D dc- cB- Bc| " C" C2 -CG cG C2|
-
-### 一诺B站(远)
-NOTE: 注意一些滑弦(第4, 5, 10, 12小节), 击弦(第14, 17小节), 第8小节的击勾弦
-
-MUSIC:
-T: 远
-L:1/8
-M:4/4
-Q: 100
-K: C transpose=-12
-%%barnumbers 1
-| z2 zG cd ee | " C" CG cC  ef gg |  " Em"  E,B, EG ga bc'| 
-|" Am" A,c ec' A,b a{g}a | " Em7" E,B dg E,B d{g}a | " FM7" Fc ea Fg fe |
-|  " C" CG eC gf c'f | " Dm7" DA c{ef}e DA cd | " G" G,D [GB]2  cd ee | 
-| " C" CG cC ef {[df]}[eg][eg] | " Em" E,B eg E,a bc' | " Am" A,c ec' A,b a{g}a |
-| " Em7" E,B dg E,B- Bc |  " F" FG cg FG c/d/e | " C" CG cC de cd|
-| " Dm7" DA [cf]D Ae- ed | " G" G,D Gd cB cc | " C" CE Gc ec G2 |
-| " C" [CEGc]4 |
-
-### 一诺B站(前世今生)
-NOTE: 有一个很好听的转位和弦 Vsus2/VII, C调的话，为 `7 2 5 6`, 听起来像是这样子
-
-CHORD: 7xx785 5
-
-MUSIC:
-T: 前奏/尾奏
-L:1/16
-M:4/4
-Q: 70
-K: A transpose=-10
-%%barnumbers 1
-| " A" A,2[ea]b- b2[cf]a- a2[Be][cf]- [cf]2ce |
-| " D" D2Bc- c2AB D2FA- Az EF |
-| " E" E,2-E,E =cGEe- [Ee]8 |
-| " Asus2" [A,A^cBa]16 |
-
-MUSIC:
-T: Part1
-L:1/16
-M:4/4
-Q: 70
-K: A transpose=-10
-%%barnumbers 1
-| " A" [A,cea]2Ac f2a2 " E/G#" [G,Be]e-ef [eB]2f2 |
-| " F#" [F,Ac]2ec B2ce  " E" E,2EA e2Az |
-| " D" [Ddf]2-[Ddf]a  baf2  " A" [A,Ae]2fe " F#" [F,Ac]2E2 |
-| " Bm" [B,B]2A2 [F,F]2A2 " E" [E,B,E]2B,2 E2B,2 |
-
-MUSIC:
-T: Part2
-L:1/16
-M:4/4
-Q: 70
-K: A transpose=-10
-%%barnumbers 1
-| " F#"  [F,F]2A2 B2c2  " C#"  [Cce]2G2 c2G2 |
-| " D" [Dda]2f/a/f e2ce " E" E,2EA e2Az |
-| " A" [A,cea]2 Ac f2a2 " E/G#" [G,Be]e-ef [eB]2f2 |
-| " F#" [F,Ac]2ec B2ce | " E" E,2EA e2Az |
-| " D" [Ddf]2-[Ddf]a  baf2 | " A" [A,Ae]2fe " F#" [F,Ac]2E2 |
-| " Bm" [B,B]2A2 [F,F]2A2 " A" [A,EA]2E2 A2E2  |
-
-MUSIC:
-T: Part3
-L:1/16
-M:4/4
-Q: 70
-K: A transpose=-10
-%%barnumbers 1
-| " Bm" [B,FB]2-[B,FB]c c2c2 " E" [E,FB]2Bf ecB2 |
-| " A" [A,EAe]2-[A,EAe]f f2f2  " E" [E,Ae]2E2 A2e2|
-| " D" [Ddf]2-[Ddf]a  baf2  " A" [A,Ae]2fe " F#" [F,Ac]2E2 |
-| " Bm" [B,B]2A2 [F,F]2A2 " A" [A,EA]2E2 A2E2 |
-| " Aadd#5" [A,=FA]2F2 A2F2  " Aadd6" [A,^FA]2F2 A2F2 |
-| " A" A,8 z8 |
-
-MUSIC:
-T: 前世今生
-L:1/16
-M:4/4
-Q: 70
-K: A transpose=-10
-%%barnumbers 1
-| " A" A,2[ea]b- b2[cf]a- a2[Be][cf]- [cf]2ce |
-| " D" D2Bc- c2AB D2FA- Az EF |
-| " E" E,2-E,E =cGEe- [Ee]8 |
-| " A" [A,cea]2Ac f2a2 " E/G#" [G,Be]e-ef [eB]2f2 |
-| " F#" [F,Ac]2ec B2ce  " E" E,2EA e2Az |
-| " D" [Ddf]2-[Ddf]a  baf2  " A" [A,Ae]2fe " F#" [F,Ac]2E2 |
-| " Bm" [B,B]2A2 [F,F]2A2 " E" [E,B,E]2B,2 E2B,2 |
-| " F#"  [F,F]2A2 B2c2  " C#"  [Cce]2G2 c2G2 |
-| " D" [Dda]2f/a/f e2ce " E" E,2EA e2Az |
-| " A" [A,cea]2 Ac f2a2 " E/G#" [G,Be]e-ef [eB]2f2 |
-| " F#" [F,Ac]2ec B2ce | " E" E,2EA e2Az |
-| " D" [Ddf]2-[Ddf]a  baf2 | " A" [A,Ae]2fe " F#" [F,Ac]2E2 |
-| " Bm" [B,B]2A2 [F,F]2A2 " A" [A,EA]2E2 A2E2  |
-| " Bm" [B,FB]2-[B,FB]c c2c2 " E" [E,FB]2Bf ecB2 |
-| " A" [A,EAe]2-[A,EAe]f f2f2  " E" [E,Ae]2E2 A2e2|
-| " D" [Ddf]2-[Ddf]a  baf2  " A" [A,Ae]2fe " F#" [F,Ac]2E2 |
-| " Bm" [B,B]2A2 [F,F]2A2 " A" [A,EA]2E2 A2E2 |
-| " Aadd#5" [A,=FA]2F2 A2F2  " Aadd6" [A,^FA]2F2 A2F2 |
-| " A" A,8 z8 |
-| " A" A,2[ea]b- b2[cf]a- a2[Be][cf]- [cf]2ce |
-| " D" D2Bc- c2AB D2FA- Az EF |
-| " E" E,2-E,E =cGEe- [Ee]8 |
-| " Asus2" [A,AcBa]16 |
-
-### 一诺B站(易燃易爆炸)
-MUSIC:
-T: 前奏(Am G E F)
-L:1/8
-M:4/4
-Q: 100
-K: C transpose=1
-%%barnumbers 1
-| " Am" [A,c]E Ac- cA E2 | " G" [G,B]D GB- BG D2 |
-| " F" [F,A]F AB- BF A2 | " E" [E,^G]E Ge- eG BG |
-| " Am" A,E AB/c/- ce- cA | " G" [G,B]D GB- BG D2 
-|" F" [F,A]F AB- BF A2 | " E" [E,^G]E Ge- eG BG |
-
-MUSIC:
-T: P1
-L:1/8
-M:4/4
-Q: 100
-K: C transpose=1
-%%barnumbers 1
-||: " Am" A,E AB/c/- ce- cA | " E/G#" ^G,E Bd- dB E2
-| " Dm7" DA cf- fA cA | " Am" A, EB ce- e2 :||
-||: " Am" A,E AB/c/- ce- cA | " E/G#" ^G,E Bd- dB E2
-| " F" F,F A[Be] zA cA | " Am" A, EB ce- e2 :||
-
-### 一诺抖音(以父之名)
-PDF: 以父之名
-
-### 一诺B站(小半)
-1645 6(7)245
-
-```
-不敢回看
-左顾右盼不自然的暗自喜欢
-偷偷搭讪总没完地坐立难安
-试探说晚安 多空泛又心酸
-低头呢喃
-对你的偏爱太过于明目张胆
-在原地打转的小丑伤心不断
-空空留遗憾 多难堪又为难
-释然 慵懒 尽欢
-时间风干后你与我再无关
-没答案 怎么办 看不惯我自我欺瞒
-纵容着 喜欢的 讨厌的
-宠溺的 厌倦的 一个个慢慢黯淡
-纵容着 任性的 随意的
-放肆的 轻易的 将所有欢脱倾翻
-不应该 太心软 不大胆
-太死板 不果断 玩弄着肆无忌惮
-不应该 舍弃了 死心了
-放手了 断念了 无可奈何不耐烦
-不算
-灯火阑珊
-我的心借了你的光是明是暗
-笑自己情绪太泛滥形只影单
-自嘲成习惯 多敏感又难缠
-低头呢喃
-对你的偏爱太过于明目张胆
-在原地打转的小丑伤心不断
-空空留遗憾 多难堪又为难
-释然 慵懒 尽欢
-时间风干后你与我再无关
-没答案 怎么办 看不惯我自我欺瞒
-纵容着 喜欢的 讨厌的
-宠溺的 厌倦的 一个个慢慢黯淡
-纵容着 任性的 随意的
-放肆的 轻易的 将所有欢脱倾翻
-不应该 太心软 不大胆
-太死板 不果断 玩弄着肆无忌惮
-不应该 舍弃了 死心了
-放手了 断念了 无可奈何不耐烦
-任由着 你躲闪 我追赶
-你走散 我呼喊 是谁在泛泛而谈
-任由着 你来了 你笑了
-你走了 不看我 与理所当然分摊
-不明白 残存的 没用的
-多余的 不必的 破烂也在手紧攥
-不明白 谁赧然 谁无端
-谁古板 谁极端 无辜不知所以然
-不管
-```
-
-### Speak Softly Love
-原视频: [这里](https://www.bilibili.com/video/BV1cE411G7sP)
-
-PDF: 教父
-
-### 一诺即兴
-PDF: empty-1
-
-### Remember You
-PDF: remember-you
-
-### 旅途
-PDF: 旅途-张一诺
-
-### 橄榄树
-PDF: 橄榄树
-
-### 送别
-PDF: 送别
-
-### 夜空中最亮的星
-PDF: 夜空中最亮的星
-
-### 晴天
-PDF: 晴天
-
-### 红玫瑰
-PDF: 红玫瑰
 
 Blues
 -----

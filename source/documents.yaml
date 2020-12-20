@@ -1,5 +1,5 @@
 -
-  name: 推荐
+  name: 2019年
   documents:
     -
       name: 基于内存数据库的角标系统设计
@@ -10,7 +10,7 @@
       url: witness_flow.html
       description: 随着系统的日益演进, 系统的业务逻辑非常复杂, 尤其是在产品需求频繁变动的情况下, 研发需要不断地进行改动代码, 最终逻辑无人知晓. 为了让核心业务逻辑更清晰, 更快速地响应业务的变更, 我们研发了业务流引擎系统. 通过 代码 + 流程图配置 的方式, 将业务的复杂度变为引擎实现的技术难度.
 -
-  name: Ruby
+  name: 2018年
   documents:
     -
       name: Ruby知识树
@@ -36,9 +36,6 @@
       name: 业务流引擎系统
       url: witness_flow.html
       description: 随着系统的日益演进, 系统的业务逻辑非常复杂, 尤其是在产品需求频繁变动的情况下, 研发需要不断地进行改动代码, 最终逻辑无人知晓. 为了让核心业务逻辑更清晰, 能够更快速地响应业务的变更, 我们研发了业务流引擎系统. 通过 代码 + 流程图配置 的方式, 使得业务逻辑更加清晰, 将业务的复杂度变为引擎实现的技术难度. 开发只需实现最基本的逻辑方法, 通过方法的组合即可拼接成一个新的业务流程.
--
-  name: Java
-  documents:
     -
       name: 数据结构
       url: data_structures.html
@@ -64,23 +61,14 @@
       name: 命令行下的Maven
       url: maven_under_command_line.html
       description: 命令行下的maven, 可以大大提高开发效率, 减少对IDE的依赖.
--
-  name: MySQL
-  documents:
     -
       name: MySQL知识树
       url: mysql_knowledge_tree.html
       description: MySQL初级知识树, 包括表结构设计, 索引建立, MySQL事务和锁.
--
-  name: Go
-  documents:
     -
       name: Go知识树
       url: go_knowledge_tree.html
       description: Go的学习计划和相关知识树.
--
-  name: 音乐
-  documents:
     -
       name: 音乐学习体系
       url: music_index.html
@@ -93,9 +81,6 @@
       name: 作品集
       url: my_creatives.html
       description: 我的一些作品集.
--
-  name: 杂记
-  documents:
     -
       name: markdown格式实例
       url: example_markdown.html
