@@ -78,10 +78,6 @@
       url: songbooks.html
       description: 自己喜欢的一些音乐的笔记和汇总
     -
-      name: 作品集
-      url: my_creatives.html
-      description: 我的一些作品集.
-    -
       name: markdown格式实例
       url: example_markdown.html
       description: Rails Guides风格的 markdown 模板.
